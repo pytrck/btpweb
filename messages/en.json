@@ -1,0 +1,211 @@
+{
+  "meta": {
+    "title": "Break The Pattern — Repairs, web and tech without templates",
+    "description": "Phone repair, custom websites and tech others wrote off. Fast, honest and under warranty. We reply within 24 hours."
+  },
+  "nav": {
+    "work": "Work",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Start a project"
+  },
+  "hero": {
+    "kicker": "BREAK THE PATTERN",
+    "title": "Every system has a crack. That's the door.",
+    "subtitle": "Phones, websites, hardware and systems — repaired, built and tuned. A team that cares how it turns out.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "See the work"
+  },
+  "strip": ["REPAIRS", "WEB", "SYSTEMS", "DIAGNOSTICS", "OPTIMIZATION"],
+  "servicesPreview": { "kicker": "What we do", "title": "Services", "cta": "All services" },
+  "work": { "kicker": "Selected work", "title": "Work", "cta": "Full portfolio" },
+  "stats": {
+    "items": [
+      { "v": "48 h", "l": "average repair time" },
+      { "v": "24 h", "l": "maximum response time" },
+      { "v": "90+", "l": "Lighthouse score on sites" },
+      { "v": "0", "l": "hidden surcharges" }
+    ]
+  },
+  "solve": {
+    "kicker": "What we solve",
+    "title": "Real problems, not slogans",
+    "items": [
+      "Cracked or dead display",
+      "Battery that won't last a day",
+      "Laptop that stutters and roars",
+      "A website that doesn't earn",
+      "Lost or unreachable data",
+      "A slow, cluttered system"
+    ]
+  },
+  "why": {
+    "kicker": "Why BTP",
+    "title": "Why choose us",
+    "items": [
+      { "n": "01", "t": "Direct contact", "d": "No handoffs between departments. You talk to the people doing the work." },
+      { "n": "02", "t": "No templates", "d": "Nothing from a page builder. Every site built from scratch." },
+      { "n": "03", "t": "Diagnosis first", "d": "Before we touch anything, we know what's wrong and why." }
+    ]
+  },
+  "expect": {
+    "kicker": "What to expect",
+    "title": "No surprises",
+    "items": [
+      { "t": "Price upfront", "d": "You know the cost before we say yes. No end-of-job invoices that don't add up." },
+      { "t": "Plain language", "d": "We explain what's wrong clearly. No jargon, no scare tactics." },
+      { "t": "A kept deadline", "d": "You get the timeline at the start and we hold it. If it's at risk, you hear first." },
+      { "t": "Honesty", "d": "If a repair isn't worth it or isn't possible, we say so. We don't sell needless work." }
+    ]
+  },
+  "fit": {
+    "kicker": "Who we're for",
+    "title": "Let's be honest",
+    "forTitle": "We're a fit when…",
+    "for": [
+      "You want it done properly, not just cheapest.",
+      "You value straight talk and a clear deadline.",
+      "You want someone who stands behind their work.",
+      "You want a tailored solution, not a template."
+    ],
+    "notTitle": "We're not for you if…",
+    "not": [
+      "Only the lowest price matters, no matter what.",
+      "You want a generic template site for next to nothing.",
+      "You need it 'bodged together' with no warranty.",
+      "Quality and outcome don't matter to you."
+    ]
+  },
+  "process": {
+    "kicker": "How it works",
+    "title": "Process",
+    "steps": [
+      { "n": "01", "t": "Diagnose", "d": "We find out what's really going on — and what isn't.", "note": "within 30 min" },
+      { "n": "02", "t": "Plan", "d": "We give you the price, time and plan upfront, in writing.", "note": "no surprises" },
+      { "n": "03", "t": "Build", "d": "We do it properly, not just fast. Quality parts, clean work.", "note": "usually within 48 h" },
+      { "n": "04", "t": "Handover", "d": "It works, you know how to use it, and it's under warranty.", "note": "with warranty" }
+    ]
+  },
+  "trust": {
+    "reply": "We reply within 24 hours",
+    "warranty": "Warranty on every repair",
+    "diag": "Diagnostics deducted from the repair price"
+  },
+  "homeFaq": {
+    "kicker": "FAQ",
+    "title": "Before you ask",
+    "items": [
+      { "q": "How much will it cost?", "a": "For repairs we quote after diagnosis — no surprises. For sites you get a fixed quote upfront." },
+      { "q": "How fast will it be done?", "a": "Most repairs within 48 hours. For a site or larger job we confirm the timeline at the start." },
+      { "q": "Is the repair under warranty?", "a": "Yes — parts and labour. If something's off, we handle it, not you." },
+      { "q": "What happens to my data?", "a": "We treat it like our own. Nothing disappears, nothing gets poked at needlessly." },
+      { "q": "What's the price range?", "a": "A screen or battery swap starts in the low hundreds depending on the model. Sites depend on scope. We always quote exactly upfront." },
+      { "q": "How long is the warranty?", "a": "Repairs come with 6 months on parts and labour as standard. If the fault returns, we handle it." },
+      { "q": "What affects the timeline?", "a": "Mostly parts availability and the scope of the fault. If we have to order anything, you'll know at the start." },
+      { "q": "Do you work remotely?", "a": "Websites and some optimization, yes. Hardware repairs in person in [City and around]." }
+    ]
+  },
+  "proof": {
+    "logosKicker": "We work with",
+    "testimonialsKicker": "References",
+    "testimonialsTitle": "What clients say"
+  },
+  "team": {
+    "kicker": "Team",
+    "title": "The people behind BTP"
+  },
+  "footerCta": { "title": "Got something broken or an idea? Bring it.", "cta": "Start a project" },
+  "footer": { "tagline": "Repairs, web and tech without templates.", "rights": "All rights reserved." },
+  "form": {
+    "name": "Name",
+    "contact": "Email or phone",
+    "type": "What's it about",
+    "message": "What we need to know",
+    "submit": "Send inquiry",
+    "note": "No commitment. No sales talk. Just tell us what you're dealing with."
+  },
+  "pages": {
+    "services": { "title": "Services", "subtitle": "Five areas, one standard. Pick what you're dealing with." },
+    "work": {
+      "title": "Work",
+      "subtitle": "Examples of what we build and repair.",
+      "empty": "First case studies are on the way. In the meantime, get in touch — we'll happily show concrete examples."
+    },
+    "about": {
+      "title": "About",
+      "subtitle": "Break The Pattern isn't one person. It's a standard.",
+      "blocks": [
+        { "t": "Who we are", "d": "Break The Pattern is a brand for repairs, web and tech others wrote off. A founder drives it today, but we build it as a team, not a name." },
+        { "t": "What Break The Pattern means", "d": "The pattern is settling for average. Slow service, generic templates, vague pricing. That's the pattern we break." },
+        { "t": "Why we exist", "d": "Because technical services can be fast, honest and excuse-free. Most aren't. We show it can be done differently." },
+        { "t": "How we think", "d": "Diagnosis first, then the fix. We understand the problem before we start solving it." },
+        { "t": "Where we're headed", "d": "We're growing. More people, services and projects — but the standard stays the same. That's the whole point." }
+      ],
+      "capsTitle": "What we can do",
+      "capabilities": [
+        "Phone and tablet repair",
+        "Custom website development",
+        "Computer service and diagnostics",
+        "Data recovery",
+        "Automation and integrations",
+        "System optimization and migration"
+      ],
+      "statsTitle": "Numbers",
+      "stats": [
+        { "v": "within 48 h", "l": "most repairs done" },
+        { "v": "24 h", "l": "response time" },
+        { "v": "100 %", "l": "work under warranty" }
+      ],
+      "standardsTitle": "How we work",
+      "standards": [
+        { "t": "Diagnosis before price", "d": "We find the cause first. Only then do we talk price and timeline — and we hold them." },
+        { "t": "Quality parts, not cheapest", "d": "We use components we'll stand behind with a warranty. Not the cheapest substitutes." },
+        { "t": "We leave it clean", "d": "Your device comes back cleaner than it arrived. A site is handed over so you can run it." }
+      ],
+      "refuseTitle": "What we won't do",
+      "refuse": [
+        "We don't use templates or page builders.",
+        "We don't promise deadlines we can't keep.",
+        "We don't bill for work that makes no sense.",
+        "We don't fit cheapest parts with no warranty."
+      ],
+      "futureTitle": "Where we're heading",
+      "future": "BTP is growing from one person into a small team with a clear standard. Same honesty, more hands, more fields — from repairs to websites to harder technical work."
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Tell us what's broken, or what you want built.",
+      "help": "What we help with",
+      "helpItems": ["Phone repair", "Custom website", "Tech repair", "Advanced solution", "Setup optimization"],
+      "response": "We read every message personally. We reply within 24 hours.",
+      "channelsTitle": "Direct channels",
+      "channels": [
+        { "label": "Email", "value": "hello@breakthepattern.cz" },
+        { "label": "Phone", "value": "+420 [number]" },
+        { "label": "Response", "value": "within 24 hours" }
+      ],
+      "checklistTitle": "What to include",
+      "checklist": [
+        "Device type or a link to the site",
+        "What's happening and when it started",
+        "A photo of the problem, if handy"
+      ],
+      "guaranteesTitle": "Our guarantees",
+      "guarantees": [
+        { "t": "Reply within 24 h", "d": "We respond to every message by the next day." },
+        { "t": "Price upfront", "d": "You pay nothing until you know and approve the price." },
+        { "t": "6-month warranty", "d": "On parts and labour for every repair." }
+      ],
+      "afterTitle": "What happens next",
+      "after": [
+        { "n": "01", "t": "We reply", "d": "Within 24 hours with first questions, or a slot straight away." },
+        { "n": "02", "t": "Diagnosis & price", "d": "For repairs we find the cause and send a fixed price. You approve it." },
+        { "n": "03", "t": "We get to work", "d": "We work and you know what stage it's at. You get a warranty at the end." }
+      ],
+      "reassurance": "You pay nothing until you know the price and approve it.",
+      "areaTitle": "Where we work",
+      "area": "In-person service in [City and around]. Websites, consulting and remote support across the country."
+    }
+  }
+}
