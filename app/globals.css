@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-space: "Space Grotesk", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-paper font-body antialiased;
+}
+
+/* vapor selection — brand-specific micro detail */
+::selection {
+  background: #ff10f0;
+  color: #0a0a0b;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+
+  .label {
+    @apply font-mono text-label uppercase text-muted;
+  }
+
+  /* hairline grid — single 1px lines with an opaque dark surface BEHIND every
+     cell. Replaces the old "gap-px bg-line" backplate, which bled gray through
+     opacity-animated cells. Cell backgrounds stay on the ink surface. */
+  .hairgrid {
+    display: grid;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #0a0a0b;
+  }
+  .hairgrid > * {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* vapor accent that radiates from the centre and falls off to dark on both
+     sides — used by the crack dividers and seams. */
+  .vapor-center {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 16, 240, 0.05) 25%,
+      #ff10f0 50%,
+      rgba(255, 16, 240, 0.05) 75%,
+      transparent 100%
+    );
+  }
+
+  /* signature "fracture" divider line (static fallback), centre-weighted */
+  .seam {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff10f0 50%, transparent);
+    opacity: 0.7;
+  }
+
+  /* vapor text — restrained gradient highlight for a single word */
+  .vapor-text {
+    background: linear-gradient(100deg, #ff10f0 0%, #b30caa 60%, #6b0a66 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* crisp vapor focus state, keyboard-only */
+  .btp-focus {
+    @apply outline-none;
+  }
+  .btp-focus:focus-visible {
+    outline: 2px solid #ff10f0;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* reduced motion: keep it calm but not broken — kill transforms, keep opacity */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+  }
+}
