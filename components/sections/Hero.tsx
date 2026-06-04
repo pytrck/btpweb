@@ -24,8 +24,16 @@ function HeroHeadline({ title, x }: { title: string; x: MotionValue<number> }) {
     bIdx >= 0 ? (
       <>
         {payoff.slice(0, bIdx)}
-        <motion.span style={{ x }} className="vapor-text inline-block">
-          {BRAND}
+        {/* Signature crack motif (same as the 404): a thin vapor seam that
+            passes BEHIND the brand name, showing through the gradient text's
+            negative space. Drifts off-grid with the word on scroll. */}
+        <motion.span style={{ x }} className="relative inline-block">
+          <span
+            aria-hidden
+            className="vapor-center pointer-events-none absolute left-[-2%] top-1/2 h-px w-[104%]"
+            style={{ transform: "translateY(-50%) rotate(-4deg)", opacity: 0.7 }}
+          />
+          <span className="vapor-text relative">{BRAND}</span>
         </motion.span>
         {payoff.slice(bIdx + BRAND.length)}
       </>
