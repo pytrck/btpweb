@@ -43,7 +43,7 @@ export default async function ContactPage({ params }: { params: { locale: string
           <ul className="mt-4 space-y-3">
             {help.map((h) => (
               <li key={h} className="flex gap-3 text-lg">
-                <span className="text-accent-from">—</span>
+                <span className="text-accent-from">-</span>
                 {h}
               </li>
             ))}
@@ -66,7 +66,7 @@ export default async function ContactPage({ params }: { params: { locale: string
             <ul className="mt-4 space-y-2">
               {checklist.map((c) => (
                 <li key={c} className="flex gap-3 text-sm text-muted">
-                  <span className="text-accent-from">—</span>
+                  <span className="text-accent-from">-</span>
                   {c}
                 </li>
               ))}

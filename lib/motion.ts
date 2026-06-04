@@ -32,7 +32,7 @@ export const scaleIn: Variants = {
   show: { opacity: 1, scale: 1, transition: { duration: DUR.base, ease: EASE } },
 };
 
-/* clip reveal — cinematic, used for featured/editorial blocks */
+/* clip reveal - cinematic, used for featured/editorial blocks */
 export const clipUp: Variants = {
   hidden: { opacity: 0, y: 28, clipPath: "inset(0 0 100% 0)" },
   show: {
@@ -43,7 +43,7 @@ export const clipUp: Variants = {
   },
 };
 
-/* line mask — headline wipes up from its own baseline (cinematic entrance) */
+/* line mask - headline wipes up from its own baseline (cinematic entrance) */
 export const lineMask: Variants = {
   hidden: { opacity: 0, y: 20, clipPath: "inset(0 0 100% 0)" },
   show: {

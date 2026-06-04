@@ -1,12 +1,12 @@
 /**
- * Social proof data. All arrays are intentionally EMPTY for now — the matching
+ * Social proof data. All arrays are intentionally EMPTY for now - the matching
  * sections (LogoWall, Testimonials) auto-hide while empty and render a premium
  * layout the moment you add entries. No layout changes needed later.
  */
 
 export type ClientLogo = {
   name: string;
-  /** path under /public, e.g. "/logos/acme.svg" — SVG or transparent PNG */
+  /** path under /public, e.g. "/logos/acme.svg" - SVG or transparent PNG */
   src: string;
   href?: string;
 };

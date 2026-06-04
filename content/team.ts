@@ -1,5 +1,5 @@
 /**
- * Team / people. Empty for now — BTP is founder-led today. The Team section
+ * Team / people. Empty for now - BTP is founder-led today. The Team section
  * (on /o-nas) auto-hides while this is empty and scales to a grid as people
  * are added, so the brand can grow without a layout rethink.
  */
