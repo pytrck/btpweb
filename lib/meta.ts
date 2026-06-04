@@ -16,7 +16,7 @@ export function buildMeta({
 }): Metadata {
   const base = site.url;
   const url = `${base}${locale === "en" ? "/en" : ""}${path}`;
-  const ogTitle = `${title} — ${site.name}`;
+  const ogTitle = `${title} - ${site.name}`;
   return {
     title,
     description,

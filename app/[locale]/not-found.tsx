@@ -9,7 +9,7 @@ export default function NotFound() {
 
   return (
     <section className="container-x flex min-h-[78vh] flex-col justify-center py-section">
-      <p className="label text-accent-from">CHYBA 404 — BREAK THE PATTERN</p>
+      <p className="label text-accent-from">CHYBA 404 - YOU BROKE THE PATTERN!</p>
 
       {/* Signature moment: the "404" with a vapor crack slicing through it. */}
       <div className="relative mt-6 w-fit">
@@ -37,7 +37,7 @@ export default function NotFound() {
 
       <h2 className="mt-8 font-head text-h2 font-bold">Tady se vzor rozbil.</h2>
       <p className="mt-4 max-w-md text-lg text-muted">
-        Tahle adresa neexistuje nebo se přesunula. Vraťte se do vzoru — odsud se
+        Tahle adresa neexistuje nebo se přesunula. Vraťte se do vzoru - odsud se
         dostanete dál.
       </p>
 

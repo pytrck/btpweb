@@ -30,7 +30,7 @@ export function CTABlock() {
           className="absolute left-0 top-0 h-full w-1 origin-top bg-fracture"
           style={{ scaleY: edgeY }}
         />
-        {/* bottom vapor edge — the payoff sweep */}
+        {/* bottom vapor edge - the payoff sweep */}
         <motion.div
           aria-hidden
           className="absolute bottom-0 left-0 h-px w-full origin-left bg-fracture"
