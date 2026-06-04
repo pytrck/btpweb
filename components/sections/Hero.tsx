@@ -4,9 +4,58 @@ import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { heroContainer, heroItem, lineMask } from "@/lib/motion";
+import { heroContainer, heroItem, lineMask, EASE } from "@/lib/motion";
 
 const BRAND = "Break The Pattern";
+
+/**
+ * Signature moment: the brand name is optically fractured by the seam. The word
+ * is rendered as two clipped halves (upper / lower) that offset a few px along a
+ * vapor seam, so the text reads as broken along a fault line - same crack
+ * language as the 404, but applied to the type itself. Readable (a real text
+ * node is exposed to screen readers), static after a one-time reveal, and it
+ * drifts off-grid with the word on scroll.
+ */
+function FracturedBrand({ text, x }: { text: string; x: MotionValue<number> }) {
+  const reduce = useReducedMotion();
+  const off = reduce ? 0 : 3;
+  const split = { duration: 0.7, ease: EASE, delay: 0.55 };
+  return (
+    <motion.span style={{ x }} className="relative inline-block align-baseline" aria-label={text}>
+      <span className="sr-only">{text}</span>
+      {/* upper half (in-flow, sizes the box) */}
+      <motion.span
+        aria-hidden
+        className="vapor-text block"
+        style={{ clipPath: "inset(0 0 49% 0)" }}
+        initial={{ x: 0 }}
+        animate={{ x: -off }}
+        transition={split}
+      >
+        {text}
+      </motion.span>
+      {/* lower half (overlaid, offset the other way) */}
+      <motion.span
+        aria-hidden
+        className="vapor-text absolute inset-0"
+        style={{ clipPath: "inset(51% 0 0 0)" }}
+        initial={{ x: 0 }}
+        animate={{ x: off }}
+        transition={split}
+      >
+        {text}
+      </motion.span>
+      {/* the seam itself, sitting in the gap between the halves */}
+      <motion.span
+        aria-hidden
+        className="vapor-center absolute left-[-2%] top-1/2 h-[2px] w-[104%] -translate-y-1/2"
+        initial={{ opacity: reduce ? 0.85 : 0, scaleX: reduce ? 1 : 0.5 }}
+        animate={{ opacity: 0.85, scaleX: 1 }}
+        transition={{ duration: 0.8, ease: EASE, delay: 0.5 }}
+      />
+    </motion.span>
+  );
+}
 
 /**
  * Two-line editorial headline: a smaller "setup" line, then a dominant "payoff"
@@ -24,17 +73,7 @@ function HeroHeadline({ title, x }: { title: string; x: MotionValue<number> }) {
     bIdx >= 0 ? (
       <>
         {payoff.slice(0, bIdx)}
-        {/* Signature crack motif (same as the 404): a thin vapor seam that
-            passes BEHIND the brand name, showing through the gradient text's
-            negative space. Drifts off-grid with the word on scroll. */}
-        <motion.span style={{ x }} className="relative inline-block">
-          <span
-            aria-hidden
-            className="vapor-center pointer-events-none absolute left-[-2%] top-1/2 h-px w-[104%]"
-            style={{ transform: "translateY(-50%) rotate(-4deg)", opacity: 0.7 }}
-          />
-          <span className="vapor-text relative">{BRAND}</span>
-        </motion.span>
+        <FracturedBrand text={BRAND} x={x} />
         {payoff.slice(bIdx + BRAND.length)}
       </>
     ) : (
@@ -67,8 +106,8 @@ export function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -120]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 0.92]);
   const opacity = useTransform(scrollYProgress, [0, 0.9], [1, reduce ? 1 : 0]);
-  // signature: accent word breaks the grid harder on scroll
-  const wordX = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 64]);
+  // signature: brand name drifts off-grid on scroll (restrained)
+  const wordX = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 40]);
   // fracture line draws in reaction to scroll progress
   const seamScale = useTransform(scrollYProgress, [0, 0.55], [0, 1]);
   const seamOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 0.9]);
@@ -93,7 +132,7 @@ export function Hero() {
           </div>
           {/* off-grid: subtitle pushed right, breaking the left column */}
           <div className="col-span-12 md:col-span-7 md:col-start-5">
-            <motion.p variants={heroItem} className="text-lg text-muted">
+            <motion.p variants={heroItem} className="max-w-xl text-lg text-muted">
               {t("subtitle")}
             </motion.p>
             <motion.div variants={heroItem} className="mt-8 flex flex-wrap gap-4">
