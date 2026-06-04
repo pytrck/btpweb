@@ -41,7 +41,7 @@ export function WorkCard({
       {result && (
         <p className="mt-5 border-l border-line pl-4 text-sm text-paper">
           <span className="font-mono text-xs uppercase tracking-wide text-accent-from">
-            Výsledek —{" "}
+            Výsledek -{" "}
           </span>
           {result}
         </p>

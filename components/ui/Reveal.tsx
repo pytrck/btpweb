@@ -1,6 +1,6 @@
 import { ScrollReveal } from "./ScrollReveal";
 
-/** Back-compat wrapper — now scroll-linked + reversible. */
+/** Back-compat wrapper - now scroll-linked + reversible. */
 export function Reveal({
   children,
   className,

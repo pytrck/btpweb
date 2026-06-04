@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 
 /**
- * Continuous scroll parallax on the Y axis. Drift only — never loops.
+ * Continuous scroll parallax on the Y axis. Drift only - never loops.
  * Reduced-motion → static. Distance kept small for performance + taste.
  */
 export function Parallax({

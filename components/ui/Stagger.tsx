@@ -17,7 +17,7 @@ const StaggerCtx = createContext<Ctx | null>(null);
 /**
  * Scroll-linked stagger. Children share one scroll progress and reveal in
  * sequence by index as the group enters, then ease out in order as it leaves.
- * Bidirectional and tied to scroll position — never a hard replay.
+ * Bidirectional and tied to scroll position - never a hard replay.
  */
 export function Stagger({
   children,

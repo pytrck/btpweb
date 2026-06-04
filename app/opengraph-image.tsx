@@ -6,7 +6,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "Break The Pattern";
 
-// Matte brand OG card — no real data, no glow. Diacritic-free headline so the
+// Matte brand OG card - no real data, no glow. Diacritic-free headline so the
 // built-in font renders cleanly. Applies site-wide; replace freely later.
 export default function OpengraphImage() {
   return new ImageResponse(

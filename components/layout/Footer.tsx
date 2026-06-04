@@ -18,8 +18,8 @@ export function Footer() {
     <footer className="border-t border-line">
       <div className="container-x flex flex-col gap-8 py-section md:flex-row md:items-end md:justify-between">
         <div>
-          <Link href="/" className="font-head text-2xl font-bold">
-            Break The Pattern
+          <Link href="/" className="btp-focus font-head text-2xl font-bold">
+            Break The Pattern<span className="text-accent-from">.</span>
           </Link>
           <p className="mt-3 max-w-xs text-sm text-muted">{f("tagline")}</p>
         </div>

@@ -1,6 +1,6 @@
 /**
  * Single source of truth for brand-level constants and contact details.
- * Everything marked TODO is a temporary placeholder — replace here once final,
+ * Everything marked TODO is a temporary placeholder - replace here once final,
  * and it propagates across metadata, footer and contact.
  */
 export const site = {

@@ -20,7 +20,7 @@ export const projects: Project[] = [
     summary: "Utopený telefon, kompletní záchrana dat.",
     tag: "Záchrana dat",
     overview: "Telefon po pádu do vody, dva servisy ho odepsaly jako neopravitelný.",
-    challenge: "Klient nechtěl telefon — chtěl zpět fotky a rok zpráv, které nikde jinde neměl.",
+    challenge: "Klient nechtěl telefon - chtěl zpět fotky a rok zpráv, které nikde jinde neměl.",
     approach: "Rozebrání na úroveň desky, čištění, výměna poškozených komponent a kontrolované obnovení.",
     stack: ["Mikropájení", "Obnova dat", "Diagnostika na úrovni desky"],
     role: "Diagnostika na úrovni desky, čištění a obnova dat.",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     approach: "Čištění, výměna teplovodivé pasty, upgrade úložiště a vyladění systému.",
     stack: ["Upgrade hardwaru", "Optimalizace systému", "Správa teplot"],
     role: "Hardwarový upgrade, čištění a vyladění systému.",
-    result: "Tichý, rychlý stroj — bez nutnosti kupovat nový.",
+    result: "Tichý, rychlý stroj - bez nutnosti kupovat nový.",
     impact: "Klient ušetřil za nový stroj a získal tichý, svižný notebook na další roky.",
     metrics: [
       { v: "4×", l: "rychlejší start systému" },
