@@ -42,7 +42,7 @@ export const services: Service[] = [
     title: "Weby na míru",
     headline: "Weby, co nevypadají jako všechny ostatní.",
     description:
-      "Návrh a vývoj na míru — rychlé, moderní, vaše. Žádné šablony, žádný balast z page builderu.",
+      "Návrh a vývoj na míru - rychlé, moderní, vaše. Žádné šablony, žádný balast z page builderu.",
     forWhom: "Pro značky a tvůrce, kteří chtějí web, co dává najevo, že to myslí vážně.",
     proof: ["Načtení pod 1 sekundu", "Skóre 90+ v Lighthouse", "Živé odkazy, ne mockupy"],
     included: [
@@ -90,7 +90,7 @@ export const services: Service[] = [
     title: "Pokročilá řešení",
     headline: "Problém, který nikdo jiný nechtěl vzít.",
     description:
-      "Záchrana dat, automatizace, integrace — ta opravdu těžká věc, co „prý nejde“.",
+      "Záchrana dat, automatizace, integrace - ta opravdu těžká věc, co „prý nejde“.",
     forWhom: "Pro každého s problémem, který je údajně neřešitelný.",
     proof: ["Case study složitých zakázek", "Přehled použitých nástrojů", "Řešení, ne výmluvy"],
     included: [

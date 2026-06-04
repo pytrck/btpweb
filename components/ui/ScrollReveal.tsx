@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion
 
 /**
  * Scroll-position-linked reveal. Eases IN as the element rises into view and
- * eases OUT (gently) as it leaves the top — bound to scroll, not a replayed
+ * eases OUT (gently) as it leaves the top - bound to scroll, not a replayed
  * entrance. Scroll up and it reverses naturally.
  */
 export function ScrollReveal({

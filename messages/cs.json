@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Break The Pattern — Opravy, weby a technika bez šablon",
+    "title": "Break The Pattern - Opravy, weby a technika bez šablon",
     "description": "Opravy telefonů, weby na míru a technika, kterou ostatní odepsali. Rychle, poctivě a se zárukou. Ozveme se do 24 hodin."
   },
   "nav": {
@@ -12,8 +12,8 @@
   },
   "hero": {
     "kicker": "BREAK THE PATTERN",
-    "title": "Každý systém má trhlinu. To jsou dveře.",
-    "subtitle": "Telefony, weby, hardware i systémy — opravíme, postavíme a doladíme. Tým, kterému záleží na výsledku.",
+    "title": "Každý systém má trhlinu. Break The Pattern je cesta dál.",
+    "subtitle": "Telefony, weby, hardware i systémy - opravíme, postavíme a doladíme. Tým, kterému záleží na výsledku.",
     "ctaPrimary": "Začít projekt",
     "ctaSecondary": "Ukázat práci"
   },
@@ -89,7 +89,7 @@
     "kicker": "Jak to probíhá",
     "title": "Postup",
     "steps": [
-      { "n": "01", "t": "Diagnóza", "d": "Zjistíme, co se reálně děje — a co ne.", "note": "do 30 minut" },
+      { "n": "01", "t": "Diagnóza", "d": "Zjistíme, co se reálně děje - a co ne.", "note": "do 30 minut" },
       { "n": "02", "t": "Plán", "d": "Řekneme rovnou cenu, čas a postup. Předem, písemně.", "note": "bez překvapení" },
       { "n": "03", "t": "Realizace", "d": "Uděláme to pořádně, ne jen rychle. Kvalitní díly, čistá práce.", "note": "většinou do 48 h" },
       { "n": "04", "t": "Předání", "d": "Funguje to, víte jak s tím dál a máte záruku.", "note": "se zárukou" }
@@ -104,9 +104,9 @@
     "kicker": "Časté dotazy",
     "title": "Než se zeptáte",
     "items": [
-      { "q": "Kolik to bude stát?", "a": "U oprav řekneme cenu po diagnóze — žádná překvapení. U webů dostanete pevnou nabídku předem." },
+      { "q": "Kolik to bude stát?", "a": "U oprav řekneme cenu po diagnóze - žádná překvapení. U webů dostanete pevnou nabídku předem." },
       { "q": "Jak rychle to bude hotové?", "a": "Většina oprav do 48 hodin. Termín webu nebo větší zakázky potvrdíme hned na začátku." },
-      { "q": "Mám na opravu záruku?", "a": "Ano — na díly i na práci. Když něco nesedí, řešíme to my, ne vy." },
+      { "q": "Mám na opravu záruku?", "a": "Ano - na díly i na práci. Když něco nesedí, řešíme to my, ne vy." },
       { "q": "Co se stane s mými daty?", "a": "Zacházíme s nimi jako s vlastními. Nic nemizí, nic se nešťourá zbytečně." },
       { "q": "Od kolika se ceny pohybují?", "a": "Výměna displeje či baterie startuje řádově ve stovkách až nižších tisících podle modelu. Web podle rozsahu. Přesnou cenu vždy řekneme předem." },
       { "q": "Jak dlouhá je záruka?", "a": "Na opravy standardně 6 měsíců na díl i práci. Když se závada vrátí, řešíme to my." },
@@ -147,7 +147,7 @@
     "work": {
       "title": "Práce",
       "subtitle": "Ukázky toho, co stavíme a opravujeme.",
-      "empty": "Připravujeme první case studies. Mezitím nám napište — rádi ukážeme konkrétní příklady."
+      "empty": "Připravujeme první case studies. Mezitím nám napište - rádi ukážeme konkrétní příklady."
     },
     "about": {
       "title": "O nás",
@@ -157,7 +157,7 @@
         { "t": "Co znamená Break The Pattern", "d": "Pattern je smíření se s průměrem. Pomalý servis, generické šablony, mlžení kolem ceny. To je vzorec, který lámeme." },
         { "t": "Proč existujeme", "d": "Protože technické služby umí být rychlé, poctivé a bez výmluv. Většinou nejsou. My ukazujeme, že to jde jinak." },
         { "t": "Jak přemýšlíme", "d": "Nejdřív diagnóza, pak řešení. Rozumíme problému dřív, než ho začneme řešit." },
-        { "t": "Kam míříme", "d": "Rosteme. Přibývají lidé, služby i projekty — ale standard zůstává stejný. To je celý smysl značky." }
+        { "t": "Kam míříme", "d": "Rosteme. Přibývají lidé, služby i projekty - ale standard zůstává stejný. To je celý smysl značky." }
       ],
       "capsTitle": "Co umíme",
       "capabilities": [
@@ -176,7 +176,7 @@
       ],
       "standardsTitle": "Jak pracujeme",
       "standards": [
-        { "t": "Diagnóza před cenou", "d": "Nejdřív zjistíme příčinu. Teprve pak mluvíme o ceně a termínu — a držíme je." },
+        { "t": "Diagnóza před cenou", "d": "Nejdřív zjistíme příčinu. Teprve pak mluvíme o ceně a termínu - a držíme je." },
         { "t": "Kvalitní díly, ne nejlevnější", "d": "Používáme komponenty, na které si troufneme dát záruku. Ne nejlevnější náhražky." },
         { "t": "Necháme po sobě pořádek", "d": "Vrátíme zařízení čistší, než přišlo. Web předáme tak, abyste s ním uměli pracovat." }
       ],
@@ -188,7 +188,7 @@
         "Nešantročíme nejlevnější díly bez záruky."
       ],
       "futureTitle": "Kam směřujeme",
-      "future": "BTP roste z jednoho člověka v malý tým s jasným standardem. Stejná poctivost, víc rukou, víc oborů — od oprav přes weby až po náročnější technická řešení."
+      "future": "BTP roste z jednoho člověka v malý tým s jasným standardem. Stejná poctivost, víc rukou, víc oborů - od oprav přes weby až po náročnější technická řešení."
     },
     "contact": {
       "title": "Kontakt",

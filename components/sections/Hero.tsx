@@ -1,40 +1,52 @@
 "use client";
 
 import { useRef } from "react";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { heroContainer, heroItem, lineMask } from "@/lib/motion";
 
-// accent word per locale — highlight, never rewrite copy
-const ACCENT_WORD: Record<string, string> = { cs: "trhlinu", en: "crack" };
+const BRAND = "Break The Pattern";
 
-function HeroTitle({
-  title,
-  locale,
-  x,
-}: {
-  title: string;
-  locale: string;
-  x: MotionValue<number>;
-}) {
-  const word = ACCENT_WORD[locale];
-  if (!word || !title.includes(word)) return <>{title}</>;
-  const [before, after] = title.split(word);
+/**
+ * Two-line editorial headline: a smaller "setup" line, then a dominant "payoff"
+ * line. The brand name in the payoff is set in the vapor gradient and drifts
+ * off-grid on scroll (the signature moment). Splits on the first sentence break,
+ * so the line break is deliberate, not automatic.
+ */
+function HeroHeadline({ title, x }: { title: string; x: MotionValue<number> }) {
+  const idx = title.indexOf(". ");
+  const setup = idx >= 0 ? title.slice(0, idx + 1) : title;
+  const payoff = idx >= 0 ? title.slice(idx + 2) : "";
+
+  const bIdx = payoff.indexOf(BRAND);
+  const payoffContent =
+    bIdx >= 0 ? (
+      <>
+        {payoff.slice(0, bIdx)}
+        <motion.span style={{ x }} className="vapor-text inline-block">
+          {BRAND}
+        </motion.span>
+        {payoff.slice(bIdx + BRAND.length)}
+      </>
+    ) : (
+      payoff
+    );
+
   return (
     <>
-      {before}
-      <motion.span style={{ x }} className="vapor-text inline-block">
-        {word}
-      </motion.span>
-      {after}
+      <span className="block text-balance text-[0.56em] font-semibold leading-[1.05] text-paper/90">
+        {setup}
+      </span>
+      {payoff && (
+        <span className="mt-3 block text-balance tracking-[-0.02em]">{payoffContent}</span>
+      )}
     </>
   );
 }
 
 export function Hero() {
   const t = useTranslations("hero");
-  const locale = useLocale();
   const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
 
@@ -66,9 +78,9 @@ export function Hero() {
             </motion.p>
             <motion.h1
               variants={lineMask}
-              className="mt-6 font-head text-h1 font-bold leading-[0.95]"
+              className="mt-6 font-head text-[clamp(2.9rem,6.6vw,5.4rem)] font-bold leading-[0.95]"
             >
-              <HeroTitle title={t("title")} locale={locale} x={wordX} />
+              <HeroHeadline title={t("title")} x={wordX} />
             </motion.h1>
           </div>
           {/* off-grid: subtitle pushed right, breaking the left column */}
@@ -86,7 +98,7 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* scroll-reactive fracture line — grows as you leave the hero */}
+      {/* scroll-reactive fracture line - grows as you leave the hero */}
       <div className="container-x" aria-hidden>
         <motion.div
           className="h-px w-full origin-center vapor-center"

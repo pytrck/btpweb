@@ -27,7 +27,7 @@ export function FractureDivider() {
       aria-hidden
       className="relative h-[15vh] overflow-hidden bg-ink md:h-[20vh]"
     >
-      {/* vapor underlayer, revealed through the crack — radiates from centre */}
+      {/* vapor underlayer, revealed through the crack - radiates from centre */}
       <motion.div className="absolute inset-0 vapor-center" style={{ opacity: glow }} />
       {/* fracture notch riding the seam */}
       <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-paper" />

@@ -36,7 +36,7 @@ export function ServiceCard({
       <div className="mt-8">
         {proof && (
           <p className="mb-4 flex items-center gap-2 font-mono text-xs text-muted">
-            <span className="text-accent-from">—</span>
+            <span className="text-accent-from">-</span>
             {proof}
           </p>
         )}

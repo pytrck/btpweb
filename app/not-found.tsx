@@ -14,7 +14,7 @@ export default function NotFound() {
       <body className="bg-ink text-paper font-body antialiased">
         <main className="mx-auto flex min-h-screen w-full max-w-content flex-col justify-center px-6 py-24 md:px-10">
           <p className="font-mono text-xs uppercase tracking-[0.12em] text-accent-from">
-            CHYBA 404 — BREAK THE PATTERN
+            CHYBA 404 - YOU BROKE THE PATTERN!
           </p>
 
           {/* Signature: the 404 sliced by a vapor crack that radiates from centre */}
@@ -38,7 +38,7 @@ export default function NotFound() {
             Tady se vzor rozbil.
           </h2>
           <p className="mt-4 max-w-md text-lg text-muted">
-            Tahle adresa neexistuje nebo se přesunula. Vraťte se do vzoru — odsud
+            Tahle adresa neexistuje nebo se přesunula. Vraťte se do vzoru - odsud
             se dostanete dál.
           </p>
 

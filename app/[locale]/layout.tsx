@@ -23,7 +23,7 @@ export async function generateMetadata({
   const url = params.locale === "en" ? `${site.url}/en` : site.url;
   return {
     metadataBase: new URL(site.url),
-    title: { default: t("title"), template: `%s — ${site.name}` },
+    title: { default: t("title"), template: `%s - ${site.name}` },
     description: t("description"),
     alternates: {
       canonical: url,

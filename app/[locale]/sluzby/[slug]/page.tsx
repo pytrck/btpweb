@@ -58,7 +58,7 @@ export default function ServiceDetail({
           <ul className="mt-4 space-y-3">
             {service.proof.map((p) => (
               <li key={p} className="flex gap-3 text-muted">
-                <span className="text-accent-from">—</span>
+                <span className="text-accent-from">-</span>
                 {p}
               </li>
             ))}
@@ -72,7 +72,7 @@ export default function ServiceDetail({
           <ul className="mt-6 space-y-4">
             {service.included.map((it) => (
               <li key={it} className="flex gap-3">
-                <span className="text-accent-from">—</span>
+                <span className="text-accent-from">-</span>
                 {it}
               </li>
             ))}
@@ -83,7 +83,7 @@ export default function ServiceDetail({
           <ul className="mt-6 space-y-4 text-muted">
             {service.solves.map((it) => (
               <li key={it} className="flex gap-3">
-                <span className="text-accent-from">—</span>
+                <span className="text-accent-from">-</span>
                 {it}
               </li>
             ))}
