@@ -1,69 +1,135 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { heroContainer, heroItem, lineMask, EASE } from "@/lib/motion";
+import { heroContainer, heroItem, lineMask } from "@/lib/motion";
+import { gsap } from "@/lib/gsap";
 
 const BRAND = "Break The Pattern";
 
 /**
- * Signature moment: the brand name is optically fractured by the seam. The word
- * is rendered as two clipped halves (upper / lower) that offset a few px along a
- * vapor seam, so the text reads as broken along a fault line - same crack
- * language as the 404, but applied to the type itself. Readable (a real text
- * node is exposed to screen readers), static after a one-time reveal, and it
- * drifts off-grid with the word on scroll.
+ * Signature moment (GSAP). A bright glint flies in from the LEFT and slashes
+ * across the whole "Break The Pattern" phrase, drawing the vapor seam in its
+ * wake. As the cut passes through, the type reacts - the two halves snap apart
+ * along the fault with a small overshoot, then settle into the refined fractured
+ * state. One-time strike (no loop); the only ongoing motion is scroll-linked
+ * (the brand drifts off-grid and the seam opens a touch as the hero leaves). The
+ * real text stays in the DOM for screen readers and the glyphs are never hidden,
+ * so readability holds throughout.
  */
-function FracturedBrand({ text, x }: { text: string; x: MotionValue<number> }) {
+function FracturedBrand({ text }: { text: string }) {
   const reduce = useReducedMotion();
-  const off = reduce ? 0 : 3;
-  const split = { duration: 0.7, ease: EASE, delay: 0.55 };
+  const root = useRef<HTMLSpanElement>(null);
+  const upper = useRef<HTMLSpanElement>(null);
+  const lower = useRef<HTMLSpanElement>(null);
+  const seam = useRef<HTMLSpanElement>(null);
+  const glint = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const el = root.current;
+    if (!el) return;
+    const off = 3;
+
+    const ctx = gsap.context(() => {
+      gsap.set(seam.current, { yPercent: -50, transformOrigin: "left center" });
+      gsap.set(glint.current, { xPercent: -50, yPercent: -50, opacity: 0 });
+
+      // Reduced motion → resolve straight to the resting fractured state. It's a
+      // static visual, not motion, so the brand keeps its identity; no strike,
+      // no ScrollTrigger.
+      if (reduce) {
+        gsap.set(seam.current, { clipPath: "inset(0 0% 0 0)", opacity: 0.85 });
+        gsap.set(upper.current, { x: -off, y: -1 });
+        gsap.set(lower.current, { x: off, y: 1 });
+        return;
+      }
+
+      // Seam starts fully clipped from the right (invisible), so the draw reveals
+      // it left→right without distorting the gradient.
+      gsap.set(seam.current, { clipPath: "inset(0 100% 0 0)", opacity: 0.95 });
+      gsap.set([upper.current, lower.current], { x: 0, y: 0 });
+
+      const tl = gsap.timeline({ delay: 0.85 });
+
+      // 1) The glint flies in from the left and races across the phrase, drawing
+      //    the seam in its wake.
+      tl.to(glint.current, { opacity: 1, duration: 0.1 }, 0)
+        .fromTo(
+          glint.current,
+          { x: 0 },
+          { x: () => el.offsetWidth, duration: 0.5, ease: "power2.inOut" },
+          0
+        )
+        .fromTo(
+          seam.current,
+          { clipPath: "inset(0 100% 0 0)" },
+          { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power2.inOut" },
+          0
+        )
+        .to(glint.current, { opacity: 0, duration: 0.22 }, 0.4)
+        // 2) The text reacts to the cut - snaps apart with a slight overshoot...
+        .to(upper.current, { x: -(off + 3.5), y: -2.5, duration: 0.16, ease: "power3.out" }, 0.32)
+        .to(lower.current, { x: off + 3.5, y: 2.5, duration: 0.16, ease: "power3.out" }, 0.32)
+        // 3) ...then settles into the refined fractured state.
+        .to(upper.current, { x: -off, y: -1, duration: 0.6, ease: "power2.out" }, 0.52)
+        .to(lower.current, { x: off, y: 1, duration: 0.6, ease: "power2.out" }, 0.52)
+        .to(seam.current, { opacity: 0.72, duration: 0.6 }, 0.55);
+
+      // Scroll-linked: brand drifts off-grid, seam opens a little as the hero
+      // leaves. Separate properties, so nothing fights the strike above.
+      const section = el.closest("section");
+      if (section) {
+        const st = { trigger: section, start: "top top", end: "bottom top", scrub: true } as const;
+        gsap.fromTo(el, { x: 0 }, { x: 44, ease: "none", scrollTrigger: st });
+        gsap.fromTo(seam.current, { scaleY: 1 }, { scaleY: 2.4, ease: "none", scrollTrigger: st });
+      }
+    }, el);
+
+    return () => ctx.revert();
+  }, [reduce]);
+
   return (
-    <motion.span style={{ x }} className="relative inline-block align-baseline" aria-label={text}>
+    <span ref={root} className="relative inline-block align-baseline" aria-label={text}>
       <span className="sr-only">{text}</span>
       {/* upper half (in-flow, sizes the box) */}
-      <motion.span
-        aria-hidden
-        className="vapor-text block"
-        style={{ clipPath: "inset(0 0 49% 0)" }}
-        initial={{ x: 0 }}
-        animate={{ x: -off }}
-        transition={split}
-      >
+      <span ref={upper} aria-hidden className="vapor-text block" style={{ clipPath: "inset(0 0 49% 0)" }}>
         {text}
-      </motion.span>
-      {/* lower half (overlaid, offset the other way) */}
-      <motion.span
-        aria-hidden
-        className="vapor-text absolute inset-0"
-        style={{ clipPath: "inset(51% 0 0 0)" }}
-        initial={{ x: 0 }}
-        animate={{ x: off }}
-        transition={split}
-      >
+      </span>
+      {/* lower half (overlaid) */}
+      <span ref={lower} aria-hidden className="vapor-text absolute inset-0" style={{ clipPath: "inset(51% 0 0 0)" }}>
         {text}
-      </motion.span>
-      {/* the seam itself, sitting in the gap between the halves */}
-      <motion.span
+      </span>
+      {/* the seam riding the fault line */}
+      <span
+        ref={seam}
         aria-hidden
-        className="vapor-center absolute left-[-2%] top-1/2 h-[2px] w-[104%] -translate-y-1/2"
-        initial={{ opacity: reduce ? 0.85 : 0, scaleX: reduce ? 1 : 0.5 }}
-        animate={{ opacity: 0.85, scaleX: 1 }}
-        transition={{ duration: 0.8, ease: EASE, delay: 0.5 }}
+        className="vapor-center absolute left-[-2%] top-1/2 h-[2px] w-[104%]"
+        style={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
       />
-    </motion.span>
+      {/* the glint that flies in and slashes across */}
+      <span
+        ref={glint}
+        aria-hidden
+        className="pointer-events-none absolute left-0 top-1/2 h-2.5 w-2.5 rounded-full"
+        style={{
+          opacity: 0,
+          background: "#ff10f0",
+          boxShadow: "0 0 16px 5px rgba(255,16,240,0.55)",
+        }}
+      />
+    </span>
   );
 }
 
 /**
- * Two-line editorial headline: a smaller "setup" line, then a dominant "payoff"
- * line. The brand name in the payoff is set in the vapor gradient and drifts
- * off-grid on scroll (the signature moment). Splits on the first sentence break,
- * so the line break is deliberate, not automatic.
+ * Two-line editorial headline: a quieter "setup" line sets up the tension, then
+ * a dominant "payoff" line lands it. The brand name in the payoff is the
+ * fractured signature. Splits on the first sentence break so the line break is
+ * deliberate, not automatic.
  */
-function HeroHeadline({ title, x }: { title: string; x: MotionValue<number> }) {
+function HeroHeadline({ title }: { title: string }) {
   const idx = title.indexOf(". ");
   const setup = idx >= 0 ? title.slice(0, idx + 1) : title;
   const payoff = idx >= 0 ? title.slice(idx + 2) : "";
@@ -73,7 +139,7 @@ function HeroHeadline({ title, x }: { title: string; x: MotionValue<number> }) {
     bIdx >= 0 ? (
       <>
         {payoff.slice(0, bIdx)}
-        <FracturedBrand text={BRAND} x={x} />
+        <FracturedBrand text={BRAND} />
         {payoff.slice(bIdx + BRAND.length)}
       </>
     ) : (
@@ -82,11 +148,11 @@ function HeroHeadline({ title, x }: { title: string; x: MotionValue<number> }) {
 
   return (
     <>
-      <span className="block text-balance text-[0.56em] font-semibold leading-[1.05] text-paper/90">
+      <span className="block text-balance text-[0.48em] font-medium leading-[1.12] tracking-[-0.01em] text-paper/65">
         {setup}
       </span>
       {payoff && (
-        <span className="mt-3 block text-balance tracking-[-0.02em]">{payoffContent}</span>
+        <span className="mt-4 block text-balance tracking-[-0.025em]">{payoffContent}</span>
       )}
     </>
   );
@@ -102,13 +168,11 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  // stronger cinematic exit: drift up, recede in scale, fade
+  // Cinematic exit: drift up, recede in scale, fade (framer - kept simple).
   const y = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -120]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 0.92]);
   const opacity = useTransform(scrollYProgress, [0, 0.9], [1, reduce ? 1 : 0]);
-  // signature: brand name drifts off-grid on scroll (restrained)
-  const wordX = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 40]);
-  // fracture line draws in reaction to scroll progress
+  // The fracture line beneath the hero grows as you leave.
   const seamScale = useTransform(scrollYProgress, [0, 0.55], [0, 1]);
   const seamOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 0.9]);
 
@@ -127,7 +191,7 @@ export function Hero() {
               variants={lineMask}
               className="mt-6 font-head text-[clamp(2.9rem,6.6vw,5.4rem)] font-bold leading-[0.95]"
             >
-              <HeroHeadline title={t("title")} x={wordX} />
+              <HeroHeadline title={t("title")} />
             </motion.h1>
           </div>
           {/* off-grid: subtitle pushed right, breaking the left column */}
