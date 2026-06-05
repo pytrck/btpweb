@@ -1,23 +1,14 @@
 "use client";
 
-import { createContext, useContext, useRef, Children, cloneElement, isValidElement } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useReducedMotion,
-  useMotionValue,
-  useMotionTemplate,
-  type MotionValue,
-} from "framer-motion";
-
-type Ctx = { progress: MotionValue<number>; count: number; reduce: boolean };
-const StaggerCtx = createContext<Ctx | null>(null);
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { DUR, EASE } from "@/lib/motion";
+import { useReveal } from "@/lib/useReveal";
 
 /**
- * Scroll-linked stagger. Children share one scroll progress and reveal in
- * sequence by index as the group enters, then ease out in order as it leaves.
- * Bidirectional and tied to scroll position - never a hard replay.
+ * Staggered group reveal. The container arms at a viewport-relative line and
+ * its children reveal in sequence over fixed per-item timing - so the cascade
+ * looks the same on a laptop, a large desktop monitor and on mobile instead of
+ * stretching/compressing with the screen's scroll distance. Re-enters replay.
  */
 export function Stagger({
   children,
@@ -28,24 +19,23 @@ export function Stagger({
   className?: string;
   stagger?: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
-  // Anchored higher so staggered items activate in the upper 3/4 of the view.
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 0.85", "end 0.2"],
-  });
+  const { ref, shown } = useReveal();
 
-  const items = Children.toArray(children);
+  const variants: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: stagger, delayChildren: 0.04 } },
+  };
 
   return (
-    <StaggerCtx.Provider value={{ progress: scrollYProgress, count: items.length, reduce: !!reduce }}>
-      <div ref={ref} className={className}>
-        {items.map((c, i) =>
-          isValidElement(c) ? cloneElement(c as React.ReactElement, { __index: i }) : c
-        )}
-      </div>
-    </StaggerCtx.Provider>
+    <motion.div
+      ref={ref}
+      className={className}
+      initial="hidden"
+      animate={shown ? "show" : "hidden"}
+      variants={variants}
+    >
+      {children}
+    </motion.div>
   );
 }
 
@@ -53,41 +43,34 @@ export function StaggerItem({
   children,
   className,
   effect = "fade",
-  __index = 0,
 }: {
   children: React.ReactNode;
   className?: string;
   effect?: "fade" | "clip" | "scale";
-  __index?: number;
 }) {
-  const ctx = useContext(StaggerCtx);
-  const fallback = useMotionValue(0);
-  const source = ctx?.progress ?? fallback;
-  const reduce = ctx?.reduce ?? false;
-  const n = ctx?.count ?? 1;
+  const reduce = useReducedMotion();
 
-  // per-item staggered window inside the group's scroll pass
-  const step = Math.min(0.06, 0.2 / Math.max(n, 1));
-  const s = 0.05 + __index * step;
-  const e = s + 0.14;
-  const out = 0.9;
+  // The cell carries the className - grid placement, padding, and (in hairgrid
+  // sections) the 1px borders that form the line system. It animates OPACITY
+  // only: a transform (translate/scale) on a bordered grid cell drags its
+  // hairlines off the grid track, which is exactly the "line jump / broken
+  // separator" regression. Opacity-only keeps every cell pixel-locked, and -
+  // unlike an inner wrapper - it leaves flex cells (SolveGrid, LogoWall) intact.
+  const hidden: Record<string, unknown> = { opacity: 0 };
+  const show: Record<string, unknown> = {
+    opacity: 1,
+    transition: { duration: DUR.base, ease: EASE },
+  };
 
-  const y = useTransform(source, [s, e, out, 1], [reduce ? 0 : 26, 0, 0, reduce ? 0 : -16]);
-  const opacity = useTransform(source, [s, e, out, 1], [0, 1, 1, reduce ? 1 : 0.45]);
-  const scale = useTransform(source, [s, e], [effect === "scale" && !reduce ? 0.94 : 1, 1]);
-  const clip = useTransform(source, [s, e], [effect === "clip" && !reduce ? 100 : 0, 0]);
-  const clipPath = useMotionTemplate`inset(0 0 ${clip}% 0)`;
+  // `clip` is used only on gapped, non-hairgrid cards (FeaturedWork), so its
+  // clip-path wipe can't disturb a shared hairline system - keep that flourish.
+  if (!reduce && effect === "clip") {
+    hidden.clipPath = "inset(0 0 100% 0)";
+    show.clipPath = "inset(0 0 0% 0)";
+  }
 
   return (
-    <motion.div
-      className={className}
-      style={{
-        y,
-        opacity,
-        scale,
-        clipPath: effect === "clip" ? clipPath : undefined,
-      }}
-    >
+    <motion.div className={className} variants={{ hidden, show }}>
       {children}
     </motion.div>
   );

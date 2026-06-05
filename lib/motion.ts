@@ -11,10 +11,9 @@ export const DUR = {
   seam: 0.9,
 } as const;
 
-// Replayable: re-fires every time an element re-enters the viewport.
-export const inView = { once: false, margin: "-12% 0px -12% 0px" } as const;
-// Keep for the rare one-shot (currently unused, available if needed).
-export const viewportOnce = { once: true, margin: "-12% 0px -12% 0px" } as const;
+// In-view reveals are triggered by the bulletproof `useReveal` hook
+// (lib/useReveal.ts), not framer's `whileInView` - so there's no shared
+// viewport config here anymore.
 
 /* ---- single-element reveals ---- */
 export const fadeUp: Variants = {
