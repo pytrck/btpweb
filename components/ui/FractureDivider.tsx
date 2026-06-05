@@ -16,9 +16,12 @@ export function FractureDivider() {
     offset: ["start end", "end start"],
   });
 
-  // panels split open around the center of the viewport pass
-  const yTop = useTransform(scrollYProgress, [0.15, 0.85], [0, reduce ? -8 : -34]);
-  const yBot = useTransform(scrollYProgress, [0.15, 0.85], [0, reduce ? 8 : 34]);
+  // Panels split open around the centre of the viewport pass. Offsets are a
+  // *percentage of the panel height* (which is itself vh-based), so the crack
+  // opens to the same visual width on a laptop and a large desktop instead of a
+  // fixed pixel gap that looks tiny on tall screens.
+  const yTop = useTransform(scrollYProgress, [0.15, 0.85], ["0%", reduce ? "-5%" : "-19%"]);
+  const yBot = useTransform(scrollYProgress, [0.15, 0.85], ["0%", reduce ? "5%" : "19%"]);
   const glow = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0.4, 1, 0.6]);
 
   return (
