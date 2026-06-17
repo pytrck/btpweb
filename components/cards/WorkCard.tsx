@@ -26,7 +26,7 @@ export function WorkCard({
       whileHover="hover"
       animate="rest"
       variants={cardHover}
-      className="btp-focus group relative block overflow-hidden border border-line p-8 transition-colors duration-300 hover:border-paper"
+      className="btp-focus group relative flex h-full flex-col overflow-hidden border border-line p-8 transition-colors duration-300 hover:border-paper"
     >
       {/* vapor edge ignites down the left on hover */}
       <motion.span
@@ -46,7 +46,7 @@ export function WorkCard({
           {result}
         </p>
       )}
-      <span className="mt-6 inline-flex items-center gap-2 text-sm">
+      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm">
         Otevřít case study
         <motion.span aria-hidden variants={cardArrow} className="text-accent-from">
           →
