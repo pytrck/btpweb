@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 import { Link } from "@/i18n/routing";
 import { EASE } from "@/lib/motion";
 
@@ -13,6 +14,26 @@ type Props = {
 };
 
 export function Button({ href, children, variant = "primary" }: Props) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLSpanElement>(null);
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const x = useSpring(mx, { stiffness: 200, damping: 15, mass: 0.4 });
+  const y = useSpring(my, { stiffness: 200, damping: 15, mass: 0.4 });
+
+  function onMove(e: React.MouseEvent) {
+    if (reduce) return;
+    const r = ref.current?.getBoundingClientRect();
+    if (!r) return;
+    // pull toward cursor, capped — magnetic feel
+    mx.set(((e.clientX - r.left) / r.width - 0.5) * 14);
+    my.set(((e.clientY - r.top) / r.height - 0.5) * 14);
+  }
+  function reset() {
+    mx.set(0);
+    my.set(0);
+  }
+
   const base =
     "btp-focus group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded px-6 py-3 text-sm font-medium transition-colors duration-300";
   const styles =
@@ -21,6 +42,13 @@ export function Button({ href, children, variant = "primary" }: Props) {
       : "border border-line text-paper hover:border-paper";
 
   return (
+    <motion.span
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={reset}
+      style={{ x, y }}
+      className="inline-block"
+    >
     <MotionLink
       href={href}
       className={`${base} ${styles}`}
@@ -45,6 +73,16 @@ export function Button({ href, children, variant = "primary" }: Props) {
         variants={{ rest: { scaleX: 0, opacity: 0 }, hover: { scaleX: 1, opacity: 1 } }}
         transition={{ duration: 0.4, ease: EASE }}
       />
+      {/* vapor wash that sweeps up on hover (primary only) */}
+      {variant === "primary" && (
+        <motion.span
+          aria-hidden
+          className="absolute inset-0 origin-bottom bg-[radial-gradient(circle_at_bottom,rgba(255,16,240,0.25),transparent_70%)]"
+          variants={{ rest: { scaleY: 0, opacity: 0 }, hover: { scaleY: 1, opacity: 1 } }}
+          transition={{ duration: 0.4, ease: EASE }}
+        />
+      )}
     </MotionLink>
+    </motion.span>
   );
 }
