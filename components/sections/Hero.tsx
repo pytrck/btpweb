@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { HeroAtmosphere } from "@/components/ui/HeroAtmosphere";
 import { heroContainer, heroItem, lineMask, EASE } from "@/lib/motion";
 
 const BRAND = "Break The Pattern";
@@ -114,9 +115,10 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative">
+      <HeroAtmosphere />
       <motion.div
         style={{ y, scale, opacity }}
-        className="container-x grid min-h-[86vh] grid-cols-12 content-center gap-y-8 py-section"
+        className="container-x relative z-10 grid min-h-[86vh] grid-cols-12 content-center gap-y-8 py-section"
       >
         <motion.div className="contents" variants={heroContainer} initial="hidden" animate="show">
           <div className="col-span-12 md:col-span-11">

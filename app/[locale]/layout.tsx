@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { site } from "@/content/site";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import "../globals.css";
 
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space", display: "swap" });
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${space.variable} ${inter.variable} ${mono.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
+          <ScrollProgress />
           <Nav />
           <main>{children}</main>
           <Footer />
