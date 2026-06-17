@@ -1,5 +1,6 @@
 import { LinkArrow } from "@/components/ui/LinkArrow";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { AnimatedHeading } from "@/components/ui/AnimatedHeading";
 
 export function SectionHeader({
   kicker,
@@ -16,7 +17,7 @@ export function SectionHeader({
     <ScrollReveal className="mb-12 flex items-end justify-between">
       <div>
         <p className="label text-accent-from">{kicker}</p>
-        <h2 className="mt-4 font-head text-h2 font-bold">{title}</h2>
+        <AnimatedHeading text={title} className="mt-4 font-head text-h2 font-bold" />
       </div>
       {cta && ctaHref && (
         <div className="hidden md:block">

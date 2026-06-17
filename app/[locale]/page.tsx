@@ -15,11 +15,13 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Faq } from "@/components/sections/Faq";
 import { CTABlock } from "@/components/sections/CTABlock";
 import { FractureDivider } from "@/components/ui/FractureDivider";
+import { ScrollOrb } from "@/components/ui/ScrollOrb";
 
 export default function Home({ params }: { params: { locale: string } }) {
   setRequestLocale(params.locale);
   return (
-    <>
+    <div className="relative">
+      <ScrollOrb />
       <Hero />
       <KineticStrip />
       {/* Auto-hidden until client logos are added in content/proof.ts */}
@@ -39,6 +41,6 @@ export default function Home({ params }: { params: { locale: string } }) {
       <Faq />
       <FractureDivider />
       <CTABlock />
-    </>
+    </div>
   );
 }
