@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { LinkArrow } from "@/components/ui/LinkArrow";
 import { cardHover, cardEdge } from "@/lib/motion";
+import { useSpotlight } from "@/lib/useSpotlight";
 
 export function ServiceCard({
   title,
@@ -15,13 +16,16 @@ export function ServiceCard({
   slug: string;
   proof?: string;
 }) {
+  const { ref, onPointerMove } = useSpotlight<HTMLDivElement>();
   return (
     <motion.div
+      ref={ref}
+      onPointerMove={onPointerMove}
       initial="rest"
       whileHover="hover"
       animate="rest"
       variants={cardHover}
-      className="group relative flex h-full flex-col justify-between overflow-hidden border border-line p-8 transition-colors duration-300 hover:border-paper"
+      className="spotlight group relative flex h-full flex-col justify-between overflow-hidden border border-line p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-paper/70"
     >
       {/* vapor edge ignites along the top on hover */}
       <motion.span

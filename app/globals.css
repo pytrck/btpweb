@@ -10,10 +10,33 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   @apply bg-ink text-paper font-body antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* slim dark scrollbar — vapor thumb on hover */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  border: 3px solid #0a0a0b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 16, 240, 0.55);
 }
 
 /* vapor selection — brand-specific micro detail */
@@ -65,9 +88,10 @@ body {
     opacity: 0.7;
   }
 
-  /* vapor text — restrained gradient highlight for a single word */
+  /* vapor text — restrained gradient highlight for a single word. The tail
+     deepens but stays ≥3:1 on ink so the brand name never fades illegible. */
   .vapor-text {
-    background: linear-gradient(100deg, #ff10f0 0%, #b30caa 60%, #6b0a66 100%);
+    background: linear-gradient(100deg, #ff10f0 0%, #e00fd2 55%, #b30daa 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -82,6 +106,149 @@ body {
     outline-offset: 3px;
     border-radius: 2px;
   }
+
+  /* film grain — one fixed overlay above everything; gives the flat ink a
+     physical, printed depth. Static by design (animated grain costs paint). */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+    background-size: 240px 240px;
+    mix-blend-mode: overlay;
+    opacity: 0.35;
+  }
+
+  /* hairline engineering grid behind the hero — fades out radially so it reads
+     as atmosphere, not wallpaper. */
+  .hero-grid {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+    background-size: 88px 88px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 15%, black 10%, transparent 68%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 15%, black 10%, transparent 68%);
+  }
+
+  /* glassy pointer-tracked sheen for interactive cards; pairs with
+     lib/useSpotlight which feeds --mx/--my. Hover-capable devices only. */
+  .spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: radial-gradient(
+        160px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(255, 255, 255, 0.07),
+        transparent 65%
+      ),
+      radial-gradient(
+        420px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(255, 16, 240, 0.06),
+        transparent 70%
+      );
+  }
+  .spotlight:hover::after {
+    opacity: 1;
+  }
+  @media (hover: none) {
+    .spotlight::after {
+      display: none;
+    }
+  }
+
+  /* one-shot chromatic glitch on hover — the brand's "broken signal" wink.
+     Plays once per hover, settles clean; reduced-motion kills it globally. */
+  .glitch-hover:hover {
+    animation: btp-glitch 0.36s steps(2, end) 1;
+  }
+
+  /* same wink, fired once on reveal (class toggled when the element scrolls in).
+     reduced-motion neutralizes it via the global animation-duration override. */
+  .glitch-once {
+    animation: btp-glitch 0.42s steps(2, end) 1;
+  }
+
+  /* soft radar ping for the availability dot */
+  .dot-ping {
+    animation: btp-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+
+@keyframes btp-glitch {
+  0% {
+    text-shadow: 0.045em 0 0 rgba(255, 16, 240, 0.75), -0.045em 0 0 rgba(0, 240, 255, 0.6);
+    transform: translateX(0.6px);
+  }
+  30% {
+    text-shadow: -0.04em 0 0 rgba(255, 16, 240, 0.75), 0.04em 0 0 rgba(0, 240, 255, 0.6);
+    transform: translateX(-0.6px) skewX(-1.5deg);
+  }
+  60% {
+    text-shadow: 0.02em 0.012em 0 rgba(255, 16, 240, 0.5), -0.02em -0.012em 0 rgba(0, 240, 255, 0.45);
+    transform: translateX(0.3px);
+  }
+  100% {
+    text-shadow: none;
+    transform: none;
+  }
+}
+
+@keyframes btp-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70%,
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+/* ---- ScrollOrb: the glitch ball tears off its trajectory in the glitch zone,
+   the core splits into chromatic ghosts, and the "BROKE THE PATTERN" tag
+   flickers in. Reduced-motion hides the whole orb (component returns null). ---- */
+@keyframes orb-glitch-a {
+  0%, 60%, 100% { transform: translate(0, 0); }
+  64% { transform: translate(-4px, 2px); }
+  72% { transform: translate(3px, -3px); }
+  80% { transform: translate(-2px, -1px); }
+}
+@keyframes orb-glitch-b {
+  0%, 55%, 100% { transform: translate(0, 0); }
+  66% { transform: translate(4px, -2px); }
+  74% { transform: translate(-3px, 2px); }
+  82% { transform: translate(2px, 1px); }
+}
+@keyframes orb-jitter {
+  0%, 88%, 100% { transform: translate(0, 0); }
+  90% { transform: translate(-2px, 1px); }
+  93% { transform: translate(2px, -1px); }
+}
+@keyframes glitch-tag-a {
+  0%, 100% { transform: translate(0, 0); clip-path: inset(0 0 0 0); }
+  20% { transform: translate(-2px, 1px); clip-path: inset(0 0 62% 0); }
+  40% { transform: translate(2px, -1px); clip-path: inset(45% 0 0 0); }
+  60% { transform: translate(-2px, 0); clip-path: inset(0 0 30% 0); }
+  80% { transform: translate(1px, 1px); clip-path: inset(20% 0 40% 0); }
+}
+@keyframes glitch-tag-b {
+  0%, 100% { transform: translate(0, 0); clip-path: inset(0 0 0 0); }
+  25% { transform: translate(2px, -1px); clip-path: inset(55% 0 0 0); }
+  50% { transform: translate(-2px, 1px); clip-path: inset(0 0 50% 0); }
+  75% { transform: translate(2px, 0); clip-path: inset(30% 0 20% 0); }
+}
+.glitch-tag {
+  animation: glitch-tag-flicker 2.4s steps(1) infinite;
+}
+@keyframes glitch-tag-flicker {
+  0%, 47%, 49%, 83%, 85%, 100% { opacity: 1; }
+  48% { opacity: 0.55; }
+  84% { opacity: 0.7; }
 }
 
 /* reduced motion: keep it calm but not broken — kill transforms, keep opacity */
