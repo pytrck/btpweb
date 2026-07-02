@@ -52,6 +52,16 @@ export function Footer() {
       <div className="container-x py-6 text-xs text-muted">
         © {year} Break The Pattern. {f("rights")}
       </div>
+      {/* ghost wordmark sinking below the page edge — the brand, outlined,
+          cropped mid-glyph. Decorative only. */}
+      <div aria-hidden className="pointer-events-none relative h-[7vw] select-none overflow-hidden">
+        <p
+          className="absolute inset-x-0 top-0 whitespace-nowrap text-center font-head text-[10.5vw] font-bold leading-[0.8] tracking-[-0.02em] text-transparent"
+          style={{ WebkitTextStroke: "1px rgba(255,255,255,0.08)" }}
+        >
+          Break The Pattern
+        </p>
+      </div>
     </footer>
   );
 }

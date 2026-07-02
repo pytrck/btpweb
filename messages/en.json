@@ -13,9 +13,10 @@
   "hero": {
     "kicker": "BREAK THE PATTERN",
     "title": "Every system has a crack. Break The Pattern is the way through.",
-    "subtitle": "Phones, websites, hardware and systems - repaired, built and tuned. A team that cares how it turns out.",
+    "subtitle": "Phones, websites and tech — no templates. Honest diagnosis, a clear price upfront, and a result that holds.",
     "ctaPrimary": "Start a project",
-    "ctaSecondary": "See the work"
+    "ctaSecondary": "See the work",
+    "status": "Taking on new projects"
   },
   "strip": ["REPAIRS", "WEB", "SYSTEMS", "DIAGNOSTICS", "OPTIMIZATION"],
   "servicesPreview": { "kicker": "What we do", "title": "Services", "cta": "All services" },

@@ -36,13 +36,11 @@ export async function generateMetadata({
       description: t("description"),
       url,
       locale: params.locale === "en" ? "en_US" : "cs_CZ",
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
-      images: ["/opengraph-image"],
     },
   };
 }
@@ -67,6 +65,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${space.variable} ${inter.variable} ${mono.variable}`}>
       <body>
+        {/* film grain above everything — the "printed on something" depth */}
+        <div aria-hidden className="grain" />
         <NextIntlClientProvider messages={messages}>
           <Nav />
           <main>{children}</main>

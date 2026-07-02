@@ -29,8 +29,15 @@ export function ScrollReveal({
       initial="hidden"
       animate={shown ? "show" : "hidden"}
       variants={{
-        hidden: { opacity: 0, y: reduce ? 0 : y },
-        show: { opacity: 1, y: 0, transition: { duration: DUR.base, ease: EASE } },
+        // hidden must be identical on server and client (SSR can't know the
+        // client's reduced-motion preference) - so reduce branches the
+        // transition (instant jump), never the SSR-rendered style.
+        hidden: { opacity: 0, y },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: reduce ? { duration: 0.01 } : { duration: DUR.base, ease: EASE },
+        },
       }}
     >
       {children}

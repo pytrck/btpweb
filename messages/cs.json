@@ -13,9 +13,10 @@
   "hero": {
     "kicker": "BREAK THE PATTERN",
     "title": "Každý systém má trhlinu. Break The Pattern je cesta dál.",
-    "subtitle": "Telefony, weby, hardware i systémy - opravíme, postavíme a doladíme. Tým, kterému záleží na výsledku.",
+    "subtitle": "Telefony, weby a technika bez šablon. Poctivá diagnóza, jasná cena předem a výsledek, který drží.",
     "ctaPrimary": "Začít projekt",
-    "ctaSecondary": "Ukázat práci"
+    "ctaSecondary": "Ukázat práci",
+    "status": "Přijímáme nové projekty"
   },
   "strip": ["OPRAVY", "WEBY", "SYSTÉMY", "DIAGNOSTIKA", "OPTIMALIZACE"],
   "servicesPreview": {

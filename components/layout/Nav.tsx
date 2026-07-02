@@ -37,14 +37,17 @@ export function Nav() {
         borderColor: scrolled ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0)",
       }}
       transition={{ duration: 0.4, ease: EASE }}
-      className="sticky top-0 z-50 border-b backdrop-blur"
+      className="sticky top-0 z-50 border-b backdrop-blur-xl backdrop-saturate-150"
     >
       <motion.div
         animate={{ height: scrolled ? 56 : 64 }}
         transition={{ duration: 0.4, ease: EASE }}
         className="container-x flex items-center justify-between"
       >
-        <Link href="/" className="btp-focus font-head text-lg font-bold tracking-tight">
+        <Link
+          href="/"
+          className="btp-focus glitch-hover font-head text-lg font-bold tracking-tight"
+        >
           BTP<span className="text-accent-from">.</span>
         </Link>
 

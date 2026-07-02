@@ -56,15 +56,24 @@ export function StaggerItem({
   // hairlines off the grid track, which is exactly the "line jump / broken
   // separator" regression. Opacity-only keeps every cell pixel-locked, and -
   // unlike an inner wrapper - it leaves flex cells (SolveGrid, LogoWall) intact.
+  //
+  // Variants must be identical on server and client: SSR can't know the
+  // client's reduced-motion preference, and a property present in the SSR
+  // style but missing from the client variants is never cleared by framer -
+  // the "cards stranded clipped invisible" regression. So `reduce` branches
+  // the transition (instant jump), never the variant shape.
   const hidden: Record<string, unknown> = { opacity: 0 };
   const show: Record<string, unknown> = {
     opacity: 1,
-    transition: { duration: DUR.base, ease: EASE },
+    transition:
+      reduce && effect === "clip"
+        ? { duration: 0.01 }
+        : { duration: DUR.base, ease: EASE },
   };
 
   // `clip` is used only on gapped, non-hairgrid cards (FeaturedWork), so its
   // clip-path wipe can't disturb a shared hairline system - keep that flourish.
-  if (!reduce && effect === "clip") {
+  if (effect === "clip") {
     hidden.clipPath = "inset(0 0 100% 0)";
     show.clipPath = "inset(0 0 0% 0)";
   }

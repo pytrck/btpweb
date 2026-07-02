@@ -178,6 +178,23 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative">
+      {/* atmosphere: engineering grid + vapor aura give the flat ink depth
+          without touching the composition. Scrolls away with the hero. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="hero-grid absolute inset-0" />
+        <div
+          className="absolute -top-[28%] left-[-12%] h-[75vh] w-[70vw] rounded-full"
+          style={{
+            background: "radial-gradient(closest-side, rgba(255,16,240,0.055), transparent 72%)",
+          }}
+        />
+        <div
+          className="absolute -bottom-[35%] right-[-18%] h-[65vh] w-[55vw] rounded-full"
+          style={{
+            background: "radial-gradient(closest-side, rgba(255,255,255,0.03), transparent 72%)",
+          }}
+        />
+      </div>
       <motion.div
         style={{ y, scale, opacity }}
         className="container-x grid min-h-[86vh] grid-cols-12 content-center gap-y-8 py-section"
@@ -205,6 +222,17 @@ export function Hero() {
                 {t("ctaSecondary")}
               </Button>
             </motion.div>
+            {/* live availability signal — quiet, mono, one pulsing vapor dot */}
+            <motion.p
+              variants={heroItem}
+              className="mt-9 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.12em] text-muted"
+            >
+              <span aria-hidden className="relative flex h-2 w-2">
+                <span className="dot-ping absolute inset-0 rounded-full bg-accent-from opacity-70" />
+                <span className="relative h-2 w-2 rounded-full bg-accent-from shadow-[0_0_12px_2px_rgba(255,16,240,0.45)]" />
+              </span>
+              {t("status")}
+            </motion.p>
           </div>
         </motion.div>
       </motion.div>
