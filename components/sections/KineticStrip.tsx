@@ -2,10 +2,16 @@
 
 import { useTranslations } from "next-intl";
 
+// Enough copies that a single set stays wider than any viewport, so the loop
+// never scrolls past the last item (the "long pause" gap). The animation shifts
+// exactly one set (100/COPIES %), so the loop point is seamless and the speed is
+// unchanged regardless of COPIES.
+const COPIES = 6;
+
 export function KineticStrip() {
   const t = useTranslations();
   const items = t.raw("strip") as string[];
-  const row = [...items, ...items, ...items];
+  const row = Array.from({ length: COPIES }, () => items).flat();
 
   return (
     <div className="group overflow-hidden border-y border-line py-4 [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
@@ -19,7 +25,7 @@ export function KineticStrip() {
           </span>
         ))}
       </div>
-      <style>{`@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-33.333%)}}`}</style>
+      <style>{`@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-${(100 / COPIES).toFixed(4)}%)}}`}</style>
     </div>
   );
 }

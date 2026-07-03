@@ -64,6 +64,22 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${space.variable} ${inter.variable} ${mono.variable}`}>
+      <head>
+        {/* Content-Security-Policy — GitHub Pages can't send HTTP headers, so this
+            meta is the hardening ceiling. Locks every resource to same-origin
+            (blocks external script/style/img/connect exfiltration). 'unsafe-inline'
+            is unavoidable: a static export ships Next's inline bootstrap + framer's
+            inline styles with no nonce. Production-only: dev's HMR needs eval, which
+            this policy (deliberately) forbids. Real headers (HSTS, X-Frame-Options)
+            need a host with a _headers file (Cloudflare/Netlify). */}
+        {process.env.NODE_ENV === "production" && (
+          <meta
+            httpEquiv="Content-Security-Policy"
+            content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'"
+          />
+        )}
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </head>
       <body>
         {/* film grain above everything — the "printed on something" depth */}
         <div aria-hidden className="grain" />

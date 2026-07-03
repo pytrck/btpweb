@@ -28,10 +28,19 @@ export function FractureDivider() {
     <div
       ref={ref}
       aria-hidden
-      className="relative h-[15vh] overflow-hidden bg-ink md:h-[20vh]"
+      className="relative h-[12vh] overflow-hidden bg-ink md:h-[16vh]"
     >
-      {/* vapor underlayer, revealed through the crack - radiates from centre */}
-      <motion.div className="absolute inset-0 vapor-center" style={{ opacity: glow }} />
+      {/* vapor underlayer, revealed through the crack. A radial bloom centred on
+          the seam that fades to transparent on every side - so the glow melts
+          into the ink instead of ending in a hard black band. */}
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          opacity: glow,
+          background:
+            "radial-gradient(ellipse 62% 46% at 50% 50%, rgba(255,16,240,0.6), rgba(255,16,240,0.1) 42%, transparent 72%)",
+        }}
+      />
       {/* fracture notch riding the seam */}
       <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-paper" />
       {/* upper ink panel */}
