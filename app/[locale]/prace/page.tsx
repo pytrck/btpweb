@@ -4,6 +4,7 @@ import { projects } from "@/content/work";
 import { WorkCard } from "@/components/cards/WorkCard";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CTABlock } from "@/components/sections/CTABlock";
+import { ScrollOrb } from "@/components/ui/ScrollOrb";
 import { buildMeta } from "@/lib/meta";
 
 export async function generateMetadata({
@@ -19,7 +20,8 @@ export default async function WorkPage({ params }: { params: { locale: string } 
   setRequestLocale(params.locale);
   const t = await getTranslations("pages.work");
   return (
-    <>
+    <div className="relative">
+      <ScrollOrb text="PROOF NOT HYPE" amp={46} cycles={2.6} jag={17} />
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
       <section className="container-x pb-section">
         {projects.length > 0 ? (
@@ -43,6 +45,6 @@ export default async function WorkPage({ params }: { params: { locale: string } 
         )}
       </section>
       <CTABlock />
-    </>
+    </div>
   );
 }
