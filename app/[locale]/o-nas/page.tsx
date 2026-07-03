@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { buildMeta } from "@/lib/meta";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CTABlock } from "@/components/sections/CTABlock";
+import { ScrollOrb } from "@/components/ui/ScrollOrb";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Team } from "@/components/sections/Team";
@@ -28,7 +29,8 @@ export default async function AboutPage({ params }: { params: { locale: string }
   const standards = t.raw("standards") as Block[];
   const refuse = t.raw("refuse") as string[];
   return (
-    <>
+    <div className="relative">
+      <ScrollOrb text="NO EXCUSES" amp={30} cycles={1.4} jag={11} anchor={0.46} />
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
       <section className="container-x pb-section">
         <Stagger className="hairgrid md:grid-cols-2" stagger={0.1}>
@@ -97,6 +99,6 @@ export default async function AboutPage({ params }: { params: { locale: string }
       <Team />
 
       <CTABlock />
-    </>
+    </div>
   );
 }

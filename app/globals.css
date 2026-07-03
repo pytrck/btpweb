@@ -176,6 +176,36 @@ html {
   .dot-ping {
     animation: btp-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
+
+  /* premium solid-paper button — inset top highlight, vapor under-glow + lift on
+     hover, and a vapor sheen that sweeps across on hover. The sweep is a moving
+     background (not an overlay), so it never covers the label. One source of
+     truth for every white/paper CTA on the site. */
+  .btn-paper {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #fafaf8;
+    color: #0a0a0b;
+    background-color: #fafaf8;
+    background-image: linear-gradient(
+      100deg,
+      transparent 34%,
+      rgba(255, 16, 240, 0.32) 50%,
+      transparent 66%
+    );
+    background-repeat: no-repeat;
+    background-size: 220% 100%;
+    background-position: 150% 0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: background-position 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  .btn-paper:hover {
+    background-position: -50% 0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 8px 32px -6px rgba(255, 16, 240, 0.45);
+    transform: translateY(-1px);
+  }
 }
 
 @keyframes btp-glitch {
@@ -251,6 +281,14 @@ html {
   84% { opacity: 0.7; }
 }
 
+/* orb animation classes — referenced by ScrollOrb. Split out (instead of inline
+   Tailwind arbitrary values) so they can be re-asserted under reduced motion. */
+.orb-ghost-a { animation: orb-glitch-a 2.6s steps(1) infinite; }
+.orb-ghost-b { animation: orb-glitch-b 2.6s steps(1) infinite; }
+.orb-core    { animation: orb-jitter 3.4s steps(1) infinite; }
+.orb-tag-a   { animation: glitch-tag-a 1.1s steps(2) infinite; }
+.orb-tag-b   { animation: glitch-tag-b 0.85s steps(2) infinite; }
+
 /* reduced motion: keep it calm but not broken — kill transforms, keep opacity */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -263,4 +301,13 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.15s !important;
   }
+  /* ...except the orb glitch — it's a deliberate always-on brand signature. The
+     class selectors out-specify the `*` reset above, so the loops keep running.
+     (steps() glitch, cheap to composite; the user asked for it explicitly.) */
+  .orb-ghost-a { animation: orb-glitch-a 2.6s steps(1) infinite !important; }
+  .orb-ghost-b { animation: orb-glitch-b 2.6s steps(1) infinite !important; }
+  .orb-core    { animation: orb-jitter 3.4s steps(1) infinite !important; }
+  .glitch-tag  { animation: glitch-tag-flicker 2.4s steps(1) infinite !important; }
+  .orb-tag-a   { animation: glitch-tag-a 1.1s steps(2) infinite !important; }
+  .orb-tag-b   { animation: glitch-tag-b 0.85s steps(2) infinite !important; }
 }

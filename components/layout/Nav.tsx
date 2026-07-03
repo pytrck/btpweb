@@ -37,7 +37,7 @@ export function Nav() {
         borderColor: scrolled ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0)",
       }}
       transition={{ duration: 0.4, ease: EASE }}
-      className="sticky top-0 z-50 border-b backdrop-blur-xl backdrop-saturate-150"
+      className="sticky top-0 z-50 border-b backdrop-blur-md"
     >
       <motion.div
         animate={{ height: scrolled ? 56 : 64 }}
@@ -68,7 +68,7 @@ export function Nav() {
           ))}
           <Link
             href="/kontakt"
-            className="btp-focus rounded border border-paper bg-paper px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-transparent hover:text-paper"
+            className="btp-focus btn-paper rounded px-4 py-2 text-sm font-medium"
           >
             {t("cta")}
           </Link>
@@ -134,7 +134,7 @@ export function Nav() {
               <Link
                 href="/kontakt"
                 onClick={() => setOpen(false)}
-                className="mt-2 rounded border border-paper bg-paper px-4 py-3 text-center text-sm font-medium text-ink"
+                className="btn-paper mt-2 rounded px-4 py-3 text-center text-sm font-medium"
               >
                 {t("cta")}
               </Link>

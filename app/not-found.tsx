@@ -5,7 +5,7 @@ import "./globals.css";
 // CSS-only (no client JS) so it always renders server-side. Returns 404 status.
 export default function NotFound() {
   const primary =
-    "inline-flex items-center justify-center rounded border border-paper bg-paper px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-transparent hover:text-paper";
+    "btn-paper inline-flex items-center justify-center rounded px-6 py-3 text-sm font-medium";
   const ghost =
     "inline-flex items-center justify-center rounded border border-line px-6 py-3 text-sm font-medium text-paper transition-colors hover:border-paper";
 

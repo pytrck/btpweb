@@ -37,7 +37,7 @@ export function StickyCTA() {
         >
           <Link
             href="/kontakt"
-            className="btp-focus group relative flex w-full max-w-sm items-center justify-center gap-2 overflow-hidden rounded border border-paper bg-paper px-6 py-3.5 text-sm font-medium text-ink shadow-[0_8px_32px_-6px_rgba(255,16,240,0.45)]"
+            className="btp-focus btn-paper group relative flex w-full max-w-sm items-center justify-center gap-2 overflow-hidden rounded px-6 py-3.5 text-sm font-medium"
           >
             <span className="relative z-10">{t("cta")}</span>
             <span aria-hidden className="relative z-10 text-accent-from">
