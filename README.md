@@ -38,23 +38,6 @@ npm run lint    # eslint
 
 ---
 
-## Project structure
-
-```
-app/[locale]/         Routes: / · /sluzby · /sluzby/[slug] · /prace · /prace/[slug] · /o-nas · /kontakt
-app/[locale]/[...rest] Catch-all → branded localized 404
-app/opengraph-image.tsx  Generated social card
-components/            layout · ui · sections · cards · forms
-content/               Data-driven content (edit these to add/update)
-  services.ts          Service offerings
-  work.ts              Case studies
-  proof.ts             Client logos + testimonials (empty → sections auto-hide)
-  team.ts              Team members (empty → section auto-hides)
-  site.ts              Brand constants + contact details (PLACEHOLDERS)
-i18n/ · middleware.ts  next-intl routing
-messages/              cs.json (primary) · en.json
-lib/                   motion variants · metadata builder
-```
 
 Adding content needs **no code changes** — add an entry to the relevant file in
 `content/`. New service, project, logo, testimonial, or team member all scale
