@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { gsap } from "@/lib/gsap";
 import { Button } from "@/components/ui/Button";
 import { HeroAtmosphere } from "@/components/ui/HeroAtmosphere";
 import { heroContainer, heroItem, lineMask, EASE } from "@/lib/motion";
