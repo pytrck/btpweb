@@ -44,28 +44,28 @@
       "Prasklý nebo mrtvý displej",
       "Baterie, co nevydrží den",
       "Notebook, co se sekne a hučí",
-      "Web, který nevydělává",
-      "Ztracená nebo nedostupná data",
-      "Pomalý a zaplevelený systém"
+      "Web, který nic nepřináší",
+      "Data, ke kterým se nedostanete",
+      "Pomalý a zaplevelený počítač"
     ]
   },
   "why": {
     "kicker": "Proč BTP",
     "title": "Proč si vybrat nás",
     "items": [
-      { "n": "01", "t": "Přímý kontakt", "d": "Žádné předávání mezi odděleními. Mluvíte přímo s lidmi, kteří to dělají." },
-      { "n": "02", "t": "Žádné šablony", "d": "Nic z page builderu. Každý web stavíme od základu." },
-      { "n": "03", "t": "Nejdřív diagnóza", "d": "Než na cokoli sáhneme, víme, co je špatně a proč." }
+      { "t": "Jednáte přímo s námi", "d": "Žádná oddělení, žádné předávání. Kdo zvedne telefon, ten na tom dělá." },
+      { "t": "Stavíme, neskládáme", "d": "Žádné page buildery, žádné šablony. Každý web začíná u prázdného souboru." },
+      { "t": "Nejdřív diagnóza, pak cena", "d": "Zjistíme, co je reálně špatně a proč, ještě než na to někdo sáhne." }
     ]
   },
   "expect": {
     "kicker": "Co můžete čekat",
     "title": "Žádná překvapení",
     "items": [
-      { "t": "Cenu předem", "d": "Víte, kolik to bude stát, dřív než řekneme „ano“. Žádné účty na konci, které neseděly." },
-      { "t": "Lidskou řeč", "d": "Vysvětlíme, co je špatně, srozumitelně. Bez technické hatmatilky a strašení." },
-      { "t": "Držený termín", "d": "Termín dostanete na začátku a držíme ho. Když hrozí skluz, víte to první." },
-      { "t": "Upřímnost", "d": "Když se oprava nevyplatí nebo nejde, řekneme to rovnou. Neprodáváme zbytečnou práci." }
+      { "t": "Nejdřív cena", "d": "Víte, kolik to bude stát, ještě než začneme. Žádný účet na konci, který nesedí." },
+      { "t": "Rovná řeč", "d": "Řekneme, co je špatně, lidsky. Bez hatmatilky a bez strašení." },
+      { "t": "Termín, který držíme", "d": "Datum dostanete předem a držíme ho. Když hrozí skluz, víte to první." },
+      { "t": "Upřímné doporučení", "d": "Když se oprava nevyplatí nebo nejde, řekneme to rovnou. Neprodáváme práci, kterou nepotřebujete." }
     ]
   },
   "fit": {
@@ -90,10 +90,10 @@
     "kicker": "Jak to probíhá",
     "title": "Postup",
     "steps": [
-      { "n": "01", "t": "Diagnóza", "d": "Zjistíme, co se reálně děje - a co ne.", "note": "do 30 minut" },
-      { "n": "02", "t": "Plán", "d": "Řekneme rovnou cenu, čas a postup. Předem, písemně.", "note": "bez překvapení" },
-      { "n": "03", "t": "Realizace", "d": "Uděláme to pořádně, ne jen rychle. Kvalitní díly, čistá práce.", "note": "většinou do 48 h" },
-      { "n": "04", "t": "Předání", "d": "Funguje to, víte jak s tím dál a máte záruku.", "note": "se zárukou" }
+      { "t": "Diagnóza", "d": "Zjistíme, co se reálně děje, a co ne.", "note": "do 30 minut" },
+      { "t": "Plán", "d": "Cenu, termín i postup dostanete písemně, ještě než začneme.", "note": "bez překvapení" },
+      { "t": "Realizace", "d": "Uděláno pořádně, ne jen rychle. Dobré díly, čistá práce.", "note": "většinou do 48 h" },
+      { "t": "Předání", "d": "Funguje to, víte, jak s tím dál, a máte na to záruku.", "note": "se zárukou" }
     ]
   },
   "trust": {
@@ -217,9 +217,9 @@
       ],
       "afterTitle": "Co se stane potom",
       "after": [
-        { "n": "01", "t": "Ozveme se", "d": "Do 24 hodin s prvními otázkami, nebo rovnou s termínem." },
-        { "n": "02", "t": "Diagnóza a cena", "d": "U oprav zjistíme příčinu a pošleme pevnou cenu. Schválíte ji vy." },
-        { "n": "03", "t": "Pustíme se do toho", "d": "Pracujeme a vy víte, v jaké fázi to je. Na konci dostanete záruku." }
+        { "t": "Ozveme se", "d": "Do 24 hodin, buď s pár otázkami, nebo rovnou s termínem." },
+        { "t": "Diagnóza a cena", "d": "U oprav najdeme příčinu a pošleme pevnou cenu. Nic se nehne, dokud ji neodsouhlasíte." },
+        { "t": "Pustíme se do toho", "d": "Děláme a vy víte, v jaké je to fázi. Na konci máte záruku." }
       ],
       "reassurance": "Nic neplatíte, dokud neznáte cenu a neodsouhlasíte ji.",
       "areaTitle": "Kde působíme",

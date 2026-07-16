@@ -13,8 +13,7 @@ export function Expect() {
       <Stagger className="hairgrid sm:grid-cols-2 md:grid-cols-4" stagger={0.08}>
         {items.map((it, i) => (
           <StaggerItem key={i} className="group bg-ink p-8">
-            <span className="font-mono text-sm text-accent-from">{String(i + 1).padStart(2, "0")}</span>
-            <h3 className="mt-4 font-head text-h3">{it.t}</h3>
+            <h3 className="font-head text-h3">{it.t}</h3>
             <p className="mt-2 text-sm text-muted">{it.d}</p>
           </StaggerItem>
         ))}

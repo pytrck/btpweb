@@ -33,31 +33,31 @@
     "kicker": "What we solve",
     "title": "Real problems, not slogans",
     "items": [
-      "Cracked or dead display",
-      "Battery that won't last a day",
-      "Laptop that stutters and roars",
-      "A website that doesn't earn",
-      "Lost or unreachable data",
-      "A slow, cluttered system"
+      "A cracked or dead screen",
+      "A battery that won't last the day",
+      "A laptop that stutters and roars",
+      "A website that doesn't bring anything in",
+      "Data you can't get to",
+      "A slow, cluttered machine"
     ]
   },
   "why": {
     "kicker": "Why BTP",
     "title": "Why choose us",
     "items": [
-      { "n": "01", "t": "Direct contact", "d": "No handoffs between departments. You talk to the people doing the work." },
-      { "n": "02", "t": "No templates", "d": "Nothing from a page builder. Every site built from scratch." },
-      { "n": "03", "t": "Diagnosis first", "d": "Before we touch anything, we know what's wrong and why." }
+      { "t": "You deal with us directly", "d": "No departments, no handoffs. Whoever picks up is the person doing the work." },
+      { "t": "Built, not assembled", "d": "No page builders, no themes. Every site starts from an empty file." },
+      { "t": "We diagnose before we quote", "d": "We find out what's actually wrong, and why, before anyone touches it." }
     ]
   },
   "expect": {
     "kicker": "What to expect",
     "title": "No surprises",
     "items": [
-      { "t": "Price upfront", "d": "You know the cost before we say yes. No end-of-job invoices that don't add up." },
-      { "t": "Plain language", "d": "We explain what's wrong clearly. No jargon, no scare tactics." },
-      { "t": "A kept deadline", "d": "You get the timeline at the start and we hold it. If it's at risk, you hear first." },
-      { "t": "Honesty", "d": "If a repair isn't worth it or isn't possible, we say so. We don't sell needless work." }
+      { "t": "The price first", "d": "You know what it costs before we start. No invoice at the end that doesn't add up." },
+      { "t": "Straight answers", "d": "We tell you what's wrong in plain words. No jargon, no scare tactics." },
+      { "t": "A deadline we keep", "d": "You get the date up front and we hold it. If that slips, you hear it first." },
+      { "t": "The honest call", "d": "If a repair isn't worth it, or can't be done, we say so. We don't sell work you don't need." }
     ]
   },
   "fit": {
@@ -82,10 +82,10 @@
     "kicker": "How it works",
     "title": "Process",
     "steps": [
-      { "n": "01", "t": "Diagnose", "d": "We find out what's really going on - and what isn't.", "note": "within 30 min" },
-      { "n": "02", "t": "Plan", "d": "We give you the price, time and plan upfront, in writing.", "note": "no surprises" },
-      { "n": "03", "t": "Build", "d": "We do it properly, not just fast. Quality parts, clean work.", "note": "usually within 48 h" },
-      { "n": "04", "t": "Handover", "d": "It works, you know how to use it, and it's under warranty.", "note": "with warranty" }
+      { "t": "Diagnose", "d": "We figure out what's actually going on, and rule out what isn't.", "note": "within 30 min" },
+      { "t": "Plan", "d": "You get the price, the timeline and the plan in writing before we start.", "note": "no surprises" },
+      { "t": "Build", "d": "Done properly, not just quickly. Good parts, clean work.", "note": "usually within 48 h" },
+      { "t": "Handover", "d": "It works, you know how to run it, and it's covered.", "note": "with warranty" }
     ]
   },
   "trust": {
@@ -200,9 +200,9 @@
       ],
       "afterTitle": "What happens next",
       "after": [
-        { "n": "01", "t": "We reply", "d": "Within 24 hours with first questions, or a slot straight away." },
-        { "n": "02", "t": "Diagnosis & price", "d": "For repairs we find the cause and send a fixed price. You approve it." },
-        { "n": "03", "t": "We get to work", "d": "We work and you know what stage it's at. You get a warranty at the end." }
+        { "t": "We get back to you", "d": "Within 24 hours, either with a couple of questions or a slot to book." },
+        { "t": "Diagnosis and price", "d": "For repairs we find the cause and send a fixed price. Nothing moves until you okay it." },
+        { "t": "We get to work", "d": "We do the work and keep you posted on where it's at. You get a warranty at the end." }
       ],
       "reassurance": "You pay nothing until you know the price and approve it.",
       "areaTitle": "Where we work",
