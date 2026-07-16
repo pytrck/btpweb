@@ -35,11 +35,14 @@ export function Button({ href, children, variant = "primary" }: Props) {
   }
 
   const base =
-    "btp-focus group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded px-6 py-3 text-sm font-medium transition-colors duration-300";
+    "btp-focus group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded px-6 py-3 text-sm font-medium";
+  // primary: the shared premium paper button (inset highlight, vapor under-glow,
+  // lift, and a vapor sheen that sweeps across on hover — see .btn-paper).
+  // ghost: quiet glass tile.
   const styles =
     variant === "primary"
-      ? "border border-paper bg-paper text-ink hover:bg-transparent hover:text-paper"
-      : "border border-line text-paper hover:border-paper";
+      ? "btn-paper"
+      : "border border-line bg-white/[0.03] text-paper backdrop-blur-sm transition-colors duration-300 hover:border-paper/60 hover:bg-white/[0.07]";
 
   return (
     <motion.span
@@ -52,36 +55,18 @@ export function Button({ href, children, variant = "primary" }: Props) {
     <MotionLink
       href={href}
       className={`${base} ${styles}`}
-      whileHover="hover"
       whileTap={{ scale: 0.97 }}
-      initial="rest"
-      animate="rest"
       transition={{ duration: 0.18, ease: EASE }}
     >
       <span className="relative z-10">{children}</span>
-      <motion.span
+      <span
         aria-hidden
-        className="relative z-10 text-accent-from"
-        variants={{ rest: { x: 0, opacity: variant === "ghost" ? 0.7 : 1 }, hover: { x: 4 } }}
+        className={`relative z-10 text-accent-from transition-transform duration-300 group-hover:translate-x-1 ${
+          variant === "ghost" ? "opacity-70" : ""
+        }`}
       >
         →
-      </motion.span>
-      {/* vapor edge that ignites along the bottom on hover */}
-      <motion.span
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 h-px origin-left bg-fracture"
-        variants={{ rest: { scaleX: 0, opacity: 0 }, hover: { scaleX: 1, opacity: 1 } }}
-        transition={{ duration: 0.4, ease: EASE }}
-      />
-      {/* vapor wash that sweeps up on hover (primary only) */}
-      {variant === "primary" && (
-        <motion.span
-          aria-hidden
-          className="absolute inset-0 origin-bottom bg-[radial-gradient(circle_at_bottom,rgba(255,16,240,0.25),transparent_70%)]"
-          variants={{ rest: { scaleY: 0, opacity: 0 }, hover: { scaleY: 1, opacity: 1 } }}
-          transition={{ duration: 0.4, ease: EASE }}
-        />
-      )}
+      </span>
     </MotionLink>
     </motion.span>
   );

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Link } from "@/i18n/routing";
 import { cardHover, cardEdge, cardArrow } from "@/lib/motion";
+import { useSpotlight } from "@/lib/useSpotlight";
 
 const MotionLink = motion(Link);
 
@@ -19,14 +20,17 @@ export function WorkCard({
   slug: string;
   result?: string;
 }) {
+  const { ref, onPointerMove } = useSpotlight<HTMLAnchorElement>();
   return (
     <MotionLink
+      ref={ref}
       href={`/prace/${slug}`}
+      onPointerMove={onPointerMove}
       initial="rest"
       whileHover="hover"
       animate="rest"
       variants={cardHover}
-      className="btp-focus group relative flex h-full flex-col overflow-hidden border border-line p-8 transition-colors duration-300 hover:border-paper"
+      className="btp-focus spotlight group relative flex h-full flex-col overflow-hidden border border-line p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-paper/70"
     >
       {/* vapor edge ignites down the left on hover */}
       <motion.span

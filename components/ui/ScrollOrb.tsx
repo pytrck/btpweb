@@ -1,13 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useReducer, useRef, useState } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionTemplate,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 
 /**
  * A violet orb with a blurred glow that rides a smooth sine trajectory drawn
@@ -17,83 +11,100 @@ import {
  *
  * Signature beat: the path stays smooth (the "pattern"); in the GLITCH zone the
  * orb tears off the line into a jagged stutter, the core splits into chromatic
- * ghosts, and a glitched "BROKE THE PATTERN" tag flickers in. Positioned with
- * GPU translate3d for smoothness. Reduced-motion → hidden.
+ * ghosts, and a glitched tag flickers in. The glitch loops are CSS animations
+ * kept alive even under reduced motion (see globals.css) — a deliberate brand
+ * choice. Position is GPU translate3d, scroll-linked.
+ *
+ * Every page gets its own orb by varying `text` / `amp` / `cycles` / `jag`, so
+ * the trajectory and the glitch differ as you move around the site.
  */
 const CENTER = 50; // horizontal centre of the wave, % of page width
-const AMP = 40; // sway amplitude, % → sweeps nearly the full width
-const CYCLES = 2.2; // full waves across the whole scroll
 const SEGMENTS = 140;
-const ANCHOR = 0.52; // orb's resting height in the viewport (0=top, 1=bottom)
 
-// where the orb breaks the pattern (fraction of total scroll) — starts earlier
-// and runs longer so the glitch beat is more prominent
-const GLITCH_START = 0.3;
-const GLITCH_END = 0.62;
-const GLITCH_TEXT = "BROKE THE PATTERN";
+type ScrollOrbProps = {
+  /** the glitch tag text that flickers in inside the glitch zone */
+  text?: string;
+  /** sway amplitude, % of page width */
+  amp?: number;
+  /** number of full waves across the whole scroll */
+  cycles?: number;
+  /** orb's resting height in the viewport (0=top, 1=bottom) */
+  anchor?: number;
+  /** glitch zone as [start, end] fraction of total scroll */
+  glitchStart?: number;
+  glitchEnd?: number;
+  /** stutter frequency inside the glitch zone — higher = choppier */
+  jag?: number;
+};
 
 function clamp(v: number, lo: number, hi: number) {
   return Math.min(hi, Math.max(lo, v));
 }
 
-/** deterministic stutter inside the glitch zone (SSR-safe — no randomness) */
-function glitchX(t: number) {
-  if (t < GLITCH_START || t > GLITCH_END) return 0;
-  const local = (t - GLITCH_START) / (GLITCH_END - GLITCH_START); // 0..1
-  return Math.sign(Math.sin(local * Math.PI * 13)) * 16;
-}
-
-/** the clean trajectory — smooth sine, no glitch (this is the "pattern") */
-function smoothX(t: number) {
-  return clamp(CENTER + AMP * Math.sin(t * Math.PI * 2 * CYCLES), 3, 97);
-}
-
-/** the orb's own x — rides the smooth path, but tears off it in the glitch zone */
-function orbX(t: number) {
-  return clamp(smoothX(t) + glitchX(t), 2, 98);
-}
-
-export function ScrollOrb() {
-  const reduce = useReducedMotion();
+export function ScrollOrb({
+  text = "BROKE THE PATTERN",
+  amp = 40,
+  cycles = 2.2,
+  anchor = 0.52,
+  glitchStart = 0.3,
+  glitchEnd = 0.62,
+  jag = 13,
+}: ScrollOrbProps = {}) {
   const ref = useRef<HTMLDivElement>(null);
-  // bump on mount/resize so the transforms re-initialise once the container has
-  // a real size (and after any layout shift), without caching stale dimensions
+  // Cache the container's size instead of reading clientWidth/Height every scroll
+  // frame (which forces a synchronous layout and janks the scroll). Refreshed on
+  // mount, resize, and any layout shift via ResizeObserver — so it stays exact.
+  const dims = useRef({ w: 0, h: 0 });
   const [, force] = useReducer((c: number) => c + 1, 0);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const measure = () => {
+      dims.current = { w: el.clientWidth, h: el.clientHeight };
+    };
+    measure();
     setReady(true);
     force();
-    const ro = new ResizeObserver(() => force());
+    const onResize = () => {
+      measure();
+      force();
+    };
+    const ro = new ResizeObserver(onResize);
     ro.observe(el);
-    window.addEventListener("resize", force);
+    window.addEventListener("resize", onResize);
     return () => {
       ro.disconnect();
-      window.removeEventListener("resize", force);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
   const { scrollY } = useScroll();
 
-  // page-fraction of the point currently resting at ANCHOR in the viewport.
-  // The container's LIVE size is read each frame so the orb shares the exact
-  // coordinate basis as the SVG line (which is sized by `h-full`) — no caching,
-  // so the orb can't drift off the path when layout shifts. Raw scroll (no
-  // spring) keeps it glued to the static line.
+  // clean trajectory — smooth sine (this is the "pattern")
+  const smoothX = (t: number) => clamp(CENTER + amp * Math.sin(t * Math.PI * 2 * cycles), 3, 97);
+  // deterministic stutter inside the glitch zone (SSR-safe — no randomness)
+  const glitchX = (t: number) => {
+    if (t < glitchStart || t > glitchEnd) return 0;
+    const local = (t - glitchStart) / (glitchEnd - glitchStart);
+    return Math.sign(Math.sin(local * Math.PI * jag)) * 16;
+  };
+  // the orb rides the smooth path but tears off it in the glitch zone
+  const orbX = (t: number) => clamp(smoothX(t) + glitchX(t), 2, 98);
+
+  // page-fraction of the point currently resting at `anchor` in the viewport.
   const frac = (v: number) => {
-    const el = ref.current;
-    const h = el?.clientHeight ?? 0;
-    return h ? clamp((v + ANCHOR * window.innerHeight) / h, 0, 1) : 0;
+    const h = dims.current.h;
+    return h ? clamp((v + anchor * window.innerHeight) / h, 0, 1) : 0;
   };
 
-  const tx = useTransform(scrollY, (v) => (orbX(frac(v)) / 100) * (ref.current?.clientWidth ?? 0));
-  const ty = useTransform(scrollY, (v) => frac(v) * (ref.current?.clientHeight ?? 0));
+  const tx = useTransform(scrollY, (v) => (orbX(frac(v)) / 100) * dims.current.w);
+  const ty = useTransform(scrollY, (v) => frac(v) * dims.current.h);
   const transform = useMotionTemplate`translate3d(${tx}px, ${ty}px, 0)`;
   const glitchOpacity = useTransform(scrollY, (v) => {
     const f = frac(v);
-    return f > GLITCH_START && f < GLITCH_END ? 1 : 0;
+    return f > glitchStart && f < glitchEnd ? 1 : 0;
   });
 
   // full trajectory as an SVG polyline in a 0..100 × 0..100 space
@@ -104,11 +115,9 @@ export function ScrollOrb() {
       pts.push(`${smoothX(t).toFixed(2)},${(t * 100).toFixed(2)}`);
     }
     return pts.join(" ");
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [amp, cycles]);
 
-  if (reduce) return null;
-
-  // behind-content layer: trajectory + orb + tag (text reads on top of it)
   return (
     <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
       {/* trajectory path — smooth, scrolls with the page; fades in on load */}
@@ -150,52 +159,46 @@ export function ScrollOrb() {
           transition={{ type: "spring", stiffness: 55, damping: 11, mass: 0.9, delay: 0.45 }}
         >
           {/* all centred on the orb's ORIGIN (0,0), not the parent's width */}
-          {/* soft outer glow */}
-          <div className="absolute left-0 top-0 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,16,240,0.28),transparent_60%)] blur-2xl" />
+          {/* soft outer glow — restrained so it reads as light, not a muddy blob */}
+          <div className="absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,16,240,0.17),transparent_62%)] blur-2xl" />
           {/* mid halo */}
-          <div className="absolute left-0 top-0 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(179,12,170,0.55),transparent_65%)] blur-xl" />
+          <div className="absolute left-0 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(179,12,170,0.42),transparent_66%)] blur-xl" />
 
           {/* chromatic ghosts — surge in the glitch zone. Centring lives on the
-              wrapper; the jitter animation runs on the inner dot so its
-              transform can't clobber the -50%/-50% centring. */}
+              wrapper; the jitter runs on the inner dot so its transform can't
+              clobber the -50%/-50% centring. */}
           <motion.div
             style={{ opacity: glitchOpacity }}
             className="absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="h-full w-full rounded-full bg-cyan-400 mix-blend-screen animate-[orb-glitch-a_2.6s_steps(1)_infinite]" />
+            <div className="orb-ghost-a h-full w-full rounded-full bg-cyan-400 mix-blend-screen" />
           </motion.div>
           <motion.div
             style={{ opacity: glitchOpacity }}
             className="absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="h-full w-full rounded-full bg-red-500 mix-blend-screen animate-[orb-glitch-b_2.6s_steps(1)_infinite]" />
+            <div className="orb-ghost-b h-full w-full rounded-full bg-red-500 mix-blend-screen" />
           </motion.div>
 
           {/* solid core */}
           <div className="absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2">
-            <div className="h-full w-full rounded-full bg-accent-from shadow-[0_0_14px_4px_rgba(255,16,240,0.7)] animate-[orb-jitter_3.4s_steps(1)_infinite]" />
+            <div className="orb-core h-full w-full rounded-full bg-accent-from shadow-[0_0_14px_4px_rgba(255,16,240,0.7)]" />
           </div>
         </motion.div>
       </motion.div>
 
-      {/* "BROKE THE PATTERN" tag — rides with the orb, behind the page text */}
+      {/* glitch tag — rides with the orb, behind the page text */}
       <motion.div
         style={{ transform, opacity: glitchOpacity }}
         className="absolute left-0 top-0 will-change-transform"
       >
         <div className="glitch-tag relative -translate-y-10 translate-x-7 whitespace-nowrap font-mono text-xs font-bold uppercase tracking-[0.35em] md:text-sm">
-          <span className="relative z-10 text-paper">{GLITCH_TEXT}</span>
-          <span
-            aria-hidden
-            className="absolute inset-0 text-accent-from mix-blend-screen animate-[glitch-tag-a_1.1s_steps(2)_infinite]"
-          >
-            {GLITCH_TEXT}
+          <span className="relative z-10 text-paper">{text}</span>
+          <span aria-hidden className="orb-tag-a absolute inset-0 text-accent-from mix-blend-screen">
+            {text}
           </span>
-          <span
-            aria-hidden
-            className="absolute inset-0 text-cyan-400 mix-blend-screen animate-[glitch-tag-b_0.85s_steps(2)_infinite]"
-          >
-            {GLITCH_TEXT}
+          <span aria-hidden className="orb-tag-b absolute inset-0 text-cyan-400 mix-blend-screen">
+            {text}
           </span>
         </div>
       </motion.div>

@@ -7,7 +7,7 @@ export default {
       colors: {
         ink: "#0A0A0B",
         paper: "#FAFAF8",
-        muted: "#6B6B70",
+        muted: "#8B8B93",
         line: "rgba(255,255,255,0.10)",
         accent: { from: "#FF10F0", to: "#130013" },
       },

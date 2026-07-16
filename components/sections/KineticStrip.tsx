@@ -14,58 +14,16 @@ import {
   useReducedMotion,
 } from "framer-motion";
 
-const BASE_SPEED = 45; // px/s — constant drift
-const MAX_BOOST = 320; // px/s — extra speed added by fast scrolling
+// Enough copies that a single set stays wider than any viewport, so the loop
+// never scrolls past the last item (the "long pause" gap). The animation shifts
+// exactly one set (100/COPIES %), so the loop point is seamless and the speed is
+// unchanged regardless of COPIES.
+const COPIES = 6;
 
-/**
- * Scroll-reactive marquee. One "set" of the words is measured, then repeated
- * enough times to always overflow the container (≥ 2× width) so the loop never
- * shows empty space. It animates in pixels by exactly one set width and wraps,
- * so the seam is invisible. Scroll speed adds to the drift. Reduced-motion →
- * static.
- */
 export function KineticStrip() {
   const t = useTranslations();
   const items = t.raw("strip") as string[];
-  const reduce = useReducedMotion();
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  const setRef = useRef<HTMLDivElement>(null);
-  const [copies, setCopies] = useState(3);
-  const [setW, setSetW] = useState(0);
-
-  useEffect(() => {
-    const measure = () => {
-      const cw = containerRef.current?.clientWidth ?? 0;
-      const sw = setRef.current?.offsetWidth ?? 0;
-      if (sw > 0) {
-        setSetW(sw);
-        // enough sets so the row is ≥ 2× the container (never runs dry)
-        setCopies(Math.max(3, Math.ceil((cw * 2) / sw) + 1));
-      }
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [items.length]);
-
-  const baseX = useMotionValue(0);
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, { damping: 50, stiffness: 300 });
-  const boost = useTransform(smoothVelocity, [-2000, 0, 2000], [-MAX_BOOST, 0, MAX_BOOST], {
-    clamp: true,
-  });
-
-  // wrap into [-setW, 0] so the row loops seamlessly (px-based)
-  const xPx = useTransform(baseX, (v) => (setW > 0 ? wrap(-setW, 0, v) : 0));
-  const x = useMotionTemplate`${xPx}px`;
-
-  useAnimationFrame((_, delta) => {
-    if (reduce || setW <= 0) return;
-    const dt = Math.min(delta, 50) / 1000;
-    baseX.set(baseX.get() - (BASE_SPEED + boost.get()) * dt);
-  });
+  const row = Array.from({ length: COPIES }, () => items).flat();
 
   return (
     <div
@@ -91,7 +49,8 @@ export function KineticStrip() {
             ))}
           </div>
         ))}
-      </motion.div>
+      </div>
+      <style>{`@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-${(100 / COPIES).toFixed(4)}%)}}`}</style>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { buildMeta } from "@/lib/meta";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CTABlock } from "@/components/sections/CTABlock";
+import { ScrollOrb } from "@/components/ui/ScrollOrb";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Team } from "@/components/sections/Team";
@@ -28,16 +29,14 @@ export default async function AboutPage({ params }: { params: { locale: string }
   const standards = t.raw("standards") as Block[];
   const refuse = t.raw("refuse") as string[];
   return (
-    <>
+    <div className="relative">
+      <ScrollOrb text="NO EXCUSES" amp={30} cycles={1.4} jag={11} anchor={0.46} />
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
       <section className="container-x pb-section">
         <Stagger className="hairgrid md:grid-cols-2" stagger={0.1}>
-          {blocks.map((b, i) => (
+          {blocks.map((b) => (
             <StaggerItem key={b.t} className="bg-ink p-10">
-              <span className="font-mono text-sm text-accent-from">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h2 className="mt-3 font-head text-h3">{b.t}</h2>
+              <h2 className="font-head text-h3">{b.t}</h2>
               <p className="mt-3 text-muted">{b.d}</p>
             </StaggerItem>
           ))}
@@ -57,7 +56,7 @@ export default async function AboutPage({ params }: { params: { locale: string }
         <Stagger className="-mt-px hairgrid sm:grid-cols-2 md:grid-cols-3" stagger={0.06}>
           {capabilities.map((c, i) => (
             <StaggerItem key={i} className="group flex items-center gap-4 bg-ink p-6">
-              <span className="font-mono text-accent-from">{String(i + 1).padStart(2, "0")}</span>
+              <span className="text-accent-from">—</span>
               <span className="text-muted transition-colors duration-300 group-hover:text-paper">
                 {c}
               </span>
@@ -69,12 +68,9 @@ export default async function AboutPage({ params }: { params: { locale: string }
       <section className="container-x pb-section">
         <SectionHeader kicker={t("standardsTitle")} title={t("futureTitle")} />
         <Stagger className="hairgrid md:grid-cols-3" stagger={0.1}>
-          {standards.map((s, i) => (
+          {standards.map((s) => (
             <StaggerItem key={s.t} className="bg-ink p-10">
-              <span className="font-mono text-sm text-accent-from">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-3 font-head text-h3">{s.t}</h3>
+              <h3 className="font-head text-h3">{s.t}</h3>
               <p className="mt-3 text-muted">{s.d}</p>
             </StaggerItem>
           ))}
@@ -97,6 +93,6 @@ export default async function AboutPage({ params }: { params: { locale: string }
       <Team />
 
       <CTABlock />
-    </>
+    </div>
   );
 }

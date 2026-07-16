@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { buildMeta } from "@/lib/meta";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { ScrollOrb } from "@/components/ui/ScrollOrb";
 
 export async function generateMetadata({
   params,
@@ -19,10 +20,11 @@ export default async function ContactPage({ params }: { params: { locale: string
   const help = t.raw("helpItems") as string[];
   const channels = t.raw("channels") as { label: string; value: string }[];
   const checklist = t.raw("checklist") as string[];
-  const after = t.raw("after") as { n: string; t: string; d: string }[];
+  const after = t.raw("after") as { t: string; d: string }[];
   const guarantees = t.raw("guarantees") as { t: string; d: string }[];
   return (
-    <>
+    <div className="relative">
+      <ScrollOrb text="LET'S BREAK IT" amp={42} cycles={2.1} jag={21} />
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
 
       <section className="container-x pb-section">
@@ -82,9 +84,8 @@ export default async function ContactPage({ params }: { params: { locale: string
         <p className="label text-accent-from">{t("afterTitle")}</p>
         <div className="mt-6 hairgrid md:grid-cols-3">
           {after.map((a) => (
-            <div key={a.n} className="bg-ink p-8">
-              <span className="font-mono text-2xl text-muted">{a.n}</span>
-              <h3 className="mt-4 font-head text-h3">{a.t}</h3>
+            <div key={a.t} className="bg-ink p-8">
+              <h3 className="font-head text-h3">{a.t}</h3>
               <p className="mt-2 text-sm text-muted">{a.d}</p>
             </div>
           ))}
@@ -95,6 +96,6 @@ export default async function ContactPage({ params }: { params: { locale: string
           <p className="mt-3 max-w-xl text-muted">{t("area")}</p>
         </div>
       </section>
-    </>
+    </div>
   );
 }
