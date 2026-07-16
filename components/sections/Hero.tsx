@@ -4,8 +4,8 @@ import { useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { heroContainer, heroItem, lineMask } from "@/lib/motion";
-import { gsap } from "@/lib/gsap";
+import { HeroAtmosphere } from "@/components/ui/HeroAtmosphere";
+import { heroContainer, heroItem, lineMask, EASE } from "@/lib/motion";
 
 const BRAND = "Break The Pattern";
 
@@ -197,7 +197,7 @@ export function Hero() {
       </div>
       <motion.div
         style={{ y, scale, opacity }}
-        className="container-x grid min-h-[86vh] grid-cols-12 content-center gap-y-8 py-section"
+        className="container-x relative z-10 grid min-h-[86vh] grid-cols-12 content-center gap-y-8 py-section"
       >
         <motion.div className="contents" variants={heroContainer} initial="hidden" animate="show">
           <div className="col-span-12 md:col-span-11">
