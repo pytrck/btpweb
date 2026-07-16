@@ -40,5 +40,8 @@ yarn-error.log*
 # vercel
 .vercel
 
-# Claude Code local files
+# internal working docs / AI tooling — kept local, never published
+CLAUDE.md
+PRODUCT.md
+.impeccable/
 .claude/

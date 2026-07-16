@@ -65,7 +65,7 @@ export function ContactForm() {
         type="submit"
         whileTap={{ scale: 0.97 }}
         transition={{ duration: 0.15, ease: EASE }}
-        className="btp-focus group relative inline-flex items-center gap-2 overflow-hidden rounded border border-paper bg-paper px-6 py-3 text-sm font-medium text-ink transition-colors duration-300 hover:bg-transparent hover:text-paper"
+        className="btp-focus btn-paper group relative inline-flex items-center gap-2 overflow-hidden rounded px-6 py-3 text-sm font-medium"
       >
         <span className="relative z-10">{t("submit")}</span>
         <span className="relative z-10 text-accent-from transition-transform duration-300 group-hover:translate-x-1">

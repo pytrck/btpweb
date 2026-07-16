@@ -4,6 +4,7 @@ import { services } from "@/content/services";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CTABlock } from "@/components/sections/CTABlock";
+import { ScrollOrb } from "@/components/ui/ScrollOrb";
 import { buildMeta } from "@/lib/meta";
 
 export async function generateMetadata({
@@ -19,7 +20,8 @@ export default async function ServicesPage({ params }: { params: { locale: strin
   setRequestLocale(params.locale);
   const t = await getTranslations("pages.services");
   return (
-    <>
+    <div className="relative">
+      <ScrollOrb text="NO TEMPLATES" amp={34} cycles={1.7} jag={9} />
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
       <section className="container-x pb-section">
         <div className="grid gap-px md:grid-cols-2">
@@ -35,6 +37,6 @@ export default async function ServicesPage({ params }: { params: { locale: strin
         </div>
       </section>
       <CTABlock />
-    </>
+    </div>
   );
 }

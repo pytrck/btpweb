@@ -16,23 +16,26 @@ export default function NotFound() {
         <h1 className="font-head text-[clamp(5rem,22vw,16rem)] font-bold leading-none tracking-tight">
           4<span className="vapor-text">0</span>4
         </h1>
+        {/* initial states stay identical on server and client (SSR can't know
+            the reduced-motion preference) - reduce collapses the transitions
+            to an instant resolve instead. */}
         <motion.div
           aria-hidden
           className="absolute left-[-4%] top-1/2 h-px w-[108%] origin-left vapor-center"
           style={{ rotate: -9 }}
-          initial={{ scaleX: reduce ? 1 : 0, opacity: reduce ? 0.85 : 0 }}
+          initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 0.9 }}
-          transition={{ duration: 0.9, ease: EASE, delay: 0.15 }}
+          transition={reduce ? { duration: 0.01 } : { duration: 0.9, ease: EASE, delay: 0.15 }}
         />
-        {!reduce && (
-          <motion.div
-            aria-hidden
-            className="absolute left-1/2 top-1/2 h-[6px] w-[6px] -translate-x-1/2 rotate-45 bg-accent-from"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: 0.75 }}
-          />
-        )}
+        <motion.div
+          aria-hidden
+          className="absolute left-1/2 top-1/2 h-[6px] w-[6px] -translate-x-1/2 rotate-45 bg-accent-from"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={
+            reduce ? { duration: 0.01 } : { duration: 0.3, ease: "easeOut", delay: 0.75 }
+          }
+        />
       </div>
 
       <h2 className="mt-8 font-head text-h2 font-bold">Tady se vzor rozbil.</h2>

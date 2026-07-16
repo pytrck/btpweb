@@ -19,8 +19,8 @@ import { useEffect, useRef, useState } from "react";
  * invisible. Pair with a time-based tween in the consumer for device-consistent
  * pacing.
  */
-export function useReveal(amount = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
+export function useReveal<T extends HTMLElement = HTMLDivElement>(amount = 0.15) {
+  const ref = useRef<T>(null);
   const [shown, setShown] = useState(false);
 
   useEffect(() => {

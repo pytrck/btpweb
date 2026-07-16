@@ -4,10 +4,10 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 
 /**
- * Signature seam between sections: a centre-weighted vapor crack that draws and
- * glows as you scroll through it, with a fracture notch on the seam. The strip
- * is transparent, so the scroll orb passes behind it — the crack reads as light
- * leaking through. Animates transform/opacity only.
+ * A vapor fracture drawn across the page between sections. No opaque panels: the
+ * container is transparent, so the page background and the scroll orb pass right
+ * through — only the glow, the drawn seam, and the notch render. The seam draws
+ * in and brightens as it crosses the viewport.
  */
 export function FractureDivider() {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,36 +17,29 @@ export function FractureDivider() {
     offset: ["start end", "end start"],
   });
 
-  const scaleX = useTransform(scrollYProgress, [0.1, 0.5], [reduce ? 1 : 0.25, 1]);
-  const glow = useTransform(scrollYProgress, [0.15, 0.5, 0.85], [0.15, 1, 0.45]);
-  const notch = useTransform(scrollYProgress, [0.35, 0.62], [reduce ? 1 : 0, 1]);
+  // seam draws in as it crosses; glow blooms brightest at centre pass
+  const scaleX = useTransform(scrollYProgress, [0.15, 0.5], [reduce ? 1 : 0.15, 1]);
+  const glow = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0.35, 1, 0.5]);
 
   return (
-    <div
-      ref={ref}
-      aria-hidden
-      className="relative h-[15vh] overflow-hidden md:h-[20vh]"
-    >
-      {/* soft vapor bloom radiating from the centre of the crack */}
+    <div ref={ref} aria-hidden className="relative h-[12vh] overflow-hidden md:h-[16vh]">
+      {/* radial vapor bloom that fades to transparent on every side — no black
+          block; the ink page + orb show through */}
       <motion.div
-        className="absolute left-1/2 top-1/2 h-28 w-[55%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(255,16,240,0.3),transparent_70%)] blur-2xl"
-        style={{ opacity: glow }}
+        className="absolute inset-0"
+        style={{
+          opacity: glow,
+          background:
+            "radial-gradient(ellipse 60% 42% at 50% 50%, rgba(255,16,240,0.5), rgba(255,16,240,0.08) 42%, transparent 72%)",
+        }}
       />
-      {/* centre-weighted seam — fades to nothing at both ends */}
+      {/* the fracture seam — a bright vapor line that draws across the centre */}
       <motion.div
-        className="absolute left-0 top-1/2 h-px w-full origin-center -translate-y-1/2 vapor-center"
-        style={{ opacity: glow, scaleX }}
+        className="vapor-center absolute left-0 top-1/2 h-px w-full origin-center -translate-y-1/2"
+        style={{ scaleX, opacity: glow }}
       />
-      {/* thin bright core along the middle of the seam */}
-      <motion.div
-        className="absolute left-1/2 top-1/2 h-px w-[42%] origin-center -translate-x-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,transparent,#ff10f0,transparent)] blur-[1px]"
-        style={{ opacity: glow, scaleX }}
-      />
-      {/* fracture notch — square on the seam, centred on both axes */}
-      <motion.div
-        className="absolute left-1/2 top-1/2 h-2 w-2 bg-paper shadow-[0_0_16px_5px_rgba(255,16,240,0.9)]"
-        style={{ scale: notch, opacity: notch, x: "-50%", y: "-50%", rotate: 45 }}
-      />
+      {/* fracture notch riding the seam */}
+      <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-paper" />
     </div>
   );
 }

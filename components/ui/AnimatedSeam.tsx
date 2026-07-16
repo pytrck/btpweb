@@ -28,29 +28,36 @@ export function AnimatedSeam({
       initial="hidden"
       animate={shown ? "show" : "hidden"}
     >
+      {/* variants are identical on server and client (SSR can't know the
+          reduced-motion preference) - reduce branches only the transitions,
+          so both audiences land on the same resting seam + notch. */}
       <div className="relative h-px w-full">
         <motion.div
           className="absolute inset-0 origin-center vapor-center"
           variants={{
-            hidden: { scaleX: reduce ? 1 : 0, opacity: reduce ? 0.85 : 0.2 },
-            show: { scaleX: 1, opacity: 0.85, transition: { duration: DUR.seam, ease: EASE } },
+            hidden: { scaleX: 0, opacity: 0.2 },
+            show: {
+              scaleX: 1,
+              opacity: 0.85,
+              transition: reduce ? { duration: 0.01 } : { duration: DUR.seam, ease: EASE },
+            },
           }}
         />
-        {!reduce && (
-          <motion.div
-            className="absolute top-[-2px] h-[5px] w-[5px] bg-accent-from"
-            style={{ left: notchAt }}
-            variants={{
-              hidden: { scale: 0, opacity: 0, rotate: 45 },
-              show: {
-                scale: 1,
-                opacity: 1,
-                rotate: 45,
-                transition: { delay: 0.45, duration: DUR.fast, ease: "easeOut" },
-              },
-            }}
-          />
-        )}
+        <motion.div
+          className="absolute top-[-2px] h-[5px] w-[5px] bg-accent-from"
+          style={{ left: notchAt }}
+          variants={{
+            hidden: { scale: 0, opacity: 0, rotate: 45 },
+            show: {
+              scale: 1,
+              opacity: 1,
+              rotate: 45,
+              transition: reduce
+                ? { duration: 0.01 }
+                : { delay: 0.45, duration: DUR.fast, ease: "easeOut" },
+            },
+          }}
+        />
       </div>
     </motion.div>
   );
