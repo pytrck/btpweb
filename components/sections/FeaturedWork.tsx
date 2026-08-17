@@ -19,7 +19,7 @@ export function FeaturedWork() {
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 h-[60%] w-[80%] -translate-x-1/2 rounded-full"
         style={{
-          background: "radial-gradient(closest-side, rgba(255,16,240,0.06), transparent 72%)",
+          background: "radial-gradient(closest-side, rgba(143,2,248,0.06), transparent 72%)",
         }}
       />
       <div className="container-x relative">

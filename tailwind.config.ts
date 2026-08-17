@@ -5,11 +5,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#0A0A0B",
-        paper: "#FAFAF8",
+        ink: "#050505",
+        paper: "#FFFFFF",
         muted: "#8B8B93",
         line: "rgba(255,255,255,0.10)",
-        accent: { from: "#FF10F0", to: "#130013" },
+        accent: { from: "#8F02F8", to: "#160025" },
       },
       fontFamily: {
         head: ["var(--font-space)", "sans-serif"],
@@ -25,7 +25,7 @@ export default {
       borderRadius: { DEFAULT: "2px", sm: "2px", md: "4px" },
       spacing: { section: "clamp(3.5rem,10vw,10rem)" },
       backgroundImage: {
-        fracture: "linear-gradient(90deg,#FF10F0,#130013)",
+        fracture: "linear-gradient(90deg,#8F02F8,#160025)",
       },
       maxWidth: { content: "80rem" },
     },

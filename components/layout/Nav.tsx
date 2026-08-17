@@ -33,7 +33,7 @@ export function Nav() {
   return (
     <motion.header
       animate={{
-        backgroundColor: scrolled ? "rgba(10,10,11,0.85)" : "rgba(10,10,11,0.4)",
+        backgroundColor: scrolled ? "rgba(5,5,5,0.85)" : "rgba(5,5,5,0.4)",
         borderColor: scrolled ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0)",
       }}
       transition={{ duration: 0.4, ease: EASE }}

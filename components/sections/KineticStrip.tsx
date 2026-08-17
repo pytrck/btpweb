@@ -22,7 +22,7 @@ export function KineticStrip() {
             className="pr-8 font-head text-sm tracking-widest text-muted transition-colors duration-300 hover:text-paper"
           >
             {item}{" "}
-            <span className="text-accent-from [text-shadow:0_0_8px_rgba(255,16,240,0.85)]">
+            <span className="text-accent-from [text-shadow:0_0_8px_rgba(143,2,248,0.85)]">
               /
             </span>
           </span>
