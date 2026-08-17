@@ -11,6 +11,10 @@ next-env.d.ts
 
 # production
 /dist
+/video
+/public/showcase
+/remotion
+/showcase
 
 # misc / system
 .DS_Store
