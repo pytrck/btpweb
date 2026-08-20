@@ -199,7 +199,7 @@
       "response": "Čteme každou zprávu osobně. Odpovídáme do 24 hodin.",
       "channelsTitle": "Přímé kanály",
       "channels": [
-        { "label": "E-mail", "value": "ahoj@breakthepattern.cz" },
+        { "label": "E-mail", "value": "breakthepatterninfo@gmail.com" },
         { "label": "Telefon", "value": "+420 [číslo]" },
         { "label": "Odezva", "value": "do 24 hodin" }
       ],
