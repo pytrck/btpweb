@@ -6,10 +6,8 @@
 export const site = {
   name: "Break The Pattern",
   shortName: "BTP",
-  // TODO: confirm final production domain
   url: "https://breakthepattern.cz",
-  // TODO: replace with the real inbox
-  email: "ahoj@breakthepattern.cz",
+  email: "breakthepatterninfo@gmail.com",
   // TODO: replace with the real phone number
   phone: "+420 000 000 000",
   // TODO: replace with the real service city / area
