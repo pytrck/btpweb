@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { services, getService } from "@/content/services";
 import { buildMeta } from "@/lib/meta";
 import { Button } from "@/components/ui/Button";
-import { SectionSeam } from "@/components/ui/SectionSeam";
+import { AnimatedSeam } from "@/components/ui/AnimatedSeam";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -46,7 +46,7 @@ export default function ServiceDetail({
         </p>
       </section>
 
-      <SectionSeam />
+      <AnimatedSeam />
 
       <section className="container-x grid gap-12 py-section md:grid-cols-2">
         <div>

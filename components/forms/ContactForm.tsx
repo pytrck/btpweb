@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { services } from "@/content/services";
+import { site } from "@/content/site";
 import { EASE } from "@/lib/motion";
 
 function Field({
@@ -29,19 +30,45 @@ function Field({
 
 export function ContactForm() {
   const t = useTranslations("form");
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const field =
     "w-full border border-line bg-transparent px-4 py-3 text-paper outline-none transition-colors duration-300 focus:border-accent-from";
 
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus("sending");
+    const data = new FormData(form);
+    data.append("access_key", site.web3formsKey);
+    data.append("subject", `Nová poptávka — ${site.name}`);
+    data.append("from_name", site.name);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
+      const json = await res.json();
+      if (json.success) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
-    <form
-      className="space-y-5"
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSent(true);
-      }}
-    >
+    <form className="space-y-5" onSubmit={onSubmit}>
+      {/* honeypot — bots auto-fill this; web3forms rejects any submission where it's set */}
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        style={{ display: "none" }}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
       <Field label={t("name")}>
         <input name="name" required className={field} />
       </Field>
@@ -63,11 +90,12 @@ export function ContactForm() {
 
       <motion.button
         type="submit"
+        disabled={status === "sending"}
         whileTap={{ scale: 0.97 }}
         transition={{ duration: 0.15, ease: EASE }}
-        className="btp-focus btn-paper group relative inline-flex items-center gap-2 overflow-hidden rounded px-6 py-3 text-sm font-medium"
+        className="btp-focus btn-paper group relative inline-flex items-center gap-2 overflow-hidden rounded px-6 py-3 text-sm font-medium disabled:opacity-60"
       >
-        <span className="relative z-10">{t("submit")}</span>
+        <span className="relative z-10">{status === "sending" ? t("sending") : t("submit")}</span>
         <span className="relative z-10 text-accent-from transition-transform duration-300 group-hover:translate-x-1">
           →
         </span>
@@ -76,15 +104,31 @@ export function ContactForm() {
       <p className="text-sm text-muted">{t("note")}</p>
 
       <AnimatePresence>
-        {sent && (
+        {status === "sent" && (
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: EASE }}
+            role="status"
             className="text-sm text-accent-from"
           >
-            Odesláno. Ozveme se do 24 hodin.
+            {t("success")}
+          </motion.p>
+        )}
+        {status === "error" && (
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: EASE }}
+            role="alert"
+            className="text-sm text-muted"
+          >
+            {t("error")}{" "}
+            <a className="text-accent-from underline" href={`mailto:${site.email}`}>
+              {site.email}
+            </a>
           </motion.p>
         )}
       </AnimatePresence>

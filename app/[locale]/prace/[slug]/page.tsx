@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { projects, getProject } from "@/content/work";
 import { buildMeta } from "@/lib/meta";
 import { Button } from "@/components/ui/Button";
-import { SectionSeam } from "@/components/ui/SectionSeam";
+import { AnimatedSeam } from "@/components/ui/AnimatedSeam";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -58,7 +58,7 @@ export default function CaseStudy({
         </p>
       </section>
 
-      <SectionSeam />
+      <AnimatedSeam />
 
       <section className="container-x pb-4">
         <div className="hairgrid sm:grid-cols-3">

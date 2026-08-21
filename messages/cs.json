@@ -8,7 +8,8 @@
     "services": "Služby",
     "about": "O nás",
     "contact": "Kontakt",
-    "cta": "Začít projekt"
+    "cta": "Začít projekt",
+    "skip": "Přejít na obsah"
   },
   "hero": {
     "kicker": "BREAK THE PATTERN",
@@ -112,7 +113,7 @@
       { "q": "Od kolika se ceny pohybují?", "a": "Výměna displeje či baterie startuje řádově ve stovkách až nižších tisících podle modelu. Web podle rozsahu. Přesnou cenu vždy řekneme předem." },
       { "q": "Jak dlouhá je záruka?", "a": "Na opravy standardně 6 měsíců na díl i práci. Když se závada vrátí, řešíme to my." },
       { "q": "Co ovlivňuje termín?", "a": "Hlavně dostupnost dílů a rozsah závady. Pokud něco objednáváme, řekneme to hned na začátku." },
-      { "q": "Pracujete i na dálku?", "a": "Weby a část optimalizací řešíme vzdáleně. Opravy hardwaru osobně v [Město a okolí]." }
+      { "q": "Pracujete i na dálku?", "a": "Weby a část optimalizací řešíme vzdáleně. Opravy hardwaru osobně v Mladé Boleslavi a Liberci." }
     ]
   },
   "proof": {
@@ -138,7 +139,10 @@
     "type": "O co jde",
     "message": "Co potřebujeme vědět",
     "submit": "Odeslat poptávku",
-    "note": "Bez závazku. Bez prodejních keců. Stačí napsat, co řešíte."
+    "note": "Bez závazku. Bez prodejních keců. Stačí napsat, co řešíte.",
+    "sending": "Odesílám…",
+    "success": "Odesláno. Ozveme se do 24 hodin.",
+    "error": "Nepodařilo se odeslat. Napište nám prosím přímo:"
   },
   "pages": {
     "services": {
@@ -200,7 +204,6 @@
       "channelsTitle": "Přímé kanály",
       "channels": [
         { "label": "E-mail", "value": "breakthepatterninfo@gmail.com" },
-        { "label": "Telefon", "value": "+420 [číslo]" },
         { "label": "Odezva", "value": "do 24 hodin" }
       ],
       "checklistTitle": "Co přiložit",
@@ -223,7 +226,7 @@
       ],
       "reassurance": "Nic neplatíte, dokud neznáte cenu a neodsouhlasíte ji.",
       "areaTitle": "Kde působíme",
-      "area": "Osobní servis [Město a okolí]. Weby, konzultace a vzdálenou podporu po celé ČR."
+      "area": "Osobní servis v Mladé Boleslavi a Liberci. Weby, konzultace a vzdálenou podporu po celé ČR."
     }
   }
 }
