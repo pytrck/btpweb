@@ -14,10 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...services.map((s) => `/sluzby/${s.slug}`),
     ...projects.map((p) => `/prace/${p.slug}`),
   ];
-  return routing.locales.flatMap((locale) =>
-    paths.map((path) => ({
-      url: `${site.url}/${locale}${path}`,
+  return routing.locales.flatMap((locale) => {
+    // default locale (cs) lives at the root; non-default keeps its /<locale> prefix
+    const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
+    return paths.map((path) => ({
+      url: `${site.url}${prefix}${path}`,
       lastModified: new Date(),
-    })),
-  );
+    }));
+  });
 }
