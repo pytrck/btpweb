@@ -53,13 +53,13 @@ export function StatsBand() {
   const t = useTranslations("stats");
   const items = t.raw("items") as Stat[];
   return (
-    <section className="border-y border-line bg-ink">
+    <section className="border-y border-line bg-ink/60">
       <Stagger
-        className="container-x hairgrid sm:grid-cols-2 md:grid-cols-4"
+        className="container-x hairgrid sm:grid-cols-2 md:grid-cols-4 [background-color:transparent]"
         stagger={0.1}
       >
         {items.map((s, i) => (
-          <StaggerItem key={i} effect="scale" className="bg-ink px-6 py-12">
+          <StaggerItem key={i} effect="scale" className="px-6 py-12">
             <p className="font-head text-h2 font-bold">
               <CountValue value={s.v} />
             </p>
