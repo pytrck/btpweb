@@ -31,7 +31,7 @@ export function CTABlock() {
             show: { opacity: 1, transition: { duration: reduce ? 0.01 : 1.1, ease: EASE } },
           }}
         />
-        {/* measurement ticks — diagnosis motif on opposing corners */}
+        {/* measurement ticks - diagnosis motif on opposing corners */}
         <span
           aria-hidden
           className="absolute left-0 top-0 h-3 w-3 border-l border-t border-accent-from/70"

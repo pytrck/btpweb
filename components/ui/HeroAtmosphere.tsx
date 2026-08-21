@@ -28,7 +28,7 @@ export function HeroAtmosphere() {
   const fade = useTransform(scrollYProgress, [0, 0.85], [1, reduce ? 1 : 0]);
   const gridY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 80]);
 
-  // cursor lean — spring-smoothed normalized offset (-1..1)
+  // cursor lean - spring-smoothed normalized offset (-1..1)
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const sx = useSpring(mx, { stiffness: 60, damping: 20 });
@@ -74,12 +74,12 @@ export function HeroAtmosphere() {
       </motion.div>
 
       <motion.div style={{ y: driftY, opacity: fade }} className="absolute inset-0">
-        {/* glow A — magenta vapor, upper-left */}
+        {/* glow A - magenta vapor, upper-left */}
         <motion.div
           style={{ x: glowAX, y: glowAY }}
           className="absolute left-[8%] top-[12%] h-[44vh] w-[44vh] rounded-full bg-[radial-gradient(circle,rgba(143,2,248,0.22),transparent_62%)] blur-2xl animate-[float-a_14s_ease-in-out_infinite]"
         />
-        {/* glow B — deep violet, lower-right */}
+        {/* glow B - deep violet, lower-right */}
         <motion.div
           style={{ x: glowBX, y: glowBY }}
           className="absolute right-[6%] top-[40%] h-[52vh] w-[52vh] rounded-full bg-[radial-gradient(circle,rgba(143,2,248,0.20),transparent_64%)] blur-2xl animate-[float-b_18s_ease-in-out_infinite]"

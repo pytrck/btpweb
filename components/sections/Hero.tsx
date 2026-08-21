@@ -42,7 +42,7 @@ function FracturedBrand({ text }: { text: string }) {
       gsap.set(seam.current, { clipPath: "inset(0 100% 0 0)", opacity: 0.95 });
       gsap.set([upper.current, lower.current], { x: 0, y: 0 });
 
-      // The one-shot strike always plays — it's the brand signature moment.
+      // The one-shot strike always plays - it's the brand signature moment.
       // Only the scroll-linked parallax below respects reduced motion.
       const tl = gsap.timeline({ delay: 1.5 });
 
@@ -219,7 +219,7 @@ export function Hero() {
                 {t("ctaSecondary")}
               </Button>
             </motion.div>
-            {/* live availability signal — quiet, mono, one pulsing vapor dot */}
+            {/* live availability signal - quiet, mono, one pulsing vapor dot */}
             <motion.p
               variants={heroItem}
               className="mt-9 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.12em] text-muted"
