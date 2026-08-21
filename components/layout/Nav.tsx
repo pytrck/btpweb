@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { Link, usePathname, routing } from "@/i18n/routing";
 import { EASE } from "@/lib/motion";
 
@@ -72,11 +73,15 @@ export function Nav() {
         transition={{ duration: 0.4, ease: EASE }}
         className="container-x flex items-center justify-between"
       >
-        <Link
-          href="/"
-          className="btp-focus glitch-hover font-head text-lg font-bold tracking-tight"
-        >
-          BTP<span className="text-accent-from">.</span>
+        <Link href="/" className="btp-focus glitch-hover">
+          <Image
+            src="/logo.png"
+            alt="BTP"
+            width={512}
+            height={512}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
