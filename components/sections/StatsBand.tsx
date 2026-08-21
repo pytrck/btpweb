@@ -53,7 +53,7 @@ export function StatsBand() {
   const t = useTranslations("stats");
   const items = t.raw("items") as Stat[];
   return (
-    <section className="border-y border-line">
+    <section className="border-y border-line bg-ink">
       <Stagger
         className="container-x hairgrid sm:grid-cols-2 md:grid-cols-4"
         stagger={0.1}
