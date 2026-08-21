@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Link, usePathname } from "@/i18n/routing";
+import { Link, usePathname, routing } from "@/i18n/routing";
 import { EASE } from "@/lib/motion";
 
 const links = [
@@ -12,6 +12,34 @@ const links = [
   { href: "/o-nas", key: "about" },
   { href: "/kontakt", key: "contact" },
 ] as const;
+
+// CS/EN toggle. usePathname() (next-intl) returns the path without the locale
+// prefix, so re-linking it with a target `locale` swaps only the prefix and
+// keeps the visitor on the same page.
+function LocaleSwitcher({ onNavigate }: { onNavigate?: () => void }) {
+  const pathname = usePathname();
+  const active = useLocale();
+  return (
+    <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wide">
+      {routing.locales.map((l, i) => (
+        <span key={l} className="flex items-center gap-2">
+          {i > 0 && <span aria-hidden className="text-muted/40">/</span>}
+          <Link
+            href={pathname}
+            locale={l}
+            onClick={onNavigate}
+            aria-current={l === active ? "true" : undefined}
+            className={`btp-focus transition-colors ${
+              l === active ? "text-paper" : "text-muted hover:text-paper"
+            }`}
+          >
+            {l}
+          </Link>
+        </span>
+      ))}
+    </div>
+  );
+}
 
 export function Nav() {
   const t = useTranslations("nav");
@@ -72,6 +100,7 @@ export function Nav() {
           >
             {t("cta")}
           </Link>
+          <LocaleSwitcher />
         </nav>
 
         <button
@@ -138,6 +167,9 @@ export function Nav() {
               >
                 {t("cta")}
               </Link>
+              <div className="mt-4 border-t border-line pt-4">
+                <LocaleSwitcher onNavigate={() => setOpen(false)} />
+              </div>
             </motion.div>
           </motion.nav>
         )}

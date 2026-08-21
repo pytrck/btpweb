@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -37,14 +37,28 @@ export async function generateMetadata({
       description: t("description"),
       url,
       locale: params.locale === "en" ? "en_US" : "cs_CZ",
+      images: [{ url: "/opengraph-image.png", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
+      images: ["/opengraph-image.png"],
+    },
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     },
   };
 }
+
+export const viewport: Viewport = {
+  themeColor: "#050505",
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -62,6 +76,7 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const tNav = await getTranslations({ locale, namespace: "nav" });
 
   return (
     <html lang={locale} className={`${space.variable} ${inter.variable} ${mono.variable}`}>
@@ -76,18 +91,27 @@ export default async function LocaleLayout({
         {process.env.NODE_ENV === "production" && (
           <meta
             httpEquiv="Content-Security-Policy"
-            content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'"
+            content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'"
           />
         )}
         <meta name="referrer" content="strict-origin-when-cross-origin" />
       </head>
       <body>
+        {/* skip link — first focusable element, hidden until keyboard-focused (WCAG 2.4.1) */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink"
+        >
+          {tNav("skip")}
+        </a>
         {/* film grain above everything — the "printed on something" depth */}
         <div aria-hidden className="grain" />
         <NextIntlClientProvider messages={messages}>
           <ScrollProgress />
           <Nav />
-          <main>{children}</main>
+          <main id="main" tabIndex={-1} className="outline-none">
+            {children}
+          </main>
           <Footer />
         </NextIntlClientProvider>
       </body>
