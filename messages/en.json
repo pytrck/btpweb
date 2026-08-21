@@ -8,7 +8,8 @@
     "services": "Services",
     "about": "About",
     "contact": "Contact",
-    "cta": "Start a project"
+    "cta": "Start a project",
+    "skip": "Skip to content"
   },
   "hero": {
     "kicker": "BREAK THE PATTERN",
@@ -104,7 +105,7 @@
       { "q": "What's the price range?", "a": "A screen or battery swap starts in the low hundreds depending on the model. Sites depend on scope. We always quote exactly upfront." },
       { "q": "How long is the warranty?", "a": "Repairs come with 6 months on parts and labour as standard. If the fault returns, we handle it." },
       { "q": "What affects the timeline?", "a": "Mostly parts availability and the scope of the fault. If we have to order anything, you'll know at the start." },
-      { "q": "Do you work remotely?", "a": "Websites and some optimization, yes. Hardware repairs in person in [City and around]." }
+      { "q": "Do you work remotely?", "a": "Websites and some optimization, yes. Hardware repairs in person in Mladá Boleslav and Liberec." }
     ]
   },
   "proof": {
@@ -124,7 +125,10 @@
     "type": "What's it about",
     "message": "What we need to know",
     "submit": "Send inquiry",
-    "note": "No commitment. No sales talk. Just tell us what you're dealing with."
+    "note": "No commitment. No sales talk. Just tell us what you're dealing with.",
+    "sending": "Sending…",
+    "success": "Sent. We'll reply within 24 hours.",
+    "error": "Couldn't send. Please email us directly:"
   },
   "pages": {
     "services": { "title": "Services", "subtitle": "Five areas, one standard. Pick what you're dealing with." },
@@ -183,7 +187,6 @@
       "channelsTitle": "Direct channels",
       "channels": [
         { "label": "Email", "value": "breakthepatterninfo@gmail.com" },
-        { "label": "Phone", "value": "+420 [number]" },
         { "label": "Response", "value": "within 24 hours" }
       ],
       "checklistTitle": "What to include",
@@ -206,7 +209,7 @@
       ],
       "reassurance": "You pay nothing until you know the price and approve it.",
       "areaTitle": "Where we work",
-      "area": "In-person service in [City and around]. Websites, consulting and remote support across the country."
+      "area": "In-person service in Mladá Boleslav and Liberec. Websites, consulting and remote support across the country."
     }
   }
 }
