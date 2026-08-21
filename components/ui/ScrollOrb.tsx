@@ -131,9 +131,9 @@ export function ScrollOrb({
       >
         <defs>
           <linearGradient id="orb-trail" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#ff10f0" stopOpacity="0.04" />
-            <stop offset="50%" stopColor="#b30caa" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#7c0caa" stopOpacity="0.04" />
+            <stop offset="0%" stopColor="#8f02f8" stopOpacity="0.04" />
+            <stop offset="50%" stopColor="#8f02f8" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#8f02f8" stopOpacity="0.04" />
           </linearGradient>
         </defs>
         <polyline
@@ -160,9 +160,9 @@ export function ScrollOrb({
         >
           {/* all centred on the orb's ORIGIN (0,0), not the parent's width */}
           {/* soft outer glow — restrained so it reads as light, not a muddy blob */}
-          <div className="absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,16,240,0.17),transparent_62%)] blur-2xl" />
+          <div className="absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(143,2,248,0.17),transparent_62%)] blur-2xl" />
           {/* mid halo */}
-          <div className="absolute left-0 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(179,12,170,0.42),transparent_66%)] blur-xl" />
+          <div className="absolute left-0 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(143,2,248,0.42),transparent_66%)] blur-xl" />
 
           {/* chromatic ghosts — surge in the glitch zone. Centring lives on the
               wrapper; the jitter runs on the inner dot so its transform can't
@@ -182,7 +182,7 @@ export function ScrollOrb({
 
           {/* solid core */}
           <div className="absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2">
-            <div className="orb-core h-full w-full rounded-full bg-accent-from shadow-[0_0_14px_4px_rgba(255,16,240,0.7)]" />
+            <div className="orb-core h-full w-full rounded-full bg-accent-from shadow-[0_0_14px_4px_rgba(143,2,248,0.7)]" />
           </div>
         </motion.div>
       </motion.div>
