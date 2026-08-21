@@ -1,21 +1,21 @@
 "use client";
 
 import { Fragment } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { EASE } from "@/lib/motion";
 import { useReveal } from "@/lib/useReveal";
 
 /**
- * Headline whose words rise and brighten in sequence when it scrolls into view.
+ * Headline whose words slide up in sequence when scrolled into view.
  *
- * The reveal is driven by `useReveal` (IO + polling fallback + immediate mount
- * check) rather than a scroll-scrubbed progress value, so a heading that sits
- * where the page can't scroll it fully into view can never get stranded
- * half-revealed. There's no `overflow-hidden` clip either — `text-h2` runs a
- * 1.05 line-height, tighter than Czech diacritics (ď, ř, í, ž) need, so a clip
- * box would shave the tops of the glyphs. Words just translate + fade, so every
- * letter always renders in full. Real text (one node per word) → selectable and
- * accessible; reduced motion renders it plain.
+ * Always renders the motion path (no reduced-motion branch) so the server and
+ * client produce the same markup — avoids the hydration mismatch that stranded
+ * words at their initial style. Words stay at full opacity throughout; the
+ * entrance is purely positional (translateY), which is mild enough not to be a
+ * vestibular trigger.
+ *
+ * No `overflow-hidden` — `text-h2` runs a 1.05 line-height, tighter than Czech
+ * diacritics (ď, ř, í, ž) need, so a clip box would shave glyph tops.
  */
 export function AnimatedHeading({
   text,
@@ -24,16 +24,7 @@ export function AnimatedHeading({
   text: string;
   className?: string;
 }) {
-  const reduce = useReducedMotion();
   const { ref, shown } = useReveal<HTMLHeadingElement>(0.3);
-
-  if (reduce) {
-    return (
-      <h2 ref={ref} className={className}>
-        {text}
-      </h2>
-    );
-  }
 
   const words = text.split(" ");
   return (
@@ -42,8 +33,8 @@ export function AnimatedHeading({
         <Fragment key={i}>
           <motion.span
             className="inline-block"
-            initial={{ y: "0.4em", opacity: 0.1 }}
-            animate={shown ? { y: "0em", opacity: 1 } : { y: "0.4em", opacity: 0.1 }}
+            initial={{ y: "0.4em" }}
+            animate={shown ? { y: "0em" } : { y: "0.4em" }}
             transition={{ duration: 0.5, ease: EASE, delay: i * 0.06 }}
           >
             {w}
