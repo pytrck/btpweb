@@ -4,7 +4,7 @@ export function TrustBar() {
   const t = useTranslations("trust");
   const items = [t("reply"), t("warranty"), t("diag")];
   return (
-    <section className="border-y border-line">
+    <section className="border-y border-line bg-ink">
       <div className="container-x hairgrid md:grid-cols-3">
         {items.map((item) => (
           <div key={item} className="flex items-center justify-center gap-3 bg-ink px-6 py-8">
