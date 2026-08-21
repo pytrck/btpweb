@@ -52,7 +52,9 @@ function FracturedBrand({ text }: { text: string }) {
       gsap.set(seam.current, { clipPath: "inset(0 100% 0 0)", opacity: 0.95 });
       gsap.set([upper.current, lower.current], { x: 0, y: 0 });
 
-      const tl = gsap.timeline({ delay: 0.85 });
+      // Fires after the framer headline entrance settles (~1s) so the strike
+      // lands on the fully-revealed brand, not on text still masked mid-reveal.
+      const tl = gsap.timeline({ delay: 1.5 });
 
       // 1) The glint flies in from the left and races across the phrase, drawing
       //    the seam in its wake.
