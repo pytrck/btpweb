@@ -30,7 +30,7 @@ export function FractureDivider() {
         style={{
           opacity: glow,
           background:
-            "radial-gradient(ellipse 60% 42% at 50% 50%, rgba(255,16,240,0.5), rgba(255,16,240,0.08) 42%, transparent 72%)",
+            "radial-gradient(ellipse 60% 42% at 50% 50%, rgba(143,2,248,0.5), rgba(143,2,248,0.08) 42%, transparent 72%)",
         }}
       />
       {/* the fracture seam — a bright vapor line that draws across the centre */}

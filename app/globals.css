@@ -171,16 +171,16 @@ html {
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.14);
   border-radius: 8px;
-  border: 3px solid #0a0a0b;
+  border: 3px solid #050505;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 16, 240, 0.55);
+  background: rgba(143, 2, 248, 0.55);
 }
 
 /* vapor selection — brand-specific micro detail */
 ::selection {
-  background: #ff10f0;
-  color: #0a0a0b;
+  background: #8f02f8;
+  color: #050505;
 }
 
 @layer components {
@@ -199,7 +199,7 @@ html {
     display: grid;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #0a0a0b;
+    background-color: #050505;
   }
   .hairgrid > * {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -212,9 +212,9 @@ html {
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(255, 16, 240, 0.05) 25%,
-      #ff10f0 50%,
-      rgba(255, 16, 240, 0.05) 75%,
+      rgba(143, 2, 248, 0.05) 25%,
+      #8f02f8 50%,
+      rgba(143, 2, 248, 0.05) 75%,
       transparent 100%
     );
   }
@@ -222,14 +222,14 @@ html {
   /* signature "fracture" divider line (static fallback), centre-weighted */
   .seam {
     height: 1px;
-    background: linear-gradient(90deg, transparent, #ff10f0 50%, transparent);
+    background: linear-gradient(90deg, transparent, #8f02f8 50%, transparent);
     opacity: 0.7;
   }
 
   /* vapor text — restrained gradient highlight for a single word. The tail
      deepens but stays ≥3:1 on ink so the brand name never fades illegible. */
   .vapor-text {
-    background: linear-gradient(100deg, #ff10f0 0%, #e00fd2 55%, #b30daa 100%);
+    background: linear-gradient(100deg, #8f02f8 0%, #8f02f8 55%, #8f02f8 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -240,7 +240,7 @@ html {
     @apply outline-none;
   }
   .btp-focus:focus-visible {
-    outline: 2px solid #ff10f0;
+    outline: 2px solid #8f02f8;
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -286,7 +286,7 @@ html {
       ),
       radial-gradient(
         420px circle at var(--mx, 50%) var(--my, 50%),
-        rgba(255, 16, 240, 0.06),
+        rgba(143, 2, 248, 0.06),
         transparent 70%
       );
   }
@@ -323,13 +323,13 @@ html {
   .btn-paper {
     position: relative;
     overflow: hidden;
-    border: 1px solid #fafaf8;
-    color: #0a0a0b;
-    background-color: #fafaf8;
+    border: 1px solid #ffffff;
+    color: #050505;
+    background-color: #ffffff;
     background-image: linear-gradient(
       100deg,
       transparent 34%,
-      rgba(255, 16, 240, 0.32) 50%,
+      rgba(143, 2, 248, 0.32) 50%,
       transparent 66%
     );
     background-repeat: no-repeat;
@@ -342,7 +342,7 @@ html {
   .btn-paper:hover {
     background-position: -50% 0;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 8px 32px -6px rgba(255, 16, 240, 0.45);
+      0 8px 32px -6px rgba(143, 2, 248, 0.45);
     transform: translateY(-1px);
   }
 }
