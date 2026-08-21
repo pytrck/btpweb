@@ -14,7 +14,7 @@ export function FeaturedWork() {
   const t = useTranslations("work");
   return (
     <section className="relative overflow-hidden py-[clamp(5rem,12vw,12rem)]">
-      {/* ambient proof-spotlight — one glow, radial, behind the row */}
+      {/* ambient proof-spotlight - one glow, radial, behind the row */}
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 h-[60%] w-[80%] -translate-x-1/2 rounded-full"

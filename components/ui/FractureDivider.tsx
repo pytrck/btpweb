@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion
 /**
  * A vapor fracture drawn across the page between sections. No opaque panels: the
  * container is transparent, so the page background and the scroll orb pass right
- * through — only the glow, the drawn seam, and the notch render. The seam draws
+ * through - only the glow, the drawn seam, and the notch render. The seam draws
  * in and brightens as it crosses the viewport.
  */
 export function FractureDivider() {
@@ -23,7 +23,7 @@ export function FractureDivider() {
 
   return (
     <div ref={ref} aria-hidden className="relative h-[12vh] overflow-hidden md:h-[16vh]">
-      {/* radial vapor bloom that fades to transparent on every side — no black
+      {/* radial vapor bloom that fades to transparent on every side - no black
           block; the ink page + orb show through */}
       <motion.div
         className="absolute inset-0"
@@ -33,7 +33,7 @@ export function FractureDivider() {
             "radial-gradient(ellipse 60% 42% at 50% 50%, rgba(143,2,248,0.5), rgba(143,2,248,0.08) 42%, transparent 72%)",
         }}
       />
-      {/* the fracture seam — a bright vapor line that draws across the centre */}
+      {/* the fracture seam - a bright vapor line that draws across the centre */}
       <motion.div
         className="vapor-center absolute left-0 top-1/2 h-px w-full origin-center -translate-y-1/2"
         style={{ scaleX, opacity: glow }}
