@@ -59,7 +59,7 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(amount = 0.15)
       io.observe(el);
     }
 
-    // Immediate + polled position check — needs neither IO nor scroll events,
+    // Immediate + polled position check - needs neither IO nor scroll events,
     // so content is guaranteed to appear once it's actually on screen.
     if (inView()) reveal();
     else timer = window.setInterval(() => inView() && reveal(), 250);

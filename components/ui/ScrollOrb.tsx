@@ -12,7 +12,7 @@ import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motio
  * Signature beat: the path stays smooth (the "pattern"); in the GLITCH zone the
  * orb tears off the line into a jagged stutter, the core splits into chromatic
  * ghosts, and a glitched tag flickers in. The glitch loops are CSS animations
- * kept alive even under reduced motion (see globals.css) — a deliberate brand
+ * kept alive even under reduced motion (see globals.css) - a deliberate brand
  * choice. Position is GPU translate3d, scroll-linked.
  *
  * Every page gets its own orb by varying `text` / `amp` / `cycles` / `jag`, so
@@ -33,7 +33,7 @@ type ScrollOrbProps = {
   /** glitch zone as [start, end] fraction of total scroll */
   glitchStart?: number;
   glitchEnd?: number;
-  /** stutter frequency inside the glitch zone — higher = choppier */
+  /** stutter frequency inside the glitch zone - higher = choppier */
   jag?: number;
 };
 
@@ -53,7 +53,7 @@ export function ScrollOrb({
   const ref = useRef<HTMLDivElement>(null);
   // Cache the container's size instead of reading clientWidth/Height every scroll
   // frame (which forces a synchronous layout and janks the scroll). Refreshed on
-  // mount, resize, and any layout shift via ResizeObserver — so it stays exact.
+  // mount, resize, and any layout shift via ResizeObserver - so it stays exact.
   const dims = useRef({ w: 0, h: 0 });
   const [, force] = useReducer((c: number) => c + 1, 0);
   const [ready, setReady] = useState(false);
@@ -82,9 +82,9 @@ export function ScrollOrb({
 
   const { scrollY } = useScroll();
 
-  // clean trajectory — smooth sine (this is the "pattern")
+  // clean trajectory - smooth sine (this is the "pattern")
   const smoothX = (t: number) => clamp(CENTER + amp * Math.sin(t * Math.PI * 2 * cycles), 3, 97);
-  // deterministic stutter inside the glitch zone (SSR-safe — no randomness)
+  // deterministic stutter inside the glitch zone (SSR-safe - no randomness)
   const glitchX = (t: number) => {
     if (t < glitchStart || t > glitchEnd) return 0;
     const local = (t - glitchStart) / (glitchEnd - glitchStart);
@@ -120,7 +120,7 @@ export function ScrollOrb({
 
   return (
     <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      {/* trajectory path — smooth, scrolls with the page; fades in on load */}
+      {/* trajectory path - smooth, scrolls with the page; fades in on load */}
       <motion.svg
         className="absolute inset-0 h-full w-full"
         viewBox="0 0 100 100"
@@ -147,7 +147,7 @@ export function ScrollOrb({
         />
       </motion.svg>
 
-      {/* the orb — outer holds the scroll-driven position */}
+      {/* the orb - outer holds the scroll-driven position */}
       <motion.div
         style={{ transform, opacity: ready ? 1 : 0 }}
         className="absolute left-0 top-0 will-change-transform"
@@ -159,12 +159,12 @@ export function ScrollOrb({
           transition={{ type: "spring", stiffness: 55, damping: 11, mass: 0.9, delay: 0.45 }}
         >
           {/* all centred on the orb's ORIGIN (0,0), not the parent's width */}
-          {/* soft outer glow — restrained so it reads as light, not a muddy blob */}
+          {/* soft outer glow - restrained so it reads as light, not a muddy blob */}
           <div className="absolute left-0 top-0 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(143,2,248,0.17),transparent_62%)] blur-2xl" />
           {/* mid halo */}
           <div className="absolute left-0 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(143,2,248,0.42),transparent_66%)] blur-xl" />
 
-          {/* chromatic ghosts — surge in the glitch zone. Centring lives on the
+          {/* chromatic ghosts - surge in the glitch zone. Centring lives on the
               wrapper; the jitter runs on the inner dot so its transform can't
               clobber the -50%/-50% centring. */}
           <motion.div
@@ -187,7 +187,7 @@ export function ScrollOrb({
         </motion.div>
       </motion.div>
 
-      {/* glitch tag — rides with the orb, behind the page text */}
+      {/* glitch tag - rides with the orb, behind the page text */}
       <motion.div
         style={{ transform, opacity: glitchOpacity }}
         className="absolute left-0 top-0 will-change-transform"

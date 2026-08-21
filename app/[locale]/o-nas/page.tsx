@@ -56,7 +56,7 @@ export default async function AboutPage({ params }: { params: { locale: string }
         <Stagger className="-mt-px hairgrid sm:grid-cols-2 md:grid-cols-3" stagger={0.06}>
           {capabilities.map((c, i) => (
             <StaggerItem key={i} className="group flex items-center gap-4 bg-ink p-6">
-              <span className="text-accent-from">—</span>
+              <span className="text-accent-from">{String.fromCharCode(0x2014)}</span>
               <span className="text-muted transition-colors duration-300 group-hover:text-paper">
                 {c}
               </span>
