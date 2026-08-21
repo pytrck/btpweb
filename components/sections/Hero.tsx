@@ -113,11 +113,14 @@ function FracturedBrand({ text }: { text: string }) {
       <span
         ref={glint}
         aria-hidden
-        className="pointer-events-none absolute left-0 top-1/2 h-2.5 w-2.5 rounded-full"
+        className="pointer-events-none absolute left-0 top-1/2 h-3 w-3 rounded-full"
         style={{
           opacity: 0,
-          background: "#8f02f8",
-          boxShadow: "0 0 16px 5px rgba(143,2,248,0.55)",
+          // white-hot core so the strike reads as a slash of light; the bloom
+          // stays acid-purple (brand). Dimmed to a flat #8f02f8 at go-live,
+          // which lost the cut against the near-black hero.
+          background: "#f4e9ff",
+          boxShadow: "0 0 24px 8px rgba(143,2,248,0.85), 0 0 10px 3px rgba(214,150,255,0.95)",
         }}
       />
     </span>
