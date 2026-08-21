@@ -24,7 +24,7 @@ export function CTABlock() {
           aria-hidden
           className="pointer-events-none absolute -bottom-1/2 -left-[15%] h-[130%] w-[65%] rounded-full"
           style={{
-            background: "radial-gradient(closest-side, rgba(255,16,240,0.09), transparent 72%)",
+            background: "radial-gradient(closest-side, rgba(143,2,248,0.09), transparent 72%)",
           }}
           variants={{
             hidden: { opacity: 0 },

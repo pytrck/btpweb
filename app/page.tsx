@@ -8,8 +8,8 @@ export default function RootRedirect() {
         <meta httpEquiv="refresh" content="0; url=./cs/" />
         <link rel="canonical" href="./cs/" />
       </head>
-      <body style={{ background: "#0A0A0B", color: "#FAFAF8", fontFamily: "sans-serif" }}>
-        <a href="./cs/" style={{ color: "#FF10F0" }}>
+      <body style={{ background: "#050505", color: "#FFFFFF", fontFamily: "sans-serif" }}>
+        <a href="./cs/" style={{ color: "#8F02F8" }}>
           Break The Pattern →
         </a>
       </body>

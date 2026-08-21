@@ -116,8 +116,8 @@ function FracturedBrand({ text }: { text: string }) {
         className="pointer-events-none absolute left-0 top-1/2 h-2.5 w-2.5 rounded-full"
         style={{
           opacity: 0,
-          background: "#ff10f0",
-          boxShadow: "0 0 16px 5px rgba(255,16,240,0.55)",
+          background: "#8f02f8",
+          boxShadow: "0 0 16px 5px rgba(143,2,248,0.55)",
         }}
       />
     </span>
@@ -186,7 +186,7 @@ export function Hero() {
         <div
           className="absolute -top-[28%] left-[-12%] h-[75vh] w-[70vw] rounded-full"
           style={{
-            background: "radial-gradient(closest-side, rgba(255,16,240,0.055), transparent 72%)",
+            background: "radial-gradient(closest-side, rgba(143,2,248,0.055), transparent 72%)",
           }}
         />
         <div
@@ -230,7 +230,7 @@ export function Hero() {
             >
               <span aria-hidden className="relative flex h-2 w-2">
                 <span className="dot-ping absolute inset-0 rounded-full bg-accent-from opacity-70" />
-                <span className="relative h-2 w-2 rounded-full bg-accent-from shadow-[0_0_12px_2px_rgba(255,16,240,0.45)]" />
+                <span className="relative h-2 w-2 rounded-full bg-accent-from shadow-[0_0_12px_2px_rgba(143,2,248,0.45)]" />
               </span>
               {t("status")}
             </motion.p>

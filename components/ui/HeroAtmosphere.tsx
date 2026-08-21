@@ -77,12 +77,12 @@ export function HeroAtmosphere() {
         {/* glow A — magenta vapor, upper-left */}
         <motion.div
           style={{ x: glowAX, y: glowAY }}
-          className="absolute left-[8%] top-[12%] h-[44vh] w-[44vh] rounded-full bg-[radial-gradient(circle,rgba(255,16,240,0.22),transparent_62%)] blur-2xl animate-[float-a_14s_ease-in-out_infinite]"
+          className="absolute left-[8%] top-[12%] h-[44vh] w-[44vh] rounded-full bg-[radial-gradient(circle,rgba(143,2,248,0.22),transparent_62%)] blur-2xl animate-[float-a_14s_ease-in-out_infinite]"
         />
         {/* glow B — deep violet, lower-right */}
         <motion.div
           style={{ x: glowBX, y: glowBY }}
-          className="absolute right-[6%] top-[40%] h-[52vh] w-[52vh] rounded-full bg-[radial-gradient(circle,rgba(124,12,170,0.20),transparent_64%)] blur-2xl animate-[float-b_18s_ease-in-out_infinite]"
+          className="absolute right-[6%] top-[40%] h-[52vh] w-[52vh] rounded-full bg-[radial-gradient(circle,rgba(143,2,248,0.20),transparent_64%)] blur-2xl animate-[float-b_18s_ease-in-out_infinite]"
         />
       </motion.div>
     </div>
