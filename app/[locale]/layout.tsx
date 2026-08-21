@@ -81,7 +81,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${space.variable} ${inter.variable} ${mono.variable}`}>
       <head>
-        {/* Content-Security-Policy — GitHub Pages can't send HTTP headers, so this
+        {/* Content-Security-Policy - GitHub Pages can't send HTTP headers, so this
             meta is the hardening ceiling. Locks every resource to same-origin
             (blocks external script/style/img/connect exfiltration). 'unsafe-inline'
             is unavoidable: a static export ships Next's inline bootstrap + framer's
@@ -97,14 +97,14 @@ export default async function LocaleLayout({
         <meta name="referrer" content="strict-origin-when-cross-origin" />
       </head>
       <body>
-        {/* skip link — first focusable element, hidden until keyboard-focused (WCAG 2.4.1) */}
+        {/* skip link - first focusable element, hidden until keyboard-focused (WCAG 2.4.1) */}
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink"
         >
           {tNav("skip")}
         </a>
-        {/* film grain above everything — the "printed on something" depth */}
+        {/* film grain above everything - the "printed on something" depth */}
         <div aria-hidden className="grain" />
         <NextIntlClientProvider messages={messages}>
           <ScrollProgress />

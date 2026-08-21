@@ -8,7 +8,7 @@ export const site = {
   shortName: "BTP",
   url: "https://breakthepattern.cz",
   email: "breakthepatterninfo@gmail.com",
-  // Web3Forms access key — powers the contact form on a static host (no backend).
+  // Web3Forms access key - powers the contact form on a static host (no backend).
   // This key is PUBLIC by design (safe in client code); spam is filtered server-side.
   // TODO: get a free key at https://web3forms.com (enter the email above, no signup),
   // paste it here. Until then the form fails honestly and shows the email fallback.

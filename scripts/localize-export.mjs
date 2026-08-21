@@ -11,7 +11,7 @@ const DEFAULT_LOCALE = "cs"; // keep in sync with i18n/routing.ts defaultLocale
 const csDir = join(OUT, DEFAULT_LOCALE);
 
 if (!existsSync(csDir)) {
-  console.error(`localize-export: ${csDir} not found — did the export run?`);
+  console.error(`localize-export: ${csDir} not found - did the export run?`);
   process.exit(1);
 }
 

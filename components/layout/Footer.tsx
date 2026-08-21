@@ -52,7 +52,7 @@ export function Footer() {
       <div className="container-x py-6 text-xs text-muted">
         © {year} Break The Pattern. {f("rights")}
       </div>
-      {/* ghost wordmark sinking below the page edge — the brand, outlined,
+      {/* ghost wordmark sinking below the page edge - the brand, outlined,
           cropped mid-glyph. Decorative only. */}
       <div aria-hidden className="pointer-events-none relative h-[7vw] select-none overflow-hidden">
         <p
