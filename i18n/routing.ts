@@ -7,7 +7,7 @@ export const routing = defineRouting({
   // "as-needed": the default locale (cs) is served WITHOUT a prefix; non-default
   // (en) keeps /en. There is no middleware on static GitHub Pages to map "/" to
   // the default locale, so the [locale] export still emits a /cs/ folder at build
-  // time — scripts/localize-export.mjs then lifts it to the site root and leaves
+  // time - scripts/localize-export.mjs then lifts it to the site root and leaves
   // /cs/* as redirects. Internal <Link>s pick up the unprefixed cs paths from here.
   localePrefix: "as-needed",
 });

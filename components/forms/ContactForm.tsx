@@ -41,7 +41,7 @@ export function ContactForm() {
     setStatus("sending");
     const data = new FormData(form);
     data.append("access_key", site.web3formsKey);
-    data.append("subject", `Nová poptávka — ${site.name}`);
+    data.append("subject", `Nová poptávka - ${site.name}`);
     data.append("from_name", site.name);
     try {
       const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
@@ -59,7 +59,7 @@ export function ContactForm() {
 
   return (
     <form className="space-y-5" onSubmit={onSubmit}>
-      {/* honeypot — bots auto-fill this; web3forms rejects any submission where it's set */}
+      {/* honeypot - bots auto-fill this; web3forms rejects any submission where it's set */}
       <input
         type="checkbox"
         name="botcheck"
