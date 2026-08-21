@@ -37,23 +37,13 @@ function FracturedBrand({ text }: { text: string }) {
       gsap.set(seam.current, { yPercent: -50, transformOrigin: "left center" });
       gsap.set(glint.current, { xPercent: -50, yPercent: -50, opacity: 0 });
 
-      // Reduced motion → resolve straight to the resting fractured state. It's a
-      // static visual, not motion, so the brand keeps its identity; no strike,
-      // no ScrollTrigger.
-      if (reduce) {
-        gsap.set(seam.current, { clipPath: "inset(0 0% 0 0)", opacity: 0.85 });
-        gsap.set(upper.current, { x: -off, y: -1 });
-        gsap.set(lower.current, { x: off, y: 1 });
-        return;
-      }
-
       // Seam starts fully clipped from the right (invisible), so the draw reveals
       // it left→right without distorting the gradient.
       gsap.set(seam.current, { clipPath: "inset(0 100% 0 0)", opacity: 0.95 });
       gsap.set([upper.current, lower.current], { x: 0, y: 0 });
 
-      // Fires after the framer headline entrance settles (~1s) so the strike
-      // lands on the fully-revealed brand, not on text still masked mid-reveal.
+      // The one-shot strike always plays — it's the brand signature moment.
+      // Only the scroll-linked parallax below respects reduced motion.
       const tl = gsap.timeline({ delay: 1.5 });
 
       // 1) The glint flies in from the left and races across the phrase, drawing
@@ -80,13 +70,14 @@ function FracturedBrand({ text }: { text: string }) {
         .to(lower.current, { x: off, y: 1, duration: 0.6, ease: "power2.out" }, 0.52)
         .to(seam.current, { opacity: 0.72, duration: 0.6 }, 0.55);
 
-      // Scroll-linked: brand drifts off-grid, seam opens a little as the hero
-      // leaves. Separate properties, so nothing fights the strike above.
-      const section = el.closest("section");
-      if (section) {
-        const st = { trigger: section, start: "top top", end: "bottom top", scrub: true } as const;
-        gsap.fromTo(el, { x: 0 }, { x: 44, ease: "none", scrollTrigger: st });
-        gsap.fromTo(seam.current, { scaleY: 1 }, { scaleY: 2.4, ease: "none", scrollTrigger: st });
+      // Scroll-linked parallax respects reduced motion (continuous motion).
+      if (!reduce) {
+        const section = el.closest("section");
+        if (section) {
+          const st = { trigger: section, start: "top top", end: "bottom top", scrub: true } as const;
+          gsap.fromTo(el, { x: 0 }, { x: 44, ease: "none", scrollTrigger: st });
+          gsap.fromTo(seam.current, { scaleY: 1 }, { scaleY: 2.4, ease: "none", scrollTrigger: st });
+        }
       }
     }, el);
 
