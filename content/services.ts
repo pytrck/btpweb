@@ -63,10 +63,10 @@ export const services: Service[] = [
   },
   {
     slug: "oprava-techniky",
-    title: "Oprava techniky a diagnostika",
+    title: "Oprava a diagnostika elektroniky",
     headline: "Když to nenaběhne, nenastartuje a zlobí.",
     description:
-      "Notebooky, konzole, disky, záludné nahodilé chyby. Nejdřív diagnóza, pak oprava, co vydrží.",
+      "Notebooky, konzole, disky a další elektronika. Nejdřív diagnóza, pak oprava, co vydrží.",
     forWhom: "Pro lidi, kterým řekli, že „už se to nevyplatí opravit“.",
     proof: ["Diagnostiku odečteme z ceny opravy", "Záruka na práci i díly", "Příběhy zachráněné techniky"],
     included: [

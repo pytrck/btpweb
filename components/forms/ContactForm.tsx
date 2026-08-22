@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { services } from "@/content/services";
 import { site } from "@/content/site";
 import { EASE } from "@/lib/motion";
 
@@ -30,6 +29,7 @@ function Field({
 
 export function ContactForm() {
   const t = useTranslations("form");
+  const types = t.raw("types") as string[];
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const field =
@@ -76,10 +76,10 @@ export function ContactForm() {
         <input name="contact" required className={field} />
       </Field>
       <Field label={t("type")}>
-        <select name="type" className={field} defaultValue={services[0].title}>
-          {services.map((s) => (
-            <option key={s.slug} value={s.title} className="bg-ink">
-              {s.title}
+        <select name="type" className={field} defaultValue={types[0]}>
+          {types.map((label) => (
+            <option key={label} value={label} className="bg-ink">
+              {label}
             </option>
           ))}
         </select>
