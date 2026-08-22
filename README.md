@@ -23,7 +23,6 @@ language (fracture seams, scroll-linked reveals, restrained vapor gradient).
 ```bash
 npm install
 npm run dev
-# http://localhost:3000
 ```
 
 Other scripts:
@@ -47,13 +46,12 @@ into existing layouts.
 
 ## Placeholders to replace before launch
 
-All temporary values are marked `// TODO` or wrapped in `[brackets]`:
+Remaining temporary values are marked `// TODO`:
 
-- `content/site.ts` - `url` (domain), `email`, `phone`, `city`, social handles
-- `messages/cs.json` & `messages/en.json` - phone `+420 [číslo]`, service area
-  `[Město a okolí]` / `[City and around]`
+- `content/site.ts` - contact-form key (`web3formsKey`) and extra social handles
 - `content/work.ts` - the 3 case studies are illustrative placeholders
-- `content/proof.ts` / `content/team.ts` - empty until real data is added
+- `content/proof.ts` / `content/team.ts` - empty until real logos, testimonials,
+  and team members are added
 
 ---
 
