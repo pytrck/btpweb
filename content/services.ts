@@ -18,7 +18,7 @@ export const services: Service[] = [
     title: "Oprava telefonů",
     headline: "Prasklý, mrtvý, utopený? Vrátíme ho do hry.",
     description:
-      "Displeje, baterie, konektory, voda. Poctivá diagnóza, rychlý termín, žádné zbytečné upsellování.",
+      "Displeje, baterie, konektory, voda. Poctivá diagnóza, rychlý termín, žádný upsell.",
     forWhom: "Pro každého, kdo radši opraví dobrý telefon, než aby splácel nový.",
     proof: ["Termín většinou do 48 hodin", "Kvalitní díly, ne nejlevnější náhražky", "Před / po u každé opravy"],
     included: [
@@ -42,7 +42,7 @@ export const services: Service[] = [
     title: "Weby na míru",
     headline: "Weby, co nevypadají jako všechny ostatní.",
     description:
-      "Návrh a vývoj na míru - rychlé, moderní, vaše. Žádné šablony, žádný balast z page builderu.",
+      "Návrh a vývoj na míru. Rychlé, moderní, vaše. Bez šablon, bez balastu.",
     forWhom: "Pro značky a tvůrce, kteří chtějí web, co dává najevo, že to myslí vážně.",
     proof: ["Načtení pod 1 sekundu", "Skóre 90+ v Lighthouse", "Živé odkazy, ne mockupy"],
     included: [
@@ -66,7 +66,7 @@ export const services: Service[] = [
     title: "Oprava techniky a diagnostika",
     headline: "Když to nenaběhne, nenastartuje a zlobí.",
     description:
-      "Notebooky, konzole, disky, záludné nahodilé chyby. Nejdřív diagnóza, pak oprava, co vydrží.",
+      "Notebooky, konzole, disky, nahodilé chyby. Nejdřív diagnóza, pak oprava, co vydrží.",
     forWhom: "Pro lidi, kterým řekli, že „už se to nevyplatí opravit“.",
     proof: ["Diagnostiku odečteme z ceny opravy", "Záruka na práci i díly", "Příběhy zachráněné techniky"],
     included: [
@@ -90,7 +90,7 @@ export const services: Service[] = [
     title: "Pokročilá řešení",
     headline: "Problém, který nikdo jiný nechtěl vzít.",
     description:
-      "Záchrana dat, automatizace, integrace - ta opravdu těžká věc, co „prý nejde“.",
+      "Záchrana dat, automatizace, integrace. Věci, co „prý nejdou“.",
     forWhom: "Pro každého s problémem, který je údajně neřešitelný.",
     proof: ["Case study složitých zakázek", "Přehled použitých nástrojů", "Řešení, ne výmluvy"],
     included: [
