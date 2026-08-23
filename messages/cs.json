@@ -32,9 +32,9 @@
   },
   "stats": {
     "items": [
-      { "v": "48 h", "l": "průměrná doba opravy" },
-      { "v": "24 h", "l": "maximální doba odezvy" },
-      { "v": "90+", "l": "Lighthouse skóre webů" },
+      { "v": "48 h", "l": "průměrná oprava" },
+      { "v": "24 h", "l": "doba odezvy" },
+      { "v": "90+", "l": "Lighthouse webů" },
       { "v": "0", "l": "skrytých příplatků" }
     ]
   },
@@ -47,7 +47,7 @@
       "Notebook, co se sekne a hučí",
       "Web, který nic nepřináší",
       "Data, ke kterým se nedostanete",
-      "Pomalý a zaplevelený počítač"
+      "Pomalý, zaplevelený počítač"
     ]
   },
   "why": {
@@ -91,10 +91,10 @@
     "kicker": "Jak to probíhá",
     "title": "Postup",
     "steps": [
-      { "t": "Diagnóza", "d": "Zjistíme, co se reálně děje, a co ne.", "note": "do 30 minut" },
-      { "t": "Plán", "d": "Cenu, termín i postup dostanete písemně, ještě než začneme.", "note": "bez překvapení" },
-      { "t": "Realizace", "d": "Uděláno pořádně, ne jen rychle. Dobré díly, čistá práce.", "note": "většinou do 48 h" },
-      { "t": "Předání", "d": "Funguje to, víte, jak s tím dál, a máte na to záruku.", "note": "se zárukou" }
+      { "t": "Diagnóza", "d": "Zjistíme, co se děje, a co ne.", "note": "do 30 minut" },
+      { "t": "Plán", "d": "Cena, termín a postup písemně, než začneme.", "note": "bez překvapení" },
+      { "t": "Realizace", "d": "Uděláno pořádně. Dobré díly, čistá práce.", "note": "většinou do 48 h" },
+      { "t": "Předání", "d": "Funguje to, umíte s tím, máte záruku.", "note": "se zárukou" }
     ]
   },
   "trust": {
@@ -130,7 +130,7 @@
     "cta": "Začít projekt"
   },
   "footer": {
-    "tagline": "Opravy, weby a technika bez šablon.",
+    "tagline": "Opravy, weby a systémy. Bez šablon.",
     "rights": "Všechna práva vyhrazena."
   },
   "form": {
@@ -148,7 +148,7 @@
   "pages": {
     "services": {
       "title": "Služby",
-      "subtitle": "Pět oblastí, jeden standard. Vyberte, co řešíte."
+      "subtitle": "Pět oblastí. Jeden standard."
     },
     "work": {
       "title": "Práce",
@@ -157,7 +157,7 @@
     },
     "about": {
       "title": "O nás",
-      "subtitle": "Break The Pattern není jeden člověk. Je to standard.",
+      "subtitle": "Break The Pattern není člověk. Je to standard.",
       "blocks": [
         { "t": "Kdo jsme", "d": "Značka pro opravy, weby a techniku, kterou ostatní odepsali. Dnes ji žene zakladatel; stavíme ji jako tým, ne jako jméno." },
         { "t": "Co znamená Break The Pattern", "d": "Pattern je smíření se s průměrem: pomalý servis, generické šablony, mlžení kolem ceny. To je vzorec, který lámeme." },
@@ -198,7 +198,7 @@
     },
     "contact": {
       "title": "Kontakt",
-      "subtitle": "Napište, co je rozbité, nebo co chcete postavit.",
+      "subtitle": "Napište, co je rozbité, nebo co postavit.",
       "help": "S čím pomůžeme",
       "helpItems": ["Oprava telefonu", "Web na míru", "Oprava techniky", "Pokročilé řešení", "Optimalizace setupu"],
       "response": "Čteme každou zprávu osobně a odpovídáme do 24 hodin.",
@@ -209,15 +209,15 @@
       ],
       "checklistTitle": "Co přiložit",
       "checklist": [
-        "Typ zařízení nebo odkaz na web",
+        "Typ zařízení, nebo odkaz na web",
         "Co se děje a kdy to začalo",
         "Foto problému, pokud ho máte"
       ],
       "guaranteesTitle": "Naše jistoty",
       "guarantees": [
-        { "t": "Odezva do 24 h", "d": "Na každou zprávu reagujeme do druhého dne." },
-        { "t": "Cena předem", "d": "Nic neplatíte, dokud cenu neznáte a neodsouhlasíte." },
-        { "t": "Záruka 6 měsíců", "d": "Na díly i práci u každé opravy." }
+        { "t": "Odezva do 24 h", "d": "Každá zpráva, do druhého dne." },
+        { "t": "Cena předem", "d": "Nic neplatíte, dokud ji neznáte a neschválíte." },
+        { "t": "Záruka 6 měsíců", "d": "Díly i práce, u každé opravy." }
       ],
       "afterTitle": "Co se stane potom",
       "after": [
@@ -227,7 +227,7 @@
       ],
       "reassurance": "Nic neplatíte, dokud neznáte cenu a neodsouhlasíte ji.",
       "areaTitle": "Kde působíme",
-      "area": "Osobní servis v Mladé Boleslavi a Liberci. Weby, konzultace a vzdálenou podporu po celé ČR."
+      "area": "Osobně v Mladé Boleslavi a Liberci. Weby, konzultace a vzdálená podpora po celé ČR."
     }
   }
 }
