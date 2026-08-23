@@ -24,15 +24,15 @@
   "work": { "kicker": "Selected work", "title": "Work", "cta": "Full portfolio" },
   "stats": {
     "items": [
-      { "v": "48 h", "l": "average repair time" },
-      { "v": "24 h", "l": "maximum response time" },
-      { "v": "90+", "l": "Lighthouse score on sites" },
-      { "v": "0", "l": "hidden surcharges" }
+      { "v": "48 h", "l": "average repair" },
+      { "v": "24 h", "l": "response time" },
+      { "v": "90+", "l": "Lighthouse on sites" },
+      { "v": "0", "l": "hidden fees" }
     ]
   },
   "solve": {
     "kicker": "What we solve",
-    "title": "Real problems, not slogans",
+    "title": "Problems, not slogans",
     "items": [
       "A cracked or dead screen",
       "A battery that won't last the day",
@@ -71,7 +71,7 @@
       "You want someone who stands behind the work.",
       "You want something built for you, not a template."
     ],
-    "notTitle": "We're not for you if…",
+    "notTitle": "We're not, if…",
     "not": [
       "Only the lowest price matters.",
       "You want a template site for next to nothing.",
@@ -90,9 +90,9 @@
     ]
   },
   "trust": {
-    "reply": "We reply within 24 hours",
+    "reply": "Reply within 24 hours",
     "warranty": "Warranty on every repair",
-    "diag": "Diagnostics deducted from the repair price"
+    "diag": "Diagnostics credited to the repair"
   },
   "homeFaq": {
     "kicker": "FAQ",
@@ -128,11 +128,11 @@
     "submit": "Send inquiry",
     "note": "No commitment, no sales talk. Tell us what you're dealing with.",
     "sending": "Sending…",
-    "success": "Sent. We'll reply within 24 hours.",
-    "error": "Couldn't send. Please email us directly:"
+    "success": "Sent. We reply within 24 hours.",
+    "error": "Couldn't send. Email us directly:"
   },
   "pages": {
-    "services": { "title": "Services", "subtitle": "Five areas, one standard. Pick what you're dealing with." },
+    "services": { "title": "Services", "subtitle": "Five areas. One standard." },
     "work": {
       "title": "Work",
       "subtitle": "Examples of what we build and repair.",
@@ -140,7 +140,7 @@
     },
     "about": {
       "title": "About",
-      "subtitle": "Break The Pattern isn't one person. It's a standard.",
+      "subtitle": "Break The Pattern isn't a person. It's a standard.",
       "blocks": [
         { "t": "Who we are", "d": "A brand for repairs, web and tech others wrote off. A founder drives it today; we build it as a team, not a name." },
         { "t": "What Break The Pattern means", "d": "The pattern is settling for average: slow service, generic templates, vague pricing. That's what we break." },
@@ -148,7 +148,7 @@
         { "t": "How we think", "d": "Diagnosis first, then the fix. We understand the problem before we solve it." },
         { "t": "Where we're headed", "d": "We're growing. More people, services and projects. The standard stays the same. That's the point." }
       ],
-      "capsTitle": "What we can do",
+      "capsTitle": "What we do",
       "capabilities": [
         "Phone and tablet repair",
         "Custom website development",
@@ -181,7 +181,7 @@
     },
     "contact": {
       "title": "Contact",
-      "subtitle": "Tell us what's broken, or what you want built.",
+      "subtitle": "Tell us what's broken, or what to build.",
       "help": "What we help with",
       "helpItems": ["Phone repair", "Custom website", "Tech repair", "Advanced solution", "Setup optimization"],
       "response": "We read every message personally, and reply within 24 hours.",
@@ -198,9 +198,9 @@
       ],
       "guaranteesTitle": "Our guarantees",
       "guarantees": [
-        { "t": "Reply within 24 h", "d": "We respond to every message by the next day." },
-        { "t": "Price upfront", "d": "You pay nothing until you know and approve the price." },
-        { "t": "6-month warranty", "d": "On parts and labour for every repair." }
+        { "t": "Reply within 24 h", "d": "Every message, by the next day." },
+        { "t": "Price upfront", "d": "Nothing to pay until you know and approve it." },
+        { "t": "6-month warranty", "d": "Parts and labour, every repair." }
       ],
       "afterTitle": "What happens next",
       "after": [
@@ -208,9 +208,9 @@
         { "t": "Diagnosis and price", "d": "We find the cause and send a fixed price. Nothing moves until you approve it." },
         { "t": "We get to work", "d": "We do the work and keep you posted. You get a warranty at the end." }
       ],
-      "reassurance": "You pay nothing until you know the price and approve it.",
+      "reassurance": "Nothing to pay until you know the price and approve it.",
       "areaTitle": "Where we work",
-      "area": "In-person service in Mladá Boleslav and Liberec. Websites, consulting and remote support across the country."
+      "area": "In person in Mladá Boleslav and Liberec. Websites, consulting and remote support nationwide."
     }
   }
 }
