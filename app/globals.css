@@ -269,16 +269,6 @@ html {
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 15%, black 10%, transparent 68%);
   }
 
-  /* The cards lift via a transform on hover. Without a stable composite layer,
-     the browser re-rasterizes on hover and anti-aliases the 1px top glass-line /
-     border away (the "top white line disappears" bug). Promoting to its own
-     backing layer keeps the top edge crisp through the transform. */
-  .spotlight {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    will-change: transform;
-  }
-
   /* glassy pointer-tracked sheen for interactive cards; pairs with
      lib/useSpotlight which feeds --mx/--my. Hover-capable devices only. */
   .spotlight::after {
