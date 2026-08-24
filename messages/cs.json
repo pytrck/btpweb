@@ -34,20 +34,8 @@
     "items": [
       { "v": "48 h", "l": "průměrná oprava" },
       { "v": "24 h", "l": "doba odezvy" },
-      { "v": "90+", "l": "Lighthouse webů" },
+      { "v": "6 měs.", "l": "záruka na každou opravu" },
       { "v": "0", "l": "skrytých příplatků" }
-    ]
-  },
-  "solve": {
-    "kicker": "Co řešíme",
-    "title": "Konkrétní problémy, ne hesla",
-    "items": [
-      "Prasklý nebo mrtvý displej",
-      "Baterie, co nevydrží den",
-      "Notebook, co se sekne a hučí",
-      "Web, který nic nepřináší",
-      "Data, ke kterým se nedostanete",
-      "Pomalý, zaplevelený počítač"
     ]
   },
   "why": {
@@ -144,6 +132,32 @@
     "sending": "Odesílám…",
     "success": "Odesláno. Ozveme se do 24 hodin.",
     "error": "Nepodařilo se odeslat. Napište nám prosím přímo:"
+  },
+  "cards": {
+    "learnMore": "Zjistit více",
+    "openCaseStudy": "Otevřít case study",
+    "result": "Výsledek"
+  },
+  "serviceDetail": {
+    "forWhom": "Pro koho",
+    "proof": "Proč nám věřit",
+    "included": "Co je v ceně",
+    "solves": "Typicky řešíme",
+    "turnaround": "Termín",
+    "deliverable": "Co dostanete",
+    "seeWork": "Ukázat práci"
+  },
+  "caseStudy": {
+    "brief": "Zadání",
+    "role": "Naše role",
+    "problem": "Problém",
+    "approach": "Řešení",
+    "result": "Výsledek",
+    "impact": "Dopad",
+    "tech": "Technologie",
+    "similar": "Chcete něco podobného?",
+    "start": "Začít projekt",
+    "back": "Zpět na práci"
   },
   "pages": {
     "services": {

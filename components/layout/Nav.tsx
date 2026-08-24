@@ -109,7 +109,7 @@ export function Nav() {
         </nav>
 
         <button
-          className="btp-focus flex h-8 w-8 flex-col items-center justify-center md:hidden"
+          className="btp-focus -mr-2 flex h-11 w-11 flex-col items-center justify-center md:hidden"
           aria-label="Menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
