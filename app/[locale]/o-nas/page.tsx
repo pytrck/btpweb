@@ -28,15 +28,20 @@ export default async function AboutPage({ params }: { params: { locale: string }
   const stats = t.raw("stats") as Stat[];
   const standards = t.raw("standards") as Block[];
   const refuse = t.raw("refuse") as string[];
+  const dash = String.fromCharCode(0x2014);
+
   return (
     <div className="relative">
       <ScrollOrb text="NO EXCUSES" amp={30} cycles={1.4} jag={11} anchor={0.46} />
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
+
+      {/* Narrative blocks - a short vapor rule under each heading. */}
       <section className="container-x pb-section">
         <Stagger className="hairgrid md:grid-cols-2" stagger={0.1}>
           {blocks.map((b) => (
             <StaggerItem key={b.t} className="bg-ink p-10">
               <h2 className="font-head text-h3">{b.t}</h2>
+              <span aria-hidden className="mt-3 block h-px w-8 bg-fracture" />
               <p className="mt-3 text-muted">{b.d}</p>
             </StaggerItem>
           ))}
@@ -44,7 +49,7 @@ export default async function AboutPage({ params }: { params: { locale: string }
       </section>
 
       <section className="container-x pb-section">
-        <SectionHeader kicker={t("capsTitle")} title={t("statsTitle")} />
+        <SectionHeader title={t("statsTitle")} />
         <Stagger className="hairgrid sm:grid-cols-3" stagger={0.1}>
           {stats.map((s, i) => (
             <StaggerItem key={i} effect="scale" className="bg-ink px-6 py-12">
@@ -53,10 +58,18 @@ export default async function AboutPage({ params }: { params: { locale: string }
             </StaggerItem>
           ))}
         </Stagger>
-        <Stagger className="-mt-px hairgrid sm:grid-cols-2 md:grid-cols-3" stagger={0.06}>
+      </section>
+
+      {/* Capabilities - a plain ruled list, not a grid. */}
+      <section className="container-x pb-section">
+        <SectionHeader title={t("capsTitle")} />
+        <Stagger className="grid gap-x-12 sm:grid-cols-2" stagger={0.06}>
           {capabilities.map((c, i) => (
-            <StaggerItem key={i} className="group flex items-center gap-4 bg-ink p-6">
-              <span className="text-accent-from">{String.fromCharCode(0x2014)}</span>
+            <StaggerItem
+              key={i}
+              className="group flex items-center gap-4 border-b border-line py-4"
+            >
+              <span aria-hidden className="text-accent-from">{dash}</span>
               <span className="text-muted transition-colors duration-300 group-hover:text-paper">
                 {c}
               </span>
@@ -66,27 +79,35 @@ export default async function AboutPage({ params }: { params: { locale: string }
       </section>
 
       <section className="container-x pb-section">
-        <SectionHeader kicker={t("standardsTitle")} title={t("futureTitle")} />
+        <SectionHeader title={t("standardsTitle")} />
         <Stagger className="hairgrid md:grid-cols-3" stagger={0.1}>
           {standards.map((s) => (
             <StaggerItem key={s.t} className="bg-ink p-10">
               <h3 className="font-head text-h3">{s.t}</h3>
+              <span aria-hidden className="mt-3 block h-px w-8 bg-fracture" />
               <p className="mt-3 text-muted">{s.d}</p>
             </StaggerItem>
           ))}
         </Stagger>
+
         <p className="label mt-16 text-accent-from">{t("refuseTitle")}</p>
-        <Stagger className="mt-6 hairgrid sm:grid-cols-2" stagger={0.06}>
+        <Stagger className="mt-6 grid gap-x-12 sm:grid-cols-2" stagger={0.06}>
           {refuse.map((r, i) => (
-            <StaggerItem key={i} className="flex items-center gap-4 bg-ink p-6">
-              <span className="font-mono text-accent-from">×</span>
-              <span className="text-muted">{r}</span>
+            <StaggerItem
+              key={i}
+              className="flex items-center gap-4 border-b border-line py-4 text-muted"
+            >
+              <span aria-hidden className="font-mono text-accent-from">×</span>
+              {r}
             </StaggerItem>
           ))}
         </Stagger>
-        <p className="mt-10 max-w-2xl border-l-2 border-accent-from pl-6 text-lg text-muted">
-          {t("future")}
-        </p>
+
+        {/* "Where we're heading" - headed block, replacing the old accent side-stripe. */}
+        <div className="mt-16 max-w-2xl">
+          <p className="label text-accent-from">{t("futureTitle")}</p>
+          <p className="mt-4 text-lg text-muted">{t("future")}</p>
+        </div>
       </section>
 
       {/* Auto-hidden until team members are added in content/team.ts */}
