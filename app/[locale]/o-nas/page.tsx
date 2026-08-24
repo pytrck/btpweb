@@ -90,7 +90,7 @@ export default async function AboutPage({ params }: { params: { locale: string }
           ))}
         </Stagger>
 
-        <p className="label mt-16 text-paper">{t("refuseTitle")}</p>
+        <p className="label mt-16 text-accent-from">{t("refuseTitle")}</p>
         <Stagger className="mt-6 grid gap-x-12 sm:grid-cols-2" stagger={0.06}>
           {refuse.map((r, i) => (
             <StaggerItem
@@ -105,7 +105,7 @@ export default async function AboutPage({ params }: { params: { locale: string }
 
         {/* "Where we're heading" - headed block, replacing the old accent side-stripe. */}
         <div className="mt-16 max-w-2xl">
-          <p className="label text-paper">{t("futureTitle")}</p>
+          <p className="label text-accent-from">{t("futureTitle")}</p>
           <p className="mt-4 text-lg text-muted">{t("future")}</p>
         </div>
       </section>

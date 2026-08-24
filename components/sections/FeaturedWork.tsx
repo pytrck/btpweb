@@ -27,7 +27,7 @@ export function FeaturedWork() {
       <div className="container-x relative">
         <ScrollReveal className="mb-14 flex items-end justify-between gap-6">
           <div>
-            <p className="label text-paper">{t("kicker")}</p>
+            <p className="label text-accent-from">{t("kicker")}</p>
             <h2 className="mt-4 font-head text-[clamp(2.5rem,5.5vw,4.25rem)] font-bold leading-[0.95] tracking-[-0.02em]">
               {t("title")}
             </h2>
