@@ -1,5 +1,5 @@
-import { useTranslations } from "next-intl";
-import { projects } from "@/content/work";
+import { useTranslations, useLocale } from "next-intl";
+import { getProjects } from "@/content/work";
 import { WorkCard } from "@/components/cards/WorkCard";
 import { LinkArrow } from "@/components/ui/LinkArrow";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -13,7 +13,7 @@ import { Stagger, StaggerItem } from "@/components/ui/Stagger";
  */
 export function FeaturedWork() {
   const t = useTranslations("work");
-  const [lead, ...rest] = projects;
+  const [lead, ...rest] = getProjects(useLocale());
   return (
     <section className="relative overflow-hidden py-[clamp(5rem,12vw,12rem)]">
       {/* ambient proof-spotlight - one glow, radial, behind the row */}

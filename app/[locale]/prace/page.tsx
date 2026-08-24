@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { projects } from "@/content/work";
+import { getProjects } from "@/content/work";
 import { Link } from "@/i18n/routing";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CTABlock } from "@/components/sections/CTABlock";
@@ -20,6 +20,8 @@ export async function generateMetadata({
 export default async function WorkPage({ params }: { params: { locale: string } }) {
   setRequestLocale(params.locale);
   const t = await getTranslations("pages.work");
+  const c = await getTranslations("cards");
+  const projects = getProjects(params.locale);
   return (
     <div className="relative">
       <ScrollOrb text="PROOF NOT HYPE" amp={46} cycles={2.6} jag={17} />
@@ -48,7 +50,7 @@ export default async function WorkPage({ params }: { params: { locale: string } 
                       {p.result && (
                         <p className="mt-4 text-sm text-paper">
                           <span className="font-mono text-xs uppercase tracking-wide text-accent-from">
-                            Výsledek -{" "}
+                            {c("result")} -{" "}
                           </span>
                           {p.result}
                         </p>

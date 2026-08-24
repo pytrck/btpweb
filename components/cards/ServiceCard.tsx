@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { LinkArrow } from "@/components/ui/LinkArrow";
 import { cardHover, cardEdge } from "@/lib/motion";
 import { useSpotlight } from "@/lib/useSpotlight";
@@ -21,6 +22,7 @@ export function ServiceCard({
   featured?: boolean;
 }) {
   const { ref, onPointerMove } = useSpotlight<HTMLDivElement>();
+  const t = useTranslations("cards");
   return (
     <motion.div
       ref={ref}
@@ -54,7 +56,7 @@ export function ServiceCard({
             {proof}
           </p>
         )}
-        <LinkArrow href={`/sluzby/${slug}`}>Zjistit více</LinkArrow>
+        <LinkArrow href={`/sluzby/${slug}`}>{t("learnMore")}</LinkArrow>
       </div>
     </motion.div>
   );

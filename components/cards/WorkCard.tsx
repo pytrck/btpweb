@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { cardHover, cardArrow } from "@/lib/motion";
 import { useSpotlight } from "@/lib/useSpotlight";
@@ -23,11 +24,12 @@ export function WorkCard({
   featured?: boolean;
 }) {
   const { ref, onPointerMove } = useSpotlight<HTMLAnchorElement>();
+  const t = useTranslations("cards");
 
   const resultBlock = result && (
     <p className="mt-5 border-l border-line pl-4 text-sm text-paper">
       <span className="font-mono text-xs uppercase tracking-wide text-accent-from">
-        Výsledek -{" "}
+        {t("result")} -{" "}
       </span>
       {result}
     </p>
@@ -35,7 +37,7 @@ export function WorkCard({
 
   const cta = (
     <span className="inline-flex items-center gap-2 text-sm">
-      Otevřít case study
+      {t("openCaseStudy")}
       <motion.span aria-hidden variants={cardArrow} className="text-accent-from">
         →
       </motion.span>

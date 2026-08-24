@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
-import { services } from "@/content/services";
-import { projects } from "@/content/work";
+import { serviceSlugs } from "@/content/services";
+import { projectSlugs } from "@/content/work";
 import { routing } from "@/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,8 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sluzby",
     "/o-nas",
     "/kontakt",
-    ...services.map((s) => `/sluzby/${s.slug}`),
-    ...projects.map((p) => `/prace/${p.slug}`),
+    ...serviceSlugs.map((slug) => `/sluzby/${slug}`),
+    ...projectSlugs.map((slug) => `/prace/${slug}`),
   ];
   return routing.locales.flatMap((locale) => {
     // default locale (cs) lives at the root; non-default keeps its /<locale> prefix

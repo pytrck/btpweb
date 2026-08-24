@@ -26,20 +26,8 @@
     "items": [
       { "v": "48 h", "l": "average repair" },
       { "v": "24 h", "l": "response time" },
-      { "v": "90+", "l": "Lighthouse on sites" },
+      { "v": "6 mo", "l": "warranty on every repair" },
       { "v": "0", "l": "hidden fees" }
-    ]
-  },
-  "solve": {
-    "kicker": "What we solve",
-    "title": "Problems, not slogans",
-    "items": [
-      "A cracked or dead screen",
-      "A battery that won't last the day",
-      "A laptop that stutters and roars",
-      "A website that brings nothing in",
-      "Data you can't get to",
-      "A slow, cluttered machine"
     ]
   },
   "why": {
@@ -130,6 +118,32 @@
     "sending": "Sending…",
     "success": "Sent. We reply within 24 hours.",
     "error": "Couldn't send. Email us directly:"
+  },
+  "cards": {
+    "learnMore": "Learn more",
+    "openCaseStudy": "Open case study",
+    "result": "Result"
+  },
+  "serviceDetail": {
+    "forWhom": "Who it's for",
+    "proof": "Why trust us",
+    "included": "What's included",
+    "solves": "What we typically fix",
+    "turnaround": "Turnaround",
+    "deliverable": "What you get",
+    "seeWork": "See our work"
+  },
+  "caseStudy": {
+    "brief": "Brief",
+    "role": "Our role",
+    "problem": "Problem",
+    "approach": "Approach",
+    "result": "Result",
+    "impact": "Impact",
+    "tech": "Tech",
+    "similar": "Want something similar?",
+    "start": "Start a project",
+    "back": "Back to work"
   },
   "pages": {
     "services": { "title": "Services", "subtitle": "Five areas. One standard." },
