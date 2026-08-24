@@ -1,12 +1,12 @@
-import { useTranslations } from "next-intl";
-import { services } from "@/content/services";
+import { useTranslations, useLocale } from "next-intl";
+import { getServices } from "@/content/services";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { SectionHeader } from "./SectionHeader";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 
 export function ServicesPreview() {
   const t = useTranslations("servicesPreview");
-  const [first, ...rest] = services.slice(0, 3);
+  const [first, ...rest] = getServices(useLocale()).slice(0, 3);
 
   return (
     <section className="container-x py-section">
