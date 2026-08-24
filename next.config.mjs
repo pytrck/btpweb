@@ -29,10 +29,15 @@ const nextConfig = {
     : {
         async rewrites() {
           return {
-            beforeFiles: ["sluzby", "prace", "o-nas", "kontakt"].map((seg) => ({
-              source: `/${seg}/:path*`,
-              destination: `/cs/${seg}/:path*`,
-            })),
+            beforeFiles: [
+              // "/" serves Czech directly (in prod, localize-export lifts /cs to
+              // root; app/page.tsx's meta-refresh only matters without that).
+              { source: "/", destination: "/cs" },
+              ...["sluzby", "prace", "o-nas", "kontakt"].map((seg) => ({
+                source: `/${seg}/:path*`,
+                destination: `/cs/${seg}/:path*`,
+              })),
+            ],
           };
         },
       }),
