@@ -47,7 +47,7 @@ export default async function CaseStudy({
   return (
     <>
       <section className="container-x grid grid-cols-12 gap-y-6 pb-12 pt-section">
-        <p className="label col-span-12 text-accent-from">{project.tag}</p>
+        <p className="label col-span-12 text-paper">{project.tag}</p>
         <h1 className="col-span-12 mt-4 font-head text-h1 font-bold text-balance md:col-span-11">
           {project.title}
         </h1>
@@ -77,7 +77,7 @@ export default async function CaseStudy({
       <section className="container-x grid gap-x-16 gap-y-12 pb-section md:grid-cols-2">
         {story.map((b) => (
           <div key={b.t}>
-            <p className="label text-accent-from">{b.t}</p>
+            <p className="label text-paper">{b.t}</p>
             <p className="mt-4 text-lg">{b.d}</p>
           </div>
         ))}
@@ -87,7 +87,7 @@ export default async function CaseStudy({
       <section className="container-x pb-section">
         <div className="border-t border-line pt-12 md:grid md:grid-cols-[1fr_1.3fr] md:gap-x-16">
           <div>
-            <p className="label text-accent-from">{t("result")}</p>
+            <p className="label text-paper">{t("result")}</p>
             <p className="mt-4 font-head text-h2 font-bold leading-tight text-balance">
               {project.result}
             </p>

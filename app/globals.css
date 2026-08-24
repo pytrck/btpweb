@@ -274,7 +274,9 @@ html {
   .spotlight::after {
     content: "";
     position: absolute;
-    inset: 0;
+    /* start 1px below the top edge so the sheen never paints over the card's
+       inset top glass-line (the "top white line") on hover. */
+    inset: 1px 0 0 0;
     z-index: 1;
     pointer-events: none;
     opacity: 0;

@@ -28,7 +28,7 @@ export default async function ContactPage({ params }: { params: { locale: string
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
 
       <section className="container-x pb-section">
-        <p className="label text-accent-from">{t("guaranteesTitle")}</p>
+        <p className="label text-paper">{t("guaranteesTitle")}</p>
         <div className="mt-8 grid gap-x-12 gap-y-10 md:grid-cols-3">
           {guarantees.map((g) => (
             <div key={g.t}>
@@ -42,7 +42,7 @@ export default async function ContactPage({ params }: { params: { locale: string
 
       <section className="container-x grid gap-12 pb-section md:grid-cols-2">
         <div>
-          <p className="label text-accent-from">{t("help")}</p>
+          <p className="label text-paper">{t("help")}</p>
           <ul className="mt-4 space-y-3">
             {help.map((h) => (
               <li key={h} className="flex gap-3 text-lg">
@@ -82,7 +82,7 @@ export default async function ContactPage({ params }: { params: { locale: string
       </section>
 
       <section className="container-x pb-section">
-        <p className="label text-accent-from">{t("afterTitle")}</p>
+        <p className="label text-paper">{t("afterTitle")}</p>
         {/* the same timeline as the homepage Process */}
         <div className="relative mt-8">
           <div

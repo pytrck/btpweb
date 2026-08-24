@@ -14,7 +14,7 @@ export function Fit() {
           quieter aside - the honesty is deliberate, not a symmetric checklist. */}
       <Stagger className="grid gap-y-12 md:grid-cols-[1.4fr_1fr] md:gap-x-16" stagger={0.12}>
         <StaggerItem>
-          <p className="label text-accent-from">{t("forTitle")}</p>
+          <p className="label text-paper">{t("forTitle")}</p>
           <ul className="mt-6 space-y-4 text-lg">
             {forItems.map((it) => (
               <li key={it} className="flex gap-3">

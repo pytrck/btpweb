@@ -38,7 +38,7 @@ export default async function ServiceDetail({
   return (
     <>
       <section className="container-x grid grid-cols-12 gap-y-6 pb-12 pt-section">
-        <p className="label col-span-12 text-accent-from">{service.title}</p>
+        <p className="label col-span-12 text-paper">{service.title}</p>
         <h1 className="col-span-12 mt-4 font-head text-h1 font-bold text-balance md:col-span-11">
           {service.headline}
         </h1>
@@ -52,7 +52,7 @@ export default async function ServiceDetail({
       {/* Who it's for - a large statement - beside the proof points. */}
       <section className="container-x grid gap-x-16 gap-y-10 py-section md:grid-cols-[1.3fr_1fr]">
         <div>
-          <p className="label text-accent-from">{t("forWhom")}</p>
+          <p className="label text-paper">{t("forWhom")}</p>
           <p className="mt-4 font-head text-h3 leading-snug text-balance">{service.forWhom}</p>
         </div>
         <div>
@@ -71,7 +71,7 @@ export default async function ServiceDetail({
       {/* What's included (loud) vs. what we typically fix (quieter aside). */}
       <section className="container-x grid gap-x-16 gap-y-12 pb-section md:grid-cols-[1.3fr_1fr]">
         <div>
-          <p className="label text-accent-from">{t("included")}</p>
+          <p className="label text-paper">{t("included")}</p>
           <ul className="mt-6 space-y-4 text-lg">
             {service.included.map((it) => (
               <li key={it} className="flex gap-3">

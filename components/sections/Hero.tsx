@@ -198,7 +198,7 @@ export function Hero() {
       >
         <motion.div className="contents" variants={heroContainer} initial="hidden" animate="show">
           <div className="col-span-12 md:col-span-11">
-            <motion.p variants={heroItem} className="label text-accent-from">
+            <motion.p variants={heroItem} className="label text-paper">
               {t("kicker")}
             </motion.p>
             <motion.h1
