@@ -269,6 +269,14 @@ html {
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 15%, black 10%, transparent 68%);
   }
 
+  /* Cards lift via a transform on hover; promote them to a stable backing layer
+     so the 1px top glass-line stays crisp through the lift (paired with dropping
+     overflow-hidden on the cards, which is what actually clipped it). */
+  .spotlight {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
   /* glassy pointer-tracked sheen for interactive cards; pairs with
      lib/useSpotlight which feeds --mx/--my. Hover-capable devices only. */
   .spotlight::after {
