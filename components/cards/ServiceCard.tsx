@@ -44,7 +44,7 @@ export function ServiceCard({
       <div>
         <h3 className={`font-head ${featured ? "text-h2" : "text-h3"}`}>{title}</h3>
         {featured && headline ? (
-          <p className="mt-4 max-w-md text-lg text-paper/80">{headline}</p>
+          <p className="mt-4 max-w-md text-lg text-muted">{headline}</p>
         ) : (
           <p className="mt-3 text-muted">{description}</p>
         )}
