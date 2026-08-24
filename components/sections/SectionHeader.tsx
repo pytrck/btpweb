@@ -17,7 +17,7 @@ export function SectionHeader({
     <ScrollReveal className="mb-12 flex items-end justify-between gap-6">
       <div>
         {kicker && <p className="label mb-4 text-accent-from">{kicker}</p>}
-        <AnimatedHeading text={title} className="font-head text-h2 font-bold text-accent-from" />
+        <AnimatedHeading text={title} className="font-head text-h2 font-bold" />
       </div>
       {cta && ctaHref && (
         <div className="hidden md:block">
