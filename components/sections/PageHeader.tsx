@@ -13,7 +13,7 @@ export function PageHeader({ title, subtitle }: { title: string; subtitle: strin
     >
       <motion.h1
         variants={heroItem}
-        className="col-span-12 font-head text-h1 font-bold text-balance text-accent-from md:col-span-10"
+        className="col-span-12 font-head text-h1 font-bold text-balance md:col-span-10"
       >
         {title}
       </motion.h1>
