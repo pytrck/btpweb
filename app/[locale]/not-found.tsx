@@ -9,7 +9,7 @@ export default function NotFound() {
 
   return (
     <section className="container-x flex min-h-[78vh] flex-col justify-center py-section">
-      <p className="label text-paper">CHYBA 404 - YOU BROKE THE PATTERN!</p>
+      <p className="label text-accent-from">CHYBA 404 - YOU BROKE THE PATTERN!</p>
 
       {/* Signature moment: the "404" with a vapor crack slicing through it. */}
       <div className="relative mt-6 w-fit">
