@@ -37,8 +37,8 @@ export default function ServiceDetail({
   return (
     <>
       <section className="container-x grid grid-cols-12 gap-y-6 pb-12 pt-section">
-        <p className="label col-span-12">{service.title}</p>
-        <h1 className="col-span-12 mt-4 font-head text-h1 font-bold md:col-span-11">
+        <p className="label col-span-12 text-accent-from">{service.title}</p>
+        <h1 className="col-span-12 mt-4 font-head text-h1 font-bold text-balance md:col-span-11">
           {service.headline}
         </h1>
         <p className="col-span-12 text-lg text-muted md:col-span-7 md:col-start-5">
@@ -48,17 +48,18 @@ export default function ServiceDetail({
 
       <AnimatedSeam />
 
-      <section className="container-x grid gap-12 py-section md:grid-cols-2">
+      {/* Who it's for - a large statement - beside the proof points. */}
+      <section className="container-x grid gap-x-16 gap-y-10 py-section md:grid-cols-[1.3fr_1fr]">
         <div>
-          <p className="label">Pro koho</p>
-          <p className="mt-4 text-lg">{service.forWhom}</p>
+          <p className="label text-accent-from">Pro koho</p>
+          <p className="mt-4 font-head text-h3 leading-snug text-balance">{service.forWhom}</p>
         </div>
         <div>
           <p className="label">Proč nám věřit</p>
-          <ul className="mt-4 space-y-3">
+          <ul className="mt-5 space-y-3">
             {service.proof.map((p) => (
               <li key={p} className="flex gap-3 text-muted">
-                <span className="text-accent-from">-</span>
+                <span aria-hidden className="text-accent-from">-</span>
                 {p}
               </li>
             ))}
@@ -66,24 +67,25 @@ export default function ServiceDetail({
         </div>
       </section>
 
-      <section className="container-x hairgrid pb-section md:grid-cols-2">
-        <div className="bg-ink p-10">
+      {/* What's included (loud) vs. what we typically fix (quieter aside). */}
+      <section className="container-x grid gap-x-16 gap-y-12 pb-section md:grid-cols-[1.3fr_1fr]">
+        <div>
           <p className="label text-accent-from">Co je v ceně</p>
-          <ul className="mt-6 space-y-4">
+          <ul className="mt-6 space-y-4 text-lg">
             {service.included.map((it) => (
               <li key={it} className="flex gap-3">
-                <span className="text-accent-from">-</span>
+                <span aria-hidden className="mt-1 text-accent-from">+</span>
                 {it}
               </li>
             ))}
           </ul>
         </div>
-        <div className="bg-ink p-10">
-          <p className="label text-accent-from">Typicky řešíme</p>
-          <ul className="mt-6 space-y-4 text-muted">
+        <div className="md:border-l md:border-line md:pl-10">
+          <p className="label">Typicky řešíme</p>
+          <ul className="mt-6 space-y-3 text-sm text-muted">
             {service.solves.map((it) => (
               <li key={it} className="flex gap-3">
-                <span className="text-accent-from">-</span>
+                <span aria-hidden>-</span>
                 {it}
               </li>
             ))}
@@ -91,13 +93,16 @@ export default function ServiceDetail({
         </div>
       </section>
 
-      <section className="container-x hairgrid pb-section md:grid-cols-2">
-        <div className="bg-ink p-10">
+      {/* Turnaround + deliverable - vapor-rule labels, no boxes. */}
+      <section className="container-x grid gap-x-16 gap-y-10 pb-section md:grid-cols-2">
+        <div>
           <p className="label">Termín</p>
+          <span aria-hidden className="mt-3 block h-px w-8 bg-fracture" />
           <p className="mt-4 text-lg">{service.turnaround}</p>
         </div>
-        <div className="bg-ink p-10">
+        <div>
           <p className="label">Co dostanete</p>
+          <span aria-hidden className="mt-3 block h-px w-8 bg-fracture" />
           <p className="mt-4 text-lg">{service.deliverable}</p>
         </div>
       </section>

@@ -7,7 +7,7 @@ export function SolveGrid() {
   const items = t.raw("items") as string[];
   return (
     <section className="container-x py-section">
-      <SectionHeader kicker={t("kicker")} title={t("title")} />
+      <SectionHeader title={t("title")} />
       <Stagger className="hairgrid sm:grid-cols-2 md:grid-cols-3" stagger={0.06}>
         {items.map((it, i) => (
           <StaggerItem

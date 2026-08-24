@@ -9,29 +9,33 @@ export function Fit() {
 
   return (
     <section className="container-x py-section">
-      <SectionHeader kicker={t("kicker")} title={t("title")} />
-      <Stagger className="hairgrid md:grid-cols-2" stagger={0.1}>
-        <StaggerItem className="bg-ink p-10">
+      <SectionHeader title={t("title")} />
+      {/* Asymmetric fit: the match is the loud column; the "not for you" is a
+          quieter aside - the honesty is deliberate, not a symmetric checklist. */}
+      <Stagger className="grid gap-y-12 md:grid-cols-[1.4fr_1fr] md:gap-x-16" stagger={0.12}>
+        <StaggerItem>
           <p className="label text-accent-from">{t("forTitle")}</p>
-          <ul className="mt-6 space-y-4">
+          <ul className="mt-6 space-y-4 text-lg">
             {forItems.map((it) => (
               <li key={it} className="flex gap-3">
-                <span className="text-accent-from">+</span>
+                <span aria-hidden className="mt-1 text-accent-from">+</span>
                 {it}
               </li>
             ))}
           </ul>
         </StaggerItem>
-        <StaggerItem className="bg-ink p-10">
-          <p className="label">{t("notTitle")}</p>
-          <ul className="mt-6 space-y-4 text-muted">
-            {notItems.map((it) => (
-              <li key={it} className="flex gap-3">
-                <span className="text-muted">-</span>
-                {it}
-              </li>
-            ))}
-          </ul>
+        <StaggerItem>
+          <div className="md:border-l md:border-line md:pl-10">
+            <p className="label">{t("notTitle")}</p>
+            <ul className="mt-6 space-y-3 text-sm text-muted">
+              {notItems.map((it) => (
+                <li key={it} className="flex gap-3">
+                  <span aria-hidden className="mt-px">-</span>
+                  {it}
+                </li>
+              ))}
+            </ul>
+          </div>
         </StaggerItem>
       </Stagger>
     </section>
