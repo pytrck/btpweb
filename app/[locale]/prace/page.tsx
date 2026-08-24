@@ -42,14 +42,14 @@ export default async function WorkPage({ params }: { params: { locale: string } 
                   />
                   <div className="grid items-baseline gap-x-10 gap-y-4 md:grid-cols-[1fr_auto]">
                     <div>
-                      <span className="label text-accent-from">{p.tag}</span>
+                      <span className="label text-paper">{p.tag}</span>
                       <h2 className="mt-3 font-head text-[clamp(2.25rem,5.5vw,4rem)] font-bold leading-[0.95] tracking-[-0.025em] transition-colors duration-300 group-hover:text-paper">
                         {p.title}
                       </h2>
                       <p className="mt-4 max-w-xl text-muted">{p.summary}</p>
                       {p.result && (
                         <p className="mt-4 text-sm text-paper">
-                          <span className="font-mono text-xs uppercase tracking-wide text-accent-from">
+                          <span className="font-mono text-xs uppercase tracking-wide text-paper">
                             {c("result")} -{" "}
                           </span>
                           {p.result}
