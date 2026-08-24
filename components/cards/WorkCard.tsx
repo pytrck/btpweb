@@ -28,7 +28,7 @@ export function WorkCard({
 
   const resultBlock = result && (
     <p className="mt-5 border-l border-line pl-4 text-sm text-paper">
-      <span className="font-mono text-xs uppercase tracking-wide text-paper">
+      <span className="font-mono text-xs uppercase tracking-wide text-accent-from">
         {t("result")} -{" "}
       </span>
       {result}
@@ -73,7 +73,7 @@ export function WorkCard({
         {edge}
         <div className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-end">
           <div>
-            <span className="label text-paper">{tag}</span>
+            <span className="label text-accent-from">{tag}</span>
             <h3 className="mt-4 font-head text-[clamp(2.5rem,4.5vw,3.75rem)] font-bold leading-[0.95] tracking-[-0.02em]">
               {title}
             </h3>
@@ -94,7 +94,7 @@ export function WorkCard({
       className="btp-focus spotlight group relative flex h-full flex-col overflow-hidden border border-line p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-paper/70"
     >
       {edge}
-      <span className="label text-paper">{tag}</span>
+      <span className="label text-accent-from">{tag}</span>
       <h3 className="mt-4 font-head text-h2">{title}</h3>
       <p className="mt-3 text-muted">{summary}</p>
       {resultBlock}

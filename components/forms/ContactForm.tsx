@@ -15,7 +15,7 @@ function Field({
 }) {
   return (
     <label className="group block">
-      <span className="label mb-2 block transition-colors duration-300 group-focus-within:text-paper">
+      <span className="label mb-2 block transition-colors duration-300 group-focus-within:text-accent-from">
         {label}
       </span>
       <div className="relative">

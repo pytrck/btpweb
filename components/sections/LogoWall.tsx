@@ -14,7 +14,7 @@ export function LogoWall() {
   return (
     <section className="border-y border-line">
       <div className="container-x py-12">
-        <p className="label mb-8 text-center text-paper">{t("logosKicker")}</p>
+        <p className="label mb-8 text-center text-accent-from">{t("logosKicker")}</p>
         <Stagger
           className="grid grid-cols-2 items-center gap-x-10 gap-y-8 sm:grid-cols-3 md:grid-cols-5"
           stagger={0.06}
