@@ -68,7 +68,7 @@ export function WorkCard({
     return (
       <MotionLink
         {...shared}
-        className="btp-focus spotlight group relative flex h-full flex-col justify-center overflow-hidden border border-line p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-paper/70 md:p-12"
+        className="btp-focus spotlight group relative flex h-full flex-col justify-center border border-line p-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-paper/70 md:p-12"
       >
         {edge}
         <div className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-end">
@@ -91,7 +91,7 @@ export function WorkCard({
   return (
     <MotionLink
       {...shared}
-      className="btp-focus spotlight group relative flex h-full flex-col overflow-hidden border border-line p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-paper/70"
+      className="btp-focus spotlight group relative flex h-full flex-col border border-line p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-paper/70"
     >
       {edge}
       <span className="label text-accent-from">{tag}</span>

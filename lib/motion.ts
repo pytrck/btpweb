@@ -86,15 +86,14 @@ export const fractureNotch: Variants = {
   },
 };
 
-/* ---- card hover orchestration ----
-   No transform on the card itself: a translate here composites the card onto a
-   fresh layer whose overflow-hidden clip shaves the 1px top glass-line/border on
-   hover (the "top white line disappears" bug). The empty rest/hover states still
-   propagate to the children below (edge + arrow), which carry the hover feedback
-   along with the CSS border-brighten and sheen. */
+/* ---- card hover orchestration (rest/hover propagated to children) ----
+   The -4px lift is a transform. To keep it from clipping the 1px top glass-line,
+   the cards drop `overflow-hidden` (WorkCard/ServiceCard) - nothing overflows to
+   clip, since the sheen and vapor edges are inset-positioned - and .spotlight is
+   promoted to a stable backing layer (globals.css). */
 export const cardHover: Variants = {
-  rest: {},
-  hover: {},
+  rest: { y: 0 },
+  hover: { y: -4, transition: { duration: DUR.fast, ease: EASE } },
 };
 
 export const cardEdge: Variants = {
