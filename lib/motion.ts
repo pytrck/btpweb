@@ -86,10 +86,15 @@ export const fractureNotch: Variants = {
   },
 };
 
-/* ---- card hover orchestration (rest/hover propagated to children) ---- */
+/* ---- card hover orchestration ----
+   No transform on the card itself: a translate here composites the card onto a
+   fresh layer whose overflow-hidden clip shaves the 1px top glass-line/border on
+   hover (the "top white line disappears" bug). The empty rest/hover states still
+   propagate to the children below (edge + arrow), which carry the hover feedback
+   along with the CSS border-brighten and sheen. */
 export const cardHover: Variants = {
-  rest: { y: 0 },
-  hover: { y: -4, transition: { duration: DUR.fast, ease: EASE } },
+  rest: {},
+  hover: {},
 };
 
 export const cardEdge: Variants = {
