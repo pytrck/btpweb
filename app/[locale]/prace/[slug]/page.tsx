@@ -48,7 +48,7 @@ export default async function CaseStudy({
     <>
       <section className="container-x grid grid-cols-12 gap-y-6 pb-12 pt-section">
         <p className="label col-span-12 text-accent-from">{project.tag}</p>
-        <h1 className="col-span-12 mt-4 font-head text-h1 font-bold text-balance md:col-span-11">
+        <h1 className="col-span-12 mt-4 font-head text-h1 font-bold text-balance text-accent-from md:col-span-11">
           {project.title}
         </h1>
         <p className="col-span-12 text-lg text-muted md:col-span-7 md:col-start-5">

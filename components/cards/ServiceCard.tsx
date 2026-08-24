@@ -31,7 +31,7 @@ export function ServiceCard({
       whileHover="hover"
       animate="rest"
       variants={cardHover}
-      className={`spotlight group relative flex h-full flex-col justify-between overflow-hidden border border-line shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-paper/70 ${
+      className={`spotlight group relative flex h-full flex-col justify-between border border-line shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-paper/70 ${
         featured ? "p-10 md:p-12" : "p-8"
       }`}
     >
