@@ -35,16 +35,26 @@ export default async function AboutPage({ params }: { params: { locale: string }
       <ScrollOrb text="NO EXCUSES" amp={30} cycles={1.4} jag={11} anchor={0.46} />
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
 
-      {/* Narrative blocks - a short vapor rule under each heading. */}
+      {/* Narrative blocks in a 2-col grid, but the closing block breaks the
+          rhythm: it spans full width and speaks louder - the pattern breaking
+          on the final beat, which is the whole point of the name. */}
       <section className="container-x pb-section">
         <Stagger className="hairgrid md:grid-cols-2" stagger={0.1}>
-          {blocks.map((b) => (
-            <StaggerItem key={b.t} className="bg-ink p-10">
-              <h2 className="font-head text-h3">{b.t}</h2>
-              <span aria-hidden className="mt-3 block h-px w-8 bg-fracture" />
-              <p className="mt-3 text-muted">{b.d}</p>
-            </StaggerItem>
-          ))}
+          {blocks.map((b, i) => {
+            const last = i === blocks.length - 1;
+            return (
+              <StaggerItem
+                key={b.t}
+                className={`bg-ink p-10 ${last ? "md:col-span-2 md:p-14" : ""}`}
+              >
+                <h2 className={last ? "font-head text-h2 font-bold text-balance" : "font-head text-h3"}>
+                  {b.t}
+                </h2>
+                <span aria-hidden className="mt-3 block h-px w-8 bg-fracture" />
+                <p className={`mt-3 text-muted ${last ? "text-lg md:max-w-2xl" : ""}`}>{b.d}</p>
+              </StaggerItem>
+            );
+          })}
         </Stagger>
       </section>
 

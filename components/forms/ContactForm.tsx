@@ -41,8 +41,13 @@ export function ContactForm() {
     setStatus("sending");
     const data = new FormData(form);
     data.append("access_key", site.web3formsKey);
-    data.append("subject", `Nová poptávka - ${site.name}`);
-    data.append("from_name", site.name);
+    // Readable subject in the inbox: who + what, instead of a generic label.
+    const who = (data.get("name") as string) || "?";
+    const what = (data.get("type") as string) || "";
+    data.append("subject", `Poptavka: ${who}${what ? ` (${what})` : ""}`);
+    data.append("from_name", `${site.name} formular`);
+    // Web3Forms uses the sender's email as reply-to when named `email`; that's
+    // already the field name below, so replies go straight to the visitor.
     try {
       const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
       const json = await res.json();
@@ -70,11 +75,30 @@ export function ContactForm() {
         aria-hidden="true"
       />
       <Field label={t("name")}>
-        <input name="name" required className={field} />
+        <input name="name" required autoComplete="name" className={field} />
       </Field>
-      <Field label={t("contact")}>
-        <input name="contact" required className={field} />
-      </Field>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field label={t("email")}>
+          <input
+            type="email"
+            name="email"
+            required
+            autoComplete="email"
+            inputMode="email"
+            className={field}
+          />
+        </Field>
+        <Field label={t("phone")}>
+          <input
+            type="tel"
+            name="phone"
+            required
+            autoComplete="tel"
+            inputMode="tel"
+            className={field}
+          />
+        </Field>
+      </div>
       <Field label={t("type")}>
         <select name="type" className={field} defaultValue={types[0]}>
           {types.map((label) => (
