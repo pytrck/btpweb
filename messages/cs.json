@@ -125,7 +125,7 @@
     "name": "Jméno",
     "contact": "E-mail nebo telefon",
     "type": "O co jde",
-    "types": ["Oprava telefonů", "Web na míru", "Oprava a diagnostika elektroniky", "Pokročilé řešení", "Optimalizace a podpora"],
+    "types": ["Oprava a diagnostika elektroniky", "Web na míru", "Oprava telefonů", "Pokročilé řešení", "Optimalizace a podpora"],
     "message": "Co potřebujeme vědět",
     "submit": "Odeslat poptávku",
     "note": "Bez závazku, bez prodejních keců. Napište, co řešíte.",

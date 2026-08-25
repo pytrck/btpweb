@@ -30,7 +30,7 @@ export function Fit() {
             <ul className="mt-6 space-y-3 text-sm text-muted">
               {notItems.map((it) => (
                 <li key={it} className="flex gap-3">
-                  <span aria-hidden className="mt-px">-</span>
+                  <span aria-hidden className="mt-px">×</span>
                   {it}
                 </li>
               ))}

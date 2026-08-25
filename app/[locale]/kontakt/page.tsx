@@ -22,6 +22,7 @@ export default async function ContactPage({ params }: { params: { locale: string
   const checklist = t.raw("checklist") as string[];
   const after = t.raw("after") as { t: string; d: string }[];
   const guarantees = t.raw("guarantees") as { t: string; d: string }[];
+  const dash = String.fromCharCode(0x2014);
   return (
     <div className="relative">
       <ScrollOrb text="LET'S BREAK IT" amp={42} cycles={2.1} jag={21} />
@@ -46,7 +47,7 @@ export default async function ContactPage({ params }: { params: { locale: string
           <ul className="mt-4 space-y-3">
             {help.map((h) => (
               <li key={h} className="flex gap-3 text-lg">
-                <span className="text-accent-from">-</span>
+                <span aria-hidden className="text-accent-from">{dash}</span>
                 {h}
               </li>
             ))}
@@ -69,7 +70,7 @@ export default async function ContactPage({ params }: { params: { locale: string
             <ul className="mt-4 space-y-2">
               {checklist.map((c) => (
                 <li key={c} className="flex gap-3 text-sm text-muted">
-                  <span className="text-accent-from">-</span>
+                  <span aria-hidden className="text-accent-from">{dash}</span>
                   {c}
                 </li>
               ))}
