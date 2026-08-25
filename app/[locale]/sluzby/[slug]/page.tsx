@@ -34,6 +34,7 @@ export default async function ServiceDetail({
   const service = getService(params.locale, params.slug);
   if (!service) notFound();
   const t = await getTranslations("serviceDetail");
+  const dash = String.fromCharCode(0x2014);
 
   return (
     <>
@@ -60,7 +61,7 @@ export default async function ServiceDetail({
           <ul className="mt-5 space-y-3">
             {service.proof.map((p) => (
               <li key={p} className="flex gap-3 text-muted">
-                <span aria-hidden className="text-accent-from">-</span>
+                <span aria-hidden className="text-accent-from">{dash}</span>
                 {p}
               </li>
             ))}
@@ -86,7 +87,7 @@ export default async function ServiceDetail({
           <ul className="mt-6 space-y-3 text-sm text-muted">
             {service.solves.map((it) => (
               <li key={it} className="flex gap-3">
-                <span aria-hidden>-</span>
+                <span aria-hidden>{dash}</span>
                 {it}
               </li>
             ))}
