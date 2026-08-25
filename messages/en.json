@@ -24,9 +24,9 @@
   "work": { "kicker": "Selected work", "title": "Work", "cta": "Full portfolio" },
   "stats": {
     "items": [
-      { "v": "48 h", "l": "average repair" },
+      { "v": "12-24 h", "l": "average repair" },
       { "v": "24 h", "l": "response time" },
-      { "v": "6 mo", "l": "warranty on every repair" },
+      { "v": "3 mo", "l": "warranty on every repair" },
       { "v": "0", "l": "hidden fees" }
     ]
   },
@@ -73,7 +73,7 @@
     "steps": [
       { "t": "Diagnose", "d": "We find what's actually wrong, and rule out what isn't.", "note": "within 30 min" },
       { "t": "Plan", "d": "Price, timeline and plan in writing before we start.", "note": "no surprises" },
-      { "t": "Build", "d": "Done properly, not just quickly. Good parts, clean work.", "note": "usually within 48 h" },
+      { "t": "Build", "d": "Done properly, not just quickly. Good parts, clean work.", "note": "usually within 12-24 h" },
       { "t": "Handover", "d": "It works, you know how to run it, and it's covered.", "note": "with warranty" }
     ]
   },
@@ -87,11 +87,11 @@
     "title": "Before you ask",
     "items": [
       { "q": "How much will it cost?", "a": "Repairs: a quote after diagnosis. Sites: a fixed quote upfront. No surprises either way." },
-      { "q": "How fast will it be done?", "a": "Most repairs within 48 hours. Sites and larger jobs get a confirmed timeline at the start." },
+      { "q": "How fast will it be done?", "a": "Most repairs within 12-24 hours. Sites and larger jobs get a confirmed timeline at the start." },
       { "q": "Is the repair under warranty?", "a": "Yes, parts and labour. If something's off, we handle it." },
       { "q": "What happens to my data?", "a": "We treat it like our own. Nothing lost, nothing touched without reason." },
       { "q": "What's the price range?", "a": "A screen or battery swap starts in the low hundreds, depending on the model. Sites depend on scope. Always an exact quote upfront." },
-      { "q": "How long is the warranty?", "a": "Six months on parts and labour as standard. If the fault returns, we handle it." },
+      { "q": "How long is the warranty?", "a": "Three months on parts and labour as standard. If the fault returns, we handle it." },
       { "q": "What affects the timeline?", "a": "Parts availability and the scope of the fault. If we have to order anything, you'll know at the start." },
       { "q": "Do you work remotely?", "a": "Websites and some optimization, yes. Hardware repairs in person in Mladá Boleslav and Liberec." }
     ]
@@ -109,7 +109,8 @@
   "footer": { "tagline": "Repairs, web and tech without templates.", "rights": "All rights reserved." },
   "form": {
     "name": "Name",
-    "contact": "Email or phone",
+    "email": "Email",
+    "phone": "Phone",
     "type": "What's it about",
     "types": ["Electronics repair and diagnostics", "Custom website", "Phone repair", "Advanced solution", "Optimization and support"],
     "message": "What we need to know",
@@ -173,7 +174,7 @@
       ],
       "statsTitle": "Numbers",
       "stats": [
-        { "v": "within 48 h", "l": "most repairs done" },
+        { "v": "within 12-24 h", "l": "most repairs done" },
         { "v": "24 h", "l": "response time" },
         { "v": "100 %", "l": "work under warranty" }
       ],
@@ -214,7 +215,7 @@
       "guarantees": [
         { "t": "Reply within 24 h", "d": "Every message, by the next day." },
         { "t": "Price upfront", "d": "Nothing to pay until you know and approve it." },
-        { "t": "6-month warranty", "d": "Parts and labour, every repair." }
+        { "t": "3-month warranty", "d": "Parts and labour, every repair." }
       ],
       "afterTitle": "What happens next",
       "after": [

@@ -32,9 +32,9 @@
   },
   "stats": {
     "items": [
-      { "v": "48 h", "l": "průměrná oprava" },
+      { "v": "12-24 h", "l": "průměrná oprava" },
       { "v": "24 h", "l": "doba odezvy" },
-      { "v": "6 měs.", "l": "záruka na každou opravu" },
+      { "v": "3 měs.", "l": "záruka na každou opravu" },
       { "v": "0", "l": "skrytých příplatků" }
     ]
   },
@@ -81,7 +81,7 @@
     "steps": [
       { "t": "Diagnóza", "d": "Zjistíme, co se děje, a co ne.", "note": "do 30 minut" },
       { "t": "Plán", "d": "Cena, termín a postup písemně, než začneme.", "note": "bez překvapení" },
-      { "t": "Realizace", "d": "Uděláno pořádně. Dobré díly, čistá práce.", "note": "většinou do 48 h" },
+      { "t": "Realizace", "d": "Uděláno pořádně. Dobré díly, čistá práce.", "note": "většinou do 12-24 h" },
       { "t": "Předání", "d": "Funguje to, umíte s tím, máte záruku.", "note": "se zárukou" }
     ]
   },
@@ -95,11 +95,11 @@
     "title": "Než se zeptáte",
     "items": [
       { "q": "Kolik to bude stát?", "a": "Opravy: cena po diagnóze. Weby: pevná nabídka předem. Žádná překvapení." },
-      { "q": "Jak rychle to bude hotové?", "a": "Většina oprav do 48 hodin. Termín webu nebo větší zakázky potvrdíme na začátku." },
+      { "q": "Jak rychle to bude hotové?", "a": "Většina oprav do 12-24 hodin. Termín webu nebo větší zakázky potvrdíme na začátku." },
       { "q": "Mám na opravu záruku?", "a": "Ano, na díly i práci. Když něco nesedí, řešíme to my." },
       { "q": "Co se stane s mými daty?", "a": "Zacházíme s nimi jako s vlastními. Nic se neztratí, nic se nešťourá zbytečně." },
       { "q": "Od kolika se ceny pohybují?", "a": "Výměna displeje či baterie startuje řádově ve stovkách až nižších tisících podle modelu. Web podle rozsahu. Přesnou cenu vždy řekneme předem." },
-      { "q": "Jak dlouhá je záruka?", "a": "Na opravy standardně 6 měsíců na díl i práci. Když se závada vrátí, řešíme to my." },
+      { "q": "Jak dlouhá je záruka?", "a": "Na opravy standardně 3 měsíce na díl i práci. Když se závada vrátí, řešíme to my." },
       { "q": "Co ovlivňuje termín?", "a": "Dostupnost dílů a rozsah závady. Pokud něco objednáváme, řekneme to na začátku." },
       { "q": "Pracujete i na dálku?", "a": "Weby a část optimalizací řešíme vzdáleně. Opravy hardwaru osobně v Mladé Boleslavi a Liberci." }
     ]
@@ -123,7 +123,8 @@
   },
   "form": {
     "name": "Jméno",
-    "contact": "E-mail nebo telefon",
+    "email": "E-mail",
+    "phone": "Telefon",
     "type": "O co jde",
     "types": ["Oprava a diagnostika elektroniky", "Web na míru", "Oprava telefonů", "Pokročilé řešení", "Optimalizace a podpora"],
     "message": "Co potřebujeme vědět",
@@ -190,7 +191,7 @@
       ],
       "statsTitle": "Čísla",
       "stats": [
-        { "v": "do 48 h", "l": "většina oprav hotová" },
+        { "v": "do 12-24 h", "l": "většina oprav hotová" },
         { "v": "24 h", "l": "doba odezvy" },
         { "v": "100 %", "l": "práce se zárukou" }
       ],
@@ -231,7 +232,7 @@
       "guarantees": [
         { "t": "Odezva do 24 h", "d": "Každá zpráva, do druhého dne." },
         { "t": "Cena předem", "d": "Nic neplatíte, dokud ji neznáte a neschválíte." },
-        { "t": "Záruka 6 měsíců", "d": "Díly i práce, u každé opravy." }
+        { "t": "Záruka 3 měsíce", "d": "Díly i práce, u každé opravy." }
       ],
       "afterTitle": "Co se stane potom",
       "after": [
