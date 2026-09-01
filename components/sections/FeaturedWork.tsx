@@ -1,5 +1,5 @@
-import { useTranslations } from "next-intl";
-import { projects } from "@/content/work";
+import { useTranslations, useLocale } from "next-intl";
+import { getProjects } from "@/content/work";
 import { WorkCard } from "@/components/cards/WorkCard";
 import { LinkArrow } from "@/components/ui/LinkArrow";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -8,18 +8,20 @@ import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 /**
  * The credibility peak. Deliberately heavier than a body section: a larger
  * headline and an ambient vapor glow set it apart as the moment the page's
- * claims get evidence. Three projects compose as one equal-height row.
+ * claims get evidence. The lead project takes a full-width showcase; the rest
+ * sit beneath it - a composed layout, not three identical cards.
  */
 export function FeaturedWork() {
   const t = useTranslations("work");
+  const [lead, ...rest] = getProjects(useLocale());
   return (
     <section className="relative overflow-hidden py-[clamp(5rem,12vw,12rem)]">
-      {/* ambient proof-spotlight — one glow, radial, behind the row */}
+      {/* ambient proof-spotlight - one glow, radial, behind the row */}
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 h-[60%] w-[80%] -translate-x-1/2 rounded-full"
         style={{
-          background: "radial-gradient(closest-side, rgba(255,16,240,0.06), transparent 72%)",
+          background: "radial-gradient(closest-side, rgba(143,2,248,0.06), transparent 72%)",
         }}
       />
       <div className="container-x relative">
@@ -34,8 +36,18 @@ export function FeaturedWork() {
             <LinkArrow href="/prace">{t("cta")}</LinkArrow>
           </div>
         </ScrollReveal>
-        <Stagger className="grid items-stretch gap-6 lg:grid-cols-3" stagger={0.1}>
-          {projects.map((p) => (
+        <Stagger className="grid items-stretch gap-6 md:grid-cols-2" stagger={0.1}>
+          <StaggerItem effect="clip" className="md:col-span-2">
+            <WorkCard
+              featured
+              title={lead.title}
+              summary={lead.summary}
+              tag={lead.tag}
+              slug={lead.slug}
+              result={lead.result}
+            />
+          </StaggerItem>
+          {rest.map((p) => (
             <StaggerItem key={p.slug} effect="clip" className="h-full">
               <WorkCard
                 title={p.title}

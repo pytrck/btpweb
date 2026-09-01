@@ -73,9 +73,11 @@ export function StaggerItem({
 
   // `clip` is used only on gapped, non-hairgrid cards (FeaturedWork), so its
   // clip-path wipe can't disturb a shared hairline system - keep that flourish.
+  // The shown state keeps 8px of headroom at the top (inset -8px) so a card that
+  // lifts on hover (cardHover translates -4px) isn't shaved off by this clip.
   if (effect === "clip") {
     hidden.clipPath = "inset(0 0 100% 0)";
-    show.clipPath = "inset(0 0 0% 0)";
+    show.clipPath = "inset(-8px 0 0% 0)";
   }
 
   return (

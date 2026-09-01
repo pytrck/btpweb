@@ -24,14 +24,14 @@ export function CTABlock() {
           aria-hidden
           className="pointer-events-none absolute -bottom-1/2 -left-[15%] h-[130%] w-[65%] rounded-full"
           style={{
-            background: "radial-gradient(closest-side, rgba(255,16,240,0.09), transparent 72%)",
+            background: "radial-gradient(closest-side, rgba(143,2,248,0.09), transparent 72%)",
           }}
           variants={{
             hidden: { opacity: 0 },
             show: { opacity: 1, transition: { duration: reduce ? 0.01 : 1.1, ease: EASE } },
           }}
         />
-        {/* measurement ticks — diagnosis motif on opposing corners */}
+        {/* measurement ticks - diagnosis motif on opposing corners */}
         <span
           aria-hidden
           className="absolute left-0 top-0 h-3 w-3 border-l border-t border-accent-from/70"

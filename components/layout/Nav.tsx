@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useState, useEffect, useRef } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Link, usePathname } from "@/i18n/routing";
+import Image from "next/image";
+import { Link, usePathname, routing } from "@/i18n/routing";
 import { EASE } from "@/lib/motion";
 
 const links = [
@@ -13,12 +14,42 @@ const links = [
   { href: "/kontakt", key: "contact" },
 ] as const;
 
+// CS/EN toggle. usePathname() (next-intl) returns the path without the locale
+// prefix, so re-linking it with a target `locale` swaps only the prefix and
+// keeps the visitor on the same page.
+function LocaleSwitcher({ onNavigate }: { onNavigate?: () => void }) {
+  const pathname = usePathname();
+  const active = useLocale();
+  return (
+    <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wide">
+      {routing.locales.map((l, i) => (
+        <span key={l} className="flex items-center gap-2">
+          {i > 0 && <span aria-hidden className="text-muted/40">/</span>}
+          <Link
+            href={pathname}
+            locale={l}
+            onClick={onNavigate}
+            aria-current={l === active ? "true" : undefined}
+            className={`btp-focus transition-colors ${
+              l === active ? "text-paper" : "text-muted hover:text-paper"
+            }`}
+          >
+            {l}
+          </Link>
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function Nav() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const reduce = useReducedMotion();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -27,28 +58,65 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Mobile menu a11y: focus the first link on open, trap Tab inside the panel,
+  // and Esc closes + returns focus to the toggle.
+  useEffect(() => {
+    if (!open) return;
+    const panel = menuRef.current;
+    const focusables = panel
+      ? Array.from(
+          panel.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+        )
+      : [];
+    focusables[0]?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        menuBtnRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab" || focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <motion.header
       animate={{
-        backgroundColor: scrolled ? "rgba(10,10,11,0.85)" : "rgba(10,10,11,0.4)",
+        backgroundColor: scrolled ? "rgba(5,5,5,0.85)" : "rgba(5,5,5,0.4)",
         borderColor: scrolled ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0)",
       }}
       transition={{ duration: 0.4, ease: EASE }}
-      className="sticky top-0 z-50 border-b backdrop-blur-xl backdrop-saturate-150"
+      className="sticky top-0 z-50 border-b backdrop-blur-md"
     >
       <motion.div
         animate={{ height: scrolled ? 56 : 64 }}
         transition={{ duration: 0.4, ease: EASE }}
         className="container-x flex items-center justify-between"
       >
-        <Link
-          href="/"
-          className="btp-focus glitch-hover font-head text-lg font-bold tracking-tight"
-        >
-          BTP<span className="text-accent-from">.</span>
+        <Link href="/" className="btp-focus glitch-hover">
+          <Image
+            src="/logo.png"
+            alt="BTP"
+            width={512}
+            height={512}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -68,14 +136,16 @@ export function Nav() {
           ))}
           <Link
             href="/kontakt"
-            className="btp-focus rounded border border-paper bg-paper px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-transparent hover:text-paper"
+            className="btp-focus btn-paper rounded px-4 py-2 text-sm font-medium"
           >
             {t("cta")}
           </Link>
+          <LocaleSwitcher />
         </nav>
 
         <button
-          className="btp-focus flex h-8 w-8 flex-col items-center justify-center md:hidden"
+          ref={menuBtnRef}
+          className="btp-focus -mr-2 flex h-11 w-11 flex-col items-center justify-center md:hidden"
           aria-label="Menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -101,6 +171,7 @@ export function Nav() {
       <AnimatePresence>
         {open && (
           <motion.nav
+            ref={menuRef}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -134,10 +205,13 @@ export function Nav() {
               <Link
                 href="/kontakt"
                 onClick={() => setOpen(false)}
-                className="mt-2 rounded border border-paper bg-paper px-4 py-3 text-center text-sm font-medium text-ink"
+                className="btn-paper mt-2 rounded px-4 py-3 text-center text-sm font-medium"
               >
                 {t("cta")}
               </Link>
+              <div className="mt-4 border-t border-line pt-4">
+                <LocaleSwitcher onNavigate={() => setOpen(false)} />
+              </div>
             </motion.div>
           </motion.nav>
         )}

@@ -12,7 +12,7 @@ import { useReveal } from "@/lib/useReveal";
  */
 export function AnimatedSeam({
   className = "",
-  notchAt = "38%",
+  notchAt = "50%",
 }: {
   className?: string;
   notchAt?: string;
@@ -44,7 +44,7 @@ export function AnimatedSeam({
           }}
         />
         <motion.div
-          className="absolute top-[-2px] h-[5px] w-[5px] bg-accent-from"
+          className="absolute top-[-2px] -ml-[2.5px] h-[5px] w-[5px] bg-accent-from"
           style={{ left: notchAt }}
           variants={{
             hidden: { scale: 0, opacity: 0, rotate: 45 },

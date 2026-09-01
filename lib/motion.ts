@@ -86,7 +86,11 @@ export const fractureNotch: Variants = {
   },
 };
 
-/* ---- card hover orchestration (rest/hover propagated to children) ---- */
+/* ---- card hover orchestration (rest/hover propagated to children) ----
+   The -4px lift is a transform. To keep it from clipping the 1px top glass-line,
+   the cards drop `overflow-hidden` (WorkCard/ServiceCard) - nothing overflows to
+   clip, since the sheen and vapor edges are inset-positioned - and .spotlight is
+   promoted to a stable backing layer (globals.css). */
 export const cardHover: Variants = {
   rest: { y: 0 },
   hover: { y: -4, transition: { duration: DUR.fast, ease: EASE } },

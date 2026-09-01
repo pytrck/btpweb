@@ -1,19 +1,20 @@
 {
   "meta": {
     "title": "Break The Pattern - Opravy, weby a technika bez šablon",
-    "description": "Opravy telefonů, weby na míru a technika, kterou ostatní odepsali. Rychle, poctivě a se zárukou. Ozveme se do 24 hodin."
+    "description": "Opravy telefonů, weby na míru a technika, kterou ostatní odepsali. Rychle, poctivě, se zárukou. Ozveme se do 24 hodin."
   },
   "nav": {
     "work": "Práce",
     "services": "Služby",
     "about": "O nás",
     "contact": "Kontakt",
-    "cta": "Začít projekt"
+    "cta": "Začít projekt",
+    "skip": "Přejít na obsah"
   },
   "hero": {
     "kicker": "BREAK THE PATTERN",
     "title": "Každý systém má trhlinu. Break The Pattern je cesta dál.",
-    "subtitle": "Telefony, weby a technika bez šablon. Poctivá diagnóza, jasná cena předem a výsledek, který drží.",
+    "subtitle": "Telefony, weby a technika bez šablon. Poctivá diagnóza, pevná cena předem a výsledek, který drží.",
     "ctaPrimary": "Začít projekt",
     "ctaSecondary": "Ukázat práci",
     "status": "Přijímáme nové projekty"
@@ -31,41 +32,29 @@
   },
   "stats": {
     "items": [
-      { "v": "48 h", "l": "průměrná doba opravy" },
-      { "v": "24 h", "l": "maximální doba odezvy" },
-      { "v": "90+", "l": "Lighthouse skóre webů" },
+      { "v": "12-24 h", "l": "průměrná oprava" },
+      { "v": "24 h", "l": "doba odezvy" },
+      { "v": "3 měs.", "l": "záruka na každou opravu" },
       { "v": "0", "l": "skrytých příplatků" }
-    ]
-  },
-  "solve": {
-    "kicker": "Co řešíme",
-    "title": "Konkrétní problémy, ne hesla",
-    "items": [
-      "Prasklý nebo mrtvý displej",
-      "Baterie, co nevydrží den",
-      "Notebook, co se sekne a hučí",
-      "Web, který nevydělává",
-      "Ztracená nebo nedostupná data",
-      "Pomalý a zaplevelený systém"
     ]
   },
   "why": {
     "kicker": "Proč BTP",
     "title": "Proč si vybrat nás",
     "items": [
-      { "n": "01", "t": "Přímý kontakt", "d": "Žádné předávání mezi odděleními. Mluvíte přímo s lidmi, kteří to dělají." },
-      { "n": "02", "t": "Žádné šablony", "d": "Nic z page builderu. Každý web stavíme od základu." },
-      { "n": "03", "t": "Nejdřív diagnóza", "d": "Než na cokoli sáhneme, víme, co je špatně a proč." }
+      { "t": "Jednáte přímo s námi", "d": "Žádná oddělení, žádné předávání. Kdo to zvedne, ten na tom dělá." },
+      { "t": "Stavíme, neskládáme", "d": "Žádné page buildery, žádné šablony. Každý web začíná u prázdného souboru." },
+      { "t": "Nejdřív diagnóza, pak cena", "d": "Zjistíme, co je špatně a proč, ještě než na to někdo sáhne." }
     ]
   },
   "expect": {
     "kicker": "Co můžete čekat",
     "title": "Žádná překvapení",
     "items": [
-      { "t": "Cenu předem", "d": "Víte, kolik to bude stát, dřív než řekneme „ano“. Žádné účty na konci, které neseděly." },
-      { "t": "Lidskou řeč", "d": "Vysvětlíme, co je špatně, srozumitelně. Bez technické hatmatilky a strašení." },
-      { "t": "Držený termín", "d": "Termín dostanete na začátku a držíme ho. Když hrozí skluz, víte to první." },
-      { "t": "Upřímnost", "d": "Když se oprava nevyplatí nebo nejde, řekneme to rovnou. Neprodáváme zbytečnou práci." }
+      { "t": "Nejdřív cena", "d": "Víte, kolik to bude stát, ještě než začneme. Žádný účet na konci, který nesedí." },
+      { "t": "Rovná řeč", "d": "Řekneme, co je špatně, lidsky. Bez hatmatilky a bez strašení." },
+      { "t": "Termín, který držíme", "d": "Datum dostanete předem a držíme ho. Když hrozí skluz, víte to první." },
+      { "t": "Upřímné doporučení", "d": "Když se oprava nevyplatí, řekneme to rovnou. Neprodáváme práci, kterou nepotřebujete." }
     ]
   },
   "fit": {
@@ -74,15 +63,15 @@
     "forTitle": "Sedneme si, když…",
     "for": [
       "Chcete to udělat pořádně, ne jen nejlevněji.",
-      "Oceníte rovnou řeč a jasný termín.",
+      "Oceníte rovnou řeč a pevný termín.",
       "Hledáte někoho, kdo si stojí za svou prací.",
       "Chcete řešení na míru, ne šablonu."
     ],
     "notTitle": "Nejsme pro vás, když…",
     "not": [
-      "Rozhoduje jen nejnižší cena za každou cenu.",
-      "Chcete neoriginální web ze šablony za pár korun.",
-      "Potřebujete to „nějak slepit“ bez záruky.",
+      "Rozhoduje jen nejnižší cena.",
+      "Chcete web ze šablony za pár korun.",
+      "Chcete to nějak slepit, bez záruky.",
       "Nezáleží vám na kvalitě ani výsledku."
     ]
   },
@@ -90,10 +79,10 @@
     "kicker": "Jak to probíhá",
     "title": "Postup",
     "steps": [
-      { "n": "01", "t": "Diagnóza", "d": "Zjistíme, co se reálně děje - a co ne.", "note": "do 30 minut" },
-      { "n": "02", "t": "Plán", "d": "Řekneme rovnou cenu, čas a postup. Předem, písemně.", "note": "bez překvapení" },
-      { "n": "03", "t": "Realizace", "d": "Uděláme to pořádně, ne jen rychle. Kvalitní díly, čistá práce.", "note": "většinou do 48 h" },
-      { "n": "04", "t": "Předání", "d": "Funguje to, víte jak s tím dál a máte záruku.", "note": "se zárukou" }
+      { "t": "Diagnóza", "d": "Zjistíme, co se děje, a co ne.", "note": "do 30 minut" },
+      { "t": "Plán", "d": "Cena, termín a postup písemně, než začneme.", "note": "bez překvapení" },
+      { "t": "Realizace", "d": "Uděláno pořádně. Dobré díly, čistá práce.", "note": "většinou do 12-24 h" },
+      { "t": "Předání", "d": "Funguje to, umíte s tím, máte záruku.", "note": "se zárukou" }
     ]
   },
   "trust": {
@@ -105,14 +94,14 @@
     "kicker": "Časté dotazy",
     "title": "Než se zeptáte",
     "items": [
-      { "q": "Kolik to bude stát?", "a": "U oprav řekneme cenu po diagnóze - žádná překvapení. U webů dostanete pevnou nabídku předem." },
-      { "q": "Jak rychle to bude hotové?", "a": "Většina oprav do 48 hodin. Termín webu nebo větší zakázky potvrdíme hned na začátku." },
-      { "q": "Mám na opravu záruku?", "a": "Ano - na díly i na práci. Když něco nesedí, řešíme to my, ne vy." },
-      { "q": "Co se stane s mými daty?", "a": "Zacházíme s nimi jako s vlastními. Nic nemizí, nic se nešťourá zbytečně." },
+      { "q": "Kolik to bude stát?", "a": "Opravy: cena po diagnóze. Weby: pevná nabídka předem. Žádná překvapení." },
+      { "q": "Jak rychle to bude hotové?", "a": "Většina oprav do 12-24 hodin. Termín webu nebo větší zakázky potvrdíme na začátku." },
+      { "q": "Mám na opravu záruku?", "a": "Ano, na díly i práci. Když něco nesedí, řešíme to my." },
+      { "q": "Co se stane s mými daty?", "a": "Zacházíme s nimi jako s vlastními. Nic se neztratí, nic se nešťourá zbytečně." },
       { "q": "Od kolika se ceny pohybují?", "a": "Výměna displeje či baterie startuje řádově ve stovkách až nižších tisících podle modelu. Web podle rozsahu. Přesnou cenu vždy řekneme předem." },
-      { "q": "Jak dlouhá je záruka?", "a": "Na opravy standardně 6 měsíců na díl i práci. Když se závada vrátí, řešíme to my." },
-      { "q": "Co ovlivňuje termín?", "a": "Hlavně dostupnost dílů a rozsah závady. Pokud něco objednáváme, řekneme to hned na začátku." },
-      { "q": "Pracujete i na dálku?", "a": "Weby a část optimalizací řešíme vzdáleně. Opravy hardwaru osobně v [Město a okolí]." }
+      { "q": "Jak dlouhá je záruka?", "a": "Na opravy standardně 3 měsíce na díl i práci. Když se závada vrátí, řešíme to my." },
+      { "q": "Co ovlivňuje termín?", "a": "Dostupnost dílů a rozsah závady. Pokud něco objednáváme, řekneme to na začátku." },
+      { "q": "Pracujete i na dálku?", "a": "Weby a část optimalizací řešíme vzdáleně. Opravy hardwaru osobně v Mladé Boleslavi a Liberci." }
     ]
   },
   "proof": {
@@ -129,101 +118,131 @@
     "cta": "Začít projekt"
   },
   "footer": {
-    "tagline": "Opravy, weby a technika bez šablon.",
+    "tagline": "Opravy, weby a systémy. Bez šablon.",
     "rights": "Všechna práva vyhrazena."
   },
   "form": {
     "name": "Jméno",
-    "contact": "E-mail nebo telefon",
+    "email": "E-mail",
+    "phone": "Telefon",
     "type": "O co jde",
+    "types": ["Oprava a diagnostika elektroniky", "Web na míru", "Oprava telefonů", "Pokročilé řešení", "Optimalizace a podpora"],
     "message": "Co potřebujeme vědět",
     "submit": "Odeslat poptávku",
-    "note": "Bez závazku. Bez prodejních keců. Stačí napsat, co řešíte."
+    "note": "Bez závazku, bez prodejních keců. Napište, co řešíte.",
+    "sending": "Odesílám…",
+    "success": "Odesláno. Ozveme se do 24 hodin.",
+    "error": "Nepodařilo se odeslat. Napište nám prosím přímo:"
+  },
+  "cards": {
+    "learnMore": "Zjistit více",
+    "openCaseStudy": "Otevřít case study",
+    "result": "Výsledek"
+  },
+  "serviceDetail": {
+    "forWhom": "Pro koho",
+    "proof": "Proč nám věřit",
+    "included": "Co je v ceně",
+    "solves": "Typicky řešíme",
+    "turnaround": "Termín",
+    "deliverable": "Co dostanete",
+    "seeWork": "Ukázat práci"
+  },
+  "caseStudy": {
+    "brief": "Zadání",
+    "role": "Naše role",
+    "problem": "Problém",
+    "approach": "Řešení",
+    "result": "Výsledek",
+    "impact": "Dopad",
+    "tech": "Technologie",
+    "similar": "Chcete něco podobného?",
+    "start": "Začít projekt",
+    "back": "Zpět na práci"
   },
   "pages": {
     "services": {
       "title": "Služby",
-      "subtitle": "Pět oblastí, jeden standard. Vyberte, co řešíte."
+      "subtitle": "Pět oblastí. Jeden standard."
     },
     "work": {
       "title": "Práce",
       "subtitle": "Ukázky toho, co stavíme a opravujeme.",
-      "empty": "Připravujeme první case studies. Mezitím nám napište - rádi ukážeme konkrétní příklady."
+      "empty": "Připravujeme první case studies. Napište nám a ukážeme konkrétní příklady."
     },
     "about": {
       "title": "O nás",
-      "subtitle": "Break The Pattern není jeden člověk. Je to standard.",
+      "subtitle": "Break The Pattern není člověk. Je to standard.",
       "blocks": [
-        { "t": "Kdo jsme", "d": "Break The Pattern je značka pro opravy, weby a techniku, kterou ostatní odepsali. Dnes ji žene zakladatel, ale stavíme ji jako tým, ne jako jméno." },
-        { "t": "Co znamená Break The Pattern", "d": "Pattern je smíření se s průměrem. Pomalý servis, generické šablony, mlžení kolem ceny. To je vzorec, který lámeme." },
-        { "t": "Proč existujeme", "d": "Protože technické služby umí být rychlé, poctivé a bez výmluv. Většinou nejsou. My ukazujeme, že to jde jinak." },
+        { "t": "Kdo jsme", "d": "Značka pro opravy, weby a techniku, kterou ostatní odepsali. Dnes ji žene zakladatel; stavíme ji jako tým, ne jako jméno." },
+        { "t": "Co znamená Break The Pattern", "d": "Pattern je smíření se s průměrem: pomalý servis, generické šablony, mlžení kolem ceny. To je vzorec, který lámeme." },
+        { "t": "Proč existujeme", "d": "Technické služby umí být rychlé, poctivé a bez výmluv. Většinou nejsou. My ukazujeme, že to jde jinak." },
         { "t": "Jak přemýšlíme", "d": "Nejdřív diagnóza, pak řešení. Rozumíme problému dřív, než ho začneme řešit." },
-        { "t": "Kam míříme", "d": "Rosteme. Přibývají lidé, služby i projekty - ale standard zůstává stejný. To je celý smysl značky." }
+        { "t": "Kam míříme", "d": "Rosteme. Přibývají lidé, služby i projekty. Standard zůstává stejný. To je celý smysl." }
       ],
       "capsTitle": "Co umíme",
       "capabilities": [
         "Opravy telefonů a tabletů",
         "Vývoj webů na míru",
-        "Servis a diagnostika počítačů",
+        "Opravy a diagnostika elektroniky",
         "Záchrana a obnova dat",
         "Automatizace a integrace",
         "Optimalizace a migrace systémů"
       ],
       "statsTitle": "Čísla",
       "stats": [
-        { "v": "do 48 h", "l": "většina oprav hotová" },
+        { "v": "do 12-24 h", "l": "většina oprav hotová" },
         { "v": "24 h", "l": "doba odezvy" },
         { "v": "100 %", "l": "práce se zárukou" }
       ],
       "standardsTitle": "Jak pracujeme",
       "standards": [
-        { "t": "Diagnóza před cenou", "d": "Nejdřív zjistíme příčinu. Teprve pak mluvíme o ceně a termínu - a držíme je." },
-        { "t": "Kvalitní díly, ne nejlevnější", "d": "Používáme komponenty, na které si troufneme dát záruku. Ne nejlevnější náhražky." },
-        { "t": "Necháme po sobě pořádek", "d": "Vrátíme zařízení čistší, než přišlo. Web předáme tak, abyste s ním uměli pracovat." }
+        { "t": "Diagnóza před cenou", "d": "Nejdřív zjistíme příčinu. Teprve pak mluvíme o ceně a termínu, a držíme je." },
+        { "t": "Kvalitní díly, ne nejlevnější", "d": "Komponenty, na které si troufneme dát záruku. Ne nejlevnější náhražky." },
+        { "t": "Necháme po sobě pořádek", "d": "Vrátíme zařízení čistší, než přišlo. Web předáme připravený k provozu." }
       ],
       "refuseTitle": "Co neděláme",
       "refuse": [
         "Nepoužíváme šablony a page buildery.",
         "Neslibujeme termíny, které neumíme splnit.",
         "Neúčtujeme práci, která nedává smysl.",
-        "Nešantročíme nejlevnější díly bez záruky."
+        "Nešantročíme levné díly bez záruky."
       ],
       "futureTitle": "Kam směřujeme",
-      "future": "BTP roste z jednoho člověka v malý tým s jasným standardem. Stejná poctivost, víc rukou, víc oborů - od oprav přes weby až po náročnější technická řešení."
+      "future": "BTP roste z jednoho člověka v malý tým s jasným standardem. Stejná poctivost, víc rukou, víc oborů, od oprav přes weby až po náročnější technická řešení."
     },
     "contact": {
       "title": "Kontakt",
-      "subtitle": "Napište, co je rozbité, nebo co chcete postavit.",
+      "subtitle": "Napište, co je rozbité, nebo co postavit.",
       "help": "S čím pomůžeme",
       "helpItems": ["Oprava telefonu", "Web na míru", "Oprava techniky", "Pokročilé řešení", "Optimalizace setupu"],
-      "response": "Čteme každou zprávu osobně. Odpovídáme do 24 hodin.",
+      "response": "Čteme každou zprávu osobně a odpovídáme do 24 hodin.",
       "channelsTitle": "Přímé kanály",
       "channels": [
-        { "label": "E-mail", "value": "ahoj@breakthepattern.cz" },
-        { "label": "Telefon", "value": "+420 [číslo]" },
+        { "label": "E-mail", "value": "breakthepatterninfo@gmail.com" },
         { "label": "Odezva", "value": "do 24 hodin" }
       ],
       "checklistTitle": "Co přiložit",
       "checklist": [
-        "Typ zařízení nebo odkaz na web",
+        "Typ zařízení, nebo odkaz na web",
         "Co se děje a kdy to začalo",
-        "Klidně i foto problému"
+        "Foto problému, pokud ho máte"
       ],
       "guaranteesTitle": "Naše jistoty",
       "guarantees": [
-        { "t": "Odezva do 24 h", "d": "Na každou zprávu reagujeme do druhého dne." },
-        { "t": "Cena předem", "d": "Nic neplatíte, dokud cenu neznáte a neodsouhlasíte." },
-        { "t": "Záruka 6 měsíců", "d": "Na díly i práci u každé opravy." }
+        { "t": "Odezva do 24 h", "d": "Každá zpráva, do druhého dne." },
+        { "t": "Cena předem", "d": "Nic neplatíte, dokud ji neznáte a neschválíte." },
+        { "t": "Záruka 3 měsíce", "d": "Díly i práce, u každé opravy." }
       ],
       "afterTitle": "Co se stane potom",
       "after": [
-        { "n": "01", "t": "Ozveme se", "d": "Do 24 hodin s prvními otázkami, nebo rovnou s termínem." },
-        { "n": "02", "t": "Diagnóza a cena", "d": "U oprav zjistíme příčinu a pošleme pevnou cenu. Schválíte ji vy." },
-        { "n": "03", "t": "Pustíme se do toho", "d": "Pracujeme a vy víte, v jaké fázi to je. Na konci dostanete záruku." }
+        { "t": "Ozveme se", "d": "Do 24 hodin, s pár otázkami nebo rovnou s termínem." },
+        { "t": "Diagnóza a cena", "d": "Najdeme příčinu a pošleme pevnou cenu. Nic se nehne, dokud ji neodsouhlasíte." },
+        { "t": "Pustíme se do toho", "d": "Děláme a vy víte, v jaké je to fázi. Na konci máte záruku." }
       ],
       "reassurance": "Nic neplatíte, dokud neznáte cenu a neodsouhlasíte ji.",
       "areaTitle": "Kde působíme",
-      "area": "Osobní servis [Město a okolí]. Weby, konzultace a vzdálenou podporu po celé ČR."
+      "area": "Osobně v Mladé Boleslavi a Liberci. Weby, konzultace a vzdálená podpora po celé ČR."
     }
   }
 }

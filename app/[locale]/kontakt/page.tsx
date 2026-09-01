@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { buildMeta } from "@/lib/meta";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { ScrollOrb } from "@/components/ui/ScrollOrb";
 
 export async function generateMetadata({
   params,
@@ -19,19 +20,22 @@ export default async function ContactPage({ params }: { params: { locale: string
   const help = t.raw("helpItems") as string[];
   const channels = t.raw("channels") as { label: string; value: string }[];
   const checklist = t.raw("checklist") as string[];
-  const after = t.raw("after") as { n: string; t: string; d: string }[];
+  const after = t.raw("after") as { t: string; d: string }[];
   const guarantees = t.raw("guarantees") as { t: string; d: string }[];
+  const dash = String.fromCharCode(0x2014);
   return (
-    <>
+    <div className="relative">
+      <ScrollOrb text="LET'S BREAK IT" amp={42} cycles={2.1} jag={21} />
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
 
       <section className="container-x pb-section">
         <p className="label text-accent-from">{t("guaranteesTitle")}</p>
-        <div className="mt-6 hairgrid md:grid-cols-3">
+        <div className="mt-8 grid gap-x-12 gap-y-10 md:grid-cols-3">
           {guarantees.map((g) => (
-            <div key={g.t} className="bg-ink p-8">
+            <div key={g.t}>
               <h3 className="font-head text-h3">{g.t}</h3>
-              <p className="mt-2 text-sm text-muted">{g.d}</p>
+              <span aria-hidden className="mt-3 block h-px w-8 bg-fracture" />
+              <p className="mt-3 text-sm text-muted">{g.d}</p>
             </div>
           ))}
         </div>
@@ -43,7 +47,7 @@ export default async function ContactPage({ params }: { params: { locale: string
           <ul className="mt-4 space-y-3">
             {help.map((h) => (
               <li key={h} className="flex gap-3 text-lg">
-                <span className="text-accent-from">-</span>
+                <span aria-hidden className="text-accent-from">{dash}</span>
                 {h}
               </li>
             ))}
@@ -66,7 +70,7 @@ export default async function ContactPage({ params }: { params: { locale: string
             <ul className="mt-4 space-y-2">
               {checklist.map((c) => (
                 <li key={c} className="flex gap-3 text-sm text-muted">
-                  <span className="text-accent-from">-</span>
+                  <span aria-hidden className="text-accent-from">{dash}</span>
                   {c}
                 </li>
               ))}
@@ -80,21 +84,36 @@ export default async function ContactPage({ params }: { params: { locale: string
 
       <section className="container-x pb-section">
         <p className="label text-accent-from">{t("afterTitle")}</p>
-        <div className="mt-6 hairgrid md:grid-cols-3">
-          {after.map((a) => (
-            <div key={a.n} className="bg-ink p-8">
-              <span className="font-mono text-2xl text-muted">{a.n}</span>
-              <h3 className="mt-4 font-head text-h3">{a.t}</h3>
-              <p className="mt-2 text-sm text-muted">{a.d}</p>
-            </div>
-          ))}
+        {/* the same timeline as the homepage Process */}
+        <div className="relative mt-8">
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-[9px] hidden h-px bg-gradient-to-r from-line via-line to-transparent md:block"
+          />
+          <div className="grid gap-y-10 md:grid-cols-3 md:gap-x-8">
+            {after.map((a) => (
+              <div key={a.t}>
+                <span
+                  aria-hidden
+                  className="flex h-[18px] w-[18px] items-center justify-center rounded-full border border-line bg-ink"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent-from shadow-[0_0_8px_1px_rgba(143,2,248,0.5)]" />
+                </span>
+                <h3 className="mt-5 font-head text-h3">{a.t}</h3>
+                <p className="mt-2 text-sm text-muted">{a.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <p className="mt-8 border-l-2 border-accent-from pl-6 text-lg">{t("reassurance")}</p>
+        <div className="mt-10 max-w-xl">
+          <span aria-hidden className="block h-px w-10 bg-fracture" />
+          <p className="mt-4 text-lg text-paper">{t("reassurance")}</p>
+        </div>
         <div className="mt-10 border-t border-line pt-6">
           <p className="label">{t("areaTitle")}</p>
           <p className="mt-3 max-w-xl text-muted">{t("area")}</p>
         </div>
       </section>
-    </>
+    </div>
   );
 }
