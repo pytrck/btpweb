@@ -3,9 +3,10 @@
 import { useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
-import { heroContainer, heroItem, lineMask } from "@/lib/motion";
 import { gsap } from "@/lib/gsap";
+import { Button } from "@/components/ui/Button";
+import { HeroAtmosphere } from "@/components/ui/HeroAtmosphere";
+import { heroContainer, heroItem, lineMask, EASE } from "@/lib/motion";
 
 const BRAND = "Break The Pattern";
 
@@ -36,22 +37,14 @@ function FracturedBrand({ text }: { text: string }) {
       gsap.set(seam.current, { yPercent: -50, transformOrigin: "left center" });
       gsap.set(glint.current, { xPercent: -50, yPercent: -50, opacity: 0 });
 
-      // Reduced motion → resolve straight to the resting fractured state. It's a
-      // static visual, not motion, so the brand keeps its identity; no strike,
-      // no ScrollTrigger.
-      if (reduce) {
-        gsap.set(seam.current, { clipPath: "inset(0 0% 0 0)", opacity: 0.85 });
-        gsap.set(upper.current, { x: -off, y: -1 });
-        gsap.set(lower.current, { x: off, y: 1 });
-        return;
-      }
-
       // Seam starts fully clipped from the right (invisible), so the draw reveals
       // it left→right without distorting the gradient.
       gsap.set(seam.current, { clipPath: "inset(0 100% 0 0)", opacity: 0.95 });
       gsap.set([upper.current, lower.current], { x: 0, y: 0 });
 
-      const tl = gsap.timeline({ delay: 0.85 });
+      // The one-shot strike always plays - it's the brand signature moment.
+      // Only the scroll-linked parallax below respects reduced motion.
+      const tl = gsap.timeline({ delay: 1.5 });
 
       // 1) The glint flies in from the left and races across the phrase, drawing
       //    the seam in its wake.
@@ -77,13 +70,14 @@ function FracturedBrand({ text }: { text: string }) {
         .to(lower.current, { x: off, y: 1, duration: 0.6, ease: "power2.out" }, 0.52)
         .to(seam.current, { opacity: 0.72, duration: 0.6 }, 0.55);
 
-      // Scroll-linked: brand drifts off-grid, seam opens a little as the hero
-      // leaves. Separate properties, so nothing fights the strike above.
-      const section = el.closest("section");
-      if (section) {
-        const st = { trigger: section, start: "top top", end: "bottom top", scrub: true } as const;
-        gsap.fromTo(el, { x: 0 }, { x: 44, ease: "none", scrollTrigger: st });
-        gsap.fromTo(seam.current, { scaleY: 1 }, { scaleY: 2.4, ease: "none", scrollTrigger: st });
+      // Scroll-linked parallax respects reduced motion (continuous motion).
+      if (!reduce) {
+        const section = el.closest("section");
+        if (section) {
+          const st = { trigger: section, start: "top top", end: "bottom top", scrub: true } as const;
+          gsap.fromTo(el, { x: 0 }, { x: 44, ease: "none", scrollTrigger: st });
+          gsap.fromTo(seam.current, { scaleY: 1 }, { scaleY: 2.4, ease: "none", scrollTrigger: st });
+        }
       }
     }, el);
 
@@ -112,11 +106,14 @@ function FracturedBrand({ text }: { text: string }) {
       <span
         ref={glint}
         aria-hidden
-        className="pointer-events-none absolute left-0 top-1/2 h-2.5 w-2.5 rounded-full"
+        className="pointer-events-none absolute left-0 top-1/2 h-3 w-3 rounded-full"
         style={{
           opacity: 0,
-          background: "#ff10f0",
-          boxShadow: "0 0 16px 5px rgba(255,16,240,0.55)",
+          // white-hot core so the strike reads as a slash of light; the bloom
+          // stays acid-purple (brand). Dimmed to a flat #8f02f8 at go-live,
+          // which lost the cut against the near-black hero.
+          background: "#f4e9ff",
+          boxShadow: "0 0 24px 8px rgba(143,2,248,0.85), 0 0 10px 3px rgba(214,150,255,0.95)",
         }}
       />
     </span>
@@ -185,7 +182,7 @@ export function Hero() {
         <div
           className="absolute -top-[28%] left-[-12%] h-[75vh] w-[70vw] rounded-full"
           style={{
-            background: "radial-gradient(closest-side, rgba(255,16,240,0.055), transparent 72%)",
+            background: "radial-gradient(closest-side, rgba(143,2,248,0.055), transparent 72%)",
           }}
         />
         <div
@@ -197,7 +194,7 @@ export function Hero() {
       </div>
       <motion.div
         style={{ y, scale, opacity }}
-        className="container-x grid min-h-[86vh] grid-cols-12 content-center gap-y-8 py-section"
+        className="container-x relative z-10 grid min-h-[86vh] grid-cols-12 content-center gap-y-8 py-section"
       >
         <motion.div className="contents" variants={heroContainer} initial="hidden" animate="show">
           <div className="col-span-12 md:col-span-11">
@@ -222,14 +219,14 @@ export function Hero() {
                 {t("ctaSecondary")}
               </Button>
             </motion.div>
-            {/* live availability signal — quiet, mono, one pulsing vapor dot */}
+            {/* live availability signal - quiet, mono, one pulsing vapor dot */}
             <motion.p
               variants={heroItem}
               className="mt-9 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.12em] text-muted"
             >
               <span aria-hidden className="relative flex h-2 w-2">
                 <span className="dot-ping absolute inset-0 rounded-full bg-accent-from opacity-70" />
-                <span className="relative h-2 w-2 rounded-full bg-accent-from shadow-[0_0_12px_2px_rgba(255,16,240,0.45)]" />
+                <span className="relative h-2 w-2 rounded-full bg-accent-from shadow-[0_0_12px_2px_rgba(143,2,248,0.45)]" />
               </span>
               {t("status")}
             </motion.p>

@@ -1,6 +1,6 @@
 # Break The Pattern (BTP)
 
-Company website for **Break The Pattern** — repairs, custom web, and technical
+Company website for **Break The Pattern** - repairs, custom web, and technical
 services. Czech-first (default locale `cs`), English (`/en`) prepared for later.
 
 Dark / paper / vapor-accent visual system with a "broken pattern" motion
@@ -11,9 +11,9 @@ language (fracture seams, scroll-linked reveals, restrained vapor gradient).
 ## Stack
 
 - **Next.js 14** (App Router, TypeScript)
-- **Tailwind CSS** — design tokens in `tailwind.config.ts`
-- **Framer Motion** — scroll-linked, reversible motion system (`lib/motion.ts`)
-- **next-intl** — i18n, `cs` default (no prefix) + `en` (`/en`)
+- **Tailwind CSS** - design tokens in `tailwind.config.ts`
+- **Framer Motion** - scroll-linked, reversible motion system (`lib/motion.ts`)
+- **next-intl** - i18n, `cs` default (no prefix) + `en` (`/en`)
 - Generated OG image via `next/og`
 
 ---
@@ -23,7 +23,6 @@ language (fracture seams, scroll-linked reveals, restrained vapor gradient).
 ```bash
 npm install
 npm run dev
-# http://localhost:3000
 ```
 
 Other scripts:
@@ -38,25 +37,8 @@ npm run lint    # eslint
 
 ---
 
-## Project structure
 
-```
-app/[locale]/         Routes: / · /sluzby · /sluzby/[slug] · /prace · /prace/[slug] · /o-nas · /kontakt
-app/[locale]/[...rest] Catch-all → branded localized 404
-app/opengraph-image.tsx  Generated social card
-components/            layout · ui · sections · cards · forms
-content/               Data-driven content (edit these to add/update)
-  services.ts          Service offerings
-  work.ts              Case studies
-  proof.ts             Client logos + testimonials (empty → sections auto-hide)
-  team.ts              Team members (empty → section auto-hides)
-  site.ts              Brand constants + contact details (PLACEHOLDERS)
-i18n/ · middleware.ts  next-intl routing
-messages/              cs.json (primary) · en.json
-lib/                   motion variants · metadata builder
-```
-
-Adding content needs **no code changes** — add an entry to the relevant file in
+Adding content needs **no code changes** - add an entry to the relevant file in
 `content/`. New service, project, logo, testimonial, or team member all scale
 into existing layouts.
 
@@ -64,13 +46,12 @@ into existing layouts.
 
 ## Placeholders to replace before launch
 
-All temporary values are marked `// TODO` or wrapped in `[brackets]`:
+Remaining temporary values are marked `// TODO`:
 
-- `content/site.ts` — `url` (domain), `email`, `phone`, `city`, social handles
-- `messages/cs.json` & `messages/en.json` — phone `+420 [číslo]`, service area
-  `[Město a okolí]` / `[City and around]`
-- `content/work.ts` — the 3 case studies are illustrative placeholders
-- `content/proof.ts` / `content/team.ts` — empty until real data is added
+- `content/site.ts` - contact-form key (`web3formsKey`) and extra social handles
+- `content/work.ts` - the 3 case studies are illustrative placeholders
+- `content/proof.ts` / `content/team.ts` - empty until real logos, testimonials,
+  and team members are added
 
 ---
 

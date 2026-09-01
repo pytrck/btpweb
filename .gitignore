@@ -11,6 +11,10 @@ next-env.d.ts
 
 # production
 /dist
+/video
+/public/showcase
+/remotion
+/showcase
 
 # misc / system
 .DS_Store
@@ -22,6 +26,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /dev.log
+*.err.log
 *.tsbuildinfo
 
 # local env / secrets
@@ -39,3 +44,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# internal working docs / AI tooling — kept local, never published
+CLAUDE.md
+PRODUCT.md
+.impeccable/
+.claude/

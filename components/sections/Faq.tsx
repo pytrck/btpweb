@@ -16,7 +16,7 @@ export function Faq() {
 
   return (
     <section className="container-x py-section">
-      <SectionHeader kicker={t("kicker")} title={t("title")} />
+      <SectionHeader title={t("title")} />
       <Stagger className="border-t border-line" stagger={0.06}>
         {items.map((it, i) => (
           <StaggerItem key={i} className="border-b border-line">

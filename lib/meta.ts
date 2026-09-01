@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/content/site";
 
 /** Build consistent per-page metadata (title, canonical, hreflang, OG, Twitter).
- *  The OG image is provided automatically by app/[locale]/opengraph-image.tsx. */
+ *  The OG image is the static card at public/opengraph-image.png. */
 export function buildMeta({
   title,
   description,
@@ -31,8 +31,8 @@ export function buildMeta({
       siteName: site.name,
       type: "website",
       locale: locale === "en" ? "en_US" : "cs_CZ",
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: [{ url: "/opengraph-image.png", width: 1200, height: 630 }],
     },
-    twitter: { card: "summary_large_image", title: ogTitle, description, images: ["/opengraph-image"] },
+    twitter: { card: "summary_large_image", title: ogTitle, description, images: ["/opengraph-image.png"] },
   };
 }

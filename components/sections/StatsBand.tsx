@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useReducedMotion } from "framer-motion";
-import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import { useReveal } from "@/lib/useReveal";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 type Stat = { v: string; l: string };
 
@@ -49,24 +49,36 @@ function CountValue({ value }: { value: string }) {
   );
 }
 
+/**
+ * Asymmetric editorial band: the first figure is the headline (oversized), the
+ * rest sit in a hairline-ruled list beside it - deliberately NOT four identical
+ * cells, so it reads as a composed stat block rather than a grid.
+ */
 export function StatsBand() {
   const t = useTranslations("stats");
   const items = t.raw("items") as Stat[];
+  const [lead, ...rest] = items;
+
   return (
-    <section className="border-y border-line">
-      <Stagger
-        className="container-x hairgrid sm:grid-cols-2 md:grid-cols-4"
-        stagger={0.1}
-      >
-        {items.map((s, i) => (
-          <StaggerItem key={i} effect="scale" className="bg-ink px-6 py-12">
-            <p className="font-head text-h2 font-bold">
-              <CountValue value={s.v} />
-            </p>
-            <p className="mt-2 text-sm text-muted">{s.l}</p>
-          </StaggerItem>
-        ))}
-      </Stagger>
+    <section className="border-y border-line bg-ink/60">
+      <ScrollReveal className="container-x grid gap-y-10 py-16 md:grid-cols-[1.15fr_1fr] md:items-center md:gap-x-16 md:py-20">
+        <div>
+          <p className="font-head text-[clamp(3.5rem,9vw,6.5rem)] font-bold leading-[0.9]">
+            <CountValue value={lead.v} />
+          </p>
+          <p className="mt-3 max-w-xs text-muted">{lead.l}</p>
+        </div>
+        <dl className="divide-y divide-line">
+          {rest.map((s) => (
+            <div key={s.l} className="flex items-baseline justify-between gap-6 py-5">
+              <dt className="font-head text-h2 font-bold">
+                <CountValue value={s.v} />
+              </dt>
+              <dd className="max-w-[16ch] text-right text-sm text-muted">{s.l}</dd>
+            </div>
+          ))}
+        </dl>
+      </ScrollReveal>
     </section>
   );
 }
