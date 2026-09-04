@@ -112,7 +112,7 @@
     "email": "Email",
     "phone": "Phone",
     "type": "What's it about",
-    "types": ["Electronics repair and diagnostics", "Custom website", "Phone repair", "Advanced solution", "Optimization and support"],
+    "types": ["Electronics repair and diagnostics", "Custom website", "Phone repair", "Advanced solution", "Optimization and support", "Other"],
     "message": "What we need to know",
     "submit": "Send inquiry",
     "note": "No commitment, no sales talk. Tell us what you're dealing with.",
