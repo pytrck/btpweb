@@ -99,12 +99,7 @@ assert.equal(accepted.scripts[0].src, "https://cloud.umami.is/script.js");
 assert.equal(accepted.scripts[0].dataset.hostUrl, "https://cloud.umami.is");
 assert.equal(accepted.scripts[0].dataset.performance, "true");
 assert.equal(accepted.scripts[0].dataset.domains, "breakthepattern.cz,www.breakthepattern.cz");
-// recorder.js complements script.js - it has no pageview/event tracking of its
-// own, so replacing rather than adding would silently drop all tracking.
-assert.equal(accepted.scripts.length, 2);
-assert.equal(accepted.scripts[1].src, "https://cloud.umami.is/recorder.js");
-assert.equal(accepted.scripts[1].dataset.websiteId, "test-id");
-assert.equal(accepted.scripts[1].dataset.hostUrl, "https://cloud.umami.is");
+assert.equal(accepted.scripts.length, 1);
 accepted.reopen();
 assert.equal(accepted.open(), true);
 accepted.click("Only necessary");
@@ -113,7 +108,7 @@ assert.equal(accepted.saved().analytics, false);
 
 const returning = setup(JSON.stringify({ analytics: true, at: Date.now() }));
 assert.equal(returning.open(), false);
-assert.equal(returning.scripts.length, 2);
+assert.equal(returning.scripts.length, 1);
 returning.revokeElsewhere();
 assert.equal(returning.reloaded(), true);
 
@@ -123,14 +118,6 @@ assert.equal(blocked.open(), true);
 assert.equal(blocked.scripts.length, 0);
 blocked.click("Only necessary");
 assert.equal(blocked.open(), false);
-
-// Off-domain (localhost, preview): tracker still loads and filters itself via
-// data-domains, but the recorder has no such option and must be withheld.
-const offDomain = setup();
-offDomain.hostname("localhost");
-offDomain.click("Allow analytics");
-assert.equal(offDomain.scripts.length, 1);
-assert.equal(offDomain.scripts[0].src, "https://cloud.umami.is/script.js");
 
 const disabled = setup(null, false, "");
 disabled.click("Allow analytics");

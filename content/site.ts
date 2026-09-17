@@ -23,7 +23,7 @@ export const site = {
   // Google Search Console verification token (the content="..." value from the
   // "HTML tag" method). Empty = no meta emitted. DNS TXT verification at your
   // registrar works too and needs no code - use either.
-  googleVerification: "",
+  googleVerification: "xY-izv_ypc_x-ghNoOdh2oUKmwvZzS8VWIvPQScJIn8",
   // ponytail: phone hidden until ready to publish. This repo is PUBLIC - paste
   // the number here only at the moment it should appear on the site.
   // phone: "",

@@ -254,9 +254,7 @@
             "If you choose “Allow analytics” in the bar at the bottom, the Umami tool starts. It collects: which pages you opened, where you came from, browser and device type, operating system, browser language, screen size, country (and, where derivable from the IP address, region and city), what you clicked and how fast the page loaded.",
             "Umami uses no cookies and no identifier that could follow you across websites. It stores no personally identifiable data, not even your IP address. Even we cannot find you in the data.",
             "The legal basis is your consent (Art. 6(1)(a) GDPR). Withdraw it any time with the “Cookie settings” button in the footer — statistics stop immediately. Withdrawal does not affect the lawfulness of processing before it.",
-            "It is operated by Umami Software, Inc. (USA), with servers in the US and the EU.",
-          "This includes recording a sample of sessions (session replay) and click heatmaps. Mouse movement, scrolling, clicks and page transitions are captured, so we can see where the site confuses people. Only a fraction of visits is recorded, not every one.",
-          "Form field contents are masked during recording, so we never see what you type. Recordings are kept by Umami for 30 days and then deleted automatically. They are covered by the same consent - nothing runs without “Allow analytics”, and withdrawing consent stops it immediately."
+            "It is operated by Umami Software, Inc. (USA), with servers in the US and the EU."
           ]
         },
         {

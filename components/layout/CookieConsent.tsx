@@ -17,8 +17,8 @@ const copy = {
     label: "Cookies & privacy", first: "Your data.", second: "Your rules.",
     body: "We break patterns. Your privacy stays intact. You decide whether anonymous analytics can help us make this site better.",
     accept: "Allow analytics", reject: "Only necessary", details: "What’s under the hood?",
-    necessary: "01 / Necessary", necessaryBody: "Remembers your privacy choice in this browser for 6 months. Always on.",
-    analytics: "02 / Analytics", analyticsBody: "Optional, cookieless Umami analytics: page visits and interactions. It also records a sample of anonymous sessions - mouse movement, scrolling and clicks - to show us where the site confuses people. What you type is masked. Loaded only with your permission.",
+    necessary: "Necessary", necessaryBody: "Remembers your privacy choice in this browser for 6 months. Always on.",
+    analytics: "Analytics", analyticsBody: "Optional, cookieless Umami analytics: page visits and interactions. Loaded only with your permission.",
     inactive: "Analytics is currently unconfigured. Nothing is sent; your preference is saved for when it is enabled.",
     foot: "No ads. No pre-ticked boxes.", settings: "Cookie settings", close: "Close settings",
     policy: "Full privacy policy",
@@ -28,8 +28,8 @@ const copy = {
     label: "Cookies a soukromí", first: "Tvoje data.", second: "Tvoje pravidla.",
     body: "Boříme vzorce. Ne tvoje soukromí. Ty rozhoduješ, jestli nám anonymní analytika pomůže vylepšovat web.",
     accept: "Povolit analytiku", reject: "Jen nezbytné", details: "Co je pod kapotou?",
-    necessary: "01 / Nezbytné", necessaryBody: "Pamatuje si tvoji volbu v tomto prohlížeči po dobu 6 měsíců. Vždy zapnuto.",
-    analytics: "02 / Analytika", analyticsBody: "Volitelná analytika Umami bez cookies: návštěvy stránek a interakce. Zároveň nahrává vzorek anonymních relací - pohyb myši, scrollování a kliknutí - abychom viděli, kde je web matoucí. Co píšeš, je maskované. Spustí se jen s tvým svolením.",
+    necessary: "Nezbytné", necessaryBody: "Pamatuje si tvoji volbu v tomto prohlížeči po dobu 6 měsíců. Vždy zapnuto.",
+    analytics: "Analytika", analyticsBody: "Volitelná analytika Umami bez cookies: návštěvy stránek a interakce. Spustí se jen s tvým svolením.",
     inactive: "Analytika zatím není nastavená. Nic se neodesílá; tvoji volbu uložíme pro její případné zapnutí.",
     foot: "Bez reklam. Bez předem zaškrtnutých polí.", settings: "Nastavení cookies", close: "Zavřít nastavení",
     policy: "Celé zásady ochrany soukromí",
@@ -96,21 +96,6 @@ export function CookieConsent({ analyticsId, analyticsHost }: { analyticsId: str
     tracker.current = script;
     document.head.appendChild(script);
 
-    // Session replay + heatmaps. recorder.js is a COMPANION to script.js, not a
-    // replacement: it carries no pageview or event tracking of its own and reads
-    // window.umami, so swapping the src (as the docs' example implies) would
-    // silently drop every event, pageview and web vital. It also ignores
-    // data-domains, so the host check that script.js does internally is done
-    // here instead - otherwise `next dev` would record local sessions.
-    // Recording only actually starts if it is enabled for this site in the Umami
-    // dashboard; the script asks the API first. Delete this block to opt out.
-    if (!SITE_HOSTS.split(",").includes(window.location.hostname)) return;
-    const recorder = document.createElement("script");
-    recorder.src = `${analyticsHost}/recorder.js`;
-    recorder.defer = true;
-    recorder.dataset.websiteId = analyticsId;
-    recorder.dataset.hostUrl = analyticsHost;
-    document.head.appendChild(recorder);
   }, [consent, analyticsId, analyticsHost]);
 
   useEffect(() => {

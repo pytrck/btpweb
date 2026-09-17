@@ -272,9 +272,7 @@
             "Pokud v liště dole zvolíte „Povolit analytiku“, spustí se nástroj Umami. Sbírá: které stránky jste otevřeli, odkud jste přišli, typ prohlížeče a zařízení, operační systém, jazyk prohlížeče, velikost obrazovky, zemi (a je-li to z IP adresy odvoditelné, i region a město), na co jste klikli a jak rychle se stránka načetla.",
             "Umami nepoužívá cookies ani žádný identifikátor, který by vás sledoval mezi weby. Neukládá žádné osobně identifikovatelné údaje, ani IP adresu. Nedokážeme vás v datech najít ani my.",
             "Právním základem je váš souhlas (čl. 6 odst. 1 písm. a) GDPR). Odvolat ho můžete kdykoli tlačítkem „Nastavení cookies“ v patičce — statistiky se okamžitě vypnou. Odvolání nemá vliv na zákonnost zpracování před ním.",
-            "Provozovatelem je Umami Software, Inc. (USA), servery má v USA a EU.",
-          "Součástí je i nahrávání vzorku relací (session replay) a teplotní mapy kliknutí. Zaznamenává se pohyb myši, scrollování, kliknutí a přechody mezi stránkami - abychom viděli, kde je web matoucí. Nahrává se jen část návštěv, ne každá.",
-          "Obsah formulářových polí je při nahrávání maskovaný, takže se k tomu, co píšete, nedostaneme. Nahrávky se u Umami uchovávají 30 dní a pak se automaticky mažou. I na ně se vztahuje váš souhlas - bez „Povolit analytiku“ se nespustí a odvoláním souhlasu okamžitě skončí."
+            "Provozovatelem je Umami Software, Inc. (USA), servery má v USA a EU."
           ]
         },
         {

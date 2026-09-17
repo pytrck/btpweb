@@ -56,7 +56,16 @@ export function ServiceCard({
             {proof}
           </p>
         )}
-        <LinkArrow href={`/sluzby/${slug}`} event="service-click" eventSlug={slug}>
+        {/* Stretched link: the ::after covers the whole card (which is the
+            nearest positioned ancestor), so a click anywhere on the card
+            navigates. One anchor, so the accessible name stays "learn more"
+            and no invalid nested <a> is introduced. */}
+        <LinkArrow
+          href={`/sluzby/${slug}`}
+          event="service-click"
+          eventSlug={slug}
+          className="after:absolute after:inset-0 after:content-['']"
+        >
           {t("learnMore")}
         </LinkArrow>
       </div>

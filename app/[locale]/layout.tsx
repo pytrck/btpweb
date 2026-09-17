@@ -117,7 +117,7 @@ export default async function LocaleLayout({
         {process.env.NODE_ENV === "production" && (
           <meta
             httpEquiv="Content-Security-Policy"
-            content={`default-src 'self'; script-src 'self' 'unsafe-inline' ${UMAMI_HOST}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; worker-src 'self' blob: data:; connect-src 'self' https://api.web3forms.com ${UMAMI_HOST}; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'`}
+            content={`default-src 'self'; script-src 'self' 'unsafe-inline' ${UMAMI_HOST}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com ${UMAMI_HOST}; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'`}
           />
         )}
         <meta name="referrer" content="strict-origin-when-cross-origin" />
