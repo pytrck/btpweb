@@ -10,7 +10,7 @@ const compiled = ts.transpileModule(source, {
   compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
 }).outputText;
 
-function setup(saved = null, blocked = false, analyticsId = "test-id") {
+function setup(saved = null, blocked = false, analyticsId = "test-id", clarityId = "test-clarity") {
   let value = saved, cursor = 0, reloaded = false, locale = "en";
   const slots = [], effects = [], scripts = [], listeners = {};
   const sandbox = {
@@ -48,12 +48,13 @@ function setup(saved = null, blocked = false, analyticsId = "test-id") {
       return require(name);
     },
   };
+  sandbox.window.document = sandbox.document;
   vm.runInNewContext(compiled, sandbox);
   function render() {
     let tree;
     for (let i = 0; i < 3; i++) {
       cursor = 0;
-      tree = sandbox.exports.CookieConsent({ analyticsId, analyticsHost: "https://cloud.umami.is" });
+      tree = sandbox.exports.CookieConsent({ analyticsId, analyticsHost: "https://cloud.umami.is", clarityId });
       effects.splice(0).forEach(fn => fn());
     }
     return tree;
@@ -63,6 +64,7 @@ function setup(saved = null, blocked = false, analyticsId = "test-id") {
   }
   return {
     read: sandbox.exports.readConsent, render, scripts,
+    clarityCalls: () => (sandbox.window.clarity ? sandbox.window.clarity.q ?? [] : null),
     click: text => { const node = nodes(render()).find(n => n.type === "button" && n.props.children === text); assert.ok(node, text); node.props.onClick(); render(); },
     open: () => nodes(render()).some(n => n.props.id === "cookie-consent"),
     reopen: () => { nodes(render()).find(n => n.type === "button" && n.props["aria-controls"] === "cookie-consent").props.onClick(); render(); },
@@ -86,6 +88,7 @@ denied.click("Only necessary");
 assert.equal(denied.open(), false);
 assert.equal(denied.saved().analytics, false);
 assert.equal(denied.scripts.length, 0);
+assert.equal(denied.clarityCalls(), null);
 assert.equal(setup(JSON.stringify(denied.saved())).open(), false);
 
 const accepted = setup();
@@ -99,16 +102,22 @@ assert.equal(accepted.scripts[0].src, "https://cloud.umami.is/script.js");
 assert.equal(accepted.scripts[0].dataset.hostUrl, "https://cloud.umami.is");
 assert.equal(accepted.scripts[0].dataset.performance, "true");
 assert.equal(accepted.scripts[0].dataset.domains, "breakthepattern.cz,www.breakthepattern.cz");
-assert.equal(accepted.scripts.length, 1);
+// Clarity rides the same consent and must never request ad storage.
+assert.equal(accepted.scripts.length, 2);
+assert.equal(accepted.scripts[1].src, "https://www.clarity.ms/tag/test-clarity");
+assert.equal(JSON.stringify(accepted.clarityCalls()[0]),
+  JSON.stringify(["consentv2", { ad_Storage: "denied", analytics_Storage: "granted" }]));
 accepted.reopen();
 assert.equal(accepted.open(), true);
 accepted.click("Only necessary");
 assert.equal(accepted.reloaded(), true);
+// Withdrawal must delete Clarity's cookies, not merely stop sending.
+assert.equal(JSON.stringify(accepted.clarityCalls().at(-1)), JSON.stringify(["consent", false]));
 assert.equal(accepted.saved().analytics, false);
 
 const returning = setup(JSON.stringify({ analytics: true, at: Date.now() }));
 assert.equal(returning.open(), false);
-assert.equal(returning.scripts.length, 1);
+assert.equal(returning.scripts.length, 2);
 returning.revokeElsewhere();
 assert.equal(returning.reloaded(), true);
 
@@ -119,6 +128,19 @@ assert.equal(blocked.scripts.length, 0);
 blocked.click("Only necessary");
 assert.equal(blocked.open(), false);
 
+// Umami configured but Clarity not: tracker loads, Clarity stays absent.
+const noClarity = setup(null, false, "test-id", "");
+noClarity.click("Allow analytics");
+assert.equal(noClarity.scripts.length, 1);
+assert.equal(noClarity.clarityCalls(), null);
+
+// Off-domain: Clarity has no data-domains equivalent, so it must be withheld.
+const offDomain = setup();
+offDomain.hostname("localhost");
+offDomain.click("Allow analytics");
+assert.equal(offDomain.scripts.length, 1);
+assert.equal(offDomain.clarityCalls(), null);
+
 const disabled = setup(null, false, "");
 disabled.click("Allow analytics");
 assert.equal(disabled.scripts.length, 0);
@@ -126,4 +148,4 @@ const czech = setup();
 czech.locale("cs");
 czech.click("Jen nezbytné");
 assert.equal(czech.saved().analytics, false);
-console.log("Consent checks passed: defaults, expiry, both locales, persistence, analytics gating, tracker config, withdrawal, cross-tab sync, blocked storage.");
+console.log("Consent checks passed: defaults, expiry, both locales, persistence, analytics gating, tracker config, Clarity consent + ad-storage denial + cookie erasure, host gating, withdrawal, cross-tab sync, blocked storage.");

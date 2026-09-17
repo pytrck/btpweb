@@ -20,6 +20,13 @@ export const site = {
   // copy the "Website ID" from Settings -> Websites -> Edit, paste it here.
   // Empty = no script is emitted at all (analytics simply off).
   umamiId: "c36b342e-49fa-4ae8-870b-354b51b2cadc",
+  // Microsoft Clarity project ID - session recordings + heatmaps, free and
+  // unlimited. Public by design. Unlike Umami this DOES set cookies, so it only
+  // ever loads after the visitor allows analytics, and ad storage is denied.
+  // TODO: sign up free at https://clarity.microsoft.com, add breakthepattern.cz,
+  // copy the project ID from Settings -> Overview, paste it here.
+  // Empty = Clarity never loads.
+  clarityId: "",
   // Google Search Console verification token (the content="..." value from the
   // "HTML tag" method). Empty = no meta emitted. DNS TXT verification at your
   // registrar works too and needs no code - use either.

@@ -272,7 +272,9 @@
             "Pokud v liště dole zvolíte „Povolit analytiku“, spustí se nástroj Umami. Sbírá: které stránky jste otevřeli, odkud jste přišli, typ prohlížeče a zařízení, operační systém, jazyk prohlížeče, velikost obrazovky, zemi (a je-li to z IP adresy odvoditelné, i region a město), na co jste klikli a jak rychle se stránka načetla.",
             "Umami nepoužívá cookies ani žádný identifikátor, který by vás sledoval mezi weby. Neukládá žádné osobně identifikovatelné údaje, ani IP adresu. Nedokážeme vás v datech najít ani my.",
             "Právním základem je váš souhlas (čl. 6 odst. 1 písm. a) GDPR). Odvolat ho můžete kdykoli tlačítkem „Nastavení cookies“ v patičce — statistiky se okamžitě vypnou. Odvolání nemá vliv na zákonnost zpracování před ním.",
-            "Provozovatelem je Umami Software, Inc. (USA), servery má v USA a EU."
+            "Provozovatelem je Umami Software, Inc. (USA), servery má v USA a EU.",
+          "Se stejným souhlasem se spustí i Microsoft Clarity. Ten nahrává anonymní relace - pohyb myši, scrollování, kliknutí a přechody mezi stránkami - a staví z nich teplotní mapy, abychom viděli, kde je web matoucí. Obsah formulářových polí je přitom maskovaný.",
+          "Clarity na rozdíl od Umami používá cookies; jejich seznam je v další sekci. Ukládání dat pro reklamu mu výslovně zakazujeme. Provozovatelem je Microsoft Corporation (USA). Když souhlas odvoláte, Clarity své cookies smaže a nahrávání skončí."
           ]
         },
         {
@@ -284,7 +286,8 @@
         {
           "t": "Cookies a písma",
           "p": [
-            "Web sám žádné cookies nenastavuje. Žádná reklama, žádný remarketing, žádné sociální pluginy.",
+            "Bez vašeho souhlasu web nenastavuje žádné cookies. Žádná reklama, žádný remarketing, žádné sociální pluginy.",
+          "Když analytiku povolíte, nastaví cookies Microsoft Clarity: _clck a _clsk na naší doméně (identifikátor návštěvníka a spojení stránek do jedné relace) a CLID, ANONCHK, MR, MUID a SM na doméně clarity.ms. Slouží k rozpoznání, že jednotlivé stránky prohlížel tentýž návštěvník. Umami cookies nepoužívá vůbec.",
             "Písma servírujeme z vlastní domény. Do Googlu ani nikam jinam se kvůli nim nic neposílá."
           ]
         },

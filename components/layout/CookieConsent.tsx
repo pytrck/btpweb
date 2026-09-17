@@ -12,13 +12,18 @@ const STORAGE_KEY = "btp-consent-v1";
 const SITE_HOSTS = "breakthepattern.cz,www.breakthepattern.cz";
 const MAX_AGE = 180 * 24 * 60 * 60 * 1000;
 
+// Clarity's own snippet defines window.clarity as a command queue before the
+// tag finishes downloading, so the consent signal can be sent immediately.
+type ClarityFn = ((...args: unknown[]) => void) & { q?: unknown[][] };
+type ClarityWindow = Window & { clarity?: ClarityFn };
+
 const copy = {
   en: {
     label: "Cookies & privacy", first: "Your data.", second: "Your rules.",
     body: "We break patterns. Your privacy stays intact. You decide whether anonymous analytics can help us make this site better.",
     accept: "Allow analytics", reject: "Only necessary", details: "What’s under the hood?",
     necessary: "Necessary", necessaryBody: "Remembers your privacy choice in this browser for 6 months. Always on.",
-    analytics: "Analytics", analyticsBody: "Optional, cookieless Umami analytics: page visits and interactions. Loaded only with your permission.",
+    analytics: "Analytics", analyticsBody: "Umami measures page visits and interactions without cookies. Microsoft Clarity additionally records anonymous sessions and builds click heatmaps, and that one does use cookies. Form fields are masked. Both run only with your permission.",
     inactive: "Analytics is currently unconfigured. Nothing is sent; your preference is saved for when it is enabled.",
     foot: "No ads. No pre-ticked boxes.", settings: "Cookie settings", close: "Close settings",
     policy: "Full privacy policy",
@@ -29,7 +34,7 @@ const copy = {
     body: "Boříme vzorce. Ne tvoje soukromí. Ty rozhoduješ, jestli nám anonymní analytika pomůže vylepšovat web.",
     accept: "Povolit analytiku", reject: "Jen nezbytné", details: "Co je pod kapotou?",
     necessary: "Nezbytné", necessaryBody: "Pamatuje si tvoji volbu v tomto prohlížeči po dobu 6 měsíců. Vždy zapnuto.",
-    analytics: "Analytika", analyticsBody: "Volitelná analytika Umami bez cookies: návštěvy stránek a interakce. Spustí se jen s tvým svolením.",
+    analytics: "Analytika", analyticsBody: "Umami měří návštěvy stránek a interakce bez cookies. Microsoft Clarity navíc nahrává anonymní relace a dělá z nich teplotní mapy kliknutí - ten už cookies používá. Obsah formulářů je maskovaný. Obojí se spustí jen s tvým svolením.",
     inactive: "Analytika zatím není nastavená. Nic se neodesílá; tvoji volbu uložíme pro její případné zapnutí.",
     foot: "Bez reklam. Bez předem zaškrtnutých polí.", settings: "Nastavení cookies", close: "Zavřít nastavení",
     policy: "Celé zásady ochrany soukromí",
@@ -46,7 +51,15 @@ export function readConsent(): boolean | null {
   return null;
 }
 
-export function CookieConsent({ analyticsId, analyticsHost }: { analyticsId: string; analyticsHost: string }) {
+export function CookieConsent({
+  analyticsId,
+  analyticsHost,
+  clarityId,
+}: {
+  analyticsId: string;
+  analyticsHost: string;
+  clarityId: string;
+}) {
   const locale = useLocale() === "en" ? "en" : "cs";
   const t = copy[locale];
   const reduce = useReducedMotion();
@@ -57,6 +70,7 @@ export function CookieConsent({ analyticsId, analyticsHost }: { analyticsId: str
   const trigger = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLElement>(null);
   const tracker = useRef<HTMLScriptElement | null>(null);
+  const clarityTag = useRef<HTMLScriptElement | null>(null);
   const reopened = useRef(false);
 
   useEffect(() => {
@@ -96,7 +110,27 @@ export function CookieConsent({ analyticsId, analyticsHost }: { analyticsId: str
     tracker.current = script;
     document.head.appendChild(script);
 
-  }, [consent, analyticsId, analyticsHost]);
+    // Microsoft Clarity: session recordings + heatmaps. Unlike Umami this sets
+    // cookies, so it runs only here, after an explicit yes. Host-gated for the
+    // same reason as Umami's data-domains - Clarity has no equivalent option.
+    if (!clarityId || !SITE_HOSTS.split(",").includes(window.location.hostname)) return;
+    const w = window as ClarityWindow;
+    const queue: ClarityFn =
+      w.clarity ??
+      (((...args: unknown[]) => {
+        (queue.q = queue.q ?? []).push(args);
+      }) as ClarityFn);
+    w.clarity = queue;
+    const clarity = document.createElement("script");
+    clarity.async = true;
+    clarity.src = `https://www.clarity.ms/tag/${clarityId}`;
+    clarityTag.current = clarity;
+    document.head.appendChild(clarity);
+    // One toggle on this site, and no advertising on it: grant analytics
+    // storage, deny ad storage so Microsoft's advertising cookies stay out.
+    queue("consentv2", { ad_Storage: "denied", analytics_Storage: "granted" });
+
+  }, [consent, analyticsId, analyticsHost, clarityId]);
 
   useEffect(() => {
     if (open && reopened.current) panel.current?.focus({ preventScroll: true });
@@ -109,7 +143,13 @@ export function CookieConsent({ analyticsId, analyticsHost }: { analyticsId: str
       // Never start tracking without a saved choice, or pretend withdrawal worked.
       if (analytics || tracker.current) { setError(true); return; }
     }
-    if (!analytics && tracker.current) { window.location.reload(); return; }
+    if (!analytics && tracker.current) {
+      // Withdrawing consent has to remove Clarity's cookies, not just stop
+      // sending; the reload alone would leave them sitting in the browser.
+      (window as ClarityWindow).clarity?.("consent", false);
+      window.location.reload();
+      return;
+    }
     setConsent(analytics);
     setError(false);
     setOpen(false);

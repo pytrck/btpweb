@@ -20,6 +20,11 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", displ
 // Single source for the analytics origin: the script URL and the CSP allowance
 // must agree, and an empty value keeps the CSP as tight as it was before.
 const UMAMI_HOST = site.umamiId ? "https://cloud.umami.is" : "";
+// Clarity serves its tag from www.clarity.ms and beacons to regional
+// *.clarity.ms hosts. bat.bing.com is deliberately NOT allowed: that is the
+// advertising-ID sync, and we deny ad storage.
+const CLARITY_SRC = site.clarityId ? "https://www.clarity.ms" : "";
+const CLARITY_API = site.clarityId ? "https://*.clarity.ms" : "";
 
 export async function generateMetadata({
   params,
@@ -117,7 +122,7 @@ export default async function LocaleLayout({
         {process.env.NODE_ENV === "production" && (
           <meta
             httpEquiv="Content-Security-Policy"
-            content={`default-src 'self'; script-src 'self' 'unsafe-inline' ${UMAMI_HOST}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com ${UMAMI_HOST}; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'`}
+            content={`default-src 'self'; script-src 'self' 'unsafe-inline' ${UMAMI_HOST} ${CLARITY_SRC}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com ${UMAMI_HOST} ${CLARITY_API}; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'`}
           />
         )}
         <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -144,7 +149,11 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
-          <CookieConsent analyticsId={site.umamiId} analyticsHost={UMAMI_HOST} />
+          <CookieConsent
+            analyticsId={site.umamiId}
+            analyticsHost={UMAMI_HOST}
+            clarityId={site.clarityId}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

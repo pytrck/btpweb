@@ -254,7 +254,9 @@
             "If you choose “Allow analytics” in the bar at the bottom, the Umami tool starts. It collects: which pages you opened, where you came from, browser and device type, operating system, browser language, screen size, country (and, where derivable from the IP address, region and city), what you clicked and how fast the page loaded.",
             "Umami uses no cookies and no identifier that could follow you across websites. It stores no personally identifiable data, not even your IP address. Even we cannot find you in the data.",
             "The legal basis is your consent (Art. 6(1)(a) GDPR). Withdraw it any time with the “Cookie settings” button in the footer — statistics stop immediately. Withdrawal does not affect the lawfulness of processing before it.",
-            "It is operated by Umami Software, Inc. (USA), with servers in the US and the EU."
+            "It is operated by Umami Software, Inc. (USA), with servers in the US and the EU.",
+          "The same consent also starts Microsoft Clarity. It records anonymous sessions - mouse movement, scrolling, clicks and page transitions - and builds click heatmaps from them, so we can see where the site confuses people. Form field contents are masked while it does so.",
+          "Unlike Umami, Clarity uses cookies; they are listed in the next section. We explicitly deny it storage for advertising. It is operated by Microsoft Corporation (USA). If you withdraw consent, Clarity deletes its cookies and recording stops."
           ]
         },
         {
@@ -266,7 +268,8 @@
         {
           "t": "Cookies and fonts",
           "p": [
-            "The site itself sets no cookies. No ads, no remarketing, no social plugins.",
+            "Without your consent the site sets no cookies at all. No ads, no remarketing, no social plugins.",
+          "If you allow analytics, Microsoft Clarity sets cookies: _clck and _clsk on our domain (visitor identifier and grouping page views into one session) and CLID, ANONCHK, MR, MUID and SM on the clarity.ms domain. They exist to recognise that the same visitor viewed several pages. Umami uses no cookies at all.",
             "Fonts are served from our own domain. Nothing is sent to Google or anyone else for them."
           ]
         },
