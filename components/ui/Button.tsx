@@ -11,9 +11,13 @@ type Props = {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "ghost";
+  /** Umami event name. Set it on conversion CTAs to count clicks; omit elsewhere. */
+  event?: string;
+  /** Which page the CTA was clicked from, recorded as the event's `slug` property. */
+  eventSlug?: string;
 };
 
-export function Button({ href, children, variant = "primary" }: Props) {
+export function Button({ href, children, variant = "primary", event, eventSlug }: Props) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
   const mx = useMotionValue(0);
@@ -54,6 +58,8 @@ export function Button({ href, children, variant = "primary" }: Props) {
     >
     <MotionLink
       href={href}
+      data-umami-event={event}
+      data-umami-event-slug={eventSlug}
       className={`${base} ${styles}`}
       whileTap={{ scale: 0.97 }}
       transition={{ duration: 0.18, ease: EASE }}

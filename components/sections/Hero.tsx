@@ -214,8 +214,10 @@ export function Hero() {
               {t("subtitle")}
             </motion.p>
             <motion.div variants={heroItem} className="mt-8 flex flex-wrap gap-4">
-              <Button href="/kontakt">{t("ctaPrimary")}</Button>
-              <Button href="/prace" variant="ghost">
+              <Button href="/kontakt" event="cta-hero">
+                {t("ctaPrimary")}
+              </Button>
+              <Button href="/prace" variant="ghost" event="cta-hero-work">
                 {t("ctaSecondary")}
               </Button>
             </motion.div>

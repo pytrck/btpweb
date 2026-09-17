@@ -37,6 +37,7 @@ export function StickyCTA() {
         >
           <Link
             href="/kontakt"
+            data-umami-event="cta-sticky"
             className="btp-focus btn-paper group relative flex w-full max-w-sm items-center justify-center gap-2 overflow-hidden rounded px-6 py-3.5 text-sm font-medium"
           >
             <span className="relative z-10">{t("cta")}</span>

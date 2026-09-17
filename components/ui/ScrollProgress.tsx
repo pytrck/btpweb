@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
+import { usePathname } from "@/i18n/routing";
+import { track } from "@/lib/analytics";
+
+const MARKS = [25, 50, 75, 100];
 
 /**
  * Page-wide scroll progress: a thin vapor line pinned to the top that fills
@@ -13,6 +18,23 @@ export function ScrollProgress() {
     stiffness: 120,
     damping: 30,
     restDelta: 0.001,
+  });
+
+  // How far down each page people actually get - the one number that says
+  // whether anyone ever reaches the CTA. Reported against the raw progress, not
+  // the spring, so a fast flick still records every threshold it passed.
+  const pathname = usePathname();
+  const seen = useRef(new Set<number>());
+  useEffect(() => {
+    seen.current.clear();
+  }, [pathname]);
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    for (const mark of MARKS) {
+      if (progress * 100 >= mark && !seen.current.has(mark)) {
+        seen.current.add(mark);
+        track("scroll-depth", { percent: mark, path: pathname });
+      }
+    }
   });
 
   return (

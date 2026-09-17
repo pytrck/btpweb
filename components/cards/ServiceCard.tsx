@@ -56,7 +56,9 @@ export function ServiceCard({
             {proof}
           </p>
         )}
-        <LinkArrow href={`/sluzby/${slug}`}>{t("learnMore")}</LinkArrow>
+        <LinkArrow href={`/sluzby/${slug}`} event="service-click" eventSlug={slug}>
+          {t("learnMore")}
+        </LinkArrow>
       </div>
     </motion.div>
   );

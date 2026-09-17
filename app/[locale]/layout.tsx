@@ -5,15 +5,21 @@ import { notFound } from "next/navigation";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { site } from "@/content/site";
+import { site, socialLinks } from "@/content/site";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { CookieConsent } from "@/components/layout/CookieConsent";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { Telemetry } from "@/components/layout/Telemetry";
 import "../globals.css";
 
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space", display: "swap" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
+
+// Single source for the analytics origin: the script URL and the CSP allowance
+// must agree, and an empty value keeps the CSP as tight as it was before.
+const UMAMI_HOST = site.umamiId ? "https://cloud.umami.is" : "";
 
 export async function generateMetadata({
   params,
@@ -28,8 +34,11 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: url,
-      languages: { cs: site.url, en: `${site.url}/en` },
+      languages: { cs: site.url, en: `${site.url}/en`, "x-default": site.url },
     },
+    // Search Console ownership proof. Emitted only once a token is set in
+    // content/site.ts; DNS TXT verification is the no-code alternative.
+    ...(site.googleVerification ? { verification: { google: site.googleVerification } } : {}),
     openGraph: {
       type: "website",
       siteName: site.name,
@@ -77,6 +86,23 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const messages = await getMessages();
   const tNav = await getTranslations({ locale, namespace: "nav" });
+  const tMeta = await getTranslations({ locale, namespace: "meta" });
+
+  // Organization schema - ties the domain to the brand name, contact and social
+  // profiles so Google can show a knowledge panel and sitelinks. Deliberately
+  // not LocalBusiness: that needs a real postal address to earn a rich result.
+  const orgLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: site.name,
+    url: site.url,
+    description: tMeta("description"),
+    email: site.email,
+    logo: `${site.url}/android-chrome-512x512.png`,
+    image: `${site.url}/opengraph-image.png`,
+    areaServed: site.city,
+    sameAs: socialLinks.map((s) => s.href),
+  };
 
   return (
     <html lang={locale} className={`${space.variable} ${inter.variable} ${mono.variable}`}>
@@ -91,7 +117,7 @@ export default async function LocaleLayout({
         {process.env.NODE_ENV === "production" && (
           <meta
             httpEquiv="Content-Security-Policy"
-            content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'"
+            content={`default-src 'self'; script-src 'self' 'unsafe-inline' ${UMAMI_HOST}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; worker-src 'self' blob: data:; connect-src 'self' https://api.web3forms.com ${UMAMI_HOST}; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'`}
           />
         )}
         <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -104,15 +130,21 @@ export default async function LocaleLayout({
         >
           {tNav("skip")}
         </a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd).replace(/</g, "\\u003c") }}
+        />
         {/* film grain above everything - the "printed on something" depth */}
         <div aria-hidden className="grain" />
         <NextIntlClientProvider messages={messages}>
           <ScrollProgress />
+          <Telemetry />
           <Nav />
           <main id="main" tabIndex={-1} className="outline-none">
             {children}
           </main>
           <Footer />
+          <CookieConsent analyticsId={site.umamiId} analyticsHost={UMAMI_HOST} />
         </NextIntlClientProvider>
       </body>
     </html>

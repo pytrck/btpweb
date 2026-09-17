@@ -16,6 +16,23 @@ export function Faq() {
 
   return (
     <section className="container-x py-section">
+      {/* FAQPage schema - the same Q&A the section already renders, so Google can
+          show these as expandable results. Built from the translations, so cs and
+          en each emit their own. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: items.map((it) => ({
+              "@type": "Question",
+              name: it.q,
+              acceptedAnswer: { "@type": "Answer", text: it.a },
+            })),
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
       <SectionHeader title={t("title")} />
       <Stagger className="border-t border-line" stagger={0.06}>
         {items.map((it, i) => (
@@ -23,6 +40,8 @@ export function Faq() {
             <button
               onClick={() => setOpen(open === i ? null : i)}
               aria-expanded={open === i}
+              data-umami-event={open === i ? undefined : "faq-open"}
+              data-umami-event-q={it.q}
               className="btp-focus flex w-full items-center justify-between gap-6 py-6 text-left"
             >
               <span className="font-head text-h3">{it.q}</span>

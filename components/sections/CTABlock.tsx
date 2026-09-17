@@ -88,7 +88,9 @@ export function CTABlock() {
             />
           </div>
           <div className="mt-8">
-            <Button href="/kontakt">{t("cta")}</Button>
+            <Button href="/kontakt" event="cta-footer">
+              {t("cta")}
+            </Button>
           </div>
         </motion.div>
       </motion.div>

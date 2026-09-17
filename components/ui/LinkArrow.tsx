@@ -10,14 +10,22 @@ export function LinkArrow({
   href,
   children,
   className = "",
+  event,
+  eventSlug,
 }: {
   href: string;
   children: React.ReactNode;
   className?: string;
+  /** Umami event name; omit on links that aren't worth counting. */
+  event?: string;
+  /** Which item was clicked, recorded as the event's `slug` property. */
+  eventSlug?: string;
 }) {
   return (
     <MotionLink
       href={href}
+      data-umami-event={event}
+      data-umami-event-slug={eventSlug}
       className={`btp-focus group inline-flex items-center gap-2 text-sm font-medium text-paper ${className}`}
       initial="rest"
       whileHover="hover"

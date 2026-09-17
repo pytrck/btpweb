@@ -113,7 +113,9 @@ export default async function ServiceDetail({
         <div className="border border-line p-12">
           <h2 className="font-head text-h2 font-bold">{service.cta}</h2>
           <div className="mt-6 flex flex-wrap gap-4">
-            <Button href="/kontakt">{service.cta}</Button>
+            <Button href="/kontakt" event="cta-service-detail" eventSlug={params.slug}>
+              {service.cta}
+            </Button>
             <Button href="/prace" variant="ghost">
               {t("seeWork")}
             </Button>

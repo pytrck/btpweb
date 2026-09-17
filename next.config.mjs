@@ -33,7 +33,7 @@ const nextConfig = {
               // "/" serves Czech directly (in prod, localize-export lifts /cs to
               // root; app/page.tsx's meta-refresh only matters without that).
               { source: "/", destination: "/cs" },
-              ...["sluzby", "prace", "o-nas", "kontakt"].map((seg) => ({
+              ...["sluzby", "prace", "o-nas", "kontakt", "soukromi"].map((seg) => ({
                 source: `/${seg}/:path*`,
                 destination: `/cs/${seg}/:path*`,
               })),

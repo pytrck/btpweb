@@ -48,5 +48,10 @@ yarn-error.log*
 # internal working docs / AI tooling — kept local, never published
 CLAUDE.md
 PRODUCT.md
+AGENTS.md
 .impeccable/
 .claude/
+/.gitnexus/
+
+# marketing renders / share assets — local only
+/brag-output/

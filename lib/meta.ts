@@ -22,7 +22,7 @@ export function buildMeta({
     description,
     alternates: {
       canonical: url,
-      languages: { cs: `${base}${path}`, en: `${base}/en${path}` },
+      languages: { cs: `${base}${path}`, en: `${base}/en${path}`, "x-default": `${base}${path}` },
     },
     openGraph: {
       title: ogTitle,

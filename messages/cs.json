@@ -119,7 +119,8 @@
   },
   "footer": {
     "tagline": "Opravy, weby a systémy. Bez šablon.",
-    "rights": "Všechna práva vyhrazena."
+    "rights": "Všechna práva vyhrazena.",
+    "privacy": "Ochrana soukromí"
   },
   "form": {
     "name": "Jméno",
@@ -132,7 +133,8 @@
     "note": "Bez závazku, bez prodejních keců. Napište, co řešíte.",
     "sending": "Odesílám…",
     "success": "Odesláno. Ozveme se do 24 hodin.",
-    "error": "Nepodařilo se odeslat. Napište nám prosím přímo:"
+    "error": "Nepodařilo se odeslat. Napište nám prosím přímo:",
+    "privacy": "Jak nakládáme s vašimi údaji"
   },
   "cards": {
     "learnMore": "Zjistit více",
@@ -243,6 +245,91 @@
       "reassurance": "Nic neplatíte, dokud neznáte cenu a neodsouhlasíte ji.",
       "areaTitle": "Kde působíme",
       "area": "Osobně v Mladé Boleslavi a Liberci. Weby, konzultace a vzdálená podpora po celé ČR."
+    },
+    "privacy": {
+      "title": "Ochrana soukromí",
+      "subtitle": "Co o vás víme, proč, a jak to smazat. Bez právnické mlhy.",
+      "updated": "Poslední aktualizace: 17. 9. 2026",
+      "sections": [
+        {
+          "t": "Kdo vaše údaje zpracovává",
+          "p": [
+            "Správcem osobních údajů je Break The Pattern, provozovatel webu breakthepattern.cz. Napsat nám můžete kdykoli na breakthepatterninfo@gmail.com — na dotazy k soukromí odpovídáme stejně jako na poptávky, do 24 hodin."
+          ]
+        },
+        {
+          "t": "Kontaktní formulář",
+          "p": [
+            "Když nám pošlete poptávku, zpracujeme jméno, e-mail, telefon, typ poptávky a text zprávy. Účel je jediný: odpovědět vám, připravit cenu a domluvit opravu nebo projekt. Právním základem je jednání o smlouvě (čl. 6 odst. 1 písm. b) GDPR).",
+            "Údaje nejsou povinné ze zákona. Bez nich vám ale nemáme jak odpovědět.",
+            "Zprávu uchováváme po dobu vyřizování poptávky a případné spolupráce, nejdéle 3 roky od poslední komunikace. Pak ji smažeme. O výmaz můžete požádat i dřív.",
+            "Odeslání zajišťuje služba Web3Forms, která zprávu předá do naší e-mailové schránky. Podle svého prohlášení odeslané zprávy neukládá; její servery jsou v USA. Naše schránka běží na Gmailu (Google)."
+          ]
+        },
+        {
+          "t": "Statistiky návštěvnosti — jen když je povolíte",
+          "p": [
+            "Pokud v liště dole zvolíte „Povolit analytiku“, spustí se nástroj Umami. Sbírá: které stránky jste otevřeli, odkud jste přišli, typ prohlížeče a zařízení, operační systém, jazyk prohlížeče, velikost obrazovky, zemi (a je-li to z IP adresy odvoditelné, i region a město), na co jste klikli a jak rychle se stránka načetla.",
+            "Umami nepoužívá cookies ani žádný identifikátor, který by vás sledoval mezi weby. Neukládá žádné osobně identifikovatelné údaje, ani IP adresu. Nedokážeme vás v datech najít ani my.",
+            "Právním základem je váš souhlas (čl. 6 odst. 1 písm. a) GDPR). Odvolat ho můžete kdykoli tlačítkem „Nastavení cookies“ v patičce — statistiky se okamžitě vypnou. Odvolání nemá vliv na zákonnost zpracování před ním.",
+            "Provozovatelem je Umami Software, Inc. (USA), servery má v USA a EU.",
+          "Součástí je i nahrávání vzorku relací (session replay) a teplotní mapy kliknutí. Zaznamenává se pohyb myši, scrollování, kliknutí a přechody mezi stránkami - abychom viděli, kde je web matoucí. Nahrává se jen část návštěv, ne každá.",
+          "Obsah formulářových polí je při nahrávání maskovaný, takže se k tomu, co píšete, nedostaneme. Nahrávky se u Umami uchovávají 30 dní a pak se automaticky mažou. I na ně se vztahuje váš souhlas - bez „Povolit analytiku“ se nespustí a odvoláním souhlasu okamžitě skončí."
+          ]
+        },
+        {
+          "t": "Uložení vaší volby",
+          "p": [
+            "Vaše rozhodnutí z lišty (ano/ne a datum) si prohlížeč pamatuje 6 měsíců v úložišti localStorage pod klíčem btp-consent-v1. Neobsahuje nic osobního a nikam se neodesílá. Je to jediná věc, kterou ukládáme bez ptaní — bez ní bychom se museli ptát při každé návštěvě."
+          ]
+        },
+        {
+          "t": "Cookies a písma",
+          "p": [
+            "Web sám žádné cookies nenastavuje. Žádná reklama, žádný remarketing, žádné sociální pluginy.",
+            "Písma servírujeme z vlastní domény. Do Googlu ani nikam jinam se kvůli nim nic neposílá."
+          ]
+        },
+        {
+          "t": "Hosting",
+          "p": [
+            "Web běží na GitHub Pages (GitHub, Inc., USA). GitHub může z bezpečnostních důvodů zaznamenávat IP adresy návštěvníků do provozních logů. Právním základem je oprávněný zájem na bezpečném provozu webu (čl. 6 odst. 1 písm. f) GDPR). K těmto logům nemáme přístup."
+          ],
+          "links": [
+            {
+              "label": "Zásady ochrany soukromí GitHubu",
+              "href": "https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement"
+            }
+          ]
+        },
+        {
+          "t": "Předání mimo EU",
+          "p": [
+            "Někteří z výše uvedených poskytovatelů sídlí nebo zpracovávají údaje mimo EU (USA, Indie). Předání se řídí kapitolou V GDPR.",
+            "Pokud nechcete, aby vaše údaje opustily EU: napište nám místo formuláře přímo e-mailem a statistiky nepovolujte. Na kvalitu odpovědi to nemá vliv."
+          ]
+        },
+        {
+          "t": "Vaše práva",
+          "p": [
+            "Máte právo na přístup ke svým údajům, jejich opravu, výmaz, omezení zpracování, přenositelnost a právo vznést námitku. Souhlas se statistikami můžete kdykoli odvolat.",
+            "Stačí napsat na breakthepatterninfo@gmail.com. Neprovádíme žádné automatizované rozhodování ani profilování.",
+            "Pokud máte za to, že s údaji nakládáme špatně, můžete podat stížnost u Úřadu pro ochranu osobních údajů."
+          ],
+          "links": [
+            {
+              "label": "Úřad pro ochranu osobních údajů",
+              "href": "https://uoou.gov.cz"
+            }
+          ]
+        },
+        {
+          "t": "Změny",
+          "p": [
+            "Když se něco změní — nový nástroj, jiný poskytovatel — upravíme tuto stránku a datum nahoře. Nic jiného vám podsouvat nebudeme."
+          ]
+        }
+      ]
     }
   }
 }

@@ -114,7 +114,9 @@ export default async function CaseStudy({
         <div className="border border-line p-12">
           <h2 className="font-head text-h2 font-bold">{t("similar")}</h2>
           <div className="mt-6 flex flex-wrap gap-4">
-            <Button href="/kontakt">{t("start")}</Button>
+            <Button href="/kontakt" event="cta-work-detail" eventSlug={params.slug}>
+              {t("start")}
+            </Button>
             <Button href="/prace" variant="ghost">
               {t("back")}
             </Button>

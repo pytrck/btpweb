@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { site } from "@/content/site";
+import { Link } from "@/i18n/routing";
+import { track } from "@/lib/analytics";
 import { EASE } from "@/lib/motion";
 
 function Field({
@@ -31,6 +33,7 @@ export function ContactForm() {
   const t = useTranslations("form");
   const types = t.raw("types") as string[];
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const started = useRef(false);
 
   const field =
     "w-full border border-line bg-transparent px-4 py-3 text-paper outline-none transition-colors duration-300 focus:border-accent-from";
@@ -53,17 +56,35 @@ export function ContactForm() {
       const json = await res.json();
       if (json.success) {
         setStatus("sent");
+        // The one event that matters: a lead actually landed. Carries the chosen
+        // project type so the dashboard shows what people ask for. No-op when
+        // analytics is off - the tracker simply isn't there.
+        track("contact-submit", { type: what });
         form.reset();
       } else {
+        // Rejected submissions are invisible otherwise - the visitor sees the
+        // fallback and leaves, and nothing reaches the inbox to tell you.
         setStatus("error");
+        track("contact-error", { reason: "rejected" });
       }
     } catch {
       setStatus("error");
+      track("contact-error", { reason: "network" });
     }
   }
 
   return (
-    <form className="space-y-5" onSubmit={onSubmit}>
+    <form
+      className="space-y-5"
+      onSubmit={onSubmit}
+      // focusin bubbles, so the first touch of any field counts as a start.
+      // form-start minus contact-submit is the abandonment rate.
+      onFocus={() => {
+        if (started.current) return;
+        started.current = true;
+        track("form-start");
+      }}
+    >
       {/* honeypot - bots auto-fill this; web3forms rejects any submission where it's set */}
       <input
         type="checkbox"
@@ -125,7 +146,15 @@ export function ContactForm() {
         </span>
       </motion.button>
 
-      <p className="text-sm text-muted">{t("note")}</p>
+      <p className="text-sm text-muted">
+        {t("note")}{" "}
+        <Link
+          href="/soukromi"
+          className="btp-focus text-paper underline underline-offset-4 hover:text-accent-from"
+        >
+          {t("privacy")}
+        </Link>
+      </p>
 
       <AnimatePresence>
         {status === "sent" && (

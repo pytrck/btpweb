@@ -29,6 +29,8 @@ function LocaleSwitcher({ onNavigate }: { onNavigate?: () => void }) {
             href={pathname}
             locale={l}
             onClick={onNavigate}
+            data-umami-event={l === active ? undefined : "locale-switch"}
+            data-umami-event-to={l}
             aria-current={l === active ? "true" : undefined}
             className={`btp-focus transition-colors ${
               l === active ? "text-paper" : "text-muted hover:text-paper"
@@ -136,6 +138,7 @@ export function Nav() {
           ))}
           <Link
             href="/kontakt"
+            data-umami-event="cta-nav"
             className="btp-focus btn-paper rounded px-4 py-2 text-sm font-medium"
           >
             {t("cta")}
@@ -204,6 +207,7 @@ export function Nav() {
               ))}
               <Link
                 href="/kontakt"
+                data-umami-event="cta-nav-mobile"
                 onClick={() => setOpen(false)}
                 className="btn-paper mt-2 rounded px-4 py-3 text-center text-sm font-medium"
               >

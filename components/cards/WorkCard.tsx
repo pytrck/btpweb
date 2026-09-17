@@ -57,6 +57,8 @@ export function WorkCard({
   const shared = {
     ref,
     href: `/prace/${slug}`,
+    "data-umami-event": "work-click",
+    "data-umami-event-slug": slug,
     onPointerMove,
     initial: "rest" as const,
     whileHover: "hover" as const,

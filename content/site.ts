@@ -13,15 +13,27 @@ export const site = {
   // TODO: get a free key at https://web3forms.com (enter the email above, no signup),
   // paste it here. Until then the form fails honestly and shows the email fallback.
   web3formsKey: "d69c08d8-a041-4c21-8763-3ce3ecb8ca15",
-  // ponytail: phone hidden until ready to publish
-  // phone: "[redacted]",
+  // Umami Cloud analytics. This ID is PUBLIC by design (it ships in the HTML).
+  // Cookieless, and additionally gated behind the consent banner - the tracker
+  // is only injected after the visitor allows it (components/layout/CookieConsent).
+  // TODO: sign up free at https://cloud.umami.is, add breakthepattern.cz,
+  // copy the "Website ID" from Settings -> Websites -> Edit, paste it here.
+  // Empty = no script is emitted at all (analytics simply off).
+  umamiId: "c36b342e-49fa-4ae8-870b-354b51b2cadc",
+  // Google Search Console verification token (the content="..." value from the
+  // "HTML tag" method). Empty = no meta emitted. DNS TXT verification at your
+  // registrar works too and needs no code - use either.
+  googleVerification: "",
+  // ponytail: phone hidden until ready to publish. This repo is PUBLIC - paste
+  // the number here only at the moment it should appear on the site.
+  // phone: "",
   // TODO: replace with the real service city / area
   city: "Mladá Boleslav / Liberec",
-  // TODO: add handles when channels go live (empty = hidden in UI)
+  // TODO: add handles when channels go live (empty = hidden in UI).
+  // Facebook intentionally absent - no plans for a page.
   social: {
     instagram: "breakthepattern.club",
-    facebook: "",
-    tiktok: "breakthepattern4",
+    tiktok: "breakthepattern.club",
   },
 } as const;
 

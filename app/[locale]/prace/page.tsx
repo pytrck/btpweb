@@ -33,6 +33,8 @@ export default async function WorkPage({ params }: { params: { locale: string } 
               <StaggerItem key={p.slug}>
                 <Link
                   href={`/prace/${p.slug}`}
+                  data-umami-event="work-click"
+                  data-umami-event-slug={p.slug}
                   className="btp-focus group relative block border-b border-line py-10 md:py-14"
                 >
                   {/* the seam ignites along the bottom edge on hover */}

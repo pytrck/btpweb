@@ -39,6 +39,8 @@ export function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-umami-event="social-click"
+                  data-umami-event-to={s.key}
                   className="btp-focus font-mono text-xs uppercase tracking-wide text-muted hover:text-paper"
                 >
                   {s.key}
@@ -49,8 +51,13 @@ export function Footer() {
         </div>
       </div>
       <div className="seam" />
-      <div className="container-x py-6 text-xs text-muted">
-        © {year} Break The Pattern. {f("rights")}
+      <div className="container-x flex flex-wrap items-center gap-x-6 gap-y-2 py-6 text-xs text-muted">
+        <span>
+          © {year} Break The Pattern. {f("rights")}
+        </span>
+        <Link href="/soukromi" className="btp-focus hover:text-paper">
+          {f("privacy")}
+        </Link>
       </div>
       {/* ghost wordmark sinking below the page edge - the brand, outlined,
           cropped mid-glyph. Decorative only. */}
