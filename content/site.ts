@@ -26,7 +26,7 @@ export const site = {
   // TODO: sign up free at https://clarity.microsoft.com, add breakthepattern.cz,
   // copy the project ID from Settings -> Overview, paste it here.
   // Empty = Clarity never loads.
-  clarityId: "",
+  clarityId: "yjwijm749i",
   // Google Search Console verification token (the content="..." value from the
   // "HTML tag" method). Empty = no meta emitted. DNS TXT verification at your
   // registrar works too and needs no code - use either.
