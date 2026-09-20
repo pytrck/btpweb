@@ -20,10 +20,11 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", displ
 // Single source for the analytics origin: the script URL and the CSP allowance
 // must agree, and an empty value keeps the CSP as tight as it was before.
 const UMAMI_HOST = site.umamiId ? "https://cloud.umami.is" : "";
-// Clarity serves its tag from www.clarity.ms and beacons to regional
-// *.clarity.ms hosts. bat.bing.com is deliberately NOT allowed: that is the
+// Clarity loads its tag from www.clarity.ms, then its recording runtime from
+// scripts.clarity.ms, and sends beacons to regional *.clarity.ms hosts.
+// bat.bing.com is deliberately NOT allowed: that is the
 // advertising-ID sync, and we deny ad storage.
-const CLARITY_SRC = site.clarityId ? "https://www.clarity.ms" : "";
+const CLARITY_SRC = site.clarityId ? "https://www.clarity.ms https://scripts.clarity.ms" : "";
 const CLARITY_API = site.clarityId ? "https://*.clarity.ms" : "";
 
 export async function generateMetadata({

@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // default locale (cs) lives at the root; non-default keeps its /<locale> prefix
     const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;
     return paths.map((path) => ({
-      url: `${site.url}${prefix}${path}`,
+      url: `${site.url}${prefix}${path}/`,
       lastModified: new Date(),
     }));
   });
