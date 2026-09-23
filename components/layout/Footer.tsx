@@ -3,8 +3,9 @@ import { Link } from "@/i18n/routing";
 import { socialLinks } from "@/content/site";
 
 const links = [
-  { href: "/prace", key: "work" },
   { href: "/sluzby", key: "services" },
+  { href: "/cenik", key: "prices" },
+  { href: "/prace", key: "work" },
   { href: "/o-nas", key: "about" },
   { href: "/kontakt", key: "contact" },
 ] as const;

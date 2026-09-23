@@ -6,6 +6,7 @@
   "nav": {
     "work": "Work",
     "services": "Services",
+    "prices": "Price list",
     "about": "About",
     "contact": "Contact",
     "cta": "Start a project",
@@ -26,7 +27,7 @@
     "items": [
       { "v": "12-24 h", "l": "average repair" },
       { "v": "24 h", "l": "response time" },
-      { "v": "3 mo", "l": "warranty on every repair" },
+      { "v": "6-12 mo", "l": "warranty on parts and labour" },
       { "v": "0", "l": "hidden fees" }
     ]
   },
@@ -86,12 +87,12 @@
     "kicker": "FAQ",
     "title": "Before you ask",
     "items": [
-      { "q": "How much will it cost?", "a": "Repairs: a quote after diagnosis. Sites: a fixed quote upfront. No surprises either way." },
+      { "q": "How much will it cost?", "a": "Common repairs have a fixed price in the price list. Harder faults are quoted after diagnosis, sites with a fixed quote upfront. No surprises either way." },
       { "q": "How fast will it be done?", "a": "Most repairs within 12-24 hours. Sites and larger jobs get a confirmed timeline at the start." },
       { "q": "Is the repair under warranty?", "a": "Yes, parts and labour. If something's off, we handle it." },
       { "q": "What happens to my data?", "a": "We treat it like our own. Nothing lost, nothing touched without reason." },
-      { "q": "What's the price range?", "a": "A screen or battery swap starts in the low hundreds, depending on the model. Sites depend on scope. Always an exact quote upfront." },
-      { "q": "How long is the warranty?", "a": "Three months on parts and labour as standard. If the fault returns, we handle it." },
+      { "q": "What's the price range?", "a": "A battery swap from 890 Kč, a screen from 1 490 Kč, depending on the model. The full price list is on the site. Sites depend on scope, always with a fixed quote upfront." },
+      { "q": "How long is the warranty?", "a": "Six months on the Standard tier, twelve on Premium - parts and labour. If the fault returns, we handle it." },
       { "q": "What affects the timeline?", "a": "Parts availability and the scope of the fault. If we have to order anything, you'll know at the start." },
       { "q": "Do you work remotely?", "a": "Websites and some optimization, yes. Hardware repairs in person in Mladá Boleslav and Liberec." }
     ]
@@ -126,11 +127,51 @@
     "openCaseStudy": "Open case study",
     "result": "Result"
   },
+  "cenik": {
+    "title": "Repair price list",
+    "subtitle": "Common repairs have a fixed price. For harder faults we quote after diagnosis — always before we start.",
+    "lead": "The full price list for phone, tablet, computer and console repairs. No \"price on request\" for the things we do every week.",
+    "minCharge": "The minimum service charge is 390 Kč. Diagnosis is free if we go on to do the repair.",
+    "tiers": {
+      "standard": "Standard — recommended",
+      "standardNote": "A vetted quality part. The best balance of price and quality. 6-month warranty.",
+      "premium": "Premium",
+      "premiumNote": "OEM, genuine used, or the best part available. 12-month warranty.",
+      "budget": "There is also a cheaper Budget option — a quality aftermarket part with a 3-month warranty. We don't list its prices; ask and we'll quote it."
+    },
+    "table": { "repair": "Repair", "standard": "Standard", "premium": "Premium" },
+    "free": "Free",
+    "onPage": "On this page",
+    "search": "Find your model or repair",
+    "searchPlaceholder": "e.g. iPhone 12, battery, back glass…",
+    "all": "All",
+    "results": "{count, plural, =0 {Nothing matches} one {# repair} other {# repairs}}",
+    "noResults": "That repair isn't in the price list. Tell us what you have and what it's doing — we'll price it.",
+    "clear": "Clear filters",
+    "rulesTitle": "Service rules",
+    "rules": [
+      "The price covers the part, expert fitting, a basic function test and the warranty.",
+      "For a part ordered in for you we take a 30–50% deposit on the part.",
+      "The exact price of advanced repairs is set after diagnosis.",
+      "If a repair isn't worth it economically, we say so upfront.",
+      "Turnaround depends on the fault and on part availability.",
+      "Every device is tested after the repair, according to the repair type."
+    ],
+    "noticesTitle": "Technical notes",
+    "updated": "Prices include VAT. Updated {date}.",
+    "fromPrice": "from {price}",
+    "openSheet": "See prices",
+    "backToHub": "Back to the price list",
+    "ctaTitle": "Can't find your model or fault?",
+    "ctaText": "Tell us what you have and what it's doing. We'll send back a price and a date.",
+    "cta": "Ask for a price"
+  },
   "serviceDetail": {
     "forWhom": "Who it's for",
     "proof": "Why trust us",
     "included": "What's included",
     "solves": "What we typically fix",
+    "prices": "Repair prices",
     "turnaround": "Turnaround",
     "deliverable": "What you get",
     "seeWork": "See our work"
@@ -148,10 +189,20 @@
     "back": "Back to work"
   },
   "pages": {
-    "services": { "title": "Services", "subtitle": "Five areas. One standard." },
+    "services": {
+      "title": "Services",
+      "subtitle": "Three disciplines. One standard.",
+      "pillarsTitle": "The three main disciplines",
+      "moreTitle": "More services"
+    },
     "work": {
       "title": "Work",
       "subtitle": "Examples of what we build and repair.",
+      "categories": {
+        "elektronika": "Electronics repair",
+        "telefony": "Phone & device repair",
+        "weby": "Custom websites"
+      },
       "empty": "First case studies are on the way. Get in touch and we'll show concrete examples."
     },
     "about": {
@@ -216,7 +267,7 @@
       "guarantees": [
         { "t": "Reply within 24 h", "d": "Every message, by the next day." },
         { "t": "Price upfront", "d": "Nothing to pay until you know and approve it." },
-        { "t": "3-month warranty", "d": "Parts and labour, every repair." }
+        { "t": "6-12 month warranty", "d": "Parts and labour, every repair." }
       ],
       "afterTitle": "What happens next",
       "after": [

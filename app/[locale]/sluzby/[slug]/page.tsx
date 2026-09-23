@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { serviceSlugs, getService } from "@/content/services";
+import { getPriceSheet } from "@/content/prices";
+import { Link } from "@/i18n/routing";
 import { buildMeta } from "@/lib/meta";
 import { Button } from "@/components/ui/Button";
+import { priceSummary } from "@/components/cenik/PriceTable";
 import { AnimatedSeam } from "@/components/ui/AnimatedSeam";
 
 export function generateStaticParams() {
@@ -34,7 +37,11 @@ export default async function ServiceDetail({
   const service = getService(params.locale, params.slug);
   if (!service) notFound();
   const t = await getTranslations("serviceDetail");
+  const tc = await getTranslations("cenik");
   const dash = String.fromCharCode(0x2014);
+  const sheets = service.priceSheets
+    .map((slug) => getPriceSheet(slug))
+    .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   return (
     <>
@@ -108,6 +115,36 @@ export default async function ServiceDetail({
           <p className="mt-4 text-lg">{service.deliverable}</p>
         </div>
       </section>
+
+      {/* Real prices, on the page where the service is described. This is the
+          bridge between "what we do" and "what it costs" - and the internal link
+          that points search engines at the price tables. */}
+      {sheets.length > 0 && (
+        <section className="container-x pb-section">
+          <h2 className="label text-accent-from">{t("prices")}</h2>
+          <ul className="hairgrid mt-6 sm:grid-cols-2">
+            {sheets.map((sheet) => {
+              const summary = priceSummary(sheet, (price) => tc("fromPrice", { price }));
+              return (
+                <li key={sheet.slug}>
+                  <Link
+                    href={`/cenik/${sheet.slug}`}
+                    data-umami-event="cenik-click"
+                    data-umami-event-slug={sheet.slug}
+                    className="btp-focus group flex items-baseline justify-between gap-6 p-6 transition-colors duration-300 hover:bg-white/[0.03]"
+                  >
+                    <span className="font-medium text-paper">{sheet.title}</span>
+                    <span className="text-right text-sm text-accent-from">
+                      {summary.length > 0 ? summary.join(" · ") : tc("openSheet")}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-6 max-w-2xl text-sm text-muted">{tc("tiers.budget")}</p>
+        </section>
+      )}
 
       <section className="container-x pb-section">
         <div className="border border-line p-12">

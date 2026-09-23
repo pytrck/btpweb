@@ -1,5 +1,9 @@
 export type Service = {
   slug: string;
+  /** The three headline disciplines. The rest are supporting services. */
+  pillar: boolean;
+  /** Price-list pages that cover this service, by `content/prices` slug. */
+  priceSheets: string[];
   title: string;
   headline: string;
   description: string;
@@ -12,17 +16,28 @@ export type Service = {
   cta: string;
 };
 
-type ServiceContent = Omit<Service, "slug">;
+type ServiceContent = Omit<Service, "slug" | "pillar" | "priceSheets">;
 type Locale = "cs" | "en";
 
+type ServiceEntry = {
+  slug: string;
+  pillar?: boolean;
+  priceSheets?: string[];
+  cs: ServiceContent;
+  en: ServiceContent;
+};
+
 /** Slug is locale-independent (Czech, drives the URL); copy is per-locale. */
-const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
+const data: ServiceEntry[] = [
   {
-    slug: "oprava-techniky",
+    slug: "oprava-elektroniky",
+    pillar: true,
+    priceSheets: ["notebooky-a-pc", "macbook", "konzole", "mikropajeni"],
     cs: {
-      title: "Oprava a diagnostika elektroniky",
+      title: "Oprava elektroniky",
       headline: "Když to nenaběhne, nenastartuje a zlobí.",
-      description: "Notebooky, konzole, disky a další elektronika. Nejdřív diagnóza, pak oprava, co vydrží.",
+      description:
+        "Notebooky, MacBooky, stolní PC, herní konzole i disky. Nejdřív diagnóza, pak oprava, co vydrží.",
       forWhom: "Pro lidi, kterým řekli, že „už se to nevyplatí opravit“.",
       proof: ["Diagnostiku odečteme z ceny opravy", "Záruka na práci i díly", "Příběhy zachráněné techniky"],
       included: [
@@ -32,9 +47,10 @@ const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
         "Reinstalace a oživení systému",
       ],
       solves: [
-        "Notebook, co se přehřívá, sekne nebo hučí",
-        "Počítač, který nenaběhne nebo padá",
-        "Pomalý systém po letech provozu",
+        "Notebook nebo MacBook, co se přehřívá, sekne nebo hučí",
+        "Počítač, který nenaběhne, padá nebo nejde zapnout",
+        "PlayStation, Xbox, Nintendo Switch nebo Steam Deck po pádu či s vadným portem",
+        "Prasklý displej, vadná klávesnice, nefunkční nabíjecí konektor",
         "Nahodilé chyby, které nikdo neumí najít",
       ],
       turnaround: "Diagnostika do 1-2 dnů, oprava podle dostupnosti dílů.",
@@ -42,9 +58,10 @@ const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
       cta: "Objednat diagnostiku",
     },
     en: {
-      title: "Electronics repair & diagnostics",
+      title: "Electronics repair",
       headline: "When it won't boot, won't start, and won't behave.",
-      description: "Laptops, consoles, drives and other electronics. Diagnosis first, then a repair that lasts.",
+      description:
+        "Laptops, MacBooks, desktop PCs, game consoles and drives. Diagnosis first, then a repair that lasts.",
       forWhom: "For people who were told 'it's not worth repairing anymore'.",
       proof: ["Diagnostics deducted from the repair price", "Warranty on labour and parts", "Stories of rescued gear"],
       included: [
@@ -54,9 +71,10 @@ const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
         "Reinstall and system revival",
       ],
       solves: [
-        "A laptop that overheats, stutters or roars",
-        "A computer that won't boot or keeps crashing",
-        "A system gone slow after years of use",
+        "A laptop or MacBook that overheats, stutters or roars",
+        "A computer that won't boot, keeps crashing or won't turn on",
+        "A PlayStation, Xbox, Nintendo Switch or Steam Deck after a drop or with a dead port",
+        "A cracked screen, a dead keyboard, a charging port that won't charge",
         "Intermittent faults no one can pin down",
       ],
       turnaround: "Diagnosis in 1-2 days, repair depending on parts availability.",
@@ -66,6 +84,7 @@ const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
   },
   {
     slug: "weby-na-miru",
+    pillar: true,
     cs: {
       title: "Weby na míru",
       headline: "Weby, co nevypadají jako všechny ostatní.",
@@ -113,10 +132,13 @@ const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
   },
   {
     slug: "oprava-telefonu",
+    pillar: true,
+    priceSheets: ["iphone", "android", "ipad", "apple-watch-airpods"],
     cs: {
-      title: "Oprava telefonů",
+      title: "Oprava telefonů a zařízení",
       headline: "Prasklý, mrtvý, utopený? Vrátíme ho do hry.",
-      description: "Displeje, baterie, konektory, voda. Poctivá diagnóza, rychlý termín, žádný upsell.",
+      description:
+        "iPhone, Samsung, Xiaomi, iPad i Apple Watch. Displeje, baterie, konektory, voda. Cenu znáte předem.",
       forWhom: "Pro každého, kdo radši opraví dobrý telefon, než aby splácel nový.",
       proof: ["Termín většinou do 12-24 hodin", "Kvalitní díly, ne nejlevnější náhražky", "Před / po u každé opravy"],
       included: [
@@ -126,19 +148,21 @@ const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
         "Záruka na díl i práci",
       ],
       solves: [
-        "Prasklý nebo nereagující displej",
+        "Prasklý nebo nereagující displej iPhonu či Androidu",
         "Telefon, co se nenabíjí nebo rychle vybíjí",
         "Zařízení po pádu do vody",
-        "Nefunkční reproduktor, mikrofon nebo foťák",
+        "Nefunkční reproduktor, mikrofon, Face ID nebo foťák",
+        "Prasklé zadní sklo a poškozený rám",
       ],
       turnaround: "Většinou do 12-24 hodin. Déle jen u objednávkových dílů.",
-      deliverable: "Funkční telefon se zárukou 3 měsíce a popisem, co se měnilo.",
+      deliverable: "Funkční telefon se zárukou 6 měsíců (12 u Premium) a popisem, co se měnilo.",
       cta: "Chci cenu opravy",
     },
     en: {
-      title: "Phone repair",
+      title: "Phone & device repair",
       headline: "Cracked, dead, water-damaged? We'll bring it back.",
-      description: "Displays, batteries, connectors, water. Honest diagnosis, a fast slot, no upsell.",
+      description:
+        "iPhone, Samsung, Xiaomi, iPad and Apple Watch. Displays, batteries, connectors, water. You know the price upfront.",
       forWhom: "For anyone who'd rather fix a good phone than pay off a new one.",
       proof: ["Turnaround usually within 12-24 hours", "Quality parts, not the cheapest substitutes", "Before / after on every repair"],
       included: [
@@ -148,22 +172,24 @@ const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
         "Warranty on parts and labour",
       ],
       solves: [
-        "A cracked or unresponsive display",
+        "A cracked or unresponsive iPhone or Android display",
         "A phone that won't charge or drains fast",
         "A device after a drop in water",
-        "A dead speaker, microphone or camera",
+        "A dead speaker, microphone, Face ID or camera",
+        "Cracked back glass and a bent frame",
       ],
       turnaround: "Usually within 12-24 hours. Longer only for order-in parts.",
-      deliverable: "A working phone with a 3-month warranty and a note on what was changed.",
+      deliverable: "A working phone with a 6-month warranty (12 on Premium) and a note on what was changed.",
       cta: "Get a repair quote",
     },
   },
   {
-    slug: "pokrocila-reseni",
+    slug: "zachrana-dat",
+    priceSheets: ["mikropajeni", "software-a-data"],
     cs: {
-      title: "Pokročilá řešení",
+      title: "Záchrana dat a pokročilá řešení",
       headline: "Problém, který nikdo jiný nechtěl vzít.",
-      description: "Záchrana dat, automatizace, integrace. Věci, co „prý nejdou“.",
+      description: "Záchrana dat z mrtvých telefonů a disků, automatizace, integrace. Věci, co „prý nejdou“.",
       forWhom: "Pro každého s problémem, který je údajně neřešitelný.",
       proof: ["Case study složitých zakázek", "Přehled použitých nástrojů", "Řešení, ne výmluvy"],
       included: [
@@ -183,9 +209,10 @@ const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
       cta: "Popsat zadání",
     },
     en: {
-      title: "Advanced solutions",
+      title: "Data recovery & advanced solutions",
       headline: "The problem no one else would take on.",
-      description: "Data recovery, automation, integrations. The things that 'supposedly can't be done'.",
+      description:
+        "Data recovery from dead phones and drives, automation, integrations. The things that 'supposedly can't be done'.",
       forWhom: "For anyone with a problem that's supposedly unsolvable.",
       proof: ["Case studies of complex jobs", "A rundown of the tools used", "Solutions, not excuses"],
       included: [
@@ -207,6 +234,7 @@ const data: { slug: string; cs: ServiceContent; en: ServiceContent }[] = [
   },
   {
     slug: "optimalizace-a-podpora",
+    priceSheets: ["software-a-data", "diagnostika"],
     cs: {
       title: "Optimalizace a podpora",
       headline: "Ať váš setup šlape rychle, čistě a potichu.",
@@ -258,7 +286,12 @@ export const serviceSlugs = data.map((s) => s.slug);
 
 export function getServices(locale: string): Service[] {
   const l: Locale = locale === "en" ? "en" : "cs";
-  return data.map((s) => ({ slug: s.slug, ...s[l] }));
+  return data.map((s) => ({
+    slug: s.slug,
+    pillar: s.pillar ?? false,
+    priceSheets: s.priceSheets ?? [],
+    ...s[l],
+  }));
 }
 
 export function getService(locale: string, slug: string): Service | undefined {

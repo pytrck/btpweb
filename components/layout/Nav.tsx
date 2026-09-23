@@ -8,8 +8,9 @@ import { Link, usePathname, routing } from "@/i18n/routing";
 import { EASE } from "@/lib/motion";
 
 const links = [
-  { href: "/prace", key: "work" },
   { href: "/sluzby", key: "services" },
+  { href: "/cenik", key: "prices" },
+  { href: "/prace", key: "work" },
   { href: "/o-nas", key: "about" },
   { href: "/kontakt", key: "contact" },
 ] as const;

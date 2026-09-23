@@ -33,7 +33,10 @@ const nextConfig = {
               // "/" serves Czech directly (in prod, localize-export lifts /cs to
               // root; app/page.tsx's meta-refresh only matters without that).
               { source: "/", destination: "/cs" },
-              ...["sluzby", "prace", "o-nas", "kontakt", "soukromi"].map((seg) => ({
+              // Every top-level route segment under app/[locale] must be listed
+              // here, or it 404s in `next dev` (production is unaffected - the
+              // postbuild lift handles it). Add the segment when you add a route.
+              ...["sluzby", "cenik", "prace", "o-nas", "kontakt", "soukromi"].map((seg) => ({
                 source: `/${seg}/:path*`,
                 destination: `/cs/${seg}/:path*`,
               })),

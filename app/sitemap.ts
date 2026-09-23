@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { serviceSlugs } from "@/content/services";
 import { projectSlugs } from "@/content/work";
+import { priceSheetSlugs } from "@/content/prices";
 import { routing } from "@/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -9,10 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/prace",
     "/sluzby",
+    "/cenik",
     "/o-nas",
     "/kontakt",
     "/soukromi",
     ...serviceSlugs.map((slug) => `/sluzby/${slug}`),
+    ...priceSheetSlugs.map((slug) => `/cenik/${slug}`),
     ...projectSlugs.map((slug) => `/prace/${slug}`),
   ];
   return routing.locales.flatMap((locale) => {

@@ -1,5 +1,10 @@
+/** The three pillars from `content/services`, used to group the work index. */
+export type Category = "elektronika" | "telefony" | "weby";
+export const categories: Category[] = ["elektronika", "telefony", "weby"];
+
 export type Project = {
   slug: string;
+  category: Category;
   title: string;
   summary: string;
   tag: string;
@@ -13,13 +18,14 @@ export type Project = {
   metrics: { v: string; l: string }[];
 };
 
-type ProjectContent = Omit<Project, "slug">;
+type ProjectContent = Omit<Project, "slug" | "category">;
 type Locale = "cs" | "en";
 
-/** Slug is locale-independent (drives the URL); copy is per-locale. */
-const data: { slug: string; cs: ProjectContent; en: ProjectContent }[] = [
+/** Slug and category are locale-independent; copy is per-locale. */
+const data: { slug: string; category: Category; cs: ProjectContent; en: ProjectContent }[] = [
   {
     slug: "vzkriseni",
+    category: "telefony",
     cs: {
       title: "Vzkříšení",
       summary: "Utopený telefon, kompletní záchrana dat.",
@@ -57,6 +63,7 @@ const data: { slug: string; cs: ProjectContent; en: ProjectContent }[] = [
   },
   {
     slug: "protivaha",
+    category: "weby",
     cs: {
       title: "Protiváha",
       summary: "Web na míru pro lokálního tvůrce.",
@@ -94,6 +101,7 @@ const data: { slug: string; cs: ProjectContent; en: ProjectContent }[] = [
   },
   {
     slug: "tichy-stroj",
+    category: "elektronika",
     cs: {
       title: "Tichý stroj",
       summary: "Rebuild a optimalizace pracovní stanice.",
@@ -135,7 +143,7 @@ export const projectSlugs = data.map((p) => p.slug);
 
 export function getProjects(locale: string): Project[] {
   const l: Locale = locale === "en" ? "en" : "cs";
-  return data.map((p) => ({ slug: p.slug, ...p[l] }));
+  return data.map((p) => ({ slug: p.slug, category: p.category, ...p[l] }));
 }
 
 export function getProject(locale: string, slug: string): Project | undefined {

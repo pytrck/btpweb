@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
+import { PriceTeaser } from "@/components/sections/PriceTeaser";
 import { FeaturedWork } from "@/components/sections/FeaturedWork";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { Fit } from "@/components/sections/Fit";
@@ -33,6 +34,7 @@ export default function Home({ params }: { params: { locale: string } }) {
       <FeaturedWork />
       <FractureDivider />
       <ServicesPreview />
+      <PriceTeaser />
       <ProcessSteps />
       <Fit />
       {/* Auto-hidden until testimonials are added in content/proof.ts */}

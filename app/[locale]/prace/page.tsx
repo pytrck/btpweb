@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { getProjects } from "@/content/work";
+import { getProjects, categories } from "@/content/work";
 import { Link } from "@/i18n/routing";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CTABlock } from "@/components/sections/CTABlock";
@@ -22,14 +22,23 @@ export default async function WorkPage({ params }: { params: { locale: string } 
   const t = await getTranslations("pages.work");
   const c = await getTranslations("cards");
   const projects = getProjects(params.locale);
+  // Grouped by the three pillars. Categories with no case study yet are skipped
+  // rather than rendered empty - promote a group to its own /prace/<category>
+  // page once it holds enough work to stand on its own.
+  const groups = categories
+    .map((c) => ({ category: c, items: projects.filter((p) => p.category === c) }))
+    .filter((g) => g.items.length > 0);
   return (
     <div className="relative">
       <ScrollOrb text="PROOF NOT HYPE" amp={46} cycles={2.6} jag={17} />
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
       <section className="container-x pb-section">
-        {projects.length > 0 ? (
-          <Stagger className="border-t border-line" stagger={0.1}>
-            {projects.map((p) => (
+        {groups.length > 0 ? (
+          groups.map((group) => (
+            <div key={group.category} id={group.category} className="scroll-mt-24 pt-12 first:pt-0">
+              <h2 className="label text-accent-from">{t(`categories.${group.category}`)}</h2>
+              <Stagger className="mt-6 border-t border-line" stagger={0.1}>
+                {group.items.map((p) => (
               <StaggerItem key={p.slug}>
                 <Link
                   href={`/prace/${p.slug}`}
@@ -45,9 +54,9 @@ export default async function WorkPage({ params }: { params: { locale: string } 
                   <div className="grid items-baseline gap-x-10 gap-y-4 md:grid-cols-[1fr_auto]">
                     <div>
                       <span className="label text-accent-from">{p.tag}</span>
-                      <h2 className="mt-3 font-head text-[clamp(2.25rem,5.5vw,4rem)] font-bold leading-[0.95] tracking-[-0.025em] transition-colors duration-300 group-hover:text-paper">
+                      <h3 className="mt-3 font-head text-[clamp(2.25rem,5.5vw,4rem)] font-bold leading-[0.95] tracking-[-0.025em] transition-colors duration-300 group-hover:text-paper">
                         {p.title}
-                      </h2>
+                      </h3>
                       <p className="mt-4 max-w-xl text-muted">{p.summary}</p>
                       {p.result && (
                         <p className="mt-4 text-sm text-paper">
@@ -67,8 +76,10 @@ export default async function WorkPage({ params }: { params: { locale: string } 
                   </div>
                 </Link>
               </StaggerItem>
-            ))}
-          </Stagger>
+                ))}
+              </Stagger>
+            </div>
+          ))
         ) : (
           <div className="border border-line p-12">
             <p className="font-head text-h3">{t("empty")}</p>

@@ -6,6 +6,7 @@
   "nav": {
     "work": "Práce",
     "services": "Služby",
+    "prices": "Ceník",
     "about": "O nás",
     "contact": "Kontakt",
     "cta": "Začít projekt",
@@ -34,7 +35,7 @@
     "items": [
       { "v": "12-24 h", "l": "průměrná oprava" },
       { "v": "24 h", "l": "doba odezvy" },
-      { "v": "3 měs.", "l": "záruka na každou opravu" },
+      { "v": "6-12 měs.", "l": "záruka na díl i práci" },
       { "v": "0", "l": "skrytých příplatků" }
     ]
   },
@@ -94,12 +95,12 @@
     "kicker": "Časté dotazy",
     "title": "Než se zeptáte",
     "items": [
-      { "q": "Kolik to bude stát?", "a": "Opravy: cena po diagnóze. Weby: pevná nabídka předem. Žádná překvapení." },
+      { "q": "Kolik to bude stát?", "a": "Běžné opravy mají pevnou cenu v ceníku. Složitější závady oceníme po diagnostice, weby pevnou nabídkou předem. Žádná překvapení." },
       { "q": "Jak rychle to bude hotové?", "a": "Většina oprav do 12-24 hodin. Termín webu nebo větší zakázky potvrdíme na začátku." },
       { "q": "Mám na opravu záruku?", "a": "Ano, na díly i práci. Když něco nesedí, řešíme to my." },
       { "q": "Co se stane s mými daty?", "a": "Zacházíme s nimi jako s vlastními. Nic se neztratí, nic se nešťourá zbytečně." },
-      { "q": "Od kolika se ceny pohybují?", "a": "Výměna displeje či baterie startuje řádově ve stovkách až nižších tisících podle modelu. Web podle rozsahu. Přesnou cenu vždy řekneme předem." },
-      { "q": "Jak dlouhá je záruka?", "a": "Na opravy standardně 3 měsíce na díl i práci. Když se závada vrátí, řešíme to my." },
+      { "q": "Od kolika se ceny pohybují?", "a": "Výměna baterie od 890 Kč, displeje od 1 490 Kč - podle modelu. Kompletní ceník máme na webu. Web podle rozsahu, vždy s pevnou nabídkou předem." },
+      { "q": "Jak dlouhá je záruka?", "a": "Šest měsíců u úrovně Standard, dvanáct u Premium - na díl i práci. Když se závada vrátí, řešíme to my." },
       { "q": "Co ovlivňuje termín?", "a": "Dostupnost dílů a rozsah závady. Pokud něco objednáváme, řekneme to na začátku." },
       { "q": "Pracujete i na dálku?", "a": "Weby a část optimalizací řešíme vzdáleně. Opravy hardwaru osobně v Mladé Boleslavi a Liberci." }
     ]
@@ -127,7 +128,7 @@
     "email": "E-mail",
     "phone": "Telefon",
     "type": "O co jde",
-    "types": ["Oprava a diagnostika elektroniky", "Web na míru", "Oprava telefonů", "Pokročilé řešení", "Optimalizace a podpora", "Jiné"],
+    "types": ["Oprava elektroniky", "Oprava telefonu nebo zařízení", "Web na míru", "Záchrana dat", "Optimalizace a podpora", "Jiné"],
     "message": "Co potřebujeme vědět",
     "submit": "Odeslat poptávku",
     "note": "Bez závazku, bez prodejních keců. Napište, co řešíte.",
@@ -141,11 +142,51 @@
     "openCaseStudy": "Otevřít case study",
     "result": "Výsledek"
   },
+  "cenik": {
+    "title": "Ceník oprav",
+    "subtitle": "Běžné opravy mají pevnou cenu. U složitějších závad ji řekneme po diagnostice — vždy dřív, než začneme.",
+    "lead": "Kompletní ceník oprav telefonů, tabletů, počítačů a konzolí. Žádné „cena na dotaz“ u věcí, které děláme každý týden.",
+    "minCharge": "Minimální cena servisního zásahu je 390 Kč. Diagnostika je zdarma, pokud opravu následně provedeme.",
+    "tiers": {
+      "standard": "Standard — doporučujeme",
+      "standardNote": "Prověřený kvalitní díl. Nejlepší poměr ceny a kvality. Záruka 6 měsíců.",
+      "premium": "Premium",
+      "premiumNote": "OEM, originální použitý nebo nejlepší dostupný díl. Záruka 12 měsíců.",
+      "budget": "Existuje i levnější Budget varianta — kvalitní aftermarket díl se zárukou 3 měsíce. Ceny k ní neuvádíme, řekněte si o ni a spočítáme ji."
+    },
+    "table": { "repair": "Oprava", "standard": "Standard", "premium": "Premium" },
+    "free": "Zdarma",
+    "onPage": "Na této stránce",
+    "search": "Najděte svůj model nebo opravu",
+    "searchPlaceholder": "Např. iPhone 12, baterie, zadní sklo…",
+    "all": "Vše",
+    "results": "{count, plural, =0 {Nic neodpovídá} one {# oprava} few {# opravy} other {# oprav}}",
+    "noResults": "Tuhle opravu v ceníku nemáme. Napište nám, co máte a co dělá — cenu zjistíme.",
+    "clear": "Zrušit filtr",
+    "rulesTitle": "Pravidla servisu",
+    "rules": [
+      "Cena zahrnuje díl, odbornou montáž, základní funkční test a záruku.",
+      "U dílu objednávaného na zákazníka vybíráme zálohu 30–50 % ceny dílu.",
+      "Přesnou cenu pokročilých oprav stanovíme po diagnostice.",
+      "Pokud se oprava ekonomicky nevyplatí, řekneme to předem.",
+      "Termín opravy závisí na rozsahu závady a dostupnosti dílu.",
+      "Každé zařízení po opravě testujeme podle typu opravy."
+    ],
+    "noticesTitle": "Technická upozornění",
+    "updated": "Ceny jsou včetně DPH. Aktualizováno {date}.",
+    "fromPrice": "od {price}",
+    "openSheet": "Zobrazit ceny",
+    "backToHub": "Zpět na ceník",
+    "ctaTitle": "Nenašli jste svůj model nebo závadu?",
+    "ctaText": "Napište, co máte a co dělá. Cenu a termín pošleme zpátky.",
+    "cta": "Zeptat se na cenu"
+  },
   "serviceDetail": {
     "forWhom": "Pro koho",
     "proof": "Proč nám věřit",
     "included": "Co je v ceně",
     "solves": "Typicky řešíme",
+    "prices": "Ceny oprav",
     "turnaround": "Termín",
     "deliverable": "Co dostanete",
     "seeWork": "Ukázat práci"
@@ -165,11 +206,18 @@
   "pages": {
     "services": {
       "title": "Služby",
-      "subtitle": "Pět oblastí. Jeden standard."
+      "subtitle": "Tři obory. Jeden standard.",
+      "pillarsTitle": "Tři hlavní obory",
+      "moreTitle": "Další služby"
     },
     "work": {
       "title": "Práce",
       "subtitle": "Ukázky toho, co stavíme a opravujeme.",
+      "categories": {
+        "elektronika": "Oprava elektroniky",
+        "telefony": "Oprava telefonů a zařízení",
+        "weby": "Weby na míru"
+      },
       "empty": "Připravujeme první case studies. Napište nám a ukážeme konkrétní příklady."
     },
     "about": {
@@ -217,7 +265,7 @@
       "title": "Kontakt",
       "subtitle": "Napište, co je rozbité, nebo co postavit.",
       "help": "S čím pomůžeme",
-      "helpItems": ["Oprava telefonu", "Web na míru", "Oprava techniky", "Pokročilé řešení", "Optimalizace setupu"],
+      "helpItems": ["Oprava telefonu nebo tabletu", "Oprava notebooku, PC či konzole", "Web na míru", "Záchrana dat", "Optimalizace setupu"],
       "response": "Čteme každou zprávu osobně a odpovídáme do 24 hodin.",
       "channelsTitle": "Přímé kanály",
       "channels": [
@@ -234,7 +282,7 @@
       "guarantees": [
         { "t": "Odezva do 24 h", "d": "Každá zpráva, do druhého dne." },
         { "t": "Cena předem", "d": "Nic neplatíte, dokud ji neznáte a neschválíte." },
-        { "t": "Záruka 3 měsíce", "d": "Díly i práce, u každé opravy." }
+        { "t": "Záruka 6-12 měsíců", "d": "Díly i práce, u každé opravy." }
       ],
       "afterTitle": "Co se stane potom",
       "after": [
