@@ -26,7 +26,9 @@ PAGES = [
         "iPhone \u2013 pokro\u010dil\u00e9 opravy"]),
     ("ipad", "Oprava iPad", ["iPad"]),
     ("macbook", "Oprava MacBook a iMac", ["MacBook a iMac"]),
-    ("apple-watch-airpods", "Oprava Apple Watch a AirPods", ["Apple Watch a AirPods"]),
+    # Apple Watch and AirPods are deliberately absent: those repairs are taken on
+    # request only, so they get no published price list. The workbook sheet stays
+    # where it is - listing a sheet here is what publishes it.
     ("android", "Oprava telefon\u016f s Androidem", ["Android telefony"]),
     ("notebooky-a-pc", "Oprava notebook\u016f a PC", ["Windows notebooky a PC"]),
     ("konzole", "Oprava hern\u00edch konzol\u00ed", ["Hern\u00ed konzole"]),
@@ -131,9 +133,10 @@ def build_pages(wb, premium):
                         _, prem = premium.get(
                             (norm(r[0]), norm(r[1]), norm(r[2])), (None, None))
                         if isinstance(prem, (int, float)) and prem > std:
-                            # Raw Premium is an unrounded Standard x 1.25; round UP
-                            # to the nearest 10 so it reads as a price, not a formula.
-                            row["premium"] = int(math.ceil(prem / 10.0) * 10)
+                            # Raw Premium is an unrounded Standard x 1.25. Round UP
+                            # to the next whole hundred - Excel's CEILING(x, 100).
+                            # Always up, so rounding can only protect the margin.
+                            row["premium"] = int(math.ceil(prem / 100.0) * 100)
                 elif frm:
                     row["from"] = frm
                 for key, idx in (("time", 5), ("warranty", 6), ("note", 7)):

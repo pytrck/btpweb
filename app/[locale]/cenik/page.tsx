@@ -80,6 +80,9 @@ export default async function PriceListPage({ params }: { params: { locale: stri
           })}
         </ul>
 
+        {/* Answers the obvious gap in the grid above before anyone has to ask. */}
+        <p className="mt-8 max-w-2xl text-sm text-muted">{t("onRequest")}</p>
+
         <div className="mt-16 grid gap-10 border-t border-line pt-10 md:grid-cols-[1fr_1.2fr]">
           <h2 className="label text-accent-from">{t("rulesTitle")}</h2>
           <ul className="space-y-3 text-sm text-muted">

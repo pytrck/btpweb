@@ -39,65 +39,65 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Displej",
         rows: [
-          { model: "iPhone 6 / 6 Plus", repair: "Výměna displeje", std: 1490, premium: 1860, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 6S / 6S Plus", repair: "Výměna displeje", std: 1490, premium: 1860, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 7 / 8 / SE 2020 / SE 2022", repair: "Výměna displeje", std: 1590, premium: 1990, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 7 Plus / 8 Plus", repair: "Výměna displeje", std: 1790, premium: 2240, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone X / XS / XR", repair: "Výměna displeje", std: 2190, premium: 2740, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone XS Max", repair: "Výměna displeje", std: 2390, premium: 2990, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 11", repair: "Výměna displeje", std: 3490, premium: 4360, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 11 Pro", repair: "Výměna displeje", std: 4490, premium: 5610, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 11 Pro Max", repair: "Výměna displeje", std: 4790, premium: 5990, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 12 mini", repair: "Výměna displeje", std: 4190, premium: 5240, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 12 / 12 Pro", repair: "Výměna displeje", std: 4490, premium: 5610, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 12 Pro Max", repair: "Výměna displeje", std: 4890, premium: 6110, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 13 mini", repair: "Výměna displeje", std: 4490, premium: 5610, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 13", repair: "Výměna displeje", std: 3390, premium: 4240, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 13 Pro", repair: "Výměna displeje", std: 3990, premium: 4990, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 13 Pro Max", repair: "Výměna displeje", std: 3590, premium: 4490, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 14", repair: "Výměna displeje", std: 3590, premium: 4490, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 14 Plus", repair: "Výměna displeje", std: 3590, premium: 4490, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 14 Pro", repair: "Výměna displeje", std: 4890, premium: 6110, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 14 Pro Max", repair: "Výměna displeje", std: 4590, premium: 5740, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 15", repair: "Výměna displeje", std: 4590, premium: 5740, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 15 Plus", repair: "Výměna displeje", std: 3990, premium: 4990, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 15 Pro", repair: "Výměna displeje", std: 5090, premium: 6360, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 15 Pro Max", repair: "Výměna displeje", std: 4590, premium: 5740, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 16 / 16 Plus", repair: "Výměna displeje", std: 4690, premium: 5860, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 16 Pro", repair: "Výměna displeje", std: 5090, premium: 6360, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPhone 16 Pro Max", repair: "Výměna displeje", std: 4990, premium: 6240, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 6 / 6 Plus", repair: "Výměna displeje", std: 1490, premium: 1900, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 6S / 6S Plus", repair: "Výměna displeje", std: 1490, premium: 1900, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 7 / 8 / SE 2020 / SE 2022", repair: "Výměna displeje", std: 1590, premium: 2000, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 7 Plus / 8 Plus", repair: "Výměna displeje", std: 1790, premium: 2300, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone X / XS / XR", repair: "Výměna displeje", std: 2190, premium: 2800, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone XS Max", repair: "Výměna displeje", std: 2390, premium: 3000, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 11", repair: "Výměna displeje", std: 3490, premium: 4400, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 11 Pro", repair: "Výměna displeje", std: 4490, premium: 5700, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 11 Pro Max", repair: "Výměna displeje", std: 4790, premium: 6000, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 12 mini", repair: "Výměna displeje", std: 4190, premium: 5300, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 12 / 12 Pro", repair: "Výměna displeje", std: 4490, premium: 5700, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 12 Pro Max", repair: "Výměna displeje", std: 4890, premium: 6200, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 13 mini", repair: "Výměna displeje", std: 4490, premium: 5700, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 13", repair: "Výměna displeje", std: 3390, premium: 4300, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 13 Pro", repair: "Výměna displeje", std: 3990, premium: 5000, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 13 Pro Max", repair: "Výměna displeje", std: 3590, premium: 4500, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 14", repair: "Výměna displeje", std: 3590, premium: 4500, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 14 Plus", repair: "Výměna displeje", std: 3590, premium: 4500, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 14 Pro", repair: "Výměna displeje", std: 4890, premium: 6200, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 14 Pro Max", repair: "Výměna displeje", std: 4590, premium: 5800, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 15", repair: "Výměna displeje", std: 4590, premium: 5800, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 15 Plus", repair: "Výměna displeje", std: 3990, premium: 5000, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 15 Pro", repair: "Výměna displeje", std: 5090, premium: 6400, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 15 Pro Max", repair: "Výměna displeje", std: 4590, premium: 5800, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 16 / 16 Plus", repair: "Výměna displeje", std: 4690, premium: 5900, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 16 Pro", repair: "Výměna displeje", std: 5090, premium: 6400, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPhone 16 Pro Max", repair: "Výměna displeje", std: 4990, premium: 6300, time: "45–90 min", warranty: "6 měsíců" },
           { model: "Všechny modely", repair: "Oprava nefunkčního dotyku (bez výměny displeje, je-li možná)", from: "od 1 490 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Všechny modely (LCD)", repair: "Oprava podsvícení", from: "od 1 490 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Všechny modely", repair: "Oprava obrazu / flickeringu", from: "Cena po diagnostice", time: "Dle rozsahu opravy" },
           { model: "Všechny modely", repair: "Zelený nebo bílý displej", from: "Cena po diagnostice", time: "Dle rozsahu opravy", note: "Obvykle řešeno výměnou displeje — viz ceny výše." },
           { model: "Všechny modely", repair: "Výměna proximity flex kabelu", from: "od 1 190 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Vybrané modely", repair: "Kalibrace displeje / zachování True Tone", from: "od 1 490 Kč", time: "Dle rozsahu opravy", note: "Dostupnost dle modelu a nástroje." },
-          { model: "Všechny modely", repair: "Výměna těsnění displeje", std: 870, premium: 1090, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "Všechny modely", repair: "Výměna těsnění displeje", std: 870, premium: 1100, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
           { model: "Vybrané modely", repair: "Výměna samotného skla displeje (bez celého modulu)", from: "Cena po diagnostice", time: "Dle rozsahu opravy", note: "Technicky a ekonomicky možné jen u některých modelů." },
         ],
       },
       {
         category: "Baterie",
         rows: [
-          { model: "iPhone 6 / 6 Plus", repair: "Výměna baterie", std: 990, premium: 1240, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 6S / 6S Plus", repair: "Výměna baterie", std: 890, premium: 1110, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 7 / 8 / SE 2020 / SE 2022", repair: "Výměna baterie", std: 990, premium: 1240, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 7 Plus / 8 Plus", repair: "Výměna baterie", std: 990, premium: 1240, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone X / XS / XR", repair: "Výměna baterie", std: 990, premium: 1240, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone XS Max", repair: "Výměna baterie", std: 1390, premium: 1740, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 11", repair: "Výměna baterie", std: 1290, premium: 1620, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 11 Pro / Pro Max", repair: "Výměna baterie", std: 1390, premium: 1740, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 12 mini", repair: "Výměna baterie", std: 1390, premium: 1740, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 12 / 12 Pro", repair: "Výměna baterie", std: 1490, premium: 1870, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 12 Pro Max", repair: "Výměna baterie", std: 1590, premium: 1990, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 13 / 13 mini", repair: "Výměna baterie", std: 1590, premium: 1990, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 13 Pro / Pro Max", repair: "Výměna baterie", std: 1690, premium: 2120, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 14 / 14 Plus", repair: "Výměna baterie", std: 1690, premium: 2120, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 14 Pro / Pro Max", repair: "Výměna baterie", std: 1790, premium: 2240, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 15 / 15 Plus", repair: "Výměna baterie", std: 1790, premium: 2240, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 15 Pro / Pro Max", repair: "Výměna baterie", std: 1890, premium: 2370, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 16 / 16 Plus", repair: "Výměna baterie", std: 1890, premium: 2370, time: "45–60 min", warranty: "6 měsíců" },
-          { model: "iPhone 16 Pro / Pro Max", repair: "Výměna baterie", std: 1990, premium: 2490, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 6 / 6 Plus", repair: "Výměna baterie", std: 990, premium: 1300, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 6S / 6S Plus", repair: "Výměna baterie", std: 890, premium: 1200, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 7 / 8 / SE 2020 / SE 2022", repair: "Výměna baterie", std: 990, premium: 1300, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 7 Plus / 8 Plus", repair: "Výměna baterie", std: 990, premium: 1300, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone X / XS / XR", repair: "Výměna baterie", std: 990, premium: 1300, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone XS Max", repair: "Výměna baterie", std: 1390, premium: 1800, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 11", repair: "Výměna baterie", std: 1290, premium: 1700, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 11 Pro / Pro Max", repair: "Výměna baterie", std: 1390, premium: 1800, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 12 mini", repair: "Výměna baterie", std: 1390, premium: 1800, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 12 / 12 Pro", repair: "Výměna baterie", std: 1490, premium: 1900, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 12 Pro Max", repair: "Výměna baterie", std: 1590, premium: 2000, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 13 / 13 mini", repair: "Výměna baterie", std: 1590, premium: 2000, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 13 Pro / Pro Max", repair: "Výměna baterie", std: 1690, premium: 2200, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 14 / 14 Plus", repair: "Výměna baterie", std: 1690, premium: 2200, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 14 Pro / Pro Max", repair: "Výměna baterie", std: 1790, premium: 2300, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 15 / 15 Plus", repair: "Výměna baterie", std: 1790, premium: 2300, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 15 Pro / Pro Max", repair: "Výměna baterie", std: 1890, premium: 2400, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 16 / 16 Plus", repair: "Výměna baterie", std: 1890, premium: 2400, time: "45–60 min", warranty: "6 měsíců" },
+          { model: "iPhone 16 Pro / Pro Max", repair: "Výměna baterie", std: 1990, premium: 2500, time: "45–60 min", warranty: "6 měsíců" },
           { model: "Všechny modely", repair: "Diagnostika rychlého vybíjení baterie", std: 400, premium: 500, time: "Dle rozsahu opravy", note: "Cena se odečte, pokud následně provedeme výměnu baterie." },
         ],
       },
@@ -109,89 +109,89 @@ export const priceSheets: PriceSheet[] = [
           { model: "Všechny modely", repair: "Oprava nenabíjení", from: "Cena po diagnostice", time: "Dle rozsahu opravy", note: "Řešeno dle příčiny – konektor, baterie nebo základní deska." },
           { model: "Všechny modely", repair: "Oprava bezdrátového nabíjení", from: "od 1 490 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Všechny modely", repair: "Výměna MagSafe / Qi cívky", from: "od 1 990 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Výměna / oprava flex kabelů baterie", std: 1190, premium: 1490, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Výměna / oprava flex kabelů baterie", std: 1190, premium: 1500, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
         ],
       },
       {
         category: "Zadní sklo",
         rows: [
-          { model: "iPhone 8 / X / XR", repair: "Výměna samotného zadního skla", std: 1890, premium: 2370, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "iPhone 11 / 11 Pro", repair: "Výměna samotného zadního skla", std: 2190, premium: 2740, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "iPhone 12 / 13", repair: "Výměna samotného zadního skla", std: 2490, premium: 3120, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "iPhone 12–13 Pro / Pro Max", repair: "Výměna samotného zadního skla", std: 2990, premium: 3740, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "iPhone 14 / 14 Plus", repair: "Výměna samotného zadního skla", std: 2390, premium: 2990, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "iPhone 14 Pro / Pro Max", repair: "Výměna samotného zadního skla", std: 3490, premium: 4370, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "řada iPhone 15", repair: "Výměna samotného zadního skla", std: 2890, premium: 3610, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "iPhone 15 Pro / Pro Max", repair: "Výměna samotného zadního skla", std: 3390, premium: 4240, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "Všechny modely", repair: "Výměna prachových mřížek (reproduktor / mikrofon)", std: 1020, premium: 1280, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
-          { model: "Všechny modely", repair: "Výměna voděodolného těsnění", std: 1190, premium: 1490, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "iPhone 8 / X / XR", repair: "Výměna samotného zadního skla", std: 1890, premium: 2400, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "iPhone 11 / 11 Pro", repair: "Výměna samotného zadního skla", std: 2190, premium: 2800, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "iPhone 12 / 13", repair: "Výměna samotného zadního skla", std: 2490, premium: 3200, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "iPhone 12–13 Pro / Pro Max", repair: "Výměna samotného zadního skla", std: 2990, premium: 3800, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "iPhone 14 / 14 Plus", repair: "Výměna samotného zadního skla", std: 2390, premium: 3000, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "iPhone 14 Pro / Pro Max", repair: "Výměna samotného zadního skla", std: 3490, premium: 4400, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "řada iPhone 15", repair: "Výměna samotného zadního skla", std: 2890, premium: 3700, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "iPhone 15 Pro / Pro Max", repair: "Výměna samotného zadního skla", std: 3390, premium: 4300, time: "2–5 hod", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "Všechny modely", repair: "Výměna prachových mřížek (reproduktor / mikrofon)", std: 1020, premium: 1300, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
+          { model: "Všechny modely", repair: "Výměna voděodolného těsnění", std: 1190, premium: 1500, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
         ],
       },
       {
         category: "Šasi / housing",
         rows: [
-          { model: "starší modely", repair: "Výměna kompletního housingu / rámu", std: 2490, premium: 3120, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "iPhone 11–13", repair: "Výměna kompletního housingu / rámu", std: 3690, premium: 4620, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
-          { model: "iPhone 14–16", repair: "Výměna kompletního housingu / rámu", std: 4990, premium: 6240, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "starší modely", repair: "Výměna kompletního housingu / rámu", std: 2490, premium: 3200, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "iPhone 11–13", repair: "Výměna kompletního housingu / rámu", std: 3690, premium: 4700, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
+          { model: "iPhone 14–16", repair: "Výměna kompletního housingu / rámu", std: 4990, premium: 6300, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP." },
           { model: "Všechny modely", repair: "Narovnání nebo výměna deformovaného rámu", from: "od 2 990 Kč", time: "Dle rozsahu opravy", note: "Konečná cena po diagnostice." },
         ],
       },
       {
         category: "Nabíjecí konektor",
         rows: [
-          { model: "iPhone 6–8 / SE", repair: "Výměna nabíjecího konektoru", std: 1290, premium: 1620, time: "1–3 hod", warranty: "6 měsíců", note: "Vyžaduje-li oprava zásah do základní desky, řešíme jako pokročilou opravu s cenou po diagnostice (list 8)." },
-          { model: "iPhone X–11", repair: "Výměna nabíjecího konektoru", std: 1490, premium: 1870, time: "1–3 hod", warranty: "6 měsíců", note: "Vyžaduje-li oprava zásah do základní desky, řešíme jako pokročilou opravu s cenou po diagnostice (list 8)." },
-          { model: "iPhone 12–13", repair: "Výměna nabíjecího konektoru", std: 1790, premium: 2240, time: "1–3 hod", warranty: "6 měsíců", note: "Vyžaduje-li oprava zásah do základní desky, řešíme jako pokročilou opravu s cenou po diagnostice (list 8)." },
-          { model: "iPhone 14–16", repair: "Výměna nabíjecího konektoru", std: 2190, premium: 2740, time: "1–3 hod", warranty: "6 měsíců", note: "Vyžaduje-li oprava zásah do základní desky, řešíme jako pokročilou opravu s cenou po diagnostice (list 8)." },
+          { model: "iPhone 6–8 / SE", repair: "Výměna nabíjecího konektoru", std: 1290, premium: 1700, time: "1–3 hod", warranty: "6 měsíců", note: "Vyžaduje-li oprava zásah do základní desky, řešíme jako pokročilou opravu s cenou po diagnostice (list 8)." },
+          { model: "iPhone X–11", repair: "Výměna nabíjecího konektoru", std: 1490, premium: 1900, time: "1–3 hod", warranty: "6 měsíců", note: "Vyžaduje-li oprava zásah do základní desky, řešíme jako pokročilou opravu s cenou po diagnostice (list 8)." },
+          { model: "iPhone 12–13", repair: "Výměna nabíjecího konektoru", std: 1790, premium: 2300, time: "1–3 hod", warranty: "6 měsíců", note: "Vyžaduje-li oprava zásah do základní desky, řešíme jako pokročilou opravu s cenou po diagnostice (list 8)." },
+          { model: "iPhone 14–16", repair: "Výměna nabíjecího konektoru", std: 2190, premium: 2800, time: "1–3 hod", warranty: "6 měsíců", note: "Vyžaduje-li oprava zásah do základní desky, řešíme jako pokročilou opravu s cenou po diagnostice (list 8)." },
         ],
       },
       {
         category: "Zvuk",
         rows: [
-          { model: "Všechny modely", repair: "Sluchátko / horní reproduktor", std: 1290, premium: 1620, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Spodní reproduktor", std: 1190, premium: 1490, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Mikrofon", std: 1290, premium: 1620, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Sluchátko / horní reproduktor", std: 1290, premium: 1700, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Spodní reproduktor", std: 1190, premium: 1500, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Mikrofon", std: 1290, premium: 1700, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Všechny modely", repair: "Oprava chrčícího / zkresleného reproduktoru", from: "od 1 510 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Někdy řešitelné bez výměny." },
         ],
       },
       {
         category: "Ostatní",
         rows: [
-          { model: "Všechny modely", repair: "Vibrační motorek", std: 1190, premium: 1490, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Vibrační motorek", std: 1190, premium: 1500, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
         ],
       },
       {
         category: "Tlačítka",
         rows: [
-          { model: "Všechny modely", repair: "Power / volume / mute tlačítko", std: 1390, premium: 1740, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "iPhone 15 Pro a novější", repair: "Action Button", std: 1390, premium: 1740, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Power / volume / mute tlačítko", std: 1390, premium: 1800, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "iPhone 15 Pro a novější", repair: "Action Button", std: 1390, premium: 1800, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Všechny modely", repair: "Výměna flex kabelu tlačítek", from: "od 1 190 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
         ],
       },
       {
         category: "Anténa",
         rows: [
-          { model: "Všechny modely", repair: "Výměna Wi-Fi / Bluetooth / GSM antény (fyzický díl)", std: 1490, premium: 1870, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Nejasné signálové problémy bez zjevné příčiny řešíme jako pokročilou diagnostiku (list 8)." },
+          { model: "Všechny modely", repair: "Výměna Wi-Fi / Bluetooth / GSM antény (fyzický díl)", std: 1490, premium: 1900, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Nejasné signálové problémy bez zjevné příčiny řešíme jako pokročilou diagnostiku (list 8)." },
         ],
       },
       {
         category: "SIM",
         rows: [
-          { model: "Všechny modely", repair: "SIM šuplík", std: 910, premium: 1140, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "SIM šuplík", std: 910, premium: 1200, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
         ],
       },
       {
         category: "Kamery",
         rows: [
-          { model: "Všechny modely", repair: "Sklo zadní kamery, 1 čočka", std: 1090, premium: 1370, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Za každou další prasklou čočku téhož modulu účtujeme příplatek +390 Kč." },
-          { model: "Všechny modely", repair: "Přední kamera: iPhone 6–11", std: 1590, premium: 1990, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Přední kamera: iPhone 12–16", std: 1990, premium: 2490, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Zadní kamera: iPhone 6–8 / SE", std: 1590, premium: 1990, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Zadní kamera: iPhone X–11", std: 2190, premium: 2740, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Zadní kamera: iPhone 12–13", std: 2790, premium: 3490, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Zadní kamera: iPhone 14–16", std: 3790, premium: 4740, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Sklo zadní kamery, 1 čočka", std: 1090, premium: 1400, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Za každou další prasklou čočku téhož modulu účtujeme příplatek +390 Kč." },
+          { model: "Všechny modely", repair: "Přední kamera: iPhone 6–11", std: 1590, premium: 2000, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Přední kamera: iPhone 12–16", std: 1990, premium: 2500, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Zadní kamera: iPhone 6–8 / SE", std: 1590, premium: 2000, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Zadní kamera: iPhone X–11", std: 2190, premium: 2800, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Zadní kamera: iPhone 12–13", std: 2790, premium: 3500, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Zadní kamera: iPhone 14–16", std: 3790, premium: 4800, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Všechny modely", repair: "Oprava rozmazané, třesoucí se nebo neostřící kamery", from: "od 1 490 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Oprava blesku (LED)", std: 890, premium: 1120, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Všechny modely", repair: "Oprava blesku (LED)", std: 890, premium: 1200, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
         ],
       },
       {
@@ -226,16 +226,16 @@ export const priceSheets: PriceSheet[] = [
         category: "Záchrana dat",
         rows: [
           { model: "Všechny modely", repair: "Oprava pro záchranu dat", from: "od 4 990 Kč", time: "2–7 pracovních dní", note: "Konečná cena po diagnostice. Cena vždy „od“. Před zahájením doporučujeme zálohu dat, přesné podmínky sdělíme při diagnostice." },
-          { model: "Všechny modely", repair: "Diagnostika pro data recovery", std: 990, premium: 1240, time: "Dle rozsahu opravy", note: "Cena se započítává do ceny záchrany dat, pokud opravu provedeme." },
+          { model: "Všechny modely", repair: "Diagnostika pro data recovery", std: 990, premium: 1300, time: "Dle rozsahu opravy", note: "Cena se započítává do ceny záchrany dat, pokud opravu provedeme." },
         ],
       },
       {
         category: "Ostatní drobné opravy",
         rows: [
           { model: "Starší modely s Touch ID", repair: "Výměna Touch ID / home buttonu", from: "od 2 580 Kč", time: "Dle rozsahu opravy", note: "Touch ID lze zachovat pouze při opravě původního dílu. Výměna home buttonu obvykle neobnoví funkci Touch ID." },
-          { model: "Všechny modely", repair: "Odstranění zaseknuté SIM karty", std: 390, premium: 490, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Výměna šroubků a drobného příslušenství (vč. pentalobe)", std: 390, premium: 490, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
-          { model: "Všechny modely", repair: "Čištění fotoaparátu / prostoru pod krycím sklem od prachu", std: 390, premium: 490, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Odstranění zaseknuté SIM karty", std: 390, premium: 500, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Výměna šroubků a drobného příslušenství (vč. pentalobe)", std: 390, premium: 500, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
+          { model: "Všechny modely", repair: "Čištění fotoaparátu / prostoru pod krycím sklem od prachu", std: 390, premium: 500, time: "Dle rozsahu opravy" },
           { model: "Všechny modely", repair: "Výměna magnetu MagSafe", from: "od 1 490 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Všechny modely", repair: "Výměna interních flex kabelů (obecně)", from: "od 1 750 Kč", time: "Dle rozsahu opravy", note: "Konečná cena po diagnostice dle konkrétního flexu." },
         ],
@@ -250,8 +250,8 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Displej",
         rows: [
-          { model: "iPad (9./10. gen)", repair: "Výměna displeje (LCD)", std: 2490, premium: 3120, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "iPad Air / Air 2", repair: "Výměna displeje", std: 2990, premium: 3740, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPad (9./10. gen)", repair: "Výměna displeje (LCD)", std: 2490, premium: 3200, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPad Air / Air 2", repair: "Výměna displeje", std: 2990, premium: 3800, time: "45–90 min", warranty: "6 měsíců" },
           { model: "iPad Air (2020+) / Pro 11\"", repair: "Výměna displeje", from: "od 4 490 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena upřesněna dle přesného modelu" },
           { model: "iPad Pro 12.9\"", repair: "Výměna displeje", from: "od 5 990 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "iPad mini (všechny generace)", repair: "Výměna dotykového skla / displeje", from: "od 2 990 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
@@ -261,7 +261,7 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Baterie",
         rows: [
-          { model: "iPad (9./10. gen)", repair: "Výměna baterie", std: 1990, premium: 2490, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "iPad (9./10. gen)", repair: "Výměna baterie", std: 1990, premium: 2500, time: "45–90 min", warranty: "6 měsíců" },
           { model: "iPad Air / Pro / mini", repair: "Výměna baterie", from: "od 2 490 Kč", time: "45–90 min", warranty: "6 měsíců", note: "Cena dle modelu" },
         ],
       },
@@ -333,7 +333,7 @@ export const priceSheets: PriceSheet[] = [
         category: "Diagnostika",
         rows: [
           { model: "Všechny modely", repair: "Vstupní diagnostika", std: 0, time: "Dle rozsahu opravy", note: "Zdarma, pokud následně provedeme opravu" },
-          { model: "Všechny modely", repair: "Diagnostika bez opravy", std: 490, premium: 620, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Diagnostika bez opravy", std: 490, premium: 700, time: "Dle rozsahu opravy" },
         ],
       },
       {
@@ -386,8 +386,8 @@ export const priceSheets: PriceSheet[] = [
         category: "Chlazení",
         rows: [
           { model: "Všechny modely", repair: "Výměna ventilátoru", from: "od 1 490 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Čištění chlazení a výměna teplovodivé pasty", std: 1290, premium: 1620, time: "Dle rozsahu opravy", warranty: "3 měsíce" },
-          { model: "iMac (všechny modely)", repair: "Čištění chlazení a výměna teplovodivé pasty", std: 1490, premium: 1870, time: "Dle rozsahu opravy", warranty: "3 měsíce" },
+          { model: "Všechny modely", repair: "Čištění chlazení a výměna teplovodivé pasty", std: 1290, premium: 1700, time: "Dle rozsahu opravy", warranty: "3 měsíce" },
+          { model: "iMac (všechny modely)", repair: "Čištění chlazení a výměna teplovodivé pasty", std: 1490, premium: 1900, time: "Dle rozsahu opravy", warranty: "3 měsíce" },
         ],
       },
       {
@@ -431,8 +431,8 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Software",
         rows: [
-          { model: "Všechny modely", repair: "Obnova / přeinstalace macOS", std: 990, premium: 1240, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Záloha dat", std: 690, premium: 870, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Obnova / přeinstalace macOS", std: 990, premium: 1300, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Záloha dat", std: 690, premium: 900, time: "Dle rozsahu opravy" },
           { model: "Všechny modely", repair: "Záchrana dat", from: "Cena po diagnostice", time: "2–7 pracovních dní", note: "Konečná cena po diagnostice" },
         ],
       },
@@ -440,110 +440,6 @@ export const priceSheets: PriceSheet[] = [
         category: "Napájení",
         rows: [
           { model: "iMac (všechny modely)", repair: "Oprava / výměna interního zdroje", from: "Cena po diagnostice", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-        ],
-      },
-    ],
-  },
-  {
-    slug: "apple-watch-airpods",
-    title: "Oprava Apple Watch a AirPods",
-    notices: ["Testujeme po opravě: displej a dotyk, tlačítka a korunka, reproduktor, mikrofon, nabíjení, párování, senzory. Po neautorizované opravě nelze garantovat původní stupeň odolnosti IP. Neoriginální díl může zobrazit systémovou hlášku výrobce a může omezit záruku výrobce."],
-    groups: [
-      {
-        category: "Displej",
-        rows: [
-          { model: "Watch Series 1–3", repair: "Výměna displeje", std: 1990, premium: 2490, time: "45–90 min", warranty: "6 měsíců" },
-          { model: "Watch Series 4–6 / SE", repair: "Výměna displeje", from: "od 2 990 Kč", time: "45–90 min", warranty: "6 měsíců" },
-          { model: "Watch Series 7–10", repair: "Výměna displeje", from: "od 3 990 Kč", time: "45–90 min", warranty: "6 měsíců" },
-          { model: "Watch Ultra / Ultra 2", repair: "Výměna displeje", from: "od 5 990 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-        ],
-      },
-      {
-        category: "Baterie",
-        rows: [
-          { model: "Všechny modely", repair: "Výměna baterie", from: "od 1 490 Kč", time: "45–90 min", warranty: "6 měsíců" },
-          { model: "AirPods (1./2./3. gen, Pro)", repair: "Výměna baterie, je-li technicky možná", from: "Cena po diagnostice", time: "Dle rozsahu opravy", warranty: "3 měsíce", note: "Ne u všech modelů technicky/ekonomicky možné" },
-        ],
-      },
-      {
-        category: "Zadní sklo",
-        rows: [
-          { model: "Všechny modely", repair: "Výměna zadního krytu (sklo se senzory)", from: "Cena po diagnostice", time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Původní stupeň odolnosti IP nelze po neautorizované opravě garantovat." },
-        ],
-      },
-      {
-        category: "Ovládání",
-        rows: [
-          { model: "Všechny modely", repair: "Oprava digitální korunky", from: "Cena po diagnostice", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Výměna bočního tlačítka", from: "od 890 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-        ],
-      },
-      {
-        category: "Zvuk",
-        rows: [
-          { model: "Všechny modely", repair: "Výměna mikrofonu", from: "od 990 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-          { model: "Všechny modely", repair: "Výměna reproduktoru", from: "od 990 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-        ],
-      },
-      {
-        category: "Nabíjení",
-        rows: [
-          { model: "Všechny modely", repair: "Oprava bezdrátového nabíjení", from: "Cena po diagnostice", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-        ],
-      },
-      {
-        category: "Voda",
-        rows: [
-          { model: "Všechny modely", repair: "Diagnostika po kontaktu s vodou", from: "Cena po diagnostice", time: "2–7 pracovních dní", note: "Původní stupeň odolnosti IP nelze po neautorizované opravě garantovat." },
-          { model: "AirPods / sluchátka", repair: "Diagnostika po kontaktu s vodou", from: "Cena po diagnostice", time: "2–7 pracovních dní", note: "Rentabilitu opravy posoudíme před zahájením" },
-        ],
-      },
-      {
-        category: "Software",
-        rows: [
-          { model: "Všechny modely", repair: "Obnova systému / reset", std: 490, premium: 620, time: "Dle rozsahu opravy" },
-        ],
-      },
-      {
-        category: "Diagnostika",
-        rows: [
-          { model: "AirPods / sluchátka", repair: "Diagnostika a posouzení rentability opravy", std: 430, premium: 540, time: "Dle rozsahu opravy", note: "Mnoho TWS sluchátek není rentabilně opravitelných – posoudíme předem" },
-        ],
-      },
-      {
-        category: "Čištění",
-        rows: [
-          { model: "AirPods / sluchátka", repair: "Kompletní čištění", std: 390, premium: 490, time: "Dle rozsahu opravy" },
-        ],
-      },
-      {
-        category: "Pouzdro",
-        rows: [
-          { model: "AirPods", repair: "Výměna nabíjecího pouzdra", from: "od 990 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-        ],
-      },
-      {
-        category: "Konektor",
-        rows: [
-          { model: "Sluchátka s konektorem (jack / USB-C)", repair: "Oprava / výměna konektoru", from: "Cena po diagnostice", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-        ],
-      },
-      {
-        category: "Reproduktor",
-        rows: [
-          { model: "Sluchátka", repair: "Výměna reproduktoru / měniče", from: "Cena po diagnostice", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-        ],
-      },
-      {
-        category: "Mikrofon",
-        rows: [
-          { model: "Sluchátka / handsfree", repair: "Výměna mikrofonu", from: "Cena po diagnostice", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
-        ],
-      },
-      {
-        category: "Párování",
-        rows: [
-          { model: "AirPods / Bluetooth sluchátka", repair: "Reset a oprava párování", std: 390, premium: 490, time: "Dle rozsahu opravy" },
         ],
       },
     ],
@@ -611,7 +507,7 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Software",
         rows: [
-          { model: "Všechny značky", repair: "Reset, aktualizace, odstranění účtu po ověření vlastnictví", std: 490, premium: 620, time: "Dle rozsahu opravy", note: "Provádíme pouze po ověření vlastnictví zařízení" },
+          { model: "Všechny značky", repair: "Reset, aktualizace, odstranění účtu po ověření vlastnictví", std: 490, premium: 700, time: "Dle rozsahu opravy", note: "Provádíme pouze po ověření vlastnictví zařízení" },
         ],
       },
       {
@@ -643,28 +539,28 @@ export const priceSheets: PriceSheet[] = [
         category: "Diagnostika",
         rows: [
           { model: "Notebook / PC", repair: "Vstupní diagnostika", std: 0, time: "Dle rozsahu opravy", note: "Zdarma, pokud následně provedeme opravu" },
-          { model: "Notebook / PC", repair: "Diagnostika bez opravy", std: 490, premium: 620, time: "Dle rozsahu opravy" },
-          { model: "PC", repair: "Diagnostika komponent (zdroj, RAM, disk, GPU)", std: 590, premium: 740, time: "Dle rozsahu opravy" },
+          { model: "Notebook / PC", repair: "Diagnostika bez opravy", std: 490, premium: 700, time: "Dle rozsahu opravy" },
+          { model: "PC", repair: "Diagnostika komponent (zdroj, RAM, disk, GPU)", std: 590, premium: 800, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Chlazení",
         rows: [
-          { model: "Notebook", repair: "Čištění chlazení a výměna teplovodivé pasty", std: 990, premium: 1240, time: "Dle rozsahu opravy", warranty: "3 měsíce" },
+          { model: "Notebook", repair: "Čištění chlazení a výměna teplovodivé pasty", std: 990, premium: 1300, time: "Dle rozsahu opravy", warranty: "3 měsíce" },
           { model: "Notebook", repair: "Výměna ventilátoru", from: "od 990 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
         ],
       },
       {
         category: "Úložiště",
         rows: [
-          { model: "Notebook / PC", repair: "Výměna / upgrade SSD (bez přenosu dat)", std: 1490, premium: 1870, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, disk zvlášť" },
-          { model: "Notebook / PC", repair: "Výměna / upgrade SSD včetně přenosu dat", std: 1990, premium: 2490, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, disk zvlášť" },
+          { model: "Notebook / PC", repair: "Výměna / upgrade SSD (bez přenosu dat)", std: 1490, premium: 1900, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, disk zvlášť" },
+          { model: "Notebook / PC", repair: "Výměna / upgrade SSD včetně přenosu dat", std: 1990, premium: 2500, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, disk zvlášť" },
         ],
       },
       {
         category: "Paměť",
         rows: [
-          { model: "Notebook / PC", repair: "Upgrade RAM", std: 490, premium: 620, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, paměť zvlášť" },
+          { model: "Notebook / PC", repair: "Upgrade RAM", std: 490, premium: 700, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, paměť zvlášť" },
         ],
       },
       {
@@ -719,17 +615,17 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Software",
         rows: [
-          { model: "Notebook / PC", repair: "Reinstalace Windows včetně ovladačů", std: 990, premium: 1240, time: "Dle rozsahu opravy" },
-          { model: "Notebook / PC", repair: "Odstranění malwaru a virů", std: 890, premium: 1120, time: "Dle rozsahu opravy" },
-          { model: "Notebook / PC", repair: "Záloha dat", std: 690, premium: 870, time: "Dle rozsahu opravy" },
+          { model: "Notebook / PC", repair: "Reinstalace Windows včetně ovladačů", std: 990, premium: 1300, time: "Dle rozsahu opravy" },
+          { model: "Notebook / PC", repair: "Odstranění malwaru a virů", std: 890, premium: 1200, time: "Dle rozsahu opravy" },
+          { model: "Notebook / PC", repair: "Záloha dat", std: 690, premium: 900, time: "Dle rozsahu opravy" },
           { model: "Notebook / PC", repair: "Obnova dat", from: "Cena po diagnostice", time: "2–7 pracovních dní", note: "Konečná cena po diagnostice" },
         ],
       },
       {
         category: "Sestavení",
         rows: [
-          { model: "PC", repair: "Sestavení nového PC (bez komponent)", std: 990, premium: 1240, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
-          { model: "PC", repair: "Upgrade / rozšíření PC", std: 490, premium: 620, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
+          { model: "PC", repair: "Sestavení nového PC (bez komponent)", std: 990, premium: 1300, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
+          { model: "PC", repair: "Upgrade / rozšíření PC", std: 490, premium: 700, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
         ],
       },
       {
@@ -760,7 +656,7 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Čištění",
         rows: [
-          { model: "PS4 / PS5 / Xbox / Switch / Steam Deck", repair: "Čištění a výměna teplovodivé pasty", std: 990, premium: 1240, time: "Dle rozsahu opravy", warranty: "3 měsíce" },
+          { model: "PS4 / PS5 / Xbox / Switch / Steam Deck", repair: "Čištění a výměna teplovodivé pasty", std: 990, premium: 1300, time: "Dle rozsahu opravy", warranty: "3 měsíce" },
         ],
       },
       {
@@ -796,21 +692,21 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Ovladače",
         rows: [
-          { model: "Nintendo Switch (Joy-Con)", repair: "Oprava analogové páčky (drift)", std: 1380, premium: 1730, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
+          { model: "Nintendo Switch (Joy-Con)", repair: "Oprava analogové páčky (drift)", std: 1380, premium: 1800, time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Steam Deck", repair: "Oprava analogové páčky (drift)", from: "od 890 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
         ],
       },
       {
         category: "Displej",
         rows: [
-          { model: "Nintendo Switch / Switch Lite", repair: "Výměna displeje", std: 1990, premium: 2490, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "Nintendo Switch / Switch Lite", repair: "Výměna displeje", std: 1990, premium: 2500, time: "45–90 min", warranty: "6 měsíců" },
           { model: "Steam Deck", repair: "Výměna displeje", from: "od 2 490 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
         ],
       },
       {
         category: "Baterie",
         rows: [
-          { model: "Nintendo Switch / Switch Lite", repair: "Výměna baterie", std: 990, premium: 1240, time: "45–90 min", warranty: "6 měsíců" },
+          { model: "Nintendo Switch / Switch Lite", repair: "Výměna baterie", std: 990, premium: 1300, time: "45–90 min", warranty: "6 měsíců" },
           { model: "Steam Deck", repair: "Výměna baterie", from: "od 1 490 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
         ],
       },
@@ -823,7 +719,7 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Software",
         rows: [
-          { model: "Všechny konzole", repair: "Diagnostika a aktualizace softwaru", std: 490, premium: 620, time: "Dle rozsahu opravy" },
+          { model: "Všechny konzole", repair: "Diagnostika a aktualizace softwaru", std: 490, premium: 700, time: "Dle rozsahu opravy" },
         ],
       },
       {
@@ -874,80 +770,80 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Nastavení",
         rows: [
-          { model: "Telefon / počítač", repair: "Nastavení nového zařízení", std: 490, premium: 620, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Nastavení nového zařízení", std: 490, premium: 700, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Přenos dat",
         rows: [
-          { model: "Telefon / počítač", repair: "Přenos dat mezi zařízeními", std: 590, premium: 740, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Přenos dat mezi zařízeními", std: 590, premium: 800, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Záloha",
         rows: [
-          { model: "Telefon / počítač", repair: "Záloha dat", std: 590, premium: 740, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Záloha dat", std: 590, premium: 800, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Systém",
         rows: [
-          { model: "Telefon / počítač", repair: "Instalace / reinstalace operačního systému", std: 890, premium: 1120, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Instalace / reinstalace operačního systému", std: 890, premium: 1200, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Aktivace",
         rows: [
-          { model: "Telefon / počítač", repair: "Aktivace zařízení / pomoc s účtem výrobce", std: 390, premium: 490, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Aktivace zařízení / pomoc s účtem výrobce", std: 390, premium: 500, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "E-mail",
         rows: [
-          { model: "Počítač / telefon", repair: "Nastavení e-mailu", std: 390, premium: 490, time: "Dle rozsahu opravy" },
+          { model: "Počítač / telefon", repair: "Nastavení e-mailu", std: 390, premium: 500, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Síť",
         rows: [
-          { model: "Domácnost / kancelář", repair: "Nastavení routeru a Wi-Fi", std: 490, premium: 620, time: "Dle rozsahu opravy" },
+          { model: "Domácnost / kancelář", repair: "Nastavení routeru a Wi-Fi", std: 490, premium: 700, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Tiskárna",
         rows: [
-          { model: "Počítač", repair: "Nastavení a instalace tiskárny", std: 390, premium: 490, time: "Dle rozsahu opravy" },
+          { model: "Počítač", repair: "Nastavení a instalace tiskárny", std: 390, premium: 500, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Bezpečnost",
         rows: [
-          { model: "Počítač", repair: "Odstranění virů a malwaru", std: 890, premium: 1120, time: "Dle rozsahu opravy" },
+          { model: "Počítač", repair: "Odstranění virů a malwaru", std: 890, premium: 1200, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Data",
         rows: [
-          { model: "Libovolné zařízení", repair: "Obnova dat ze zálohy", std: 490, premium: 620, time: "Dle rozsahu opravy" },
+          { model: "Libovolné zařízení", repair: "Obnova dat ze zálohy", std: 490, premium: 700, time: "Dle rozsahu opravy" },
           { model: "Libovolné zařízení", repair: "Záchrana dat z nefunkčního zařízení", from: "Cena po diagnostice", time: "2–7 pracovních dní", note: "Konečná cena po diagnostice" },
         ],
       },
       {
         category: "Software",
         rows: [
-          { model: "Počítač", repair: "Instalace programů", std: 390, premium: 490, time: "Dle rozsahu opravy" },
+          { model: "Počítač", repair: "Instalace programů", std: 390, premium: 500, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Sestavení",
         rows: [
-          { model: "PC", repair: "Sestavení PC na míru (bez komponent)", std: 990, premium: 1240, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
+          { model: "PC", repair: "Sestavení PC na míru (bez komponent)", std: 990, premium: 1300, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
         ],
       },
       {
         category: "Podpora",
         rows: [
-          { model: "Telefon / počítač", repair: "Vzdálená podpora (do 30 min)", std: 390, premium: 490, time: "do 30 min" },
+          { model: "Telefon / počítač", repair: "Vzdálená podpora (do 30 min)", std: 390, premium: 500, time: "do 30 min" },
         ],
       },
     ],
@@ -962,22 +858,22 @@ export const priceSheets: PriceSheet[] = [
         rows: [
           { model: "Všechny modely", repair: "Základní diagnostika při následné opravě", std: 0, time: "Dle rozsahu opravy", note: "Zdarma, pokud následně provedeme opravu." },
           { model: "Všechny modely", repair: "Diagnostika bez opravy", std: 400, premium: 500, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Rychlá / expresní diagnostika", std: 690, premium: 870, time: "do 15 min", note: "Přednostní vyřízení mimo pořadí." },
-          { model: "Všechny modely", repair: "Čištění nabíjecího konektoru / reproduktoru", std: 390, premium: 490, time: "Dle rozsahu opravy", note: "Zdarma, je-li součástí jiné placené opravy." },
-          { model: "Všechny modely", repair: "Kompletní čištění zařízení", std: 690, premium: 870, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Přenos dat / nastavení telefonu", std: 690, premium: 870, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Obnova iOS / aktualizace / reset", std: 490, premium: 620, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Záloha dat", std: 690, premium: 870, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Vyčištění po polití", std: 1490, premium: 1870, time: "Dle rozsahu opravy", note: "Bez garance funkčnosti po zásahu kapaliny. Cílem je záchrana zařízení nebo dat; nelze předem garantovat úplnou funkčnost." },
+          { model: "Všechny modely", repair: "Rychlá / expresní diagnostika", std: 690, premium: 900, time: "do 15 min", note: "Přednostní vyřízení mimo pořadí." },
+          { model: "Všechny modely", repair: "Čištění nabíjecího konektoru / reproduktoru", std: 390, premium: 500, time: "Dle rozsahu opravy", note: "Zdarma, je-li součástí jiné placené opravy." },
+          { model: "Všechny modely", repair: "Kompletní čištění zařízení", std: 690, premium: 900, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Přenos dat / nastavení telefonu", std: 690, premium: 900, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Obnova iOS / aktualizace / reset", std: 490, premium: 700, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Záloha dat", std: 690, premium: 900, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Vyčištění po polití", std: 1490, premium: 1900, time: "Dle rozsahu opravy", note: "Bez garance funkčnosti po zásahu kapaliny. Cílem je záchrana zařízení nebo dat; nelze předem garantovat úplnou funkčnost." },
           { model: "Všechny modely", repair: "Záchrana dat po vodě / vadné desce", from: "od 4 990 Kč", time: "2–7 pracovních dní", note: "Cena vždy „od“. Před zahájením doporučujeme zálohu dat, přesné podmínky sdělíme při diagnostice. Cílem je záchrana zařízení nebo dat; nelze předem garantovat úplnou funkčnost." },
           { model: "Všechny modely", repair: "Vysušení a dekontaminace zařízení", from: "od 990 Kč", time: "Dle rozsahu opravy", note: "Doporučeno ihned po kontaktu s kapalinou, ideálně před diagnostikou." },
-          { model: "Všechny modely", repair: "Obnova dat ze zálohy", std: 390, premium: 490, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Pomoc s Apple ID", std: 390, premium: 490, time: "Dle rozsahu opravy", note: "Cena za 30 minut práce." },
-          { model: "Všechny modely", repair: "Nastavení eSIM", std: 390, premium: 490, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Nalepení ochranného skla", std: 199, premium: 250, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "99 Kč při nákupu skla u nás." },
-          { model: "Všechny modely", repair: "Instalace hydrogelové fólie", std: 249, premium: 320, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
-          { model: "Všechny modely", repair: "Výměna ochranného skla / fólie", std: 199, premium: 250, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
-          { model: "Všechny modely", repair: "Aplikace ochranného krytu", std: 99, premium: 130, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "Zdarma při nákupu krytu u nás." },
+          { model: "Všechny modely", repair: "Obnova dat ze zálohy", std: 390, premium: 500, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Pomoc s Apple ID", std: 390, premium: 500, time: "Dle rozsahu opravy", note: "Cena za 30 minut práce." },
+          { model: "Všechny modely", repair: "Nastavení eSIM", std: 390, premium: 500, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Nalepení ochranného skla", std: 199, premium: 300, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "99 Kč při nákupu skla u nás." },
+          { model: "Všechny modely", repair: "Instalace hydrogelové fólie", std: 249, premium: 400, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
+          { model: "Všechny modely", repair: "Výměna ochranného skla / fólie", std: 199, premium: 300, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
+          { model: "Všechny modely", repair: "Aplikace ochranného krytu", std: 99, premium: 200, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "Zdarma při nákupu krytu u nás." },
           { model: "Všechny modely", repair: "Prodej a montáž příslušenství", from: "Cena po diagnostice", time: "Dle rozsahu opravy", note: "Dle vybraného příslušenství." },
         ],
       },

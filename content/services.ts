@@ -133,12 +133,12 @@ const data: ServiceEntry[] = [
   {
     slug: "oprava-telefonu",
     pillar: true,
-    priceSheets: ["iphone", "android", "ipad", "apple-watch-airpods"],
+    priceSheets: ["iphone", "android", "ipad"],
     cs: {
       title: "Oprava telefonů a zařízení",
       headline: "Prasklý, mrtvý, utopený? Vrátíme ho do hry.",
       description:
-        "iPhone, Samsung, Xiaomi, iPad i Apple Watch. Displeje, baterie, konektory, voda. Cenu znáte předem.",
+        "iPhone, Samsung, Xiaomi, Google Pixel i iPad. Displeje, baterie, konektory, voda. Cenu znáte předem.",
       forWhom: "Pro každého, kdo radši opraví dobrý telefon, než aby splácel nový.",
       proof: ["Termín většinou do 12-24 hodin", "Kvalitní díly, ne nejlevnější náhražky", "Před / po u každé opravy"],
       included: [
@@ -162,7 +162,7 @@ const data: ServiceEntry[] = [
       title: "Phone & device repair",
       headline: "Cracked, dead, water-damaged? We'll bring it back.",
       description:
-        "iPhone, Samsung, Xiaomi, iPad and Apple Watch. Displays, batteries, connectors, water. You know the price upfront.",
+        "iPhone, Samsung, Xiaomi, Google Pixel and iPad. Displays, batteries, connectors, water. You know the price upfront.",
       forWhom: "For anyone who'd rather fix a good phone than pay off a new one.",
       proof: ["Turnaround usually within 12-24 hours", "Quality parts, not the cheapest substitutes", "Before / after on every repair"],
       included: [

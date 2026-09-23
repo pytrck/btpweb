@@ -148,6 +148,7 @@
     "results": "{count, plural, =0 {Nothing matches} one {# repair} other {# repairs}}",
     "noResults": "That repair isn't in the price list. Tell us what you have and what it's doing — we'll price it.",
     "clear": "Clear filters",
+    "onRequest": "Apple Watch, AirPods and earbuds are by arrangement only — we don't list fixed prices for them. Tell us what you have and we'll quote it.",
     "rulesTitle": "Service rules",
     "rules": [
       "The price covers the part, expert fitting, a basic function test and the warranty.",
