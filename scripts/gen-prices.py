@@ -42,6 +42,21 @@ EXPECTED_HEADER = [
     "Cena od", "\u010cas opravy", "Z\u00e1ruka", "Pozn\u00e1mka",
 ]
 
+# A Premium tier means a better PART. These categories are labour, setup or
+# accessory work - diagnostics, software, data transfer, fitting a case or a
+# screen protector - where there is nothing to upgrade, so they publish one
+# price. Anything not listed here keeps its tier.
+LABOUR_ONLY_CATEGORIES = {
+    "Diagnostika", "Diagnostika a servis", "Ostatní drobné opravy",
+    "Software", "Systém", "Nastavení", "Přenos dat", "Záloha",
+    "Aktivace", "E-mail", "Síť", "Tiskárna", "Bezpečnost",
+    "Data", "Podpora", "Sestavení", "Záchrana dat", "Párování",
+}
+
+# Rows whose note says the component is billed separately ("Cena montáže, disk
+# zvlášť") are quoting labour only, whatever category they sit in.
+PART_BILLED_SEPARATELY = "zvlášť"
+
 # Row-level boilerplate that becomes one page-level line instead.
 TIER_BOILERPLATE = ("Dostupn\u00e1 levn\u011bj\u0161\u00ed (Budget) i pr\u00e9miov\u00e1 "
                     "(Premium) varianta po domluv\u011b.")
@@ -161,8 +176,12 @@ def build_pages(wb, premium):
                     # the list reads in clean numbers rather than the workbook's
                     # ...90 endings and the Premium column's raw x1.25 output.
                     row["std"] = round100(std) if std > 0 else 0
-                    # Tiers only make sense where there is a fixed price to tier.
-                    if std > 0:
+                    # Tiers only make sense where there is a fixed price AND a
+                    # part whose quality can actually differ.
+                    note = clean(r[7]) or ""
+                    tierable = (kat not in LABOUR_ONLY_CATEGORIES
+                                and PART_BILLED_SEPARATELY not in note.lower())
+                    if std > 0 and tierable:
                         _, prem = premium.get(
                             (norm(r[0]), norm(r[1]), norm(r[2])), (None, None))
                         if isinstance(prem, (int, float)):
@@ -306,7 +325,10 @@ def main():
     out.write("];\n\n")
     out.write(FOOTER)
     out.close()
-    print("content/prices.ts: %d pages, %d rows" % (len(pages), total))
+    tiered = sum(1 for _, _, _, groups in pages
+                 for _, rows in groups for row in rows if "premium" in row)
+    print("content/prices.ts: %d pages, %d rows, %d with a Premium tier"
+          % (len(pages), total, tiered))
 
 
 main()

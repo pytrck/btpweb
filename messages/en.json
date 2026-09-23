@@ -139,7 +139,7 @@
       "premiumNote": "OEM, genuine used, or the best part available. 12-month warranty.",
       "budget": "There is also a cheaper Budget option — a quality aftermarket part with a 3-month warranty. We don't list its prices; ask and we'll quote it."
     },
-    "table": { "repair": "Repair", "standard": "Standard", "premium": "Premium" },
+    "table": { "repair": "Repair", "price": "Price", "standard": "Standard", "premium": "Premium" },
     "free": "Free",
     "onPage": "On this page",
     "search": "Find your model or repair",

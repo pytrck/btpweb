@@ -51,6 +51,9 @@ export function TierLegend() {
  */
 export function PriceTable({ group }: { group: PriceGroup }) {
   const t = useTranslations("cenik");
+  // Labour, setup and accessory work has no part to upgrade, so those groups
+  // carry a single price. Dropping the column beats a row of em dashes.
+  const tiered = group.rows.some((row) => row.premium);
   return (
     <table className="w-full border-collapse text-left">
       <caption className="sr-only">{group.category}</caption>
@@ -60,11 +63,13 @@ export function PriceTable({ group }: { group: PriceGroup }) {
             {t("table.repair")}
           </th>
           <th scope="col" className="label py-3 pl-4 text-right">
-            {t("table.standard")}
+            {tiered ? t("table.standard") : t("table.price")}
           </th>
-          <th scope="col" className="label py-3 pl-4 text-right">
-            {t("table.premium")}
-          </th>
+          {tiered && (
+            <th scope="col" className="label py-3 pl-4 text-right">
+              {t("table.premium")}
+            </th>
+          )}
         </tr>
       </thead>
       <tbody>
@@ -79,7 +84,10 @@ export function PriceTable({ group }: { group: PriceGroup }) {
                 {row.note && <span className="mt-1 block text-xs text-muted/70">{row.note}</span>}
               </th>
               {row.from ? (
-                <td colSpan={2} className="py-4 pl-4 text-right text-sm text-muted">
+                <td
+                  colSpan={tiered ? 2 : 1}
+                  className="py-4 pl-4 text-right text-sm text-muted"
+                >
                   {row.from}
                 </td>
               ) : (
@@ -87,9 +95,11 @@ export function PriceTable({ group }: { group: PriceGroup }) {
                   <td className="whitespace-nowrap py-4 pl-4 text-right tabular-nums text-paper">
                     {row.std === 0 ? t("free") : czk(row.std!)}
                   </td>
-                  <td className="whitespace-nowrap py-4 pl-4 text-right tabular-nums text-muted">
-                    {row.premium ? czk(row.premium) : "—"}
-                  </td>
+                  {tiered && (
+                    <td className="whitespace-nowrap py-4 pl-4 text-right tabular-nums text-muted">
+                      {row.premium ? czk(row.premium) : "—"}
+                    </td>
+                  )}
                 </>
               )}
             </tr>

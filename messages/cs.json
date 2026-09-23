@@ -154,7 +154,7 @@
       "premiumNote": "OEM, originální použitý nebo nejlepší dostupný díl. Záruka 12 měsíců.",
       "budget": "Existuje i levnější Budget varianta — kvalitní aftermarket díl se zárukou 3 měsíce. Ceny k ní neuvádíme, řekněte si o ni a spočítáme ji."
     },
-    "table": { "repair": "Oprava", "standard": "Standard", "premium": "Premium" },
+    "table": { "repair": "Oprava", "price": "Cena", "standard": "Standard", "premium": "Premium" },
     "free": "Zdarma",
     "onPage": "Na této stránce",
     "search": "Najděte svůj model nebo opravu",

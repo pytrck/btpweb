@@ -226,16 +226,16 @@ export const priceSheets: PriceSheet[] = [
         category: "Záchrana dat",
         rows: [
           { model: "Všechny modely", repair: "Oprava pro záchranu dat", from: "od 5 000 Kč", time: "2–7 pracovních dní", note: "Konečná cena po diagnostice. Cena vždy „od“. Před zahájením doporučujeme zálohu dat, přesné podmínky sdělíme při diagnostice." },
-          { model: "Všechny modely", repair: "Diagnostika pro data recovery", std: 1000, premium: 1300, time: "Dle rozsahu opravy", note: "Cena se započítává do ceny záchrany dat, pokud opravu provedeme." },
+          { model: "Všechny modely", repair: "Diagnostika pro data recovery", std: 1000, time: "Dle rozsahu opravy", note: "Cena se započítává do ceny záchrany dat, pokud opravu provedeme." },
         ],
       },
       {
         category: "Ostatní drobné opravy",
         rows: [
           { model: "Starší modely s Touch ID", repair: "Výměna Touch ID / home buttonu", from: "od 2 600 Kč", time: "Dle rozsahu opravy", note: "Touch ID lze zachovat pouze při opravě původního dílu. Výměna home buttonu obvykle neobnoví funkci Touch ID." },
-          { model: "Všechny modely", repair: "Odstranění zaseknuté SIM karty", std: 400, premium: 500, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Výměna šroubků a drobného příslušenství (vč. pentalobe)", std: 400, premium: 500, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
-          { model: "Všechny modely", repair: "Čištění fotoaparátu / prostoru pod krycím sklem od prachu", std: 400, premium: 500, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Odstranění zaseknuté SIM karty", std: 400, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Výměna šroubků a drobného příslušenství (vč. pentalobe)", std: 400, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
+          { model: "Všechny modely", repair: "Čištění fotoaparátu / prostoru pod krycím sklem od prachu", std: 400, time: "Dle rozsahu opravy" },
           { model: "Všechny modely", repair: "Výměna magnetu MagSafe", from: "od 1 500 Kč", time: "Dle rozsahu opravy", warranty: "6 měsíců" },
           { model: "Všechny modely", repair: "Výměna interních flex kabelů (obecně)", from: "od 1 800 Kč", time: "Dle rozsahu opravy", note: "Konečná cena po diagnostice dle konkrétního flexu." },
         ],
@@ -333,7 +333,7 @@ export const priceSheets: PriceSheet[] = [
         category: "Diagnostika",
         rows: [
           { model: "Všechny modely", repair: "Vstupní diagnostika", std: 0, time: "Dle rozsahu opravy", note: "Zdarma, pokud následně provedeme opravu" },
-          { model: "Všechny modely", repair: "Diagnostika bez opravy", std: 500, premium: 700, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Diagnostika bez opravy", std: 500, time: "Dle rozsahu opravy" },
         ],
       },
       {
@@ -431,8 +431,8 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Software",
         rows: [
-          { model: "Všechny modely", repair: "Obnova / přeinstalace macOS", std: 1000, premium: 1300, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Záloha dat", std: 700, premium: 900, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Obnova / přeinstalace macOS", std: 1000, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Záloha dat", std: 700, time: "Dle rozsahu opravy" },
           { model: "Všechny modely", repair: "Záchrana dat", from: "Cena po diagnostice", time: "2–7 pracovních dní", note: "Konečná cena po diagnostice" },
         ],
       },
@@ -507,7 +507,7 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Software",
         rows: [
-          { model: "Všechny značky", repair: "Reset, aktualizace, odstranění účtu po ověření vlastnictví", std: 500, premium: 700, time: "Dle rozsahu opravy", note: "Provádíme pouze po ověření vlastnictví zařízení" },
+          { model: "Všechny značky", repair: "Reset, aktualizace, odstranění účtu po ověření vlastnictví", std: 500, time: "Dle rozsahu opravy", note: "Provádíme pouze po ověření vlastnictví zařízení" },
         ],
       },
       {
@@ -539,8 +539,8 @@ export const priceSheets: PriceSheet[] = [
         category: "Diagnostika",
         rows: [
           { model: "Notebook / PC", repair: "Vstupní diagnostika", std: 0, time: "Dle rozsahu opravy", note: "Zdarma, pokud následně provedeme opravu" },
-          { model: "Notebook / PC", repair: "Diagnostika bez opravy", std: 500, premium: 700, time: "Dle rozsahu opravy" },
-          { model: "PC", repair: "Diagnostika komponent (zdroj, RAM, disk, GPU)", std: 600, premium: 800, time: "Dle rozsahu opravy" },
+          { model: "Notebook / PC", repair: "Diagnostika bez opravy", std: 500, time: "Dle rozsahu opravy" },
+          { model: "PC", repair: "Diagnostika komponent (zdroj, RAM, disk, GPU)", std: 600, time: "Dle rozsahu opravy" },
         ],
       },
       {
@@ -553,14 +553,14 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Úložiště",
         rows: [
-          { model: "Notebook / PC", repair: "Výměna / upgrade SSD (bez přenosu dat)", std: 1500, premium: 1900, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, disk zvlášť" },
-          { model: "Notebook / PC", repair: "Výměna / upgrade SSD včetně přenosu dat", std: 2000, premium: 2500, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, disk zvlášť" },
+          { model: "Notebook / PC", repair: "Výměna / upgrade SSD (bez přenosu dat)", std: 1500, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, disk zvlášť" },
+          { model: "Notebook / PC", repair: "Výměna / upgrade SSD včetně přenosu dat", std: 2000, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, disk zvlášť" },
         ],
       },
       {
         category: "Paměť",
         rows: [
-          { model: "Notebook / PC", repair: "Upgrade RAM", std: 500, premium: 700, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, paměť zvlášť" },
+          { model: "Notebook / PC", repair: "Upgrade RAM", std: 500, time: "Dle rozsahu opravy", warranty: "6 měsíců", note: "Cena montáže, paměť zvlášť" },
         ],
       },
       {
@@ -615,17 +615,17 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Software",
         rows: [
-          { model: "Notebook / PC", repair: "Reinstalace Windows včetně ovladačů", std: 1000, premium: 1300, time: "Dle rozsahu opravy" },
-          { model: "Notebook / PC", repair: "Odstranění malwaru a virů", std: 900, premium: 1200, time: "Dle rozsahu opravy" },
-          { model: "Notebook / PC", repair: "Záloha dat", std: 700, premium: 900, time: "Dle rozsahu opravy" },
+          { model: "Notebook / PC", repair: "Reinstalace Windows včetně ovladačů", std: 1000, time: "Dle rozsahu opravy" },
+          { model: "Notebook / PC", repair: "Odstranění malwaru a virů", std: 900, time: "Dle rozsahu opravy" },
+          { model: "Notebook / PC", repair: "Záloha dat", std: 700, time: "Dle rozsahu opravy" },
           { model: "Notebook / PC", repair: "Obnova dat", from: "Cena po diagnostice", time: "2–7 pracovních dní", note: "Konečná cena po diagnostice" },
         ],
       },
       {
         category: "Sestavení",
         rows: [
-          { model: "PC", repair: "Sestavení nového PC (bez komponent)", std: 1000, premium: 1300, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
-          { model: "PC", repair: "Upgrade / rozšíření PC", std: 500, premium: 700, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
+          { model: "PC", repair: "Sestavení nového PC (bez komponent)", std: 1000, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
+          { model: "PC", repair: "Upgrade / rozšíření PC", std: 500, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
         ],
       },
       {
@@ -719,7 +719,7 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Software",
         rows: [
-          { model: "Všechny konzole", repair: "Diagnostika a aktualizace softwaru", std: 500, premium: 700, time: "Dle rozsahu opravy" },
+          { model: "Všechny konzole", repair: "Diagnostika a aktualizace softwaru", std: 500, time: "Dle rozsahu opravy" },
         ],
       },
       {
@@ -770,80 +770,80 @@ export const priceSheets: PriceSheet[] = [
       {
         category: "Nastavení",
         rows: [
-          { model: "Telefon / počítač", repair: "Nastavení nového zařízení", std: 500, premium: 700, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Nastavení nového zařízení", std: 500, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Přenos dat",
         rows: [
-          { model: "Telefon / počítač", repair: "Přenos dat mezi zařízeními", std: 600, premium: 800, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Přenos dat mezi zařízeními", std: 600, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Záloha",
         rows: [
-          { model: "Telefon / počítač", repair: "Záloha dat", std: 600, premium: 800, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Záloha dat", std: 600, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Systém",
         rows: [
-          { model: "Telefon / počítač", repair: "Instalace / reinstalace operačního systému", std: 900, premium: 1200, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Instalace / reinstalace operačního systému", std: 900, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Aktivace",
         rows: [
-          { model: "Telefon / počítač", repair: "Aktivace zařízení / pomoc s účtem výrobce", std: 400, premium: 500, time: "Dle rozsahu opravy" },
+          { model: "Telefon / počítač", repair: "Aktivace zařízení / pomoc s účtem výrobce", std: 400, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "E-mail",
         rows: [
-          { model: "Počítač / telefon", repair: "Nastavení e-mailu", std: 400, premium: 500, time: "Dle rozsahu opravy" },
+          { model: "Počítač / telefon", repair: "Nastavení e-mailu", std: 400, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Síť",
         rows: [
-          { model: "Domácnost / kancelář", repair: "Nastavení routeru a Wi-Fi", std: 500, premium: 700, time: "Dle rozsahu opravy" },
+          { model: "Domácnost / kancelář", repair: "Nastavení routeru a Wi-Fi", std: 500, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Tiskárna",
         rows: [
-          { model: "Počítač", repair: "Nastavení a instalace tiskárny", std: 400, premium: 500, time: "Dle rozsahu opravy" },
+          { model: "Počítač", repair: "Nastavení a instalace tiskárny", std: 400, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Bezpečnost",
         rows: [
-          { model: "Počítač", repair: "Odstranění virů a malwaru", std: 900, premium: 1200, time: "Dle rozsahu opravy" },
+          { model: "Počítač", repair: "Odstranění virů a malwaru", std: 900, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Data",
         rows: [
-          { model: "Libovolné zařízení", repair: "Obnova dat ze zálohy", std: 500, premium: 700, time: "Dle rozsahu opravy" },
+          { model: "Libovolné zařízení", repair: "Obnova dat ze zálohy", std: 500, time: "Dle rozsahu opravy" },
           { model: "Libovolné zařízení", repair: "Záchrana dat z nefunkčního zařízení", from: "Cena po diagnostice", time: "2–7 pracovních dní", note: "Konečná cena po diagnostice" },
         ],
       },
       {
         category: "Software",
         rows: [
-          { model: "Počítač", repair: "Instalace programů", std: 400, premium: 500, time: "Dle rozsahu opravy" },
+          { model: "Počítač", repair: "Instalace programů", std: 400, time: "Dle rozsahu opravy" },
         ],
       },
       {
         category: "Sestavení",
         rows: [
-          { model: "PC", repair: "Sestavení PC na míru (bez komponent)", std: 1000, premium: 1300, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
+          { model: "PC", repair: "Sestavení PC na míru (bez komponent)", std: 1000, time: "Dle rozsahu opravy", note: "Cena montáže, komponenty zvlášť" },
         ],
       },
       {
         category: "Podpora",
         rows: [
-          { model: "Telefon / počítač", repair: "Vzdálená podpora (do 30 min)", std: 400, premium: 500, time: "do 30 min" },
+          { model: "Telefon / počítač", repair: "Vzdálená podpora (do 30 min)", std: 400, time: "do 30 min" },
         ],
       },
     ],
@@ -857,23 +857,23 @@ export const priceSheets: PriceSheet[] = [
         category: "Diagnostika a servis",
         rows: [
           { model: "Všechny modely", repair: "Základní diagnostika při následné opravě", std: 0, time: "Dle rozsahu opravy", note: "Zdarma, pokud následně provedeme opravu." },
-          { model: "Všechny modely", repair: "Diagnostika bez opravy", std: 400, premium: 500, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Rychlá / expresní diagnostika", std: 700, premium: 900, time: "do 15 min", note: "Přednostní vyřízení mimo pořadí." },
-          { model: "Všechny modely", repair: "Čištění nabíjecího konektoru / reproduktoru", std: 400, premium: 500, time: "Dle rozsahu opravy", note: "Zdarma, je-li součástí jiné placené opravy." },
-          { model: "Všechny modely", repair: "Kompletní čištění zařízení", std: 700, premium: 900, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Přenos dat / nastavení telefonu", std: 700, premium: 900, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Obnova iOS / aktualizace / reset", std: 500, premium: 700, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Záloha dat", std: 700, premium: 900, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Vyčištění po polití", std: 1500, premium: 1900, time: "Dle rozsahu opravy", note: "Bez garance funkčnosti po zásahu kapaliny. Cílem je záchrana zařízení nebo dat; nelze předem garantovat úplnou funkčnost." },
+          { model: "Všechny modely", repair: "Diagnostika bez opravy", std: 400, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Rychlá / expresní diagnostika", std: 700, time: "do 15 min", note: "Přednostní vyřízení mimo pořadí." },
+          { model: "Všechny modely", repair: "Čištění nabíjecího konektoru / reproduktoru", std: 400, time: "Dle rozsahu opravy", note: "Zdarma, je-li součástí jiné placené opravy." },
+          { model: "Všechny modely", repair: "Kompletní čištění zařízení", std: 700, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Přenos dat / nastavení telefonu", std: 700, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Obnova iOS / aktualizace / reset", std: 500, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Záloha dat", std: 700, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Vyčištění po polití", std: 1500, time: "Dle rozsahu opravy", note: "Bez garance funkčnosti po zásahu kapaliny. Cílem je záchrana zařízení nebo dat; nelze předem garantovat úplnou funkčnost." },
           { model: "Všechny modely", repair: "Záchrana dat po vodě / vadné desce", from: "od 5 000 Kč", time: "2–7 pracovních dní", note: "Cena vždy „od“. Před zahájením doporučujeme zálohu dat, přesné podmínky sdělíme při diagnostice. Cílem je záchrana zařízení nebo dat; nelze předem garantovat úplnou funkčnost." },
           { model: "Všechny modely", repair: "Vysušení a dekontaminace zařízení", from: "od 1 000 Kč", time: "Dle rozsahu opravy", note: "Doporučeno ihned po kontaktu s kapalinou, ideálně před diagnostikou." },
-          { model: "Všechny modely", repair: "Obnova dat ze zálohy", std: 400, premium: 500, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Pomoc s Apple ID", std: 400, premium: 500, time: "Dle rozsahu opravy", note: "Cena za 30 minut práce." },
-          { model: "Všechny modely", repair: "Nastavení eSIM", std: 400, premium: 500, time: "Dle rozsahu opravy" },
-          { model: "Všechny modely", repair: "Nalepení ochranného skla", std: 200, premium: 300, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "99 Kč při nákupu skla u nás." },
-          { model: "Všechny modely", repair: "Instalace hydrogelové fólie", std: 300, premium: 400, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
-          { model: "Všechny modely", repair: "Výměna ochranného skla / fólie", std: 200, premium: 300, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
-          { model: "Všechny modely", repair: "Aplikace ochranného krytu", std: 100, premium: 200, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "Zdarma při nákupu krytu u nás." },
+          { model: "Všechny modely", repair: "Obnova dat ze zálohy", std: 400, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Pomoc s Apple ID", std: 400, time: "Dle rozsahu opravy", note: "Cena za 30 minut práce." },
+          { model: "Všechny modely", repair: "Nastavení eSIM", std: 400, time: "Dle rozsahu opravy" },
+          { model: "Všechny modely", repair: "Nalepení ochranného skla", std: 200, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "99 Kč při nákupu skla u nás." },
+          { model: "Všechny modely", repair: "Instalace hydrogelové fólie", std: 300, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
+          { model: "Všechny modely", repair: "Výměna ochranného skla / fólie", std: 200, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)" },
+          { model: "Všechny modely", repair: "Aplikace ochranného krytu", std: 100, time: "Dle rozsahu opravy", warranty: "30 dní (vada materiálu)", note: "Zdarma při nákupu krytu u nás." },
           { model: "Všechny modely", repair: "Prodej a montáž příslušenství", from: "Cena po diagnostice", time: "Dle rozsahu opravy", note: "Dle vybraného příslušenství." },
         ],
       },
