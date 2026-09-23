@@ -47,6 +47,36 @@ TIER_BOILERPLATE = ("Dostupn\u00e1 levn\u011bj\u0161\u00ed (Budget) i pr\u00e9mi
                     "(Premium) varianta po domluv\u011b.")
 
 
+def round100(value):
+    """Excel's CEILING(x, 100). Always up, so rounding can only protect margin."""
+    return int(math.ceil(float(value) / 100.0) * 100)
+
+
+def fmt(n):
+    """3 390 -> "3 390" with a non-breaking thousands separator."""
+    s, out = str(int(n)), ""
+    while len(s) > 3:
+        out = " " + s[-3:] + out
+        s = s[:-3]
+    return s + out
+
+
+# The first run of digits in a string like "od 4 990 Kc", ending on a digit so
+# the trailing space before the currency is left alone.
+PRICE_IN_TEXT = re.compile(r"\d[\d  ]*\d|\d")
+
+
+def round_price_in_text(text):
+    """Round the number inside "od 4 990 Kc" too, so one rule covers every price."""
+    m = PRICE_IN_TEXT.search(text)
+    if not m:
+        return text
+    digits = m.group(0).replace(" ", "").replace(" ", "")
+    out = text[:m.start()] + fmt(round100(int(digits))) + text[m.end():]
+    # Keep the amount and its currency on one line, as the table columns do.
+    return out.replace(" Kč", " Kč")
+
+
 def norm(s):
     return re.sub(r"\s+", " ", str(s or "").strip()).lower()
 
@@ -127,18 +157,22 @@ def build_pages(wb, premium):
                 std, frm = r[3], clean(r[4])
                 row = {"model": model or "V\u0161echny modely", "repair": repair}
                 if isinstance(std, (int, float)):
-                    row["std"] = int(std)
+                    # Every published price is rounded up to a whole hundred, so
+                    # the list reads in clean numbers rather than the workbook's
+                    # ...90 endings and the Premium column's raw x1.25 output.
+                    row["std"] = round100(std) if std > 0 else 0
                     # Tiers only make sense where there is a fixed price to tier.
                     if std > 0:
                         _, prem = premium.get(
                             (norm(r[0]), norm(r[1]), norm(r[2])), (None, None))
-                        if isinstance(prem, (int, float)) and prem > std:
-                            # Raw Premium is an unrounded Standard x 1.25. Round UP
-                            # to the next whole hundred - Excel's CEILING(x, 100).
-                            # Always up, so rounding can only protect the margin.
-                            row["premium"] = int(math.ceil(prem / 100.0) * 100)
+                        if isinstance(prem, (int, float)):
+                            prem = round100(prem)
+                            # Both ends round up, so re-check the tiers are still
+                            # apart rather than trusting the raw comparison.
+                            if prem > row["std"]:
+                                row["premium"] = prem
                 elif frm:
-                    row["from"] = frm
+                    row["from"] = round_price_in_text(frm)
                 for key, idx in (("time", 5), ("warranty", 6), ("note", 7)):
                     v = clean(r[idx])
                     if key == "note" and v:

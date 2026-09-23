@@ -91,7 +91,7 @@
       { "q": "How fast will it be done?", "a": "Most repairs within 12-24 hours. Sites and larger jobs get a confirmed timeline at the start." },
       { "q": "Is the repair under warranty?", "a": "Yes, parts and labour. If something's off, we handle it." },
       { "q": "What happens to my data?", "a": "We treat it like our own. Nothing lost, nothing touched without reason." },
-      { "q": "What's the price range?", "a": "A battery swap from 890 Kč, a screen from 1 490 Kč, depending on the model. The full price list is on the site. Sites depend on scope, always with a fixed quote upfront." },
+      { "q": "What's the price range?", "a": "A battery swap from 900 Kč, a screen from 1 500 Kč, depending on the model. The full price list is on the site. Sites depend on scope, always with a fixed quote upfront." },
       { "q": "How long is the warranty?", "a": "Six months on the Standard tier, twelve on Premium - parts and labour. If the fault returns, we handle it." },
       { "q": "What affects the timeline?", "a": "Parts availability and the scope of the fault. If we have to order anything, you'll know at the start." },
       { "q": "Do you work remotely?", "a": "Websites and some optimization, yes. Hardware repairs in person in Mladá Boleslav and Liberec." }
@@ -131,7 +131,7 @@
     "title": "Repair price list",
     "subtitle": "Common repairs have a fixed price. For harder faults we quote after diagnosis — always before we start.",
     "lead": "The full price list for phone, tablet, computer and console repairs. No \"price on request\" for the things we do every week.",
-    "minCharge": "The minimum service charge is 390 Kč. Diagnosis is free if we go on to do the repair.",
+    "minCharge": "The minimum service charge is 400 Kč. Diagnosis is free if we go on to do the repair.",
     "tiers": {
       "standard": "Standard — recommended",
       "standardNote": "A vetted quality part. The best balance of price and quality. 6-month warranty.",

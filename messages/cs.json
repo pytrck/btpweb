@@ -99,7 +99,7 @@
       { "q": "Jak rychle to bude hotové?", "a": "Většina oprav do 12-24 hodin. Termín webu nebo větší zakázky potvrdíme na začátku." },
       { "q": "Mám na opravu záruku?", "a": "Ano, na díly i práci. Když něco nesedí, řešíme to my." },
       { "q": "Co se stane s mými daty?", "a": "Zacházíme s nimi jako s vlastními. Nic se neztratí, nic se nešťourá zbytečně." },
-      { "q": "Od kolika se ceny pohybují?", "a": "Výměna baterie od 890 Kč, displeje od 1 490 Kč - podle modelu. Kompletní ceník máme na webu. Web podle rozsahu, vždy s pevnou nabídkou předem." },
+      { "q": "Od kolika se ceny pohybují?", "a": "Výměna baterie od 900 Kč, displeje od 1 500 Kč - podle modelu. Kompletní ceník máme na webu. Web podle rozsahu, vždy s pevnou nabídkou předem." },
       { "q": "Jak dlouhá je záruka?", "a": "Šest měsíců u úrovně Standard, dvanáct u Premium - na díl i práci. Když se závada vrátí, řešíme to my." },
       { "q": "Co ovlivňuje termín?", "a": "Dostupnost dílů a rozsah závady. Pokud něco objednáváme, řekneme to na začátku." },
       { "q": "Pracujete i na dálku?", "a": "Weby a část optimalizací řešíme vzdáleně. Opravy hardwaru osobně v Mladé Boleslavi a Liberci." }
@@ -146,7 +146,7 @@
     "title": "Ceník oprav",
     "subtitle": "Běžné opravy mají pevnou cenu. U složitějších závad ji řekneme po diagnostice — vždy dřív, než začneme.",
     "lead": "Kompletní ceník oprav telefonů, tabletů, počítačů a konzolí. Žádné „cena na dotaz“ u věcí, které děláme každý týden.",
-    "minCharge": "Minimální cena servisního zásahu je 390 Kč. Diagnostika je zdarma, pokud opravu následně provedeme.",
+    "minCharge": "Minimální cena servisního zásahu je 400 Kč. Diagnostika je zdarma, pokud opravu následně provedeme.",
     "tiers": {
       "standard": "Standard — doporučujeme",
       "standardNote": "Prověřený kvalitní díl. Nejlepší poměr ceny a kvality. Záruka 6 měsíců.",
