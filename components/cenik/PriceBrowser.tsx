@@ -33,16 +33,12 @@ export function haystack(row: PriceRow, category: string) {
 }
 
 /**
- * Pure filter behind the search box and the category chips. Every word in the
- * query must appear somewhere in the row, so "12 baterie" works and so does
+ * Pure filter behind the search box. Every word in the query must appear
+ * somewhere in the row, so "12 baterie" works and so does
  * "iphone 12" against a model written "iPhone 12 / 12 Pro". Groups that end up
  * empty are dropped. Exported so `scripts/check-price-filter.ts` can prove it.
  */
-export function filterGroups(
-  groups: PriceGroup[],
-  query: string,
-  category: string | null,
-): PriceGroup[] {
+export function filterGroups(groups: PriceGroup[], query: string): PriceGroup[] {
   // Czech declines its nouns, so what a customer types rarely matches the text
   // on the page letter for letter: "voda" vs "po vodě", "sklo" vs "zadního
   // skla". Dropping the final letter of a term of four or more characters
@@ -52,7 +48,6 @@ export function filterGroups(
     .filter(Boolean)
     .map((term) => (term.length >= 4 ? term.slice(0, -1) : term));
   return groups
-    .filter((g) => category === null || g.category === category)
     .map((g) => ({
       category: g.category,
       // A term must start a word, never sit inside one. Czech inflects on the
@@ -66,36 +61,8 @@ export function filterGroups(
     .filter((g) => g.rows.length > 0);
 }
 
-function Chip({
-  active,
-  count,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  count: number;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={`btp-focus inline-flex items-center gap-2 rounded border px-3 py-2 text-sm transition-colors duration-200 ${
-        active
-          ? "border-paper bg-paper text-ink"
-          : "border-line bg-white/[0.03] text-muted hover:border-paper/60 hover:text-paper"
-      }`}
-    >
-      {children}
-      <span className={`font-mono text-xs ${active ? "text-ink/60" : "text-muted/60"}`}>{count}</span>
-    </button>
-  );
-}
-
 /**
- * Search + category filter over one device's price tables.
+ * Search over one device's price tables.
  *
  * The first render is deliberately unfiltered, so the static export still ships
  * every row and a crawler sees the whole price list. Filtering only ever happens
@@ -104,13 +71,11 @@ function Chip({
 export function PriceBrowser({ groups }: { groups: PriceGroup[] }) {
   const t = useTranslations("cenik");
   const [query, setQuery] = useState("");
-  const [active, setActive] = useState<string | null>(null);
 
-  const visible = useMemo(() => filterGroups(groups, query, active), [groups, query, active]);
+  const visible = useMemo(() => filterGroups(groups, query), [groups, query]);
 
-  const total = groups.reduce((n, g) => n + g.rows.length, 0);
   const shown = visible.reduce((n, g) => n + g.rows.length, 0);
-  const filtering = active !== null || query.trim() !== "";
+  const filtering = query.trim() !== "";
 
   return (
     <>
@@ -128,22 +93,6 @@ export function PriceBrowser({ groups }: { groups: PriceGroup[] }) {
           className="btp-focus mt-3 w-full rounded border border-line bg-white/[0.03] px-4 py-3 text-paper placeholder:text-muted/60"
         />
 
-        <div className="mt-5 flex flex-wrap gap-2">
-          <Chip active={active === null} count={total} onClick={() => setActive(null)}>
-            {t("all")}
-          </Chip>
-          {groups.map((g) => (
-            <Chip
-              key={g.category}
-              active={active === g.category}
-              count={g.rows.length}
-              onClick={() => setActive(active === g.category ? null : g.category)}
-            >
-              {g.category}
-            </Chip>
-          ))}
-        </div>
-
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <p aria-live="polite" className="font-mono text-xs uppercase tracking-wide text-muted">
             {t("results", { count: shown })}
@@ -151,10 +100,7 @@ export function PriceBrowser({ groups }: { groups: PriceGroup[] }) {
           {filtering && (
             <button
               type="button"
-              onClick={() => {
-                setQuery("");
-                setActive(null);
-              }}
+              onClick={() => setQuery("")}
               className="btp-focus text-sm text-muted underline underline-offset-4 transition-colors hover:text-paper"
             >
               {t("clear")}
