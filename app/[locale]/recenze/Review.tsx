@@ -72,7 +72,11 @@ export function Review({
         </p>
       </blockquote>
 
-      <footer className={`${col} flex flex-wrap items-center justify-between gap-x-8 gap-y-4`}>
+      {/* phones always stack name over rating; side by side it depended on the
+          name's length, so neighbouring reviews ended up with different layouts */}
+      <footer
+        className={`${col} flex flex-col gap-x-8 gap-y-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between`}
+      >
         <p className="font-head text-lg font-medium text-paper">{review.author}</p>
         <div className="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.12em] text-muted">
           <span role="img" aria-label={`${ratingLabel}: ${review.rating}/5`} className="flex gap-1">
