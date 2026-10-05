@@ -9,6 +9,7 @@
     "prices": "Price list",
     "about": "About",
     "contact": "Contact",
+    "reviews": "Reviews",
     "cta": "Start a project",
     "skip": "Skip to content"
   },
@@ -252,6 +253,7 @@
       "help": "What we help with",
       "helpItems": ["Phone repair", "Custom website", "Tech repair", "Advanced solution", "Setup optimization"],
       "response": "We read every message personally, and reply within 24 hours.",
+      "reviewsLink": "What customers say about us",
       "channelsTitle": "Direct channels",
       "channels": [
         { "label": "Email", "value": "breakthepatterninfo@gmail.com" },

@@ -52,6 +52,8 @@ AGENTS.md
 .impeccable/
 .claude/
 /.gitnexus/
+.codex/
+
 
 # marketing renders / share assets — local only
 /brag-output/

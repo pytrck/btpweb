@@ -36,7 +36,7 @@ const nextConfig = {
               // Every top-level route segment under app/[locale] must be listed
               // here, or it 404s in `next dev` (production is unaffected - the
               // postbuild lift handles it). Add the segment when you add a route.
-              ...["sluzby", "cenik", "prace", "o-nas", "kontakt", "soukromi"].map((seg) => ({
+              ...["sluzby", "cenik", "prace", "o-nas", "kontakt", "soukromi", "recenze"].map((seg) => ({
                 source: `/${seg}/:path*`,
                 destination: `/cs/${seg}/:path*`,
               })),

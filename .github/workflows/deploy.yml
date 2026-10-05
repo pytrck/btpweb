@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * *'
 
 permissions:
   contents: read
@@ -25,6 +27,12 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - name: Sync Google reviews
+        run: node scripts/sync-google-reviews.mjs
+        env:
+          GOOGLE_BP_CLIENT_ID: ${{ secrets.GOOGLE_BP_CLIENT_ID }}
+          GOOGLE_BP_CLIENT_SECRET: ${{ secrets.GOOGLE_BP_CLIENT_SECRET }}
+          GOOGLE_BP_REFRESH_TOKEN: ${{ secrets.GOOGLE_BP_REFRESH_TOKEN }}
       - name: Build static export
         run: npm run build
       - uses: actions/configure-pages@v5

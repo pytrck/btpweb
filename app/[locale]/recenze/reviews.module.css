@@ -1,0 +1,137 @@
+/* soft vapor pooled behind the quote - atmosphere, not a panel */
+.glow {
+  position: absolute;
+  top: -8%;
+  z-index: -1;
+  width: min(62%, 46rem);
+  height: 116%;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(143, 2, 248, 0.12), transparent 72%);
+}
+
+/* the fracture: one segment of the top rule knocked off its line. It flickers
+   on a slow idle loop, offset per review so the rows never blink in unison. */
+.fault {
+  width: 4.5rem;
+  height: 1px;
+  background: #8f02f8;
+  box-shadow: 0 0 14px 1px rgba(143, 2, 248, 0.7);
+  transform: translateY(7px);
+  animation: review-fault-idle 5.2s steps(1) infinite;
+  animation-delay: calc(var(--i) * -1.7s);
+}
+
+.quote {
+  position: relative;
+  overflow-wrap: break-word;
+}
+
+.base { display: block; }
+
+/* sliced copies of the quote, invisible at rest. They overhang 0.25em a side so
+   nothing is lost when they are shoved sideways, and carry no background: only
+   glyphs are painted, so whatever runs behind the quote (the orb's path) is
+   never covered. */
+.slice {
+  position: absolute;
+  inset: 0 -0.25em;
+  padding: 0 0.25em;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sliceA { text-shadow: -0.05em 0 0 #00f0ff, 0.05em 0 0 #ff10f0; }
+.sliceB { text-shadow: 0.05em 0 0 #00f0ff, -0.05em 0 0 #ff10f0; }
+
+.pip {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.pipOn {
+  background: #8f02f8;
+  box-shadow: 0 0 8px rgba(143, 2, 248, 0.6);
+}
+
+/* One burst = 420ms in four held frames. The quote's animationend clears
+   .burst, so at rest the text is plain. */
+.burst .base { animation: review-base 420ms steps(1, end) both; }
+.burst .sliceA { animation: review-slice-a 420ms steps(1, end) both; }
+.burst .sliceB { animation: review-slice-b 420ms steps(1, end) both; }
+.burst .fault { animation: review-fault 420ms steps(1, end) both; }
+.burst .pipOn {
+  animation: review-pip 110ms steps(1, end) both;
+  animation-delay: calc(var(--n) * 50ms);
+}
+
+/* Reduced motion: the global reset in globals.css would flatten the burst to
+   nothing. Like the orb there, the tear is a brand signature and stays - one
+   420ms shot. The idle fault flicker and the pip sweep do switch off. */
+@media (prefers-reduced-motion: reduce) {
+  .burst .base { animation: review-base 420ms steps(1, end) both !important; }
+  .burst .sliceA { animation: review-slice-a 420ms steps(1, end) both !important; }
+  .burst .sliceB { animation: review-slice-b 420ms steps(1, end) both !important; }
+}
+
+/* In each frame the quote loses two bands (the polygon keeps everything but
+   them, overshooting the box so tight leading never shaves Czech diacritics)
+   and the slices put exactly those bands back, shoved sideways. The band
+   percentages below must match the slice insets frame for frame. */
+@keyframes review-base {
+  0% {
+    clip-path: polygon(-5% -20%, 105% -20%, 105% 8%, -5% 8%, -5% 26%, 105% 26%, 105% 60%, -5% 60%, -5% 76%, 105% 76%, 105% 120%, -5% 120%);
+    text-shadow: 0.045em 0 0 rgba(255, 16, 240, 0.75), -0.045em 0 0 rgba(0, 240, 255, 0.6);
+    transform: translateX(0.6px);
+  }
+  25% {
+    clip-path: polygon(-5% -20%, 105% -20%, 105% 30%, -5% 30%, -5% 44%, 105% 44%, 105% 70%, -5% 70%, -5% 92%, 105% 92%, 105% 120%, -5% 120%);
+    text-shadow: -0.04em 0 0 rgba(255, 16, 240, 0.75), 0.04em 0 0 rgba(0, 240, 255, 0.6);
+    transform: translateX(-0.6px) skewX(-1.5deg);
+  }
+  50% {
+    clip-path: polygon(-5% -20%, 105% -20%, 105% 14%, -5% 14%, -5% 34%, 105% 34%, 105% 48%, -5% 48%, -5% 62%, 105% 62%, 105% 120%, -5% 120%);
+    text-shadow: 0.02em 0.012em 0 rgba(255, 16, 240, 0.5), -0.02em -0.012em 0 rgba(0, 240, 255, 0.45);
+    transform: translateX(0.3px);
+  }
+  75% {
+    clip-path: polygon(-5% -20%, 105% -20%, 105% 52%, -5% 52%, -5% 60%, 105% 60%, 105% 120%, -5% 120%);
+    text-shadow: none;
+    transform: none;
+  }
+  88%, 100% { clip-path: none; text-shadow: none; transform: none; }
+}
+
+@keyframes review-slice-a {
+  0% { opacity: 1; transform: translateX(-0.16em); clip-path: inset(8% 0 74% 0); }
+  25% { opacity: 1; transform: translateX(0.13em); clip-path: inset(70% 0 8% 0); }
+  50% { opacity: 1; transform: translateX(0.08em); clip-path: inset(14% 0 66% 0); }
+  75% { opacity: 1; transform: translateX(-0.04em); clip-path: inset(52% 0 40% 0); }
+  88%, 100% { opacity: 0; transform: none; clip-path: inset(0); }
+}
+
+@keyframes review-slice-b {
+  0% { opacity: 1; transform: translateX(0.12em); clip-path: inset(60% 0 24% 0); }
+  25% { opacity: 1; transform: translateX(-0.1em); clip-path: inset(30% 0 56% 0); }
+  50% { opacity: 1; transform: translateX(-0.09em); clip-path: inset(48% 0 38% 0); }
+  75%, 100% { opacity: 0; transform: none; clip-path: inset(0); }
+}
+
+@keyframes review-fault {
+  0% { transform: translate(-8px, 2px); }
+  30% { transform: translate(6px, 12px); }
+  60% { transform: translate(-3px, 5px); }
+  100% { transform: translateY(7px); }
+}
+
+@keyframes review-fault-idle {
+  0%, 47%, 49%, 83%, 85%, 100% { opacity: 1; transform: translateY(7px); }
+  48% { opacity: 0.4; transform: translate(5px, 3px); }
+  84% { opacity: 0.6; transform: translate(-4px, 10px); }
+}
+
+@keyframes review-pip {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}

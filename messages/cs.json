@@ -9,6 +9,7 @@
     "prices": "Ceník",
     "about": "O nás",
     "contact": "Kontakt",
+    "reviews": "Recenze",
     "cta": "Začít projekt",
     "skip": "Přejít na obsah"
   },
@@ -267,6 +268,7 @@
       "help": "S čím pomůžeme",
       "helpItems": ["Oprava telefonu nebo tabletu", "Oprava notebooku, PC či konzole", "Web na míru", "Záchrana dat", "Optimalizace setupu"],
       "response": "Čteme každou zprávu osobně a odpovídáme do 24 hodin.",
+      "reviewsLink": "Co o nás napsali zákazníci",
       "channelsTitle": "Přímé kanály",
       "channels": [
         { "label": "E-mail", "value": "breakthepatterninfo@gmail.com" },

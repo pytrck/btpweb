@@ -4,6 +4,7 @@ import { buildMeta } from "@/lib/meta";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { ScrollOrb } from "@/components/ui/ScrollOrb";
+import { Link } from "@/i18n/routing";
 
 export async function generateMetadata({
   params,
@@ -78,6 +79,20 @@ export default async function ContactPage({ params }: { params: { locale: string
           </div>
 
           <p className="mt-10 max-w-sm text-muted">{t("response")}</p>
+          <Link
+            href="/recenze"
+            className="btp-focus group relative mt-10 flex items-center justify-between gap-6 border border-line bg-white/[0.02] p-6 transition-colors duration-300 hover:border-paper/70 sm:p-8"
+          >
+            <span aria-hidden className="absolute left-0 top-0 h-3 w-3 border-l border-t border-accent-from/70" />
+            <span aria-hidden className="absolute bottom-0 right-0 h-3 w-3 border-b border-r border-accent-from/70" />
+            <span className="font-head text-h3 font-bold text-balance">{t("reviewsLink")}</span>
+            <span
+              aria-hidden
+              className="text-2xl text-accent-from transition-transform duration-300 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
         </div>
         <ContactForm />
       </section>

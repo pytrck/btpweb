@@ -1,0 +1,36 @@
+export const googleReviewUrl = "https://g.page/r/CdAniSXXXAwzEAE/review";
+
+export const reviewCopy = {
+  cs: {
+    title: "Řekněte to po svém.",
+    metaDescription: "Podělte se o zkušenost s Break The Pattern. Odtud se dostanete přímo k recenzi našeho Google profilu.",
+    eyebrow: "VAŠE ZKUŠENOST / NAŠE VYLEPŠENÍ",
+    intro: "Žádný scénář. Žádné správné odpovědi. Zajímá nás, co fungovalo — i co bychom měli příště udělat líp.",
+    prompt: "Jaké to bylo?",
+    note: "Po kliknutí přejdete na Google recenze BTP, kde můžete napsat a zveřejnit své hodnocení.",
+    reviewsTitle: "Co o nás napsali.",
+    reviewSource: "GOOGLE RECENZE",
+    ratingLabel: "Hodnocení",
+    ratingOnly: "Hodnocení bez textu",
+    cta: "Napsat recenzi na Googlu",
+    stepOne: "Otevřete Google",
+    stepTwo: "Napište vlastní zkušenost",
+    stepThree: "Odešlete recenzi",
+  },
+  en: {
+    title: "Say it your way.",
+    metaDescription: "Share your experience with Break The Pattern. Go straight from here to our Google Business Profile review form.",
+    eyebrow: "YOUR EXPERIENCE / HOW WE IMPROVE",
+    intro: "No script. No right answers. Tell us what worked — and what we should do better next time.",
+    prompt: "How was it?",
+    note: "Click to go to BTP's Google reviews, where you can write and publish your rating.",
+    reviewsTitle: "In their own words.",
+    reviewSource: "GOOGLE REVIEW",
+    ratingLabel: "Rating",
+    ratingOnly: "Rating without a written review",
+    cta: "Write a Google review",
+    stepOne: "Open Google",
+    stepTwo: "Share your experience",
+    stepThree: "Post your review",
+  },
+} as const;

@@ -8,6 +8,7 @@ const links = [
   { href: "/prace", key: "work" },
   { href: "/o-nas", key: "about" },
   { href: "/kontakt", key: "contact" },
+  { href: "/recenze", key: "reviews" },
 ] as const;
 
 export function Footer() {
