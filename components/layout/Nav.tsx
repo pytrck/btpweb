@@ -113,12 +113,12 @@ export function Nav() {
       >
         <Link href="/" className="btp-focus glitch-hover">
           <Image
-            src="/logo.png"
+            src="/android-chrome-192x192.png"
             alt="BTP"
-            width={512}
-            height={512}
+            width={192}
+            height={192}
             className="h-8 w-auto"
-            priority
+            loading="eager"
           />
         </Link>
 

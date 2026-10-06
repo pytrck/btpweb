@@ -14,7 +14,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
   return {
     title: copy.title,
     description: copy.metaDescription,
-    robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
+    robots: { index: false },
     alternates: { canonical: `${site.url}${locale === "en" ? "/en" : ""}/recenze/` },
   };
 }

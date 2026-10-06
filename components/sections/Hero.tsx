@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion
 import { gsap } from "@/lib/gsap";
 import { Button } from "@/components/ui/Button";
 import { HeroAtmosphere } from "@/components/ui/HeroAtmosphere";
-import { heroContainer, heroItem, lineMask, EASE } from "@/lib/motion";
+import { heroContainer, heroItem, EASE } from "@/lib/motion";
 
 const BRAND = "Break The Pattern";
 
@@ -202,7 +202,11 @@ export function Hero() {
               {t("kicker")}
             </motion.p>
             <motion.h1
-              variants={lineMask}
+              variants={{
+                // Keep the heading readable in the initial HTML while its entrance plays.
+                hidden: { opacity: 0.8, y: 20 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.85, ease: EASE } },
+              }}
               className="mt-6 font-head text-[clamp(2.9rem,6.6vw,5.4rem)] font-bold leading-[0.95]"
             >
               <HeroHeadline title={t("title")} />

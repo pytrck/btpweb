@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { heroContainer, heroItem, DUR, EASE } from "@/lib/motion";
+import { heroContainer, DUR, EASE } from "@/lib/motion";
 
 export function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
   return (
@@ -12,7 +12,10 @@ export function PageHeader({ title, subtitle }: { title: string; subtitle: strin
       className="container-x grid grid-cols-12 gap-y-6 pb-12 pt-section"
     >
       <motion.h1
-        variants={heroItem}
+        variants={{
+          hidden: { opacity: 0.8, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: DUR.slow, ease: EASE } },
+        }}
         className="col-span-12 font-head text-h1 font-bold text-balance md:col-span-10"
       >
         {title}
@@ -28,7 +31,10 @@ export function PageHeader({ title, subtitle }: { title: string; subtitle: strin
         className="col-span-12 h-px origin-left bg-fracture md:col-span-4"
       />
       <motion.p
-        variants={heroItem}
+        variants={{
+          hidden: { opacity: 0.8, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: DUR.slow, ease: EASE } },
+        }}
         className="col-span-12 text-lg text-muted md:col-span-7 md:col-start-5"
       >
         {subtitle}
